@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Canvas;
 using Enemies;
 using MainScripts;
 using UnityEngine;
@@ -16,15 +17,13 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
 {
     public Transform playerMapObject;
     public LayerMask enemyLayer;
-    public GameObject canvasDialogFrame;
+    public DeathMesssageUI deathMesssage;
     public GameObject moveToPlace;
     public Animator[] canvasShieldAnimators;
-    public Text causeOfDiedText;
     
     internal int shieldsCount;
 
     internal List<GameObject> moveToPlaces;
-    private GameManager _gameManager;
 
     protected override void Start()
     {
@@ -42,7 +41,7 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
         var baseVariantsPositions = variantsPositions;
         var newVariantsPositions = baseVariantsPositions.Where(variantPosition => Vector2.Distance(variantPosition, new Vector2(0, 0)) < 2).ToArray();
         variantsPositions = newVariantsPositions;
-        var slimeCannon = Instantiate(baseAnimationsObj, transform, true)
+        var slimeCannon = Instantiate(baseAnimationsObj, transform)
                     .GetComponent<BaseAnimations>();
         slimeCannon.animator.SetBool(BaseAnimations.IsSlimeCannon, true);
         yield return new WaitUntil(() => isMove);
@@ -54,8 +53,9 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
     public override void Awake()
     {
         base.Awake();
-        _gameManager = FindObjectOfType<GameManager>();
+        GameManager.player = this;
         moveToPlaces = new List<GameObject>();
+        gameObject.SetActive(false);
     }
 
     public override void Active()
@@ -163,18 +163,16 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
 
     public void Died(string causeOfDied)
     {
-        canvasDialogFrame.SetActive(true);
-        causeOfDiedText.text = causeOfDied;
+        deathMesssage.ShowMessage(causeOfDied);
         base.Died();
     }
     
-    public override void Died(GameObject killer)
+    public override void Died(MonoBehaviour killer)
     {
-        if (killer.GetComponent<ICauseOfDied>() is { } component)
+        if (killer is ICauseOfDied killerMessage)
         {
-            causeOfDiedText.text = component.GetDeathText();
+            deathMesssage.ShowMessage(killerMessage.GetDeathText());
         }
-        canvasDialogFrame.SetActive(true);
         base.Died();
     }
 }

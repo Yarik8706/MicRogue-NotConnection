@@ -20,13 +20,7 @@ namespace Canvas
 
         public void StartSelectRoomSpawn()
         {
-            DialogController.instance.StartDialog(DialogController.instance.startTextDialog, i =>
-            {
-                if (i == -1)
-                {
-                    EndSelectRoomSpawn();
-                }
-            });
+            EndSelectRoomSpawn();
             _mapButton.EnableMap();
             rightMapRooms = SpawnLevelController.levelRooms[0][0].GetComponent<RoomController>();
             // targetMarker.transform.position = rightMapRooms.mapObject.transform.position;

@@ -134,11 +134,9 @@ MonoBehaviour:
   - {fileID: 558183317, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   decorations:
   - {fileID: 0}
-  - {fileID: 5220242736311221241, guid: 730b2c0facb63c641b7ad1d464f3b1a1, type: 3}
+  - {fileID: 5005842577091797421, guid: 234963884a56258459604bc94a3a5a85, type: 3}
   - {fileID: 3119447293758665381, guid: c56638c8e1ca4b04b8c5ac7a4968763b, type: 3}
-  - {fileID: 3119447293758665381, guid: c56638c8e1ca4b04b8c5ac7a4968763b, type: 3}
-  - {fileID: 2567286290517749657, guid: eac9954c2f8b8c2409d87e53bf2cdebc, type: 3}
-  - {fileID: 8190374562843183268, guid: 4e9afe905491fc643a958341ed663a85, type: 3}
+  - {fileID: 7405238956597265496, guid: 53a01c5b7f440da4ab199090cabaa757, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -171,7 +169,7 @@ MonoBehaviour:
   m_ShadowGroup: 0
   m_ComponentVersion: 1
   m_HasRenderer: 0
-  m_UseRendererSilhouette: 1
+  m_UseRendererSilhouette: 0
   m_CastsShadows: 1
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 000000001b2cdd5c1bbc1f2093f7fec5630f8d76

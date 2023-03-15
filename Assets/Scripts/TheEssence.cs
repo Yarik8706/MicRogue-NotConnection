@@ -198,7 +198,7 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 	    Destroy(gameObject);
     }
     
-    public virtual void Died(GameObject killer)
+    public virtual void Died(MonoBehaviour killer)
     {
 	    Died();
     }

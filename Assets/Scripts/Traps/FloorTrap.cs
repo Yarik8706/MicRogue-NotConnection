@@ -20,7 +20,7 @@ namespace Traps
                 }
                 else if (attackObjects[0].GetComponent<TheEssence>() is { } essence)
                 {
-                    essence.Died(gameObject);
+                    essence.Died(this);
                 }
             }
 

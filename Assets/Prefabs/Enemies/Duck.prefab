@@ -165,6 +165,8 @@ MonoBehaviour:
   enemyCount: 3
   causeOfDied:
   - turning to stone is not the best death!
+  stoneStatueWithShield: {fileID: 2003847538865760424, guid: 97a3af35fe1dd3a4d9a89c702b57abde, type: 3}
+  stoneStatue: {fileID: 3393223543777904955, guid: bed89e7537844304095870c9eb481894, type: 3}
 --- !u!95 &3382286905817429790
 Animator:
   serializedVersion: 4

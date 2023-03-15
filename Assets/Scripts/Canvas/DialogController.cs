@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ namespace Canvas
     public class DialogController : MonoBehaviour
     {
         public Transform dialogObject;
-        public Text dialogText;
+        public TMP_Text dialogText;
         public static DialogController instance;
         public string[] startTextDialog;
         public string[] secondTextDialog;
@@ -40,6 +41,7 @@ namespace Canvas
             _activeTextIndex = 0;
             _nextTextEvent = nextTextEvent;
             _centerText = text;
+            dialogObject.gameObject.SetActive(true);
             dialogObject.DOMove(Vector3.right * transform.position.x 
                                 + Vector3.up * Screen.height * 0.2f, 1f)
                 .SetEase(Ease.Linear).OnComplete(() =>
@@ -56,6 +58,7 @@ namespace Canvas
                 {
                     _nextTextEvent.Invoke(-1);
                     dialogText.text = "";
+                    dialogObject.gameObject.SetActive(false);
                 });
         }
     }

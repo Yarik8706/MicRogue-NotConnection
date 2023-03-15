@@ -110,6 +110,13 @@ MonoBehaviour:
   - {fileID: 6907730828962806901, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   - {fileID: 6907730828962806901, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   - {fileID: 6907730828962806901, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
-  decorations: []
+  decorations:
+  - {fileID: 6471311003224582728, guid: f21cbb0b306053a4eb9f76ad875b2708, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   flipToX: 1
   flipToY: 1

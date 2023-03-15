@@ -18,7 +18,7 @@ namespace Traps
                 }
                 else if (attackObjects[0].GetComponent<TheEssence>() is {} essence)
                 {
-                    essence.Died(gameObject);
+                    essence.Died(this);
                 }
                 if(attackObjects.Count != 0) attackObjects.RemoveAt(0);
             }

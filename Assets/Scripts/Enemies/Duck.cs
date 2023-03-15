@@ -9,6 +9,8 @@ namespace Enemies
 {
     public class Duck : TheEnemy
     {
+        public GameObject stoneStatueWithShield;
+        public GameObject stoneStatue;
         private bool _isCenterAttack;
         private bool _isEndAttack;
         private const string AttackAnimationName = "DuckAttack";
@@ -84,8 +86,9 @@ namespace Enemies
             player.isActive = false;
             player.StartAnimation(player.shieldsCount != 0 ? "PlayerDiedFromDuck" : "PlayerDiedFromDuckWithoutShield");
             yield return new WaitForSeconds(1f);
-            player.canvasDialogFrame.SetActive(true);
-            player.causeOfDiedText.text = causeOfDied[Random.Range(0, causeOfDied.Length)];
+            Instantiate(player.shieldsCount == 0 ? stoneStatue : stoneStatueWithShield, 
+                            player.transform.position, Quaternion.identity);
+            player.Died(causeOfDied[Random.Range(0, causeOfDied.Length)]);
             TurnOver();
         }
 

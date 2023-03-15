@@ -24,11 +24,10 @@ namespace MainScripts
         private RoomController[] _roomControllers;
         private SpawnLevelController _spawnLevel;
         private Transform _cameraTransform;
-        
-        [Header("Components")]
+
+        [Header("Components")] 
         public ScreenFader screenFader;
         public GameObject winFrame;
-        public GameObject boxWithRiched;
         public GameObject updateShieldObj;
         public int spawnShildCount = 2;
 
@@ -42,7 +41,6 @@ namespace MainScripts
         private void Start()
         {
             instance = this;
-            player = FindObjectOfType<Player>();
             _gameController = GetComponent<GameController>();
             _spawnLevel = GetComponent<SpawnLevelController>();
             _spawnLevel.Initial(SpawnLevelController.ShipModel);
@@ -52,7 +50,7 @@ namespace MainScripts
             {
                 roomController.gameObjects.SetActive(false);
             }
-            FindObjectOfType<CanvasSelectSpawnRoom>().StartSelectRoomSpawn();
+            StartGame(SpawnLevelController.levelRooms[0][0].GetComponent<RoomController>());
         }
 
         public void StartGame(RoomController controller)
@@ -69,14 +67,6 @@ namespace MainScripts
                 roomController.transform.position.y,
                 _cameraTransform.position.z);
             screenFader.fadeState = ScreenFader.FadeState.Out;
-            
-            DialogController.instance.StartDialog(DialogController.instance.secondTextDialog, i =>
-            {
-                if (i == -1)
-                {
-                    StartCoroutine(TurnStarted());
-                }
-            });
         }
 
         public IEnumerator TurnStarted()

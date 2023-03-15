@@ -102,14 +102,19 @@ MonoBehaviour:
   - {fileID: -1830261601936756837, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   - {fileID: 1426756614, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   - {fileID: 1322552949251872919, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
-  - {fileID: -1132303066, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
-  - {fileID: -407667399, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   - {fileID: 1322552949251872919, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   - {fileID: 1322552949251872919, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   - {fileID: 1322552949251872919, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   - {fileID: 1322552949251872919, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   - {fileID: 1322552949251872919, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   - {fileID: 1322552949251872919, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
-  decorations: []
+  decorations:
+  - {fileID: 6471311003224582728, guid: f21cbb0b306053a4eb9f76ad875b2708, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   flipToX: 1
   flipToY: 1

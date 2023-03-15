@@ -6806,6 +6806,342 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: grass_1
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c063d02023aec1e42a8c0359dc1e7322
+      internalID: 1306533673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_2
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9417f5577a1d548a86ece7d8c79e45
+      internalID: -1007727835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_3
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dde86dbe819eae49bbae55b6e86615d
+      internalID: 1825733117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_4
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ad4784deaf94c4a93edb669df8739f
+      internalID: 660719377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamp_1
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5feba1fed612b84b8122a09b725bff5
+      internalID: -1266043722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamp_2
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25f4ac7c42d5c0644944f24897172c86
+      internalID: -298516029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamp_3
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd9106663936f4d438168d1bcc34dd24
+      internalID: -413298079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamp_4
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 304d4e6babcbd74468dcb4b1b5eb79ad
+      internalID: -1980841048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamp_0
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d4a638c1e2793f4b9736568bbb2aa8b
+      internalID: -2042891696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamp_5
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7690899ecf78ec408b4c02d06b893f5
+      internalID: -700921294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamp_6
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5813102f07ea8a40823bcd295ce46f6
+      internalID: 1705408639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamp_7
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dcc9ef63823928428dba02f62707d4b
+      internalID: 1342122687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slamp_2
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 848
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c18c75bb4a78d1c4f827e78cfcdc2aca
+      internalID: -937416908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slamp_4
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1014b1dbfb7842a4fb3a8a972a985755
+      internalID: -1651313005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slamp_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a7d16205a0097469ae7eb628313e26
+      internalID: 2145344538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slamp_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 848
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764538a5b7b03d249ae5f4224536ca60
+      internalID: 617440897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -6823,7 +7159,9 @@ TextureImporter:
       PlayerRun3: -8757139649783219944
       FastActiveMainMenuButton: -93668115
       LampIdle 1 6: -5843713123948804762
+      slamp_4: -1651313005
       TrollWithStickRun0: -1134124516
+      grass_2: -1007727835
       PlayerWithoutShieldRun2: 2144131419
       FreezingLamp1: 635076061
       ShipMapButton: 301781172
@@ -6929,6 +7267,7 @@ TextureImporter:
       DragonSleep4: 2550514373751287618
       PlayerInSlime: 707549282
       FlyingEyeAttack2: -5572552053421142652
+      slamp_3: 2145344538
       FreezingLamp4: -1950176389889711014
       PauseCanvas: 1980485867
       MainMenuGameName: 5174776073360041994
@@ -6947,6 +7286,7 @@ TextureImporter:
       EnemyShield2: 68720694
       TrapWall3: -8898372347182724431
       VerticalExit: -558511839
+      lamp_4: -1980841048
       FireTrapAttack6: 2964089573531014971
       NinjaRun2: -4146685878628206487
       GrayFloor3: 1322552949251872919
@@ -6959,6 +7299,7 @@ TextureImporter:
       PlayerMap1: 1960203836
       FlyingEyeRay0: 5698508275632291906
       DarkDuck1: 2075707659
+      lamp_2: -298516029
       SlimeRoad4: 781573161
       LampIdle2: -6048807688200075309
       FloorTrap2: 544088988
@@ -6972,6 +7313,7 @@ TextureImporter:
       EnemyShieldDied1: 1718070700042204575
       DuckAttack4: -1830261601936756837
       RightDownUpRoomShip1: -1792680475
+      slamp_2: -937416908
       WallDecoration1: 675748186
       Gold1: -3898177410305692894
       BoxWithRIches: 5260225046626893699
@@ -6995,9 +7337,11 @@ TextureImporter:
       LampIdle3: 5174776073360041994
       LampIdle 2 5: 237684239
       MainMenuExit: 792854607
+      slamp_1: 617440897
       PlayerDiedFromDuckWithoutShield2: 1030955016
       SleepCount3: -201394894
       GameRules4: 3689636853081102161
+      lamp_5: -700921294
       BrokenWall: 1928639659
       GrayFloor4: -1132303066
       Space3: -776724208
@@ -7012,6 +7356,7 @@ TextureImporter:
       FireTrapAttack0: 10068815678859956
       WhiteFloor4: 145299376
       AfterDied1: 515389257
+      lamp_6: 1705408639
       MainMenuStartGame: -3476810288997538011
       brokenSpaceCapsule: 728379516
       RoomsCanvasCount02: -465186584738517249
@@ -7054,12 +7399,15 @@ TextureImporter:
       LightningStrike2: -4813274151216475168
       FreezingLamp7: 1348950863
       Frostbite3: 104106421449956808
+      lamp_0: -2042891696
       MarkerEnemyCanvas: -400339128
       TurnOrder1: 1515160426
       NextDialogText: 1115196856
       one_pixel: 1743953542
+      grass_3: 1825733117
       EnemyShield0: 182089472
       FreezingObj2: -235836468
+      grass_4: 660719377
       FreezingObj4: -1421517292176563482
       Wall4: -501817725
       DuckAttack0: -1029751499
@@ -7079,6 +7427,7 @@ TextureImporter:
       MicRogue GoldTest_2: 1342082430
       FreezingObj3: -416725263
       EnemyShieldDied2: -1112949373
+      lamp_1: -1266043722
       DuckAttack2: -930845596
       GameRules2: -1489790944
       MainMenuCredits: 5920167234969103180
@@ -7095,6 +7444,7 @@ TextureImporter:
       SlimeBym0: -1303128768
       RestorationShields: 576259411
       RayNearFlyingEyeAttack5: -2090177472
+      lamp_7: 1342122687
       DragonSleep3: -1426990410
       SnowMan0: 2052474746
       player's head: 960442767
@@ -7124,6 +7474,7 @@ TextureImporter:
       MainMenuAnimation1: 1306385882
       FlyingEyeRay1: 1294393234788567065
       TheEssenceDied6: 1833711725
+      grass_1: 1306533673
       CloseMapButton: 142948935
       FloorTrap0: 760928898
       FreezingLamp5: -5603556656755750529
@@ -7141,6 +7492,7 @@ TextureImporter:
       MicRogue GoldTest_35: -1893078232
       OtherShipRoom2: -235836468
       GameRules1: 1248850217
+      lamp_3: -413298079
       GrayFloor5: -407667399
       ExitFromShip: 1086345811
       FireTrap1: 8571902253252500700

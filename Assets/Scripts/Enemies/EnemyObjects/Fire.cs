@@ -17,7 +17,7 @@ namespace Enemies.EnemyObjects
             {
                 if (other.gameObject.GetComponent<TheEssence>() is { } essence)
                 {
-                   essence.Died(gameObject);  
+                   essence.Died(this);  
                 }
             }
         }

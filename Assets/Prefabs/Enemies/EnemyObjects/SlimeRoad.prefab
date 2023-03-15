@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6727961083006544824}
   - component: {fileID: 6727961083006544831}
   - component: {fileID: 6727961083006544825}
+  - component: {fileID: 2477413834725569671}
   m_Layer: 0
   m_Name: SlimeRoad
   m_TagString: Trash
@@ -105,3 +106,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2477413834725569671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6727961083006544830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b581abb0d4482a8c20ef630c2e99ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6727961083006544831}

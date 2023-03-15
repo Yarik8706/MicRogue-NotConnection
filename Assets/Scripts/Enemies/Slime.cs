@@ -12,78 +12,20 @@ namespace Enemies
     public class Slime : TheEnemy
     {
         public GameObject slimeRoad;
-        
-        private GameObject _slimeRoadNow;
-        private bool _isDied;
 
-        protected override void Start()
+        public override void Died(MonoBehaviour killer)
         {
-            base.Start();
-            GameplayEventManager.OnNextRoom.AddListener(() =>
-            {
-                Destroy(_slimeRoadNow);
-            });
-        }
-
-        public override void Active()
-        {
-            if (_isDied)
-            {
-                TurnOver();
-                return;
-            }
-            StartCoroutine(DisappearanceSlimeRoad());
-            base.Active();
-        }
-
-        private IEnumerator DisappearanceSlimeRoad()
-        {
-            if (_slimeRoadNow == null)
-            {
-                yield break;
-            }
-            var component = _slimeRoadNow.GetComponent<SpriteRenderer>();
-            var value = 1f;
-            while (value > 0)
-            {
-                value -= Time.deltaTime / 2;
-                if(component != null) component.color = new Color(255, 255, 255, value);
-                else yield break;
-                yield return null;
-            }
-            Destroy(component.gameObject);
-        }
-
-        public override IEnumerator Move(Vector3 @where)
-        {
-            StartCoroutine(SpawnSlimeRoad(@where, transform.position));
-            return base.Move(@where);
-        }
-
-        public override void Died(GameObject killer)
-        {
-            isActive = false;
-            _isDied = true;
-            spriteRenderer.enabled = false;
-            boxCollider2D.enabled = false;
             if (killer.GetComponent<IStuckInSlime>() is {} stuck)
             {
                 stuck.Stuck();
             }
-            if(_slimeRoadNow != null) Destroy(_slimeRoadNow);
-            StartAnimationTrigger(diedAnimation);
-            Instantiate(baseAnimationsObj, transform.position, Quaternion.identity)
-                .GetComponent<BaseAnimations>().DiedAnimation();
-            Instantiate(afterDied, transform.position, Quaternion.identity);
-            TurnOver();
-            StartCoroutine(DiedSlimeRoadAndSlime());
+            base.Died();
         }
         
-        private IEnumerator DiedSlimeRoadAndSlime()
+        public override IEnumerator Move(Vector3 @where)
         {
-            yield return DisappearanceSlimeRoad();
-            TurnOver();
-            Destroy(gameObject);
+            StartCoroutine(SpawnSlimeRoad(@where, transform.position));
+            return base.Move(@where);
         }
 
         private IEnumerator SpawnSlimeRoad(Vector3 nextPosition, Vector3 slimePosition)
@@ -94,7 +36,7 @@ namespace Enemies
                 quaternion = Quaternion.Euler(0,0,90);
             }
             yield return new WaitForSeconds(0.3f);
-            _slimeRoadNow = Instantiate(
+            Instantiate(
                 slimeRoad, 
                 new Vector2(
                     (slimePosition.x + nextPosition.x) / 2, 
