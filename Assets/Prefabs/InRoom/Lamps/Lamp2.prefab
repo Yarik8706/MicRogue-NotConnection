@@ -243,8 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e582c92874e1460ca704a8faafcc6883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLightIntensity: 0.03
-  minLightIntensity: 0.02
-  firstDuration: 2
-  secondDuration: 2
+  maxWaitingTime: 3
+  minWaitingTime: 1.5
+  lightValues:
+  - 0.06
+  - -0.03
+  - 0.09
+  - -0.05
   light2D: {fileID: 220405424}

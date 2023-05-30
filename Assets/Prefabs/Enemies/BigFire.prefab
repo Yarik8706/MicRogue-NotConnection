@@ -275,10 +275,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e582c92874e1460ca704a8faafcc6883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLightIntensity: 0.03
-  minLightIntensity: 0.02
-  firstDuration: 2
-  secondDuration: 2
+  maxWaitingTime: 3
+  minWaitingTime: 1.5
+  lightValues:
+  - 0.06
+  - -0.03
+  - 0.09
+  - -0.05
   light2D: {fileID: 962937608729281893}
 --- !u!114 &962937608729281893
 MonoBehaviour:
@@ -296,8 +299,8 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.565
-  m_Color: {r: 0.7830189, g: 0.55187184, b: 0.062050495, a: 1}
-  m_Intensity: 0.2
+  m_Color: {r: 0.7830189, g: 0.55187184, b: 0.062050495, a: 0.7882353}
+  m_Intensity: 0.45
   m_LightVolumeIntensity: 0.99
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 000000001b2cdd5c1bbc1f2093f7fec5630f8d76

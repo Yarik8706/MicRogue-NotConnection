@@ -8,14 +8,18 @@ namespace Other
 {
     public class LightFlashes : MonoBehaviour
     {
-        private float maxWaitingTime = 3;
-        private float minWaitingTime = 1.5f;
-        public float maxLightIntensity;
-        public float minLightIntensity;
-        public float firstDuration;
-        public float secondDuration;
-        public Light2D light2D;
+        [SerializeField] private float maxWaitingTime = 3;
+        [SerializeField] private float minWaitingTime = 1.5f;
+        [SerializeField] private float[] lightValues;
+        [SerializeField] private Light2D light2D;
+        
         private float _waitTimeNow;
+        private float _basePointLightOuterRadius;
+        
+        private void Start()
+        {
+            _basePointLightOuterRadius = light2D.pointLightOuterRadius;
+        }
 
         private void Update()
         {
@@ -25,23 +29,19 @@ namespace Other
             _waitTimeNow = Random.Range(minWaitingTime, maxWaitingTime);
         }
 
-        public float GetLightIntensity()
-        {
-            return light2D.pointLightInnerRadius;
-        }
-
         private void LightFlash()
         {
-            var randomIntensity = Random.Range(minLightIntensity, maxLightIntensity);
-            DOVirtual.Float(GetLightIntensity(), GetLightIntensity() + randomIntensity, 
-                firstDuration, ChangeLightIntensity).OnComplete(() => 
-                DOVirtual.Float(GetLightIntensity(),
-                    GetLightIntensity() - randomIntensity, secondDuration, ChangeLightIntensity));
+            var randomIntensity = lightValues[Random.Range(0, lightValues.Length)];
+            ResetAndChangeLightIntensity(_basePointLightOuterRadius + randomIntensity);
+            // DOVirtual.Float(GetLightIntensity(), GetLightIntensity() + randomIntensity, 
+            //     firstDuration, ChangeLightIntensity).OnComplete(() => 
+            //     DOVirtual.Float(GetLightIntensity(),
+            //         GetLightIntensity() - randomIntensity, secondDuration, ChangeLightIntensity));
         }
         
-        private void ChangeLightIntensity(float x)
+        private void ResetAndChangeLightIntensity(float x)
         {
-            light2D.pointLightInnerRadius = x;
+            light2D.pointLightOuterRadius = x;
         }
     }
 }
