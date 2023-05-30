@@ -48,7 +48,7 @@ namespace MainScripts
             _roomControllers = FindObjectsOfType<RoomController>();
             foreach (var roomController in _roomControllers)
             {
-                roomController.gameObjects.SetActive(false);
+                roomController.ChangeRoomActive(false);
             }
             StartGame(SpawnLevelController.levelRooms[0][0].GetComponent<RoomController>());
         }
@@ -60,7 +60,6 @@ namespace MainScripts
             roomController.Initial();
             player.transform.position = roomController.startPosition.position;
             roomController.SpawnEnemies();
-            player.playerMapObject.position = roomController.mapObject.transform.position;
 
             _cameraTransform.position = new Vector3(
                 roomController.transform.position.x,
@@ -125,7 +124,6 @@ namespace MainScripts
             newRoom.SetActive(true);
             roomController = newRoom.GetComponent<RoomController>();
             roomController.Initial();
-            player.playerMapObject.position = roomController.mapObject.transform.position;
             roomController.SpawnEnemies();
             foreach (var exit in roomController.exits)
             {

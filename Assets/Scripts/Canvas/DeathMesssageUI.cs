@@ -27,7 +27,7 @@ namespace Canvas
         {
             if (_isMove) yield break;
             _isMove = true;
-            transform.DOMove(targetPosition, 1f).SetEase(Ease.Linear);
+            deathMessageObject.transform.DOMove(targetPosition, 1f).SetEase(Ease.Linear);
             yield return new WaitForSeconds(1f);
             _isMove = false;
         }
@@ -49,7 +49,7 @@ namespace Canvas
         {
             yield return Move(new Vector2(Screen.width/2, -200));
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            gameObject.SetActive(false);
+            deathMessageObject.SetActive(false);
         }
     }
 }

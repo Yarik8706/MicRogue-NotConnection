@@ -10,9 +10,13 @@ namespace MainScripts
 {
     public class RoomSpawn : MonoBehaviour
     {
-        public RoomIndex roomIndex;
-        public RoomType roomType;
-        public SpawnLevelController spawnLevelController;
+        internal RoomIndex roomIndex;
+        internal RoomType roomType;
+        internal SpawnLevelController spawnLevelController;
+        [SerializeField] private GameObject upExit;
+        [SerializeField] private GameObject rightExit;
+        [SerializeField] private GameObject downExit;
+        [SerializeField] private GameObject leftExit;
     
         public void Initial()
         {
@@ -26,14 +30,12 @@ namespace MainScripts
             Array.Sort(exitLocations);
             var rightRooms = spawnLevelController.rooms
                 .Where(room => room.GetComponent<RoomController>()
-                    .CheckCorrectRoom(exitLocations, roomIndex, roomType)).ToList();
+                    .CheckCorrectRoom(roomType)).ToList();
             if(rightRooms.Count == 0) return;
             var newRoom = Instantiate(
                     rightRooms[Random.Range(0, rightRooms.Count)], transform.position, Quaternion.identity)
                 .GetComponent<RoomController>();
-            newRoom.roomIndex = roomIndex;
-            newRoom.mapObject = spawnLevelController.SpawnMapObject(roomIndex, newRoom.mapObject);
-            SpawnLevelController.levelRooms[roomIndex.y][roomIndex.x] = newRoom.gameObject;
+            newRoom.roomIndex = roomIndex; SpawnLevelController.levelRooms[roomIndex.y][roomIndex.x] = newRoom.gameObject;
             Destroy(gameObject);
         }
 

@@ -18,7 +18,7 @@ namespace RoomObjects
 
         private void Start()
         {
-            Instantiate(mapTarget, RoomController.mapObject.transform.position, Quaternion.identity);
+            // Instantiate(mapTarget, RoomController.mapObject.transform.position, Quaternion.identity);
         }
 
         public RoomController RoomController { get; set; }

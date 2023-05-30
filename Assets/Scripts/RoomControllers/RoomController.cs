@@ -29,30 +29,40 @@ namespace RoomControllers
 
     public class RoomController : MonoBehaviour
     {
-        [HideInInspector]public GameObject gameObjects;
-        public RoomType roomType;
-        public Transform startPosition;
-        public Transform[] lightSpawns;
-        public int lightsCount;
-        private List<GameObject> _activeLights;
-        public RoomIndex roomIndex;
-        public GameObject[] enemies;
+        [SerializeField] private int enemiesCount;
+        [SerializeField] private int spawnChanceShield = 8;
+        [SerializeField] private Transform shildSpawnPosition;
+        [SerializeField] private RoomType roomType;
+        // [SerializeField] private Transform[] lightSpawns;
+        // [SerializeField] private int lightsCount;
+        [SerializeField] private GameObject[] enemies;
+        [SerializeField] private Transform upExitPosition;
+        [SerializeField] private Transform downExitPosition;
+        [SerializeField] private Transform rightExitPosition;
+        [SerializeField] private Transform leftExitPosition;
+        
         public GameObject[] enemySpawns;
-        public GameObject mapObject;
         public Exit[] exits;
-        public int enemiesCount;
-        public int spawnChanceShield = 8;
-        public Transform shildSpawnPosition;
+        public Transform startPosition;
+        
+        internal RoomIndex roomIndex;
+        
+        private GameObject _gameObjects;
+        private List<GameObject> _activeLights;
 
         private void Awake()
         {
-            gameObjects = GetComponentInChildren<Transform>().gameObject;
+            _gameObjects = GetComponentInChildren<Transform>().gameObject;
         }
 
-        public virtual void Initial()
+        public void ChangeRoomActive(bool active)
         {
-            //TODO: сделать появление щита
-            gameObjects.SetActive(true);
+            _gameObjects.SetActive(active);
+        }
+
+        public void Initial()
+        {
+            _gameObjects.SetActive(true);
             if(shildSpawnPosition == null || GameManager.instance.spawnShildCount == 0) return;
             if (Random.Range(0, spawnChanceShield) == 0)
             {
@@ -84,17 +94,14 @@ namespace RoomControllers
             // }
         }
 
-        public virtual bool CheckCorrectRoom(ExitLocation[] exitLocations, RoomIndex roomIndex, RoomType roomType)
+        public virtual bool CheckCorrectRoom(RoomType roomType)
         {
-            if (roomType != this.roomType) return false;
-            var roomExitLocations = exits.Select(exit => exit.exitLocation).ToArray();
-            Array.Sort(roomExitLocations);
-            return roomExitLocations.SequenceEqual(exitLocations);
+            return roomType == this.roomType;
         }
 
         public virtual void LeavingRoom()
         {
-            gameObjects.SetActive(false);
+            _gameObjects.SetActive(false);
         }
 
         public virtual void SpawnEnemies()
@@ -114,7 +121,7 @@ namespace RoomControllers
 
         public virtual void ChangeActiveMapObjects(bool isMapCamera)
         {
-            gameObjects.SetActive(!isMapCamera);
+            _gameObjects.SetActive(!isMapCamera);
         }
     }
 }

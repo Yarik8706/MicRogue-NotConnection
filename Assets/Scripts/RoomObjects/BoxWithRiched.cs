@@ -14,7 +14,7 @@ namespace RoomObjects
         private void Start()
         {
             _richedCount++;
-            mapTarget = Instantiate(mapTarget, RoomController.mapObject.transform.position, Quaternion.identity);
+            // mapTarget = Instantiate(mapTarget, RoomController.mapObject.transform.position, Quaternion.identity);
         }
 
         private IEnumerator OnTriggerEnter2D(Collider2D other)

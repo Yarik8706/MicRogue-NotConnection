@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public interface IClickToAvailablePosition
 {
-    public void ClickEvent(GameObject moveToPlacePrefab, Player player);
+    void ClickEvent(GameObject moveToPlacePrefab, Player player);
 } 
 
 public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
@@ -20,6 +20,7 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
     public DeathMesssageUI deathMesssage;
     public GameObject moveToPlace;
     public Animator[] canvasShieldAnimators;
+    public GameObject slowSlime;
     
     internal int shieldsCount;
 
@@ -39,14 +40,12 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
     private IEnumerator StuckWhile()
     { 
         var baseVariantsPositions = variantsPositions;
-        var newVariantsPositions = baseVariantsPositions.Where(variantPosition => Vector2.Distance(variantPosition, new Vector2(0, 0)) < 2).ToArray();
+        var newVariantsPositions = baseVariantsPositions.Where(
+            variantPosition => Vector2.Distance(variantPosition, new Vector2(0, 0)) < 2).ToArray();
         variantsPositions = newVariantsPositions;
-        var slimeCannon = Instantiate(baseAnimationsObj, transform)
-                    .GetComponent<BaseAnimations>();
-        slimeCannon.animator.SetBool(BaseAnimations.IsSlimeCannon, true);
+        var slimeCannon = Instantiate(slowSlime, transform).GetComponent<Animator>();
         yield return new WaitUntil(() => isMove);
-        slimeCannon.animator.SetBool(BaseAnimations.IsSlimeCannon, false);
-        slimeCannon.SlimeBumAnimation();
+        slimeCannon.SetTrigger("Explosion");
         variantsPositions = baseVariantsPositions;
     }
 

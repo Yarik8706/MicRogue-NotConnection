@@ -1683,69 +1683,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GameRules1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 680
-        width: 146
-        height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6e8e98a1c42a83140800000000000000
-      internalID: 4699684658907572454
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GameRules4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 605
-        width: 146
-        height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 157d61a5b29343330800000000000000
-      internalID: 3689636853081102161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GameRules5
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 605
-        width: 146
-        height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cdc5c76fea385f670800000000000000
-      internalID: 8571902253252500700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: FastDisableMainMenuButton
       rect:
         serializedVersion: 2
@@ -1804,27 +1741,6 @@ TextureImporter:
       bones: []
       spriteID: 1bac30fee71a28480800000000000000
       internalID: -8898372347182724431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PictureCanvasMainMenu
-      rect:
-        serializedVersion: 2
-        x: 58
-        y: 755
-        width: 192
-        height: 109
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6e2adb5ed81c54ce0800000000000000
-      internalID: -1421517292176563482
       vertices: []
       indices: 
       edges: []
@@ -2091,7 +2007,7 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 3, y: 4, z: 3, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2376,48 +2292,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GameRules2
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 680
-        width: 146
-        height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c1974773e7a463643a44d8adbe9c648d
-      internalID: 1132089310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GameRules3
-      rect:
-        serializedVersion: 2
-        x: 292
-        y: 680
-        width: 146
-        height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcd6657fe91905044a26de9521f78ffe
-      internalID: 1213921707
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: MainMenuSetting
       rect:
         serializedVersion: 2
@@ -2427,7 +2301,7 @@ TextureImporter:
         height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 3, y: 2, z: 3, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2448,7 +2322,7 @@ TextureImporter:
         height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 3, y: 3, z: 3, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -3174,160 +3048,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuAnimation1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 552
-        width: 79
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 334e0659e5a903d4799e8ac8d9e7c7b0
-      internalID: 1934954663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MainMenuAnimation2
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 552
-        width: 79
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac33d0fdf00e7144d8e0d8b2a04a7fda
-      internalID: -349072738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MainMenuAnimation3
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 552
-        width: 79
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3903100cd7e909c4aaca379a00cb3f55
-      internalID: -2099460216
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MainMenuAnimation4
-      rect:
-        serializedVersion: 2
-        x: 237
-        y: 552
-        width: 79
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf4529a3211d9ae4fbf44b5bb0bbd98b
-      internalID: -1040768722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LightningStrike1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 491
-        width: 114
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b664000bd9a0296499cc891c73e3ff0d
-      internalID: 996817792
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LightningStrike2
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 491
-        width: 114
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72bd98bbca67a9a45b824ff3d3dbbae1
-      internalID: 170214267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LightningStrike3
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 491
-        width: 114
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3911b6711caff1448f0f80f7a1f9db7
-      internalID: -1418493695
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: MainMenuGameName
       rect:
         serializedVersion: 2
-        x: 342
-        y: 491
-        width: 115
-        height: 61
+        x: 119
+        y: 816
+        width: 73
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -7067,7 +6794,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7088,7 +6815,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7109,7 +6836,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7130,7 +6857,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7138,6 +6865,195 @@ TextureImporter:
       bones: []
       spriteID: 764538a5b7b03d249ae5f4224536ca60
       internalID: 617440897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameRulesPicture1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 848
+        width: 80
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec8f5fa959be7847a65bf1dfeb5c40c
+      internalID: -551189634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameRulesPicture41
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 832
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f27e33257451314186afbd8cd5c7316
+      internalID: 1288177332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameRulesPicture42
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 805
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8da7398b86b6be4419fe93cd07d14b85
+      internalID: -1010252483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameRulesPicture3
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 781
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e1e2827f1aef643a4e8f29b86d33e4
+      internalID: -1226647958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameRulesPicture2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 848
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7b1f4a89aa56844dbdfd13000383113
+      internalID: -212222009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameRulesPicture5
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 829
+        width: 50
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea1ebab38a275c45a3489216de896ed
+      internalID: -1185954111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gamerullwindow
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 806
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 8, y: 4, z: 8, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71a96938abe1a3418aeb8a1e4751370
+      internalID: -704830782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gamedialogwindow
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 798
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 7, z: 11, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ec1531af2c44945a0322fcab21cbe9
+      internalID: 1470295123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spaceanimation
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 764
+        width: 60
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcaa80c8764297042aacc59ac642300f
+      internalID: 1520745294
       vertices: []
       indices: 
       edges: []
@@ -7184,6 +7100,7 @@ TextureImporter:
       BlackFloor6: -1448619793
       LampIdle7: 104106421449956808
       PlayerDiedFromDuck1: -639210490
+      gameRulesPicture41: 1288177332
       PlayerDiedFromDuck2: 423585282
       RightDownUpRoomShip2: 1065164190
       RightRoomShip4: -605254458
@@ -7243,6 +7160,7 @@ TextureImporter:
       EnemyShieldDied3: 1368353255
       BoxWithRIches4: 411650701
       MainMenuSetting: -1828456187
+      gameRulesPicture1: -551189634
       Gold4: -1070772383
       ExitFromShipMarTarget: 967325106
       WhiteFloor0: 4276639466552813244
@@ -7251,6 +7169,7 @@ TextureImporter:
       TheEssenceDied4: 2008919301
       LeftMapRoom: -1983171019
       DuckRayClose: 1357129885
+      gameRulesPicture5: -1185954111
       TurnOrder6: -5336512952334718772
       Gold3: 200833355908011027
       FreezingObj0: -1863441196
@@ -7260,16 +7179,17 @@ TextureImporter:
       NinjaRun1: -8863816317675847926
       RoomsCanvasCount06: 136013187
       RightLeftUpDownRoomShip1: 3004733092313174726
+      gameRulesPicture3: -1226647958
       CanvasExitFrame: 6311371310668306828
       RoomsCanvasCount07: 5248847876336448607
       DoneSettingMainMenu: -161101066
       DisableOneCountSlider: -5891224783233435756
       DragonSleep4: 2550514373751287618
       PlayerInSlime: 707549282
-      FlyingEyeAttack2: -5572552053421142652
       slamp_3: 2145344538
       FreezingLamp4: -1950176389889711014
       PauseCanvas: 1980485867
+      FlyingEyeAttack2: -5572552053421142652
       MainMenuGameName: 5174776073360041994
       LeftExit: -8102567760449023351
       TurnOrder7: 6291616006598282221
@@ -7352,12 +7272,13 @@ TextureImporter:
       TrapWallAttack0: -372418632
       ActiveOneCountSlider: 1128040808
       Wal: -338306076
+      gamedialogwindow: 1470295123
       AddCountMainMenu: -1356043217
       FireTrapAttack0: 10068815678859956
       WhiteFloor4: 145299376
+      MainMenuStartGame: -3476810288997538011
       AfterDied1: 515389257
       lamp_6: 1705408639
-      MainMenuStartGame: -3476810288997538011
       brokenSpaceCapsule: 728379516
       RoomsCanvasCount02: -465186584738517249
       RightRoomShip3: 712621602
@@ -7369,8 +7290,8 @@ TextureImporter:
       WhiteFloor: 3081762
       LampIdle8: 3834731951187487461
       DragonMove1: -1933942468
-      PlayerWithoutShieldRun1: 665447604
       EnemyShield8: -247595986
+      PlayerWithoutShieldRun1: 665447604
       MicRogue GoldTest_37: 7150708775274697023
       DragonIdle: 9156366987486203330
       PlayButton: -1248015170
@@ -7400,6 +7321,7 @@ TextureImporter:
       FreezingLamp7: 1348950863
       Frostbite3: 104106421449956808
       lamp_0: -2042891696
+      background2: 424750036
       MarkerEnemyCanvas: -400339128
       TurnOrder1: 1515160426
       NextDialogText: 1115196856
@@ -7426,12 +7348,13 @@ TextureImporter:
       DuckAttack1: 5017168227974213918
       MicRogue GoldTest_2: 1342082430
       FreezingObj3: -416725263
+      gameRulesPicture2: -212222009
       EnemyShieldDied2: -1112949373
-      lamp_1: -1266043722
       DuckAttack2: -930845596
       GameRules2: -1489790944
       MainMenuCredits: 5920167234969103180
       RoomsCanvasCount08: 886062695025143985
+      lamp_1: -1266043722
       SlowDisableMainMenuButton: -4924733522636629748
       SkeletonRun1: 725871203
       RoomsCanvasCount05: -741347089
@@ -7441,6 +7364,7 @@ TextureImporter:
       DialogFrame: 1784496881
       SkeletonRun2: -1771516594
       RightLeftDownMapRoom: 1894259135
+      spaceanimation: 1520745294
       SlimeBym0: -1303128768
       RestorationShields: 576259411
       RayNearFlyingEyeAttack5: -2090177472
@@ -7482,6 +7406,7 @@ TextureImporter:
       RayNearFlyingEyeAttack3: -412912537350275867
       FreezingLamp6: 4324163584960906632
       LampIdle6: 8584836600945208852
+      gameRulesPicture42: -1010252483
       MainMenuAnimation2: -1851856170
       StartGameButton: 1746946591
       BigFire0: -508223160
@@ -7525,6 +7450,7 @@ TextureImporter:
       Wall3: -2120854618
       LampIdle4: -3876180819156280788
       SleepCount1: -7624943854875933885
+      gamerullwindow: -704830782
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

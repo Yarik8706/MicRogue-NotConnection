@@ -7,8 +7,8 @@ namespace Canvas
     {
         [Header("Components")]
         public GameObject blackout;
-        public Sprite[] gameRulls;
-        public GameObject gameRull;
+        public GameObject[] gameRulls;
+        public GameObject activeGameRull;
 
         private bool _isShowingGameRulls;
         private int _passedGameRulls;
@@ -27,15 +27,16 @@ namespace Canvas
             {
                 if (!Input.touches[0].phase.Equals(TouchPhase.Began)) return;
             }
-            if (_passedGameRulls >= gameRulls.Length)
+            activeGameRull.SetActive(false);
+            if (++_passedGameRulls >= gameRulls.Length)
             {
-                gameRull.SetActive(false);
                 blackout.SetActive(false);
                 _isShowingGameRulls = false;
+                _passedGameRulls = 0;
                 return;
             }
-            gameRull.GetComponent<Image>().sprite = gameRulls[_passedGameRulls];
-            _passedGameRulls++;
+            activeGameRull = gameRulls[_passedGameRulls];
+            activeGameRull.SetActive(true);
         }
 
         public void StartShowGameRulls()
@@ -44,10 +45,10 @@ namespace Canvas
             {
                 return;
             }
-            gameRull.SetActive(true);
+            activeGameRull = gameRulls[0];
+            activeGameRull.SetActive(true);
             blackout.SetActive(true);
             _isShowingGameRulls = true;
-            _passedGameRulls = 0;
         }
     }
 }
