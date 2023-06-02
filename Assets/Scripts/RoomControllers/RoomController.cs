@@ -4,6 +4,7 @@ using System.Linq;
 using Enemies;
 using MainScripts;
 using RoomObjects;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
@@ -32,32 +33,58 @@ namespace RoomControllers
         [SerializeField] private int enemiesCount;
         [SerializeField] private int spawnChanceShield = 8;
         [SerializeField] private Transform shildSpawnPosition;
-        [SerializeField] private RoomType roomType;
         // [SerializeField] private Transform[] lightSpawns;
         // [SerializeField] private int lightsCount;
         [SerializeField] private GameObject[] enemies;
-        [SerializeField] private Transform upExitPosition;
-        [SerializeField] private Transform downExitPosition;
-        [SerializeField] private Transform rightExitPosition;
-        [SerializeField] private Transform leftExitPosition;
+        [Header("Exit Positions: Right, Left, Down, Up")]
+        [SerializeField] private Transform[] exitPositions;
         
         public GameObject[] enemySpawns;
-        public Exit[] exits;
+        public RoomType roomType;
         public Transform startPosition;
         
+        internal readonly List<Exit> exits = new();
         internal RoomIndex roomIndex;
         
         private GameObject _gameObjects;
-        private List<GameObject> _activeLights;
+        // private List<GameObject> _activeLights;
 
         private void Awake()
         {
-            _gameObjects = GetComponentInChildren<Transform>().gameObject;
+            _gameObjects = transform.GetChild(0).gameObject;
         }
 
-        public void ChangeRoomActive(bool active)
+        public void SpawnExits(Exit[] newExits)
         {
-            _gameObjects.SetActive(active);
+            if(exitPositions.Length == 0) return;
+            for (int i = 0; i < newExits.Length; i++)
+            {
+                if(newExits[i] == null) continue;
+                var exit = Instantiate(newExits[i], transform);
+                exit.transform.position = exitPositions[i].transform.position;
+                exits.Add(exit);
+            }
+        }
+
+        public void SpawnTwoExits(Exit[] newExits)
+        {
+            Vector3 firstExitPosition = Vector3.zero;
+            foreach (var newExit in newExits)
+            {
+                if(newExit == null) continue;
+                var exit = Instantiate(newExit, transform);
+                if (firstExitPosition != Vector3.zero)
+                {
+                    if (Vector2.Distance(firstExitPosition, exitPositions[2].position)
+                        > Vector2.Distance(firstExitPosition, exitPositions[3].position))
+                        exit.transform.position = exitPositions[3].position;
+                    else
+                        exit.transform.position = exitPositions[2].position;
+                } 
+                else exit.transform.position = exitPositions[Random.Range(0, 2)].transform.position;
+                firstExitPosition = exit.transform.position;
+                exits.Add(exit);
+            }
         }
 
         public void Initial()
@@ -94,17 +121,17 @@ namespace RoomControllers
             // }
         }
 
-        public virtual bool CheckCorrectRoom(RoomType roomType)
+        public bool CheckCorrectRoom(RoomType roomType)
         {
             return roomType == this.roomType;
         }
 
-        public virtual void LeavingRoom()
+        public void LeavingRoom()
         {
             _gameObjects.SetActive(false);
         }
 
-        public virtual void SpawnEnemies()
+        public  void SpawnEnemies()
         {
             if(enemies.Length == 0 || enemySpawns.Length == 0) return;
             var thisEnemySpawns = enemySpawns.ToList();
@@ -117,11 +144,6 @@ namespace RoomControllers
                 thisEnemySpawns.Remove(enemySpawn);
                 i += enemy.GetComponent<TheEnemy>().enemyCount;
             }
-        }
-
-        public virtual void ChangeActiveMapObjects(bool isMapCamera)
-        {
-            _gameObjects.SetActive(!isMapCamera);
         }
     }
 }

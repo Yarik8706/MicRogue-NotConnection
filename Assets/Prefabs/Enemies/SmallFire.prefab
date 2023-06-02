@@ -121,7 +121,7 @@ MonoBehaviour:
   baseAnimationsObj: {fileID: 3300952338237392216, guid: 018603827ee34a647adfe39a70b1ffe1, type: 3}
   afterDied: {fileID: 934897519596682640, guid: 81d4bd92e4b8e25418a69113e72721f7, type: 3}
   enemyType: 0
-  enemyCount: 1
+  enemyCount: 2
   causeOfDied:
   - Play with fire, you are going to get burned
   - is it getting hot in here, or is it just me?

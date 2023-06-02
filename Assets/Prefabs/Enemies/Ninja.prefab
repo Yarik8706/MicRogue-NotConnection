@@ -186,7 +186,7 @@ MonoBehaviour:
   baseAnimationsObj: {fileID: 3300952338237392216, guid: 018603827ee34a647adfe39a70b1ffe1, type: 3}
   afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   enemyType: 3
-  enemyCount: 2
+  enemyCount: 3
   causeOfDied:
   - fear does not exist in this dojo, does it?
   moveAnimationName2: Run2

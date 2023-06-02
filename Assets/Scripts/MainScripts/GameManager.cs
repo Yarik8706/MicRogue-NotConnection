@@ -5,6 +5,8 @@ using Canvas;
 using RoomControllers;
 using RoomObjects;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
 namespace MainScripts
@@ -20,12 +22,21 @@ namespace MainScripts
         public static CameraShake cameraShake;
         
         private GameController _gameController;
-        internal RoomController roomController;
+        private RoomController _activeRoomController;
         private RoomController[] _roomControllers;
-        private SpawnLevelController _spawnLevel;
+        private SpawnLevelController _spawnLevelController;
         private Transform _cameraTransform;
+        // Camera Effects ------------------------------------------
+        private ColorAdjustments _colorAdjustments;
+        private Tonemapping _tonemapping;
+        private ChromaticAberration _chromaticAberration;
+        private LensDistortion _lensDistortion;
+        private SplitToning _splitToning;
+        private ShadowsMidtonesHighlights _shadowsMidtonesHighlights;
 
         [Header("Components")] 
+        public Volume cameraVolume;
+        public ParticleSystem pixelEffect;
         public ScreenFader screenFader;
         public GameObject winFrame;
         public GameObject updateShieldObj;
@@ -36,36 +47,128 @@ namespace MainScripts
             var cameraObject = FindObjectOfType<Camera>();
             cameraShake = cameraObject.GetComponent<CameraShake>();
             _cameraTransform = cameraObject.transform;
+            foreach (var volumeComponent in cameraVolume.sharedProfile.components)
+            {
+                switch (volumeComponent)
+                {
+                    case ColorAdjustments colorAdjustments:
+                        _colorAdjustments = colorAdjustments;
+                        break;
+                    case Tonemapping tonemapping:
+                        _tonemapping = tonemapping;
+                        break;
+                    case SplitToning splitToning:
+                        _splitToning = splitToning;
+                        break;
+                    case ShadowsMidtonesHighlights shadowsMidtonesHighlights:
+                        _shadowsMidtonesHighlights = shadowsMidtonesHighlights;
+                        break;
+                    case LensDistortion lensDistortion:
+                        _lensDistortion = lensDistortion;
+                        break;
+                    case ChromaticAberration chromaticAberration:
+                        _chromaticAberration = chromaticAberration;
+                        break;
+                }
+            }
         }
 
         private void Start()
         {
             instance = this;
             _gameController = GetComponent<GameController>();
-            _spawnLevel = GetComponent<SpawnLevelController>();
-            _spawnLevel.Initial(SpawnLevelController.ShipModel);
-            //сделать выбор комнат на которых спавниться сокровища
-            _roomControllers = FindObjectsOfType<RoomController>();
-            foreach (var roomController in _roomControllers)
+            _spawnLevelController = GetComponent<SpawnLevelController>();
+            _spawnLevelController.Initial(SpawnLevelController.ShipModel);
+            foreach (var roomController in _spawnLevelController.allRooms)
             {
-                roomController.ChangeRoomActive(false);
+                roomController.gameObject.SetActive(false);
             }
             StartGame(SpawnLevelController.levelRooms[0][0].GetComponent<RoomController>());
         }
 
         public void StartGame(RoomController controller)
         {
+            ResetGrayEffect();
             screenFader.fadeState = ScreenFader.FadeState.In;
-            roomController = controller;
-            roomController.Initial();
-            player.transform.position = roomController.startPosition.position;
-            roomController.SpawnEnemies();
+            _activeRoomController = controller;
+            _activeRoomController.gameObject.SetActive(true);
+            _activeRoomController.Initial();
+            player.transform.position = _activeRoomController.startPosition.position;
+            _activeRoomController.SpawnEnemies();
 
             _cameraTransform.position = new Vector3(
-                roomController.transform.position.x,
-                roomController.transform.position.y,
+                _activeRoomController.transform.position.x,
+                _activeRoomController.transform.position.y,
                 _cameraTransform.position.z);
             screenFader.fadeState = ScreenFader.FadeState.Out;
+        }
+
+        [ContextMenu("AddGreyEffect")]
+        public void AddGreyEffect()
+        {
+            var pixelEffectEmission = pixelEffect.emission;
+            pixelEffectEmission.rateOverTimeMultiplier += 8;
+            var pixelEffectMain = pixelEffect.main;
+            pixelEffectMain.simulationSpeed += 0.02f;
+            _colorAdjustments.saturation.value -= 9;
+            _colorAdjustments.postExposure.value -= 0.01f;
+            var shadowsValue = _shadowsMidtonesHighlights.shadows.value;
+            shadowsValue.w -= 0.05f;
+            _shadowsMidtonesHighlights.shadows.value = shadowsValue;
+            
+            var midtonesValue = _shadowsMidtonesHighlights.midtones.value;
+            midtonesValue.w += 0.1f;
+            _shadowsMidtonesHighlights.midtones.value = midtonesValue;
+            switch (_activeRoomController.roomType)
+            { 
+                case RoomType.Null:
+                    break;
+                case RoomType.Base:
+                    break;
+                case RoomType.Middle:
+                    _chromaticAberration.active = true;
+                    break;
+                case RoomType.Hard:
+                    _splitToning.active = true;
+                    break;
+                case RoomType.VeryHard:
+                    _lensDistortion.active = true;
+                    break;
+                case RoomType.Action1:
+                    // player.GetComponentInChildren<Light2D>().lightOrder = 32;
+                    _tonemapping.active = true;
+                    break;
+                case RoomType.Action2:
+                    break;
+                case RoomType.Start:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        [ContextMenu("ResetGrayEffect")]
+        public void ResetGrayEffect()
+        {
+            var pixelEffectEmission = pixelEffect.emission;
+            pixelEffectEmission.rateOverTimeMultiplier = 20;
+            var pixelEffectMain = pixelEffect.main;
+            pixelEffectMain.simulationSpeed = 0.1f;
+            _colorAdjustments.saturation.value = 20;
+            _colorAdjustments.postExposure.value = 0;
+            
+            var shadowsValue = _shadowsMidtonesHighlights.shadows.value;
+            shadowsValue.w = 0;
+            _shadowsMidtonesHighlights.shadows.value = shadowsValue;
+            
+            var midtonesValue = _shadowsMidtonesHighlights.midtones.value;
+            midtonesValue.w = 0;
+            _shadowsMidtonesHighlights.midtones.value = midtonesValue;
+            
+            _lensDistortion.active = false;
+            _tonemapping.active = false;
+            _splitToning.active = false;
+            _chromaticAberration.active = false;
         }
 
         public IEnumerator TurnStarted()
@@ -100,11 +203,12 @@ namespace MainScripts
             moveToTheNextRoom = true;
             screenFader.fadeState = ScreenFader.FadeState.In;
             yield return new WaitForSeconds(0.4f);
-            var indexRoom = GetDirectionIndex(direction, roomController.roomIndex);
+            AddGreyEffect();
+            var indexRoom = GetDirectionIndex(direction, _activeRoomController.roomIndex);
             var newRoom = SpawnLevelController.levelRooms[indexRoom.y][indexRoom.x];
             if (newRoom == null) yield break;
             yield return new WaitForSeconds(0.7f);
-            roomController.LeavingRoom();
+            _activeRoomController.LeavingRoom();
         
             // TODO: сделать добавление мусора в как дочерний элемент в комнату
             foreach (var afterDied in GameObject.FindGameObjectsWithTag("Trash"))
@@ -122,20 +226,20 @@ namespace MainScripts
             };
 
             newRoom.SetActive(true);
-            roomController = newRoom.GetComponent<RoomController>();
-            roomController.Initial();
-            roomController.SpawnEnemies();
-            foreach (var exit in roomController.exits)
+            _activeRoomController.gameObject.SetActive(false);
+            _activeRoomController = newRoom.GetComponent<RoomController>();
+            _activeRoomController.Initial();
+            _activeRoomController.SpawnEnemies();
+            foreach (var exit in _activeRoomController.exits)
             {
-                if (exit.exitLocation == directionOfAppearance)
-                {
-                    player.transform.position = exit.GetNextPositionPlayer();
-                    lastNextExitPosition = player.transform.position;
-                }
+                if (exit.exitLocation != directionOfAppearance) continue;
+                player.transform.position = exit.GetNextPositionPlayer();
+                lastNextExitPosition = player.transform.position;
+                Destroy(exit.gameObject);
             }
 
-            _cameraTransform.position = new Vector3(roomController.transform.position.x,
-                roomController.transform.position.y, _cameraTransform.position.z);
+            _cameraTransform.position = new Vector3(_activeRoomController.transform.position.x,
+                _activeRoomController.transform.position.y, _cameraTransform.position.z);
 
             screenFader.fadeState = ScreenFader.FadeState.Out;
             moveToTheNextRoom = false;

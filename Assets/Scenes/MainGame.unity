@@ -1972,6 +1972,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e25ddd45aaa06743b1757c2236cff02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraVolume: {fileID: 1262414318}
+  pixelEffect: {fileID: 847205118}
   screenFader: {fileID: 833479956}
   winFrame: {fileID: 2035341020}
   updateShieldObj: {fileID: 6112046121085293135, guid: 05ca7c54a78e4e8438695cc52743ee2b, type: 3}
@@ -2042,6 +2044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
+  - {fileID: 8093407402482536513, guid: b4f5bcc72dc0d9045be7cea3afde9546, type: 3}
+  - {fileID: 8093407402482536513, guid: e66471fd9a76a1d42b2a5dc9eea68195, type: 3}
   - {fileID: 8093407402482536513, guid: 87089eadad4feec4b8f9807736b6097b, type: 3}
   - {fileID: 8093407402482536513, guid: b717a6555cc40494fa5a07dfeb418c41, type: 3}
   - {fileID: 8093407402482536513, guid: da2d25cae19202b4385e262437822268, type: 3}
@@ -2058,8 +2062,6 @@ MonoBehaviour:
   - {fileID: 8093407402482536513, guid: 8ce0086dfb8d81948811e7bca9c0d6a7, type: 3}
   - {fileID: 8093407402482536513, guid: 341df0edd1da294429763e116731bcde, type: 3}
   - {fileID: 8093407402482536513, guid: a6db4131a4589d54aaa112a957c810bf, type: 3}
-  - {fileID: 8093407402482536513, guid: b4f5bcc72dc0d9045be7cea3afde9546, type: 3}
-  - {fileID: 8093407402482536513, guid: e66471fd9a76a1d42b2a5dc9eea68195, type: 3}
   roomSpawn: {fileID: 7505946388046699951, guid: c33793a8a04b0e349b83def9ed91dbf6, type: 3}
   mapObjectsContainer: {fileID: 0}
 --- !u!114 &833479958
@@ -8048,12 +8050,12 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.28
-  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.84705883}
-  m_Intensity: 0.61
+  m_FalloffIntensity: 0.236
+  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.7764706}
+  m_Intensity: 0.52
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 000000001b2cdd5c1bbc1f2093f7fec5630f8d76
+  m_ApplyToSortingLayers: 000000001b2cdd5c1bbc1f2093f7fec5630f8d766722d84f
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 30
@@ -8100,7 +8102,7 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.9
+  m_PointLightInnerRadius: 0.83
   m_PointLightOuterRadius: 3.1482646
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0

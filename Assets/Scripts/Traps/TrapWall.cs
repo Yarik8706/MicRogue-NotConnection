@@ -20,7 +20,7 @@ namespace Traps
         private ShadowCaster2D _shadowCaster2D;
         private SpriteRenderer _spriteRenderer;
 
-        protected void Start()
+        protected void Awake()
         {
             _shadowCaster2D = GetComponent<ShadowCaster2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();

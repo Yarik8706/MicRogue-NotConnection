@@ -57,8 +57,7 @@ namespace Enemies
                     availableTransformsEnemies[availablePositionEnemies.IndexOf(
                             SelectionOfTheNearestPosition(
                                 GameManager.player.transform.position, 
-                                availablePositionEnemies.ToArray()))], true
-                    );
+                                availablePositionEnemies.ToArray()))]);
             }
             yield return null;
             _startSpawnShield = false;
