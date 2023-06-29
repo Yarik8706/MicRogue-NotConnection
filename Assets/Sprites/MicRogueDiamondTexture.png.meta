@@ -1200,13 +1200,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShieldBoxCanvas
+      name: StealAbility
       rect:
         serializedVersion: 2
-        x: 84
-        y: 947
-        width: 28
-        height: 13
+        x: 80
+        y: 944
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5778,7 +5778,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VerticalExit
+      name: ExitLeft
       rect:
         serializedVersion: 2
         x: 640
@@ -5815,258 +5815,6 @@ TextureImporter:
       bones: []
       spriteID: 2691b1740c9bd7c41a01d5e460b27ac4
       internalID: 1211156913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RightLeftDownMapRoom
-      rect:
-        serializedVersion: 2
-        x: 736
-        y: 923
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a2de1c23bf033e49a365ae0f64da452
-      internalID: 1894259135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LeftDownMapRoom
-      rect:
-        serializedVersion: 2
-        x: 741
-        y: 923
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da252ec1ed0d8554bb43950e7b2f696d
-      internalID: 1368353255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LeftMapRoom
-      rect:
-        serializedVersion: 2
-        x: 736
-        y: 918
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 799c8d68f569f804b861c3c36146bc4e
-      internalID: -1983171019
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RightRoomShip3
-      rect:
-        serializedVersion: 2
-        x: 760
-        y: 915
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 98da0c9db1638684a9c3ea879508aadf
-      internalID: 1077162949
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RightLeftUpDownRoomShip1
-      rect:
-        serializedVersion: 2
-        x: 736
-        y: 908
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c809248fcd61e9d4d86940d5ae484d85
-      internalID: -1112949373
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MainEngineShipRoom1
-      rect:
-        serializedVersion: 2
-        x: 749
-        y: 915
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76a6c7fd76dfd3e419937128ec47ebef
-      internalID: -1572656681
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WingShipRoom2
-      rect:
-        serializedVersion: 2
-        x: 744
-        y: 907
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ddb3b2a3bdc2cf459558bfd82981b53
-      internalID: 1088543618
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RightDownUpRoomShip1
-      rect:
-        serializedVersion: 2
-        x: 753
-        y: 909
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e6c31c0cac908f4abc50a62f3915bf7
-      internalID: 891473349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OtherShipRoom2
-      rect:
-        serializedVersion: 2
-        x: 754
-        y: 919
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6459e13705e01f44ba2e3e1f543b538a
-      internalID: -235836468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CenterMapRoom
-      rect:
-        serializedVersion: 2
-        x: 746
-        y: 923
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd1ab4d76b2600041b68b2f5a83b5569
-      internalID: 942725470
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RichMapTarget
-      rect:
-        serializedVersion: 2
-        x: 723
-        y: 910
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 266eba3b6cb8777458d8e6df76c73a23
-      internalID: -1170610670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ExitFromShipMarTarget
-      rect:
-        serializedVersion: 2
-        x: 723
-        y: 916
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74598a9799bf3a7479cd66c5b94f4d47
-      internalID: 967325106
       vertices: []
       indices: 
       edges: []
@@ -7058,6 +6806,930 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ConsumablesUI
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 948
+        width: 31
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da53c6c78c33a064286c4d4251216ba6
+      internalID: 498280406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightFlashButton
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 960
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885f72579344b944da432653a1c6a1ee
+      internalID: -1772334102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShiledItem
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 957
+        width: 8
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b8779d353f3974f9d04ca31a30e368
+      internalID: 782831700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightItem
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 957
+        width: 6
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3297257ed10af364488abc83b2708c93
+      internalID: 779655989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitRight
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab31edab49d29c4a9f4fb87dc588bda
+      internalID: 2100207054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireAbility
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e0d6be2d1343246ae9f22be68d3c81
+      internalID: 135390646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff7f1684e5910b438684e32039b0375
+      internalID: -5957158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3854cccd273a4264d9dffb9e5a56cdb6
+      internalID: 234221945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7cc5e7a1316d544aa6009bfb9f9febe
+      internalID: -308822229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee27691893825347a4df50919da2d39
+      internalID: -963167924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8811d0574943046a13a4314d3b7e40
+      internalID: 1491610867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 720
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb5a0740e65446f4f853e1424a815279
+      internalID: 1514928991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability6
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281b3e630b1c99c418c1faf47a9e04ad
+      internalID: -1426942624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability7
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c87cb2bac9ca744a17fddad8d9036f
+      internalID: -848783952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability8
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75193226e32f2234bbded1d053150388
+      internalID: -1343226409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability9
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa284b260d5a3fb4b905127aabe04f0a
+      internalID: -539889370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability10
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9845e38f7056d140a86980b2529c9dd
+      internalID: 1491038034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability11
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b562549197d9a41921e95a3b1297b9
+      internalID: -2114665286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability12
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c3d8cff41f727469b98615cab48b34
+      internalID: -1315037902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability13
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96805b0cf862394eb933fa13009566b
+      internalID: 1296323238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability14
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353167e0d2c542c4f9ec295f2ba04724
+      internalID: 1046389979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability15
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fadd1ed091241474f93d732bd1b82965
+      internalID: 2086273876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability16
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 794e0a60d13272841aff0f0fefbc03be
+      internalID: -1265677075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability17
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d648b5cf7debcf040afa32a3b11041d9
+      internalID: -1555327563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability18
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba74bda4136dd240a967cafe24fe4c6
+      internalID: 707790381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: getability19
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 720
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33a1b006d0862894a92e888d3fd0eb51
+      internalID: -1073945381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0e3a848f2597144b35f0edd3bcd61c
+      internalID: 865301555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec3fbe2f861957143bf791a2c2668d37
+      internalID: -502680035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01553c2d1eef0e0449471032c76d6910
+      internalID: -1836520791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 144ac0f0f4b258d4088b8c4f0863fc7f
+      internalID: 1453487826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd50892d9b0ed274e944e6e00596db9d
+      internalID: 363925846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 688
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1d02fb16ce7cbd4495c8afec708c2de
+      internalID: 653724935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability6
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3222c577790a9af40a7b83bc2669027c
+      internalID: -867828462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability7
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d0c9187f94fd54abee784518b975ed
+      internalID: 1462805920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability8
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63285e74b74c4c9418b7bf562f6d6ba7
+      internalID: -812068878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability9
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 938bb9a822063f24f87e2b9adce4c969
+      internalID: -1704008631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability10
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c96d0a1ea5b4e034ab43c360b2bdc007
+      internalID: 164603295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability11
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4cdffdb02cf34c41957c13b46943567
+      internalID: 548961291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability12
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a68ab674b5a5f443ae9a5abe9639beb
+      internalID: -309854214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability13
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc33334dc0742f946908ec07686ffa1e
+      internalID: -1622591160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability14
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbed38b1fe82c3a4ea3934fe07fa788c
+      internalID: 1554503402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability15
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc48e0a62e065d47bc1045bd455e4a9
+      internalID: 956689926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: putability16
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 688
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9040ffec812dac34d81431704f58b3d8
+      internalID: -1167850304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ActiveStealAbility
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 944
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d854ded9f0890440bd69abdb9f866fa
+      internalID: 328056660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -7098,6 +7770,7 @@ TextureImporter:
       BoxWithRIches3: 1707446589
       WhiteFloor8: -1111953809
       BlackFloor6: -1448619793
+      putability0: 865301555
       LampIdle7: 104106421449956808
       PlayerDiedFromDuck1: -639210490
       gameRulesPicture41: 1288177332
@@ -7105,6 +7778,7 @@ TextureImporter:
       RightDownUpRoomShip2: 1065164190
       RightRoomShip4: -605254458
       Wall1: -923277500124504870
+      putability13: -1622591160
       Space1: 1164707187
       InformationAboutObjectCanvas: 1110303757
       SmallFireIdle1: 6907730828962806901
@@ -7112,10 +7786,13 @@ TextureImporter:
       TrapWall0: 2052601587
       RayNearFlyingEyeAttack0: -8891035808964002924
       GrayFloor2: 1426756614
+      putability15: 956689926
       RightExit: 1342424954626055952
+      putability16: -1167850304
       GrayFloor1: -1830261601936756837
       FireTrap0: -7175753292707142349
       GameRules3: 802870630
+      ShiledItem: 782831700
       For null object: 2052114837
       MicRogue GoldTest_38: -33988552
       PlayerDiedFromDuckWithoutShield1: -88138721
@@ -7130,9 +7807,11 @@ TextureImporter:
       WingShipRoom2: 1088543618
       PlayerProtection1: 131409712
       Wall7: -750046171
+      putability6: -867828462
       Slime1: 170214267
       LampIdle9: 1271319137750650887
       BoxWithRIches5: -251702461263357986
+      LightItem: 779655989
       NinjaIdle: -628318390
       MicRogueDiamondTexture_2: -1293774213
       Wall: 558183317
@@ -7140,9 +7819,11 @@ TextureImporter:
       RoomsCanvasCount09: 367412321
       BigFireRun1: 1211156913
       PixelToggleButton: 1014207763
+      putability8: -812068878
       WingShipRoom1: 1797849242
       Frostbite1: -1581992114
       DrakDuck2: 1254263893
+      FireAbility: 135390646
       TrollWithStickAttack0: -272189685
       BoxWithRIches1: -1486988990
       TurnOrder2: 1726775981
@@ -7151,10 +7832,12 @@ TextureImporter:
       EnemyShieldDied0: -742379763
       EnemyShield3: -330678448
       BlackFloor3: 1261033610
+      ActiveStealAbility: 328056660
       BigFire1: 1129790698
       PictureCanvasMainMenu: -5787722678231957765
       BaxPile: 1087552608
       FireAnim1: 1396397318016514157
+      getability12: -1315037902
       MicRogue GoldTest_26: -592547824
       WinFrame: 1253620411
       EnemyShieldDied3: 1368353255
@@ -7170,6 +7853,7 @@ TextureImporter:
       LeftMapRoom: -1983171019
       DuckRayClose: 1357129885
       gameRulesPicture5: -1185954111
+      StealAbility: 3558250217027439919
       TurnOrder6: -5336512952334718772
       Gold3: 200833355908011027
       FreezingObj0: -1863441196
@@ -7185,9 +7869,11 @@ TextureImporter:
       DoneSettingMainMenu: -161101066
       DisableOneCountSlider: -5891224783233435756
       DragonSleep4: 2550514373751287618
+      getability6: -1426942624
       PlayerInSlime: 707549282
       slamp_3: 2145344538
       FreezingLamp4: -1950176389889711014
+      putability12: -309854214
       PauseCanvas: 1980485867
       FlyingEyeAttack2: -5572552053421142652
       MainMenuGameName: 5174776073360041994
@@ -7198,14 +7884,13 @@ TextureImporter:
       DuckAttack3: 512411427
       SlimeDied1: -1297755351
       TrapWall1: -28734984
-      FlyingEyeAttack3: -4832418317938593309
       WhiteFloor9: -714272885
+      FlyingEyeAttack3: -4832418317938593309
       MicRogue GoldTest_36: -1922607446
       SnowMan2: 5528568380889737955
       PlayerWithoutShield: 5438436409197790006
       EnemyShield2: 68720694
       TrapWall3: -8898372347182724431
-      VerticalExit: -558511839
       lamp_4: -1980841048
       FireTrapAttack6: 2964089573531014971
       NinjaRun2: -4146685878628206487
@@ -7224,6 +7909,8 @@ TextureImporter:
       LampIdle2: -6048807688200075309
       FloorTrap2: 544088988
       TheEssenceDied3: -349072738
+      putability14: 1554503402
+      getability16: -1265677075
       FreezingLamp0: 692538093
       Slime0: 6512786623135425305
       SkeletonIdle: -2099460216
@@ -7243,21 +7930,26 @@ TextureImporter:
       FreezingLamp: -5780432875246777992
       SnowMan1: 390843795797142074
       RightUpDownRoomShip2: -467352233
-      ShieldBoxCanvas: -1152037917
+      putability10: 164603295
+      putability11: 548961291
       FloorTrap1: 84527646
       BaxPile2: -928710035
+      getability7: -848783952
       PlayerDiedFromDuckWithoutShield4: -8511507440328598185
       SlowActiveMainMenuButton: -5263716892094737839
       FireAnim3: 587105083
+      getability11: -2114665286
       RayNearFlyingEyeAttack2: -3385805534241388517
       FireAnim5: 1528736069
       SlimeRoad0: -2160715023857370988
       FireTrapAttack3: 2058628914
       BlackFloor7: 315398075
       LampIdle3: 5174776073360041994
+      putability2: -1836520791
       LampIdle 2 5: 237684239
       MainMenuExit: 792854607
       slamp_1: 617440897
+      putability4: 363925846
       PlayerDiedFromDuckWithoutShield2: 1030955016
       SleepCount3: -201394894
       GameRules4: 3689636853081102161
@@ -7268,25 +7960,28 @@ TextureImporter:
       Frostbite4: -1660831712
       Wall2: 2528563653763431060
       LampIdle5: -4813274151216475168
-      RightLeftUpDownRoomShip2: 1437119106
+      Wal: -338306076
       TrapWallAttack0: -372418632
       ActiveOneCountSlider: 1128040808
-      Wal: -338306076
-      gamedialogwindow: 1470295123
       AddCountMainMenu: -1356043217
+      gamedialogwindow: 1470295123
       FireTrapAttack0: 10068815678859956
       WhiteFloor4: 145299376
-      MainMenuStartGame: -3476810288997538011
       AfterDied1: 515389257
       lamp_6: 1705408639
+      MainMenuStartGame: -3476810288997538011
       brokenSpaceCapsule: 728379516
       RoomsCanvasCount02: -465186584738517249
       RightRoomShip3: 712621602
       MainMenuAnimation4: -1040768722
+      ConsumablesUI: 498280406
+      getability5: 1514928991
       TheEssenceDied5: 1315725964267458525
       SlimeRoad: 1884224513
       UpExit: -819194701
+      RightLeftUpDownRoomShip2: 1437119106
       DragonStartAction2: -1384178719
+      putability3: 1453487826
       WhiteFloor: 3081762
       LampIdle8: 3834731951187487461
       DragonMove1: -1933942468
@@ -7297,17 +7992,22 @@ TextureImporter:
       PlayButton: -1248015170
       SmallFireIdle2: 8584836600945208852
       OrgeRun3: -5993751493117572799
+      getability15: 2086273876
       PlayerRun2: 6210594801723020864
       RayNearFlyingEyeAttack4: 4384879833635598779
+      getability10: 1491038034
       SlimeRoad1: -558032387
       OrgeRun2: 1213921707
+      getability14: 1046389979
       TrollWithStickAttack1: 2363083579695130434
       Duck0: 1936915025
       HalfWallWithSpace: -8396390659373079807
+      getability1: 234221945
       OrgeIdle2: -2022170896
       EnemyShield6: -1943682087
       SlimeBym1: 587230825
       FireDied: -3109532369651939963
+      getability3: -963167924
       FireTrapAttack2: -4125141936663983319
       Player: -134297784
       PartOfWallWithSpace: -469181120
@@ -7317,20 +8017,27 @@ TextureImporter:
       Duck1: -589437128
       LeftDownMapRoom: 1368353255
       DragonMove2: -196851251
-      LightningStrike2: -4813274151216475168
+      getability4: 1491610867
       FreezingLamp7: 1348950863
+      LightningStrike2: -4813274151216475168
       Frostbite3: 104106421449956808
       lamp_0: -2042891696
       background2: 424750036
       MarkerEnemyCanvas: -400339128
+      getability17: -1555327563
+      getability2: -308822229
+      putability9: -1704008631
       TurnOrder1: 1515160426
       NextDialogText: 1115196856
       one_pixel: 1743953542
       grass_3: 1825733117
+      getability13: 1296323238
       EnemyShield0: 182089472
       FreezingObj2: -235836468
+      getability0: -5957158
       grass_4: 660719377
       FreezingObj4: -1421517292176563482
+      getability19: -1073945381
       Wall4: -501817725
       DuckAttack0: -1029751499
       OrgeRun21: 7567512600184478616
@@ -7357,8 +8064,10 @@ TextureImporter:
       lamp_1: -1266043722
       SlowDisableMainMenuButton: -4924733522636629748
       SkeletonRun1: 725871203
+      LightFlashButton: -1772334102
       RoomsCanvasCount05: -741347089
       EnemyShield9: -1176719116
+      putability7: 1462805920
       TheEssenceDied1: -1692632436848618677
       Gold2: 236908839
       DialogFrame: 1784496881
@@ -7387,6 +8096,7 @@ TextureImporter:
       Spytnic: -2077885654
       SettingMainMenu: -977104268450577927
       FireTrapAttack4: 8069848256103799876
+      getability9: -539889370
       PlayerDiedFromDuck5: -949640061533097181
       RoomsCanvasCount10: -112958761
       DragonSleep2: 1271319137750650887
@@ -7405,13 +8115,16 @@ TextureImporter:
       FireAnim6: -216163118
       RayNearFlyingEyeAttack3: -412912537350275867
       FreezingLamp6: 4324163584960906632
+      putability1: -502680035
       LampIdle6: 8584836600945208852
       gameRulesPicture42: -1010252483
+      getability8: -1343226409
       MainMenuAnimation2: -1851856170
       StartGameButton: 1746946591
       BigFire0: -508223160
       SleepCount4: -558511839
       helpIcon: 309943148
+      ExitLeft: -558511839
       FlyingEye1: -1522308079
       TrollWithStickAttack2: 6460338689981303646
       MicRogue GoldTest_35: -1893078232
@@ -7429,14 +8142,17 @@ TextureImporter:
       FreezingObj1: -736769400
       EnemyShield10: -21377749
       OrgeRun20: 1808372380
+      getability18: 707790381
       TurnOrderCanvas: 1278950294
       FloorPlaceCanvas: -138521075
       WhiteFloor3: 719221249
       GunShipRoom2: 1065164190
       CanvasYes: 2480022212507488612
       PlayerProtection3: 3558250217027439919
+      ExitRight: 2100207054
       MainMenuGameRulls: 7913475050150004141
       RoomsCanvasCount01: 4940008857218540591
+      putability5: 653724935
       PlayerDiedFromDuck4: -1622160102
       Gold5: -346949016
       PlayerProtection2: 1614229847

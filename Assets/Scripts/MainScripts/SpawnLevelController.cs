@@ -25,17 +25,29 @@ public class SpawnLevelController : MonoBehaviour
     public Transform mapObjectsContainer;
 
     public static readonly RoomType[][] ShipModel = {
-        new []{RoomType.Start,   RoomType.Base,     RoomType.Base,     RoomType.Null, RoomType.Null},
-        new []{RoomType.Null,    RoomType.Null,     RoomType.Middle,   RoomType.Middle, RoomType.Null},
-        new []{RoomType.Null,    RoomType.Null,     RoomType.Null,     RoomType.Middle, RoomType.Hard},
-        new []{RoomType.Null,    RoomType.Null,     RoomType.Null,     RoomType.Null, RoomType.Action1},
-        new []{RoomType.Action2, RoomType.VeryHard, RoomType.VeryHard, RoomType.Hard, RoomType.VeryHard}
+        new []{
+            RoomType.Start,   
+            RoomType.Base,     
+            RoomType.Base,     
+            RoomType.Middle, 
+            RoomType.Middle, 
+            RoomType.Hard, 
+            RoomType.Action1, 
+            RoomType.Hard, 
+            RoomType.VeryHard, 
+            RoomType.Hard,
+            RoomType.VeryHard,
+            RoomType.Hard,
+            RoomType.VeryHard,  
+            RoomType.Action2
+        },
     };
 
     public void Initial(RoomType[][] mapRoom)
     {
         var allMapRooms = new List<List<GameObject>> { };
         var roomSpawns = new List<RoomSpawn> { };
+        RoomIndex lastRoomIndex = new RoomIndex(0, 0);
         for (var i = 0; i < mapRoom.Length; i++)
         {
             allMapRooms.Add(new List<GameObject>());
@@ -51,11 +63,13 @@ public class SpawnLevelController : MonoBehaviour
                     default:
                         var room = Instantiate(
                             roomSpawn,
-                            new Vector2(j * 15, -(i * 9)),
+                            Vector3.zero, // new Vector2(j * 15, -(i * 9)),
                             Quaternion.identity).GetComponent<RoomSpawn>();
                         room.roomIndex = new RoomIndex(i, j);
                         room.spawnLevelController = this;
                         room.roomType = mapRoom[i][j];
+                        lastRoomIndex = new RoomIndex(i, j);
+                        
                         allMapRooms[i].Add(room.gameObject);
                         
                         roomSpawns.Add(room);

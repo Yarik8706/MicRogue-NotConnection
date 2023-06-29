@@ -15,7 +15,7 @@ namespace MainScripts
     {
         internal bool moveToTheNextRoom;
         internal bool isFindRoom;
-        internal Vector3 lastNextExitPosition;
+        internal Exit lastExit;
 
         public static Player player;
         public static GameManager instance;
@@ -47,30 +47,7 @@ namespace MainScripts
             var cameraObject = FindObjectOfType<Camera>();
             cameraShake = cameraObject.GetComponent<CameraShake>();
             _cameraTransform = cameraObject.transform;
-            foreach (var volumeComponent in cameraVolume.sharedProfile.components)
-            {
-                switch (volumeComponent)
-                {
-                    case ColorAdjustments colorAdjustments:
-                        _colorAdjustments = colorAdjustments;
-                        break;
-                    case Tonemapping tonemapping:
-                        _tonemapping = tonemapping;
-                        break;
-                    case SplitToning splitToning:
-                        _splitToning = splitToning;
-                        break;
-                    case ShadowsMidtonesHighlights shadowsMidtonesHighlights:
-                        _shadowsMidtonesHighlights = shadowsMidtonesHighlights;
-                        break;
-                    case LensDistortion lensDistortion:
-                        _lensDistortion = lensDistortion;
-                        break;
-                    case ChromaticAberration chromaticAberration:
-                        _chromaticAberration = chromaticAberration;
-                        break;
-                }
-            }
+            SetCameraComponents();
         }
 
         private void Start()
@@ -209,8 +186,7 @@ namespace MainScripts
             if (newRoom == null) yield break;
             yield return new WaitForSeconds(0.7f);
             _activeRoomController.LeavingRoom();
-        
-            // TODO: сделать добавление мусора в как дочерний элемент в комнату
+            
             foreach (var afterDied in GameObject.FindGameObjectsWithTag("Trash"))
             {
                 Destroy(afterDied);
@@ -234,7 +210,7 @@ namespace MainScripts
             {
                 if (exit.exitLocation != directionOfAppearance) continue;
                 player.transform.position = exit.GetNextPositionPlayer();
-                lastNextExitPosition = player.transform.position;
+                lastExit = exit;
                 Destroy(exit.gameObject);
             }
 
@@ -244,8 +220,6 @@ namespace MainScripts
             screenFader.fadeState = ScreenFader.FadeState.Out;
             moveToTheNextRoom = false;
             GameplayEventManager.OnNextRoom.Invoke();
-            
-            player.Active();
         }
 
         public static RoomIndex GetDirectionIndex(ExitLocation direction, RoomIndex roomIndex)
@@ -258,6 +232,34 @@ namespace MainScripts
                 ExitLocation.Right => new RoomIndex(roomIndex.y, roomIndex.x + 1),
                 _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
             };
+        }
+        
+        private void SetCameraComponents()
+        {
+            foreach (var volumeComponent in cameraVolume.sharedProfile.components)
+            {
+                switch (volumeComponent)
+                {
+                    case ColorAdjustments colorAdjustments:
+                        _colorAdjustments = colorAdjustments;
+                        break;
+                    case Tonemapping tonemapping:
+                        _tonemapping = tonemapping;
+                        break;
+                    case SplitToning splitToning:
+                        _splitToning = splitToning;
+                        break;
+                    case ShadowsMidtonesHighlights shadowsMidtonesHighlights:
+                        _shadowsMidtonesHighlights = shadowsMidtonesHighlights;
+                        break;
+                    case LensDistortion lensDistortion:
+                        _lensDistortion = lensDistortion;
+                        break;
+                    case ChromaticAberration chromaticAberration:
+                        _chromaticAberration = chromaticAberration;
+                        break;
+                }
+            }
         }
     }
 }

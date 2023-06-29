@@ -28,9 +28,6 @@ namespace Enemies
 
         protected override void SelectAction(Vector2 nextPosition, Vector2 playerPosition)
         {
-            Debug.Log(playerPosition.y);
-            Debug.Log(transform.position.y);
-            Debug.Log(playerPosition.y + transform.position.y);
             if(nextPosition.x < transform.position.x && turnedRight || nextPosition.x > transform.position.x && !turnedRight)
             {
                 Flip();
@@ -40,13 +37,18 @@ namespace Enemies
                 StartCoroutine(base.AttackPlayer(playerPosition));
                 return;
             }
-            if (Convert.ToString(transform.position.y) == Convert.ToString(playerPosition.y))
+            if (Mathf.Abs(transform.position.y - playerPosition.y) < 0.1f)
             {
                 boxCollider2D.enabled = false;
                 var hit = Physics2D.Linecast(transform.position, playerPosition, blockingLayer);
                 boxCollider2D.enabled = true;
                 if (hit.collider == null)
                 {
+                    if(playerPosition.x - transform.position.x > 0 && !turnedRight 
+                       || playerPosition.x - transform.position.x < 0 && turnedRight)
+                    {
+                        Flip();
+                    }
                     StartCoroutine(AttackPlayer(playerPosition));
                     return;
                 }

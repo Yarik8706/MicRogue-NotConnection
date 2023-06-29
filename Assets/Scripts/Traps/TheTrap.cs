@@ -17,7 +17,7 @@ namespace Traps
         public List<GameObject> attackObjects;
         public bool isActive = true;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             animator = GetComponent<Animator>();
             attackObjects = new List<GameObject>();

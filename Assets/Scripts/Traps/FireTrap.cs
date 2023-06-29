@@ -5,7 +5,7 @@ namespace Traps
 {
     public class FireTrap : TheTrap
     {
-        public ExplosionLight explosionLight;
+        public ExplosionOfLight explosionLight;
         protected override IEnumerator Attack()
         {
             animator.SetTrigger(attack);

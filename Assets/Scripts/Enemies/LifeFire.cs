@@ -16,16 +16,31 @@ namespace Enemies
         public Vector2[] firePosition;
         public GameObject fire;
 
+        private BoxCollider2D _boxCollider2D;
+
+        protected override void Start()
+        {
+            base.Start();
+            _boxCollider2D = GetComponent<BoxCollider2D>();
+        }
+
         public override void Died()
         {
-            var newVariantPosition = VariantsPositionsNow(firePosition);
+            SpawnFire(transform.position, fire, noFireLayer, firePosition, _boxCollider2D);
+            base.Died();
+        }   
+
+        public static void SpawnFire(Vector3 centralPosition, GameObject fire, 
+            LayerMask noFireLayer, Vector2[] firePosition, Collider2D collider2D = null)
+        {
+            
+            var newVariantPosition = 
+               VariantsPositionsNow(centralPosition, firePosition);
+            if (collider2D != null) collider2D.enabled = false;
             foreach (var position in newVariantPosition)
             {
-                boxCollider2D.enabled = false;
                 
-                var hit = Physics2D.Linecast(transform.position, position, noFireLayer);
-                
-                boxCollider2D.enabled = true;
+                var hit = Physics2D.Linecast(centralPosition, position, noFireLayer);
                 //луч ни с чем не пересёкся
                 if (hit.collider == null)
                 {
@@ -36,7 +51,7 @@ namespace Enemies
                     fireAttack.FireDamage(fire);
                 }
             }
-            base.Died();
+            if (collider2D != null) collider2D.enabled = true;
         }
 
         public void ColdAttack()

@@ -15,22 +15,14 @@ public interface IClickToAvailablePosition
 
 public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
 {
-    public Transform playerMapObject;
-    public LayerMask enemyLayer;
-    public DeathMesssageUI deathMesssage;
-    public GameObject moveToPlace;
-    public Animator[] canvasShieldAnimators;
-    public GameObject slowSlime;
+    public ConsumablesControllerUI shieldsControllerUI;
     
-    internal int shieldsCount;
-
+    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private DeathMesssageUI deathMesssage;
+    [SerializeField] private GameObject moveToPlace;
+    [SerializeField] private GameObject slowSlime;
+    
     internal List<GameObject> moveToPlaces;
-
-    protected override void Start()
-    {
-        base.Start();
-        shieldsCount = canvasShieldAnimators.Length;
-    }
 
     public void Stuck()
     {
@@ -55,6 +47,11 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
         GameManager.player = this;
         moveToPlaces = new List<GameObject>();
         gameObject.SetActive(false);
+        GameplayEventManager.OnNextRoom.AddListener(() =>
+        {
+            DeleteAllMoveToPlaces();
+            Active();
+        });
     }
 
     public override void Active()
@@ -105,7 +102,7 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
     {
         DeleteAllMoveToPlaces();
         var x = @where.x - transform.position.x;
-        if(x + 2 == 0 && !turnedRight || x - 2 == 0 && turnedRight)
+        if(x <= -2 && !turnedRight || x >= 2 && turnedRight)
         {
             Flip();
         }
@@ -126,9 +123,8 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
     public void LossOfShieldEvent()
     {
         StartAnimation("PlayerProtection");
-        shieldsCount--;
-        canvasShieldAnimators[shieldsCount].Play("LossOfShield");
-        if (shieldsCount == 0)
+        shieldsControllerUI.ReduceConsumablesCount(); 
+        if (shieldsControllerUI.RemainingShieldsCount == 0)
         {
             animator.SetBool("IdleWithoutShield", true);
         }
@@ -136,15 +132,11 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
 
     public void RestorationOfShields()
     {
-        shieldsCount = canvasShieldAnimators.Length;
-        foreach (var canvasShieldAnimator in canvasShieldAnimators)
-        {
-            canvasShieldAnimator.Play("CanvasShieldIdle");
-        }
+        shieldsControllerUI.ResetConsumables();
         animator.SetBool("IdleWithoutShield", false);
     }
 
-    private void DeleteAllMoveToPlaces()
+    public void DeleteAllMoveToPlaces()
     {
         foreach(var i in moveToPlaces)
         {

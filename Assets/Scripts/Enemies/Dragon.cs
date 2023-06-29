@@ -64,7 +64,7 @@ namespace Enemies
                     {
                         if (_waitTime == 2)
                         {
-                            StartCoroutine(Fall(GameManager.instance.lastNextExitPosition));
+                            StartCoroutine(Fall(GameManager.instance.lastExit.GetNextPositionPlayer()));
                         }
                         _waitTime++;
                     }

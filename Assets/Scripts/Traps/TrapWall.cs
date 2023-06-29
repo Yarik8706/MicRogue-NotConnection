@@ -1,10 +1,10 @@
 using System.Collections;
+using Enemies;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 namespace Traps
 {
-
     public interface ICompressionAttack
     {
         public void CompressionDamage();
@@ -20,8 +20,9 @@ namespace Traps
         private ShadowCaster2D _shadowCaster2D;
         private SpriteRenderer _spriteRenderer;
 
-        protected void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _shadowCaster2D = GetComponent<ShadowCaster2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _animations1 = (string[]) stagesAttack.Clone();
@@ -35,6 +36,11 @@ namespace Traps
 
         protected override IEnumerator Attack()
         {
+            if (attackObjects.Count != 0 && attackObjects[0].GetComponent<Dragon>() is {})
+            {
+                SetFloorState();
+                yield break;
+            }
             animator.SetTrigger(attack);
             if (attackObjects.Count != 0)
             {
@@ -45,7 +51,7 @@ namespace Traps
                else if (attackObjects[0].GetComponent<TheEssence>() is {} essence)
                {
                    essence.Died(this);
-               } 
+               }
             }
             yield return base.Attack();
             _shadowCaster2D.enabled = true;
@@ -66,7 +72,14 @@ namespace Traps
             gameObject.layer = 0;
             _spriteRenderer.sortingLayerName = "Default";
             stagesAttack = (string[]) _animations1.Clone();
-            StartCoroutine(EndAnimation());
+        }
+
+        private void SetBlockState()
+        {
+            _spriteRenderer.sortingLayerName = "Decoration";
+            gameObject.layer = 6;
+            isSecondPhase = true;
+            stagesAttack = (string[]) animations2.Clone();
         }
 
         public override void SetStageAttack(int i)
@@ -76,14 +89,12 @@ namespace Traps
                 if (isSecondPhase)
                 {
                     SetFloorState();
+                    StartCoroutine(EndAnimation());
                 }
                 else
                 {
+                    SetBlockState();
                     StartCoroutine(Attack());
-                    _spriteRenderer.sortingLayerName = "Decoration";
-                    gameObject.layer = 6;
-                    isSecondPhase = true;
-                    stagesAttack = (string[]) animations2.Clone();
                 }
             }
             else {

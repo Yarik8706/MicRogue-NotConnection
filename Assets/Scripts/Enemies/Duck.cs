@@ -42,6 +42,11 @@ namespace Enemies
                 boxCollider2D.enabled = true;
                 if (hit.collider == null)
                 {
+                    if(playerPosition.x - transform.position.x > 0 && !turnedRight 
+                       || playerPosition.x - transform.position.x < 0 && turnedRight)
+                    {
+                        Flip();
+                    }
                     StartCoroutine(AttackPlayer(playerPosition));
                     return;
                 }
@@ -84,9 +89,11 @@ namespace Enemies
             yield return new WaitUntil(() => _isEndAttack);
             var player = GameManager.player;
             player.isActive = false;
-            player.StartAnimation(player.shieldsCount != 0 ? "PlayerDiedFromDuck" : "PlayerDiedFromDuckWithoutShield");
+            player.StartAnimation(player.shieldsControllerUI.RemainingShieldsCount != 0 
+                ? "PlayerDiedFromDuck" : "PlayerDiedFromDuckWithoutShield");
             yield return new WaitForSeconds(1f);
-            Instantiate(player.shieldsCount == 0 ? stoneStatue : stoneStatueWithShield, 
+            Instantiate(player.shieldsControllerUI.RemainingShieldsCount == 0 
+                    ? stoneStatue : stoneStatueWithShield, 
                             player.transform.position, Quaternion.identity);
             player.Died(causeOfDied[Random.Range(0, causeOfDied.Length)]);
             TurnOver();

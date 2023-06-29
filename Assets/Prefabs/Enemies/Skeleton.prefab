@@ -161,6 +161,7 @@ MonoBehaviour:
   diedAnimationName: 
   baseAnimationsObj: {fileID: 3300952338237392216, guid: 018603827ee34a647adfe39a70b1ffe1, type: 3}
   afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
+  enemyAbility: {fileID: 11400000, guid: 2a6653d86625fea4b89b50cce570ef9a, type: 2}
   enemyType: 0
   enemyCount: 1
   causeOfDied:

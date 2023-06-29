@@ -119,15 +119,24 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 		isMove = false;
     }
     
+    protected static Vector2[] VariantsPositionsNow(Vector2 centerPosition, Vector2[] positions)
+    {
+	    var newVariantsPositions = new Vector2[positions.Length];
+	    for (int i = 0; i < positions.Length; i++)
+	    {
+		    newVariantsPositions[i] = positions[i] + centerPosition;
+	    }
+        return newVariantsPositions;
+    }
+    
     protected Vector2[] VariantsPositionsNow(Vector2[] positions)
     {
 	    var newVariantsPositions = new Vector2[positions.Length];
-	    var position = transform.position;
-        for(int i = 0; i < positions.Length; i++)
-        {
-	        newVariantsPositions[i] = new Vector2(position.x + positions[i].x, position.y + positions[i].y);
-        }
-        return newVariantsPositions;
+	    for(int i = 0; i < positions.Length; i++)
+	    {
+		    newVariantsPositions[i] = positions[i] + (Vector2)transform.position;
+	    }
+	    return newVariantsPositions;
     }
 
     protected void StartAnimationTrigger(AnimationType animationType)

@@ -183,6 +183,7 @@ MonoBehaviour:
   diedAnimationName: 
   baseAnimationsObj: {fileID: 3300952338237392216, guid: 018603827ee34a647adfe39a70b1ffe1, type: 3}
   afterDied: {fileID: 934897519596682640, guid: 81d4bd92e4b8e25418a69113e72721f7, type: 3}
+  enemyAbility: {fileID: 11400000, guid: 3d678c78a417a59429a8e16bb168b106, type: 2}
   enemyType: 1
   enemyCount: 2
   causeOfDied:
@@ -306,7 +307,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 000000001b2cdd5c1bbc1f2093f7fec5630f8d76
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
+  m_LightOrder: 15
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 1
   m_NormalMapDistance: 4.44

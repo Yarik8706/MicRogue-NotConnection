@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Enemies;
+using JetBrains.Annotations;
 using MainScripts;
 using RoomObjects;
 using Unity.Mathematics;
@@ -37,8 +38,9 @@ namespace RoomControllers
         // [SerializeField] private int lightsCount;
         [SerializeField] private GameObject[] enemies;
         [Header("Exit Positions: Right, Left, Down, Up")]
-        [SerializeField] private Transform[] exitPositions;
-        
+        [SerializeField] private Transform[] leftExitPositions;
+        [SerializeField] private Transform[] rightExitPositions;
+
         public GameObject[] enemySpawns;
         public RoomType roomType;
         public Transform startPosition;
@@ -47,44 +49,55 @@ namespace RoomControllers
         internal RoomIndex roomIndex;
         
         private GameObject _gameObjects;
-        // private List<GameObject> _activeLights;
 
         private void Awake()
         {
             _gameObjects = transform.GetChild(0).gameObject;
         }
 
-        public void SpawnExits(Exit[] newExits)
-        {
-            if(exitPositions.Length == 0) return;
-            for (int i = 0; i < newExits.Length; i++)
-            {
-                if(newExits[i] == null) continue;
-                var exit = Instantiate(newExits[i], transform);
-                exit.transform.position = exitPositions[i].transform.position;
-                exits.Add(exit);
-            }
-        }
+        // public void SpawnExits(ExitLocation[] exitLocations, Exit exit)
+        // {
+        //     if(exitPositions.Length == 0) return;
+        //     for (int i = 0; i < exitLocations.Length; i++)
+        //     {
+        //         var newExit = Instantiate(exit, transform);
+        //         newExit.transform.position = exitPositions[i].position;
+        //         newExit.SetDirectionAndSpriteByDirection(exitLocations[i]);
+        //         exits.Add(newExit);
+        //     }
+        // }
 
-        public void SpawnTwoExits(Exit[] newExits)
+        public void SpawnTwoExits(ExitLocation leftExitLocation, ExitLocation rightExitLocation, Exit exit)
         {
-            Vector3 firstExitPosition = Vector3.zero;
-            foreach (var newExit in newExits)
+            Transform leftExitTransform;
+            Transform rightExitTransform;   
+            
+            if (leftExitPositions.Length == 1)
             {
-                if(newExit == null) continue;
-                var exit = Instantiate(newExit, transform);
-                if (firstExitPosition != Vector3.zero)
-                {
-                    if (Vector2.Distance(firstExitPosition, exitPositions[2].position)
-                        > Vector2.Distance(firstExitPosition, exitPositions[3].position))
-                        exit.transform.position = exitPositions[3].position;
-                    else
-                        exit.transform.position = exitPositions[2].position;
-                } 
-                else exit.transform.position = exitPositions[Random.Range(0, 2)].transform.position;
-                firstExitPosition = exit.transform.position;
-                exits.Add(exit);
+                leftExitTransform = leftExitPositions[0];
+                rightExitTransform = rightExitPositions[0];
             }
+            else
+            {   
+                leftExitTransform = leftExitPositions[Random.Range(0, leftExitPositions.Length)];
+                var leftExitToRightDistances = new List<float>();
+                foreach (var rightExitPosition in rightExitPositions)
+                {
+                    leftExitToRightDistances.Add(Vector2.Distance(rightExitPosition.position, 
+                        leftExitTransform.position));
+                }
+                rightExitTransform = rightExitPositions[
+                    leftExitToRightDistances.IndexOf(leftExitToRightDistances.Max())];
+            }
+
+            var leftExit = Instantiate(exit, transform);
+            var rightExit = Instantiate(exit, transform);
+            leftExit.transform.position = leftExitTransform.position;
+            rightExit.transform.position = rightExitTransform.position; 
+            leftExit.SetDirectionAndSpriteByDirection(leftExitLocation);
+            rightExit.SetDirectionAndSpriteByDirection(rightExitLocation);
+            exits.Add(leftExit);
+            exits.Add(rightExit);
         }
 
         public void Initial()
@@ -96,29 +109,6 @@ namespace RoomControllers
                 GameManager.instance.spawnShildCount--;
                 Instantiate(GameManager.instance.updateShieldObj, shildSpawnPosition.position, Quaternion.identity);
             }
-            // if(_activeLights.Count != 0)
-            // {
-            //     while (_activeLights.Count != 0)
-            //     {    
-            //         var activeLight = _activeLights[0];
-            //         _activeLights.Remove(activeLight);
-            //         Destroy(activeLight);
-            //     }
-            // }
-            // if (lightsCount == 0) return;
-            // var randomSpawnPositions = new List<Transform>{Capacity = lightsCount};
-            // for (int i = 0; i < lightsCount; i++)
-            // {
-            //     var lightPosition = lightSpawns[Random.Range(0, lightSpawns.Length)];
-            //     if (randomSpawnPositions.Contains(lightPosition))
-            //     {
-            //         i--;
-            //         continue;
-            //     }
-            //     randomSpawnPositions.Add(lightPosition);
-            //     _activeLights.Add(
-            //         Instantiate(GameController.instance.roomLight, lightPosition, true));
-            // }
         }
 
         public bool CheckCorrectRoom(RoomType roomType)

@@ -242,5 +242,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3d02d50d194780b7953be2833176e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionLight: {fileID: 8604725798201571461}
   explosionLightIntensity: 2
+  lightInStart: 1

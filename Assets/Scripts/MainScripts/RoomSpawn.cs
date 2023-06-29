@@ -13,36 +13,16 @@ namespace MainScripts
         internal RoomIndex roomIndex;
         internal RoomType roomType;
         internal SpawnLevelController spawnLevelController;
-        [SerializeField] private Exit upExit;
-        [SerializeField] private Exit rightExit;
-        [SerializeField] private Exit downExit;
-        [SerializeField] private Exit leftExit;
+        [SerializeField] private Exit exit;
     
         public RoomController Initial()
         {
-            var exits = new Exit[4];
-            var exitsCount = 0;
-            if (HasNearRoom(ExitLocation.Right, roomIndex))
-            {
-                exitsCount++;
-                exits[0] = rightExit;
-            }
-            if (HasNearRoom(ExitLocation.Left, roomIndex))
-            {
-                exitsCount++;
-                exits[1] = leftExit;
-            }
-            if (HasNearRoom(ExitLocation.Down, roomIndex))
-            {
-                exitsCount++;
-                exits[2] = downExit;
-            }
-
-            if (HasNearRoom(ExitLocation.Up, roomIndex))
-            {
-                exitsCount++;
-                exits[3] = upExit;
-            }
+            var exitsDirection = new List<ExitLocation>();
+            
+            if (HasNearRoom(ExitLocation.Left, roomIndex)) exitsDirection.Add(ExitLocation.Left);
+            if (HasNearRoom(ExitLocation.Down, roomIndex)) exitsDirection.Add(ExitLocation.Down);
+            if (HasNearRoom(ExitLocation.Up, roomIndex)) exitsDirection.Add(ExitLocation.Up);
+            if (HasNearRoom(ExitLocation.Right, roomIndex)) exitsDirection.Add(ExitLocation.Right);
 
             var rightRooms = spawnLevelController.rooms
                 .Where(room => room.GetComponent<RoomController>()
@@ -53,9 +33,11 @@ namespace MainScripts
                 .GetComponent<RoomController>();
             newRoom.roomIndex = roomIndex; 
             SpawnLevelController.levelRooms[roomIndex.y][roomIndex.x] = newRoom.gameObject;
-            if (exitsCount == 2)
-                newRoom.SpawnTwoExits(exits);
-            else newRoom.SpawnExits(exits);
+            if (exitsDirection.Count == 2)
+            {
+                newRoom.SpawnTwoExits(exitsDirection[0], 
+                    exitsDirection[1], exit);
+            }
             return newRoom;
         }
 

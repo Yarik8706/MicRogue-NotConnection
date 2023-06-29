@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,27 +5,22 @@ using MainScripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-
-public struct MyStr
-{
-    public string name;
-    public int age;
-}
-
 namespace Enemies
 {
     public abstract class TheEnemy : TheEssence, ICauseOfDied
     {
         [Header("Enemy Components")]
         public GameObject afterDied;
-        
+        public CustomAbility enemyAbility;
+
         [Header("Enemy Setting")]
         public int enemyType;
         public int enemyCount = 1;
-        public string[] causeOfDied; // появляется в сообщении о смерти
+        public string[] causeOfDied;
         
         protected BaseAnimations baseAnimations;
         internal SpriteRenderer spriteRenderer;
+        
         private float attackLong = 0.6f;
         
         protected override void Start()
@@ -99,60 +93,41 @@ namespace Enemies
             StartCoroutine(nextPosition == playerPosition ? AttackPlayer(nextPosition) : Move(nextPosition));
         }
 
+        protected virtual bool CheckPlayersShields(Vector2 playerPosition)
+        {
+            var hit = Physics2D.Linecast(transform.position, playerPosition, GameController.instance.shieldLayer);
+            boxCollider2D.enabled = true;
+            return hit.collider != null && GameManager.player
+                .shieldsControllerUI.RemainingShieldsCount != 0;
+        }
+
         protected virtual IEnumerator AttackPlayer(Vector2 playerPosition)
         {
             boxCollider2D.enabled = false;
-            var position = transform.position;
-            var hit = Physics2D.Linecast(position, playerPosition, GameController.instance.shieldLayer);
-            boxCollider2D.enabled = true;
-            if (hit.collider == null || GameManager.player.shieldsCount == 0)
+            var enemyPosition = transform.position;
+            if (!CheckPlayersShields(playerPosition))
             {
                 StartCoroutine(Move(playerPosition));
                 yield break;
-            }
-            if (hit.collider.gameObject.layer != 7)
+            } 
+            var attackVector = ((Vector2)transform.position - playerPosition).normalized;
+            var attackPosition = playerPosition + attackVector * attackLong;
+            Vector2 endPosition;
+
+            if (((Vector2)transform.position - playerPosition).sqrMagnitude <= 2f)
             {
-                yield break;
-            }
-            Vector2 attackPosition;
-            Vector2 nextPosition;
-            if ((new Vector2(position.x, position.y) - playerPosition).sqrMagnitude <= 2f)
-            {
-                nextPosition = position;
-                attackPosition = new Vector2((playerPosition.x + position.x)/2, 
-                    (playerPosition.y + position.y) * 0.5f);
+                endPosition = enemyPosition;
             }
             else
             {
-                nextPosition = new Vector2((playerPosition.x + position.x) / 2, 
-                    (playerPosition.y + position.y) / 2);
-                if (Math.Abs(playerPosition.y - position.y) > 0)
-                {
-                    attackPosition = new Vector2(playerPosition.x, 
-                        (playerPosition.y + position.y) * attackLong);
-                }
-                else
-                {
-                    if (((playerPosition.x < position.x && 0 < position.x)
-                         || (playerPosition.x > position.x && playerPosition.x < 0))
-                        && playerPosition.x + position.x != 0)
-                    {
-                        attackPosition = new Vector2((playerPosition.x + position.x) * (1 - attackLong),
-                            playerPosition.y);
-                    }
-                    else
-                        attackPosition = playerPosition.x switch
-                        {
-                            < 0 when position.x > 0 => new Vector2(-attackLong, playerPosition.y),
-                            > 0 when position.x < 0 => new Vector2(attackLong, playerPosition.y),
-                            _ => new Vector2((playerPosition.x + position.x) * attackLong, playerPosition.y)
-                        };
-                }
+                endPosition = new Vector2((playerPosition.x + enemyPosition.x) / 2, 
+                    (playerPosition.y + enemyPosition.y) / 2);
             }
+            
             StartCoroutine(SmoothMovement(attackPosition));
             yield return new WaitUntil(() => !isMove);
             GameManager.player.LossOfShieldEvent();
-            StartCoroutine(SmoothMovement(nextPosition));
+            StartCoroutine(SmoothMovement(endPosition));
             yield return new WaitUntil(() => !isMove);
             yield return new WaitForSeconds(0.5f);
             TurnOver();

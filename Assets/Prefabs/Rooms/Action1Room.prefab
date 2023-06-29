@@ -659,11 +659,10 @@ MonoBehaviour:
   - {fileID: 5105576321502626235, guid: d9bf2bcc387e12544b8c4f5a66880c78, type: 3}
   - {fileID: 3382286905817429791, guid: 08cdd866fe19d374f84b982b12eb124e, type: 3}
   - {fileID: 4958649672001241626, guid: 265728858d322bf469fe02346a92e348, type: 3}
-  exitPositions:
-  - {fileID: 5787663363088264587}
+  leftExitPositions:
   - {fileID: 853649543280671106}
+  rightExitPositions:
   - {fileID: 5787663363088264587}
-  - {fileID: 853649543280671106}
   enemySpawns: []
   roomType: 5
   startPosition: {fileID: 0}
@@ -1267,7 +1266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5327389900163236634, guid: 94b1f868b7f49f14d91f4e49262b1f47, type: 3}
       propertyPath: m_InstanceId
-      value: -2235574
+      value: -107180
       objectReference: {fileID: 0}
     - target: {fileID: 5327389900163236634, guid: 94b1f868b7f49f14d91f4e49262b1f47, type: 3}
       propertyPath: m_HasRenderer
@@ -2068,7 +2067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5327389900163236634, guid: 94b1f868b7f49f14d91f4e49262b1f47, type: 3}
       propertyPath: m_InstanceId
-      value: -2235662
+      value: -107268
       objectReference: {fileID: 0}
     - target: {fileID: 5327389900163236634, guid: 94b1f868b7f49f14d91f4e49262b1f47, type: 3}
       propertyPath: m_HasRenderer
@@ -4549,7 +4548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5327389900163236634, guid: 94b1f868b7f49f14d91f4e49262b1f47, type: 3}
       propertyPath: m_InstanceId
-      value: -2235940
+      value: -107546
       objectReference: {fileID: 0}
     - target: {fileID: 5327389900163236634, guid: 94b1f868b7f49f14d91f4e49262b1f47, type: 3}
       propertyPath: m_HasRenderer
@@ -10558,7 +10557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5327389900163236634, guid: 94b1f868b7f49f14d91f4e49262b1f47, type: 3}
       propertyPath: m_InstanceId
-      value: -2236770
+      value: -108376
       objectReference: {fileID: 0}
     - target: {fileID: 5327389900163236634, guid: 94b1f868b7f49f14d91f4e49262b1f47, type: 3}
       propertyPath: m_HasRenderer

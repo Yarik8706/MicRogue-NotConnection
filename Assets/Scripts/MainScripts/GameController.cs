@@ -15,7 +15,6 @@ namespace MainScripts
         public GameObject roomLight;
         
         [HideInInspector]public GameObject[] allEnemies;
-        [HideInInspector]public GameObject[] allEssence;
         [HideInInspector]public bool enemiesActive;
         [HideInInspector]public float enemyMovementSpeed;
         [HideInInspector]public float enemyAnimationSpeed;
