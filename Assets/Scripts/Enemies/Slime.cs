@@ -1,23 +1,25 @@
 using System.Collections;
 using MainScripts;
+using RoomObjects;
 using UnityEngine;
 
 namespace Enemies
 {
     public interface IStuckInSlime
     {
-        public void Stuck();
+        public void Stuck(SlimeTrap slimeTrap);
     }
     
     public class Slime : TheEnemy
     {
-        public GameObject slimeRoad;
+        [SerializeField] private GameObject slimeRoad;
+        [SerializeField] private SlimeTrap slimeTrap;
 
         public override void Died(MonoBehaviour killer)
         {
             if (killer.GetComponent<IStuckInSlime>() is {} stuck)
             {
-                stuck.Stuck();
+                stuck.Stuck(slimeTrap);
             }
             base.Died();
         }

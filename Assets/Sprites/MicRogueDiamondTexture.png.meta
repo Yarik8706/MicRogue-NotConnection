@@ -7718,7 +7718,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7726,6 +7726,27 @@ TextureImporter:
       bones: []
       spriteID: 6d854ded9f0890440bd69abdb9f866fa
       internalID: 328056660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlimeAbility
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 848
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0c9b79bc16ee74081f6216c66d85d7
+      internalID: 1759015
       vertices: []
       indices: 
       edges: []
@@ -7850,6 +7871,7 @@ TextureImporter:
       OrgeIdle0: -1066397262
       FlyingEyeRay2: -6404368768002200884
       TheEssenceDied4: 2008919301
+      SlimeAbility: 1759015
       LeftMapRoom: -1983171019
       DuckRayClose: 1357129885
       gameRulesPicture5: -1185954111

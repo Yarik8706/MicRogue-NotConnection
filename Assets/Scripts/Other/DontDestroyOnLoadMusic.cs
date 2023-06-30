@@ -1,15 +1,18 @@
 using System.Linq;
 using UnityEngine;
 
-public class DontDestroyOnLoadMusic : MonoBehaviour
+namespace Other
 {
-    private void Awake()
+    public class DontDestroyOnLoadMusic : MonoBehaviour
     {
-        DontDestroyOnLoad(gameObject);
-        if (FindObjectsOfType<AudioSource>()
-            .Any(audioSource => audioSource.gameObject.name == gameObject.name && audioSource.gameObject != gameObject))
+        private void Awake()
         {
-            Destroy(gameObject);
+            DontDestroyOnLoad(gameObject);
+            if (FindObjectsOfType<AudioSource>()
+                .Any(audioSource => audioSource.gameObject.name == gameObject.name && audioSource.gameObject != gameObject))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -185,10 +185,13 @@ MonoBehaviour:
   diedAnimationName: 
   baseAnimationsObj: {fileID: 3300952338237392216, guid: 018603827ee34a647adfe39a70b1ffe1, type: 3}
   afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
+  enemyAbility: {fileID: 11400000, guid: 81012a9469e768647931237abdefcd9a, type: 2}
   enemyType: 3
   enemyCount: 3
   causeOfDied:
   - so ice of you to drop in!
+  freezingController: {fileID: 2461071285143046197, guid: ed1074c08b4c0ef4986b750dfd8dad23, type: 3}
+  freezingEffect: {fileID: 4849770243603497638, guid: a6b1eeda148b3b84eb73d1b54d0c2eff, type: 3}
 --- !u!114 &-6461358415291866552
 MonoBehaviour:
   m_ObjectHideFlags: 0

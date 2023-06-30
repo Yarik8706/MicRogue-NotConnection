@@ -1,13 +1,16 @@
 using System;
 using System.Collections;
-using System.Linq;
-using Canvas;
 using RoomControllers;
 using RoomObjects;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using Random = UnityEngine.Random;
+
+public enum TheEssenceEffect
+{
+    None,
+    Freezing
+}
 
 namespace MainScripts
 {
@@ -20,6 +23,7 @@ namespace MainScripts
         public static Player player;
         public static GameManager instance;
         public static CameraShake cameraShake;
+        public static int numberOfMoves;
         
         private GameController _gameController;
         private RoomController _activeRoomController;
@@ -35,6 +39,7 @@ namespace MainScripts
         private ShadowsMidtonesHighlights _shadowsMidtonesHighlights;
 
         [Header("Components")] 
+        public GameObject coldBlackout;
         public Volume cameraVolume;
         public ParticleSystem pixelEffect;
         public ScreenFader screenFader;
@@ -173,6 +178,8 @@ namespace MainScripts
             yield return new WaitForSeconds(0.3f);
             //активируем врагов и ловушки
             yield return _gameController.Active();
+            numberOfMoves++;
+            StartCoroutine(TurnStarted());
         }
 
         public IEnumerator NextRoom(ExitLocation direction)
@@ -211,7 +218,7 @@ namespace MainScripts
                 if (exit.exitLocation != directionOfAppearance) continue;
                 player.transform.position = exit.GetNextPositionPlayer();
                 lastExit = exit;
-                Destroy(exit.gameObject);
+                exit.isActive = false;
             }
 
             _cameraTransform.position = new Vector3(_activeRoomController.transform.position.x,
@@ -260,6 +267,18 @@ namespace MainScripts
                         break;
                 }
             }
+        }
+
+        public void ActivateColdBlackout()
+        {
+            StartCoroutine(ActivateColdBlackoutCoroutine());
+        }
+
+        private IEnumerator ActivateColdBlackoutCoroutine()
+        {
+            coldBlackout.SetActive(true);
+            yield return new WaitForSeconds(0.7f);
+            coldBlackout.SetActive(false);
         }
     }
 }

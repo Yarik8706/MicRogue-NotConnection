@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e3d23e97f44024b5a6bed60f02d191, type: 3}
+  m_Name: FreezAbility
+  m_EditorClassIdentifier: 
+  isActiveAbility: 1
+  buttonIcon: {fileID: 1759015, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
+  freezingEffect: {fileID: 4849770243603497638, guid: a6b1eeda148b3b84eb73d1b54d0c2eff, type: 3}
+  freezingController: {fileID: 2461071285143046197, guid: ed1074c08b4c0ef4986b750dfd8dad23, type: 3}

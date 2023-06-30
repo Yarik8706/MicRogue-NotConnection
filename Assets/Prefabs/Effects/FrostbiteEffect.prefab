@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5632003361496853593
+--- !u!1 &7549359849802487744
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5632003361496853598}
-  - component: {fileID: 5632003361496853599}
-  - component: {fileID: 5632003361496853592}
-  - component: {fileID: 5501725867709550099}
+  - component: {fileID: 7549359849802487757}
+  - component: {fileID: 7549359849802487758}
+  - component: {fileID: 7549359849802487759}
+  - component: {fileID: 2461071285143046197}
+  - component: {fileID: 4854162345038110298}
   m_Layer: 0
-  m_Name: SlimeOnPlayer
+  m_Name: FrostbiteEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5632003361496853598
+--- !u!4 &7549359849802487757
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5632003361496853593}
+  m_GameObject: {fileID: 7549359849802487744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,13 +35,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5632003361496853599
+--- !u!212 &7549359849802487758
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5632003361496853593}
+  m_GameObject: {fileID: 7549359849802487744}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,10 +73,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -973146221
-  m_SortingLayer: 3
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1771516594, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
+  m_Sprite: {fileID: -469181120, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,17 +87,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5632003361496853592
+--- !u!95 &7549359849802487759
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5632003361496853593}
+  m_GameObject: {fileID: 7549359849802487744}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6ef587b580cbf5f4486f73e6176314ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: eb4d2083a84f04d4fad95633092bba66, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -106,17 +107,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5501725867709550099
+--- !u!114 &2461071285143046197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5632003361496853593}
+  m_GameObject: {fileID: 7549359849802487744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe6faf905b4d50d4fb97c00574ec770a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b9b45002a054089a5b5928b6eebb2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDied: 0
-  animator: {fileID: 0}
+  freezingColor: {r: 0, g: 0.3881879, b: 1, a: 0.65882355}
+  freezingWaitCount: 3
+--- !u!114 &4854162345038110298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7549359849802487744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb54dbd8a95e426082ba41ed31820a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diedObject: {fileID: 7549359849802487744}

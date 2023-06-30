@@ -21,6 +21,7 @@ namespace RoomObjects
         [SerializeField] private Sprite leftSprite;
 
         private SpriteRenderer _spriteRenderer;
+        internal bool isActive = true;
 
         private void Awake()
         {
@@ -29,6 +30,7 @@ namespace RoomObjects
 
         private IEnumerator OnTriggerEnter2D(Collider2D other)
         {
+            if (!isActive) yield break;
             if (other.GetComponent<Player>() is not {} player) yield break;
             yield return new WaitUntil(() => GameController.instance.enemiesActive);
             yield return new WaitUntil(() => !GameController.instance.enemiesActive);
@@ -42,7 +44,7 @@ namespace RoomObjects
         public void SetDirectionAndSpriteByDirection(ExitLocation direction)
         {
             exitLocation = direction;
-            _spriteRenderer.sprite = direction == ExitLocation.Right ? leftSprite : rightSprite;
+            _spriteRenderer.sprite = direction == ExitLocation.Right ? rightSprite : leftSprite;
         }
 
         public Vector3 GetNextPositionPlayer()

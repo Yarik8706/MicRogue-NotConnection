@@ -22,7 +22,6 @@ namespace Abilities
             positions.CopyTo(newPositions, GameManager.player.variantsPositions.Length);
             GameManager.player.variantsPositions = newPositions;
             GameManager.player.DeleteAllMoveToPlaces();
-            GameManager.player.Active();
         }
 
         public override void DeleteAbility()

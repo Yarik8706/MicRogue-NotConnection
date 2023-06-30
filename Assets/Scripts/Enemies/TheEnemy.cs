@@ -19,19 +19,23 @@ namespace Enemies
         public string[] causeOfDied;
         
         protected BaseAnimations baseAnimations;
-        internal SpriteRenderer spriteRenderer;
         
         private float attackLong = 0.6f;
         
         protected override void Start()
         {
             base.Start();
-            spriteRenderer = GetComponent<SpriteRenderer>();
             GameplayEventManager.OnNextRoom.AddListener(NextRoomEvent);
+            GameplayEventManager.OnGetAllEnemies.AddListener(AddYourselfToEnemyList);
             SetAnimationMoveSpeed(
                 GameController.instance.enemyAnimationSpeed, 
                 GameController.instance.enemyMovementSpeed
                 );
+        }
+
+        private void AddYourselfToEnemyList()
+        {
+            GameController.instance.allEnemies.Add(this);
         }
 
         public override void Active()

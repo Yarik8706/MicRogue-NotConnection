@@ -4,6 +4,7 @@ using System.Linq;
 using Canvas;
 using Enemies;
 using MainScripts;
+using RoomObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -20,26 +21,8 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private DeathMesssageUI deathMesssage;
     [SerializeField] private GameObject moveToPlace;
-    [SerializeField] private GameObject slowSlime;
     
     internal List<GameObject> moveToPlaces;
-
-    public void Stuck()
-    {
-        StartCoroutine(StuckWhile());
-    }
-
-    private IEnumerator StuckWhile()
-    { 
-        var baseVariantsPositions = variantsPositions;
-        var newVariantsPositions = baseVariantsPositions.Where(
-            variantPosition => Vector2.Distance(variantPosition, new Vector2(0, 0)) < 2).ToArray();
-        variantsPositions = newVariantsPositions;
-        var slimeCannon = Instantiate(slowSlime, transform).GetComponent<Animator>();
-        yield return new WaitUntil(() => isMove);
-        slimeCannon.SetTrigger("Explosion");
-        variantsPositions = baseVariantsPositions;
-    }
 
     public override void Awake()
     {
@@ -165,5 +148,10 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
             deathMesssage.ShowMessage(killerMessage.GetDeathText());
         }
         base.Died();
+    }
+    
+    public void Stuck(SlimeTrap slimeTrap)
+    {
+        Instantiate(slimeTrap, transform).Initializate(this);
     }
 }

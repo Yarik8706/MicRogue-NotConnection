@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -42,8 +43,10 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
     private protected AnimationType moveAnimation;
     private protected float moveTime = .1f;
     private Rigidbody2D _rigidbody2d;
-    
+
+    internal SpriteRenderer spriteRenderer;
     internal Animator animator;
+    internal TheEssenceEffect essenceEffect = TheEssenceEffect.None;
     internal bool isTurnOver;
     internal bool isMove;
     internal bool isActive;
@@ -57,6 +60,7 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 	    diedAnimation = new AnimationType(diedAnimationName);
 	    turnedRight = !(transform.localScale.x > 0);
 	    inverseMoveTime = 1f / moveTime;
+	    spriteRenderer = GetComponent<SpriteRenderer>();
 	    animator = GetComponent<Animator>();
 	    boxCollider2D = GetComponent<BoxCollider2D>();
 	    _rigidbody2d = GetComponent<Rigidbody2D>();
@@ -115,7 +119,7 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 		    transform.position = newPosition;
 		    yield return null;
 	    }
-		// _rigidbody2d.MovePosition(end);
+		// // _rigidbody2d.MovePosition(end);
 		isMove = false;
     }
     

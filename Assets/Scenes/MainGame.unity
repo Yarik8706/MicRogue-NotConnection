@@ -734,7 +734,6 @@ MonoBehaviour:
     m_Bits: 256
   deathMesssage: {fileID: 428914239}
   moveToPlace: {fileID: 1033843085331643013, guid: 53d958142e89bb5468ee5f2b0679a20a, type: 3}
-  slowSlime: {fileID: 5632003361496853593, guid: c8ff3a84292c6174ea8016cfdb4d360c, type: 3}
 --- !u!61 &213909562
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2101,7 +2100,7 @@ MonoBehaviour:
     m_Bits: 256
   abilityButtonIcon: {fileID: 333065360}
   customAbilityController: {fileID: 428914241}
-  useRangeAbilitySteal: 4
+  useRangeAbilitySteal: 3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2151,10 +2150,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.045833334
-    y: 0.1
-    width: 0.90833336
-    height: 0.8
+    x: 0.021283785
+    y: 0.0125
+    width: 0.95743245
+    height: 0.975
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2662,7 +2661,6 @@ GameObject:
   - component: {fileID: 833479955}
   - component: {fileID: 833479956}
   - component: {fileID: 833479957}
-  - component: {fileID: 833479958}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -2682,6 +2680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e25ddd45aaa06743b1757c2236cff02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coldBlackout: {fileID: 707713670}
   cameraVolume: {fileID: 1262414318}
   pixelEffect: {fileID: 847205118}
   screenFader: {fileID: 833479956}
@@ -2719,12 +2718,6 @@ MonoBehaviour:
   shieldLayer:
     serializedVersion: 2
     m_Bits: 128
-  roomLight: {fileID: 6480967085370650394, guid: 77b0fb0f92738d241a431edb7dd863c6, type: 3}
-  allEnemies: []
-  allEssence: []
-  enemiesActive: 0
-  enemyMovementSpeed: 0
-  enemyAnimationSpeed: 0
 --- !u!114 &833479956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2773,19 +2766,6 @@ MonoBehaviour:
   - {fileID: 8093407402482536513, guid: 341df0edd1da294429763e116731bcde, type: 3}
   roomSpawn: {fileID: 7505946388046699951, guid: c33793a8a04b0e349b83def9ed91dbf6, type: 3}
   mapObjectsContainer: {fileID: 0}
---- !u!114 &833479958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 833479952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54992a7796614f638d5a39c15d436d94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coldBlackount: {fileID: 707713670}
 --- !u!1 &847205116
 GameObject:
   m_ObjectHideFlags: 0
@@ -7710,7 +7690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.375, y: -34.773438}
+  m_AnchoredPosition: {x: -94.125, y: -88.27344}
   m_SizeDelta: {x: 68.75, y: 68.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &991190482
@@ -9244,7 +9224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1846394585
 RectTransform:
   m_ObjectHideFlags: 0

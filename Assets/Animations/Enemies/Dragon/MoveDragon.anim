@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MoveDragon
-  serializedVersion: 7
+  serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -21,15 +21,15 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 1110303757, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
+    - time: 0.05
+      value: {fileID: -1933942468, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
     - time: 0.1
-      value: {fileID: -1933942468, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
-    - time: 0.2
       value: {fileID: 468600767, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
-    - time: 0.31666666
+    - time: 0.15
       value: {fileID: 1110303757, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
-    - time: 0.41666666
+    - time: 0.2
       value: {fileID: -1933942468, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
-    - time: 0.5
+    - time: 0.25
       value: {fileID: 468600767, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
     attribute: m_Sprite
     path: 
@@ -49,7 +49,6 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
-      isIntCurve: 0
     pptrCurveMapping:
     - {fileID: 1110303757, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
     - {fileID: -1933942468, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
@@ -62,7 +61,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.26666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

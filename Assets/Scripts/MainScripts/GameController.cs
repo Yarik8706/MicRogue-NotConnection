@@ -12,12 +12,13 @@ namespace MainScripts
     {
         public CanvasInformationAboutObject canvasInformationAboutObject;
         public LayerMask shieldLayer;
-        public GameObject roomLight;
         
-        [HideInInspector]public GameObject[] allEnemies;
-        [HideInInspector]public bool enemiesActive;
-        [HideInInspector]public float enemyMovementSpeed;
-        [HideInInspector]public float enemyAnimationSpeed;
+        internal List<TheEnemy> allEnemies = new();
+        internal List<TheTrap> allTraps = new();
+        internal bool enemiesActive;
+        internal float enemyMovementSpeed;
+        internal float enemyAnimationSpeed;
+        
         public const string EnemyMovementSpeedKeyName = "EnemyMovementSpeed";
         public const string EnemyAnimationSpeedKeyName = "EnemyAnimationSpeed";
 
@@ -33,20 +34,25 @@ namespace MainScripts
         public IEnumerator Active()
         {
             enemiesActive = true;
-            //---------------- активируются ловушки----------------
-            foreach(var trap in GameObject.FindGameObjectsWithTag("Trap"))
+            ActivateTraps();
+            yield return new WaitForSeconds(1f);
+            GameplayEventManager.OnGetAllEnemies.Invoke();
+            yield return allEnemies != null ? ActivateEnemies() : GameManager.instance.TurnStarted();
+        }
+
+        private void ActivateTraps()
+        {
+            GameplayEventManager.OnGetAllTraps.Invoke();
+            foreach(var trap in allTraps)
             {
                 var component = trap.GetComponent<TheTrap>();
                 if (!component.isActive) continue;
                 component.SetStageAttack(1);
             }
-            yield return new WaitForSeconds(1f);
-            //--------------------------------------------------
-            allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-            StartCoroutine(allEnemies != null ? ActiveEnemies() : GameManager.instance.TurnStarted());
+            allTraps.Clear();
         }
 
-        private IEnumerator ActiveEnemies()
+        private IEnumerator ActivateEnemies()
         { // активирует кождого врага по очереди по их типу
             var allEnemiesType = new List<int>();
             allEnemiesType.AddRange(
@@ -64,8 +70,7 @@ namespace MainScripts
                     yield return ActiveCertainEnemies(i);
                 }
             }
-
-            StartCoroutine(GameManager.instance.TurnStarted());
+            allEnemies.Clear();
         }
 
         private IEnumerator ActiveCertainEnemies(int type)

@@ -121,14 +121,16 @@ namespace RoomControllers
             _gameObjects.SetActive(false);
         }
 
-        public  void SpawnEnemies()
+        public void SpawnEnemies()
         {
             if(enemies.Length == 0 || enemySpawns.Length == 0) return;
             var thisEnemySpawns = enemySpawns.ToList();
+            if (thisEnemySpawns.Count == 0) return;
+            var roomEnemies = enemies.ToList();
             for (var i = 0; i < enemiesCount;)
             {
-                var enemy = enemies[Random.Range(0, enemies.Length)];
-                if (thisEnemySpawns.Count == 0) return;
+                var enemy = roomEnemies[Random.Range(0, roomEnemies.Count)];
+                roomEnemies.Remove(enemy);
                 var enemySpawn = thisEnemySpawns[Random.Range(0, thisEnemySpawns.Count)];
                 Instantiate(enemy, enemySpawn.transform.position, Quaternion.identity);
                 thisEnemySpawns.Remove(enemySpawn);

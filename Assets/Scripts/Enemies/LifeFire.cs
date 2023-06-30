@@ -10,7 +10,7 @@ namespace Enemies
         public void FireDamage();
     }
     
-    public class LifeFire : TheEnemy, IColdAttack, IFireAttack
+    public class LifeFire : TheEnemy, IColdAttack, IFireAttack, IStuckInSlime
     {
         public LayerMask noFireLayer;
         public Vector2[] firePosition;
@@ -65,5 +65,9 @@ namespace Enemies
         }
         
         public void FireDamage() {}
+        public void Stuck(SlimeTrap slimeTrap)
+        {
+            Died();
+        }
     }
 }

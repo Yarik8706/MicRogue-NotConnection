@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using MainScripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -22,6 +24,21 @@ namespace Traps
             animator = GetComponent<Animator>();
             attackObjects = new List<GameObject>();
             SetStageAttack(0);
+        }
+
+        private void OnEnable()
+        {
+            GameplayEventManager.OnGetAllTraps.AddListener(AddYourselfToTrapsList);
+        }
+
+        private void OnDisable()
+        {
+            GameplayEventManager.OnGetAllTraps.RemoveListener(AddYourselfToTrapsList);
+        }
+
+        private void AddYourselfToTrapsList()
+        {
+            GameController.instance.allTraps.Add(this);
         }
 
         public virtual void SetStageAttack(int i)

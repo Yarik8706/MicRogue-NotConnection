@@ -15,6 +15,8 @@ namespace Enemies
 
         protected override void TurnOver()
         {
+            base.TurnOver();
+            if(essenceEffect == TheEssenceEffect.Freezing) return;
             if (variantsPositions == variantsPositions2)
             {
                 animator.Play("OrgeIdle1");
@@ -27,7 +29,6 @@ namespace Enemies
                 moveAnimation = new AnimationType("Run2", moveAnimation.speed);
                 variantsPositions = variantsPositions2;
             }
-            base.TurnOver();
         }
     }
 }

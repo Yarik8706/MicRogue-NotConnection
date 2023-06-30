@@ -63,6 +63,7 @@ namespace Canvas
             {
                 abilityButtonIcon.sprite = baseAbilityButtonSprite;
                 _isSteal = false;
+                _isActive = true;
                 GameManager.player.Active();
                 return;
             }
