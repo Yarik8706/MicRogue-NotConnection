@@ -8,11 +8,12 @@ namespace Enemies
 {
     public class FlyingEye : TheEnemy
     {
-        private bool _isCenterAttack;
-        private bool _isEndAttack;
+        [SerializeField] private GameObject ray;
+        [SerializeField] private GameObject rayNearEssence;
+        [SerializeField] private float centerAttackTime;
+        [SerializeField] private float endAttackTime;
+        
         private static readonly int TriggerAttack = Animator.StringToHash("Attack");
-        private static readonly int RayNearObject = Animator.StringToHash("rayNearObject");
-        private static readonly int FlyingEyeRay = Animator.StringToHash("flyingEyeRay");
 
         protected override Vector2 SelectMovePosition(Vector2 playerPosition, Vector2[] theVariantsPositions)
         {
@@ -65,47 +66,51 @@ namespace Enemies
         protected override IEnumerator AttackPlayer(Vector2 playerPosition)
         {
             animator.SetTrigger(TriggerAttack);
-            yield return new WaitUntil(() => _isCenterAttack);
-            var object1 = Instantiate(baseAnimationsObj, transform.position, Quaternion.identity);
-            var object2 = Instantiate(baseAnimationsObj, playerPosition, Quaternion.identity);
-            var scaler = transform.localScale;
-            object2.transform.localScale = scaler;
+            yield return ChangingPositionsOfTwoEntities(
+                transform,
+                GameManager.player.transform,
+                endAttackTime,
+                centerAttackTime,
+                rayNearEssence,
+                ray
+            );
+            TurnOver();
+            turnedRight = !(transform.localScale.x > 0);
+        }
+
+        public static IEnumerator ChangingPositionsOfTwoEntities(
+            Transform mainObject, 
+            Transform centerObject, 
+            float endAttackTime, 
+            float centerAttackTime, 
+            GameObject rayNearEssence,
+            GameObject ray
+            )
+        {
+            yield return new WaitForSeconds(centerAttackTime);
+            var object1 = Instantiate(rayNearEssence, mainObject.position, Quaternion.identity);
+            var object2 = Instantiate(rayNearEssence, centerObject.position, Quaternion.identity);
+            var scaler = mainObject.localScale;
+            var scaler2 = mainObject.localScale;
+            object2.transform.localScale = scaler2;
             scaler.x *= -1;
             object1.transform.localScale = scaler;
-            object1.GetComponent<Animator>().SetTrigger(RayNearObject);
-            object2.GetComponent<Animator>().SetTrigger(RayNearObject);
-            yield return new WaitForSeconds(0.3f);
-            var calculations = playerPosition.x - transform.position.x;
-            var spawnPosition = (Vector3)playerPosition;
+            var calculations = centerObject.position.x - mainObject.position.x;
+            var spawnPosition = centerObject.position;
             var direction = calculations / Mathf.Abs(calculations);
-            var positionTo = new Vector3(transform.position.x + direction, transform.position.y);
+            var positionTo = new Vector3(mainObject.position.x + direction, mainObject.position.y);
             while (spawnPosition != positionTo)
             {
                 spawnPosition = new Vector3(
                     spawnPosition.x - direction, 
                     spawnPosition.y, 
-                    0); 
-                Instantiate(baseAnimationsObj, spawnPosition, Quaternion.identity)
-                    .GetComponent<Animator>().SetTrigger(FlyingEyeRay);;
+                    0);
+                Instantiate(ray, spawnPosition, Quaternion.identity);
             }
-            yield return new WaitUntil(() => _isEndAttack);
-            GameManager.player.transform.position = transform.position;
-            transform.position = playerPosition;
-            transform.localScale = scaler;
-            turnedRight = !(transform.localScale.x > 0);
-            TurnOver();
-        }
-        
-        // вызываеться в анимации
-        public void CenterAttack()
-        {
-            _isCenterAttack = true;
-        }
-        
-        // вызываеться в анимации
-        public void EndAttack()
-        {
-            _isEndAttack = true;
+            yield return new WaitForSeconds(endAttackTime);
+            (centerObject.position, mainObject.position) = (mainObject.position, centerObject.position);
+            mainObject.localScale = scaler;
+            centerObject.localScale = scaler2;
         }
     }
 }

@@ -13,8 +13,8 @@ namespace MainScripts
         public CanvasInformationAboutObject canvasInformationAboutObject;
         public LayerMask shieldLayer;
         
-        internal List<TheEnemy> allEnemies = new();
-        internal List<TheTrap> allTraps = new();
+        internal readonly List<TheEnemy> allEnemies = new();
+        internal readonly List<TheTrap> allTraps = new();
         internal bool enemiesActive;
         internal float enemyMovementSpeed;
         internal float enemyAnimationSpeed;
@@ -74,7 +74,7 @@ namespace MainScripts
         }
 
         private IEnumerator ActiveCertainEnemies(int type)
-        { // просто знай что эта функция активирует определеных врагов 
+        {
             var enemies = new List<TheEnemy>();
             enemies.AddRange(
                 from enemy in allEnemies 

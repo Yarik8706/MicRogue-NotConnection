@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ef9ddb4435495cb239cbb7d169e4db, type: 3}
+  m_Name: FlyingEyeAbility
+  m_EditorClassIdentifier: 
+  isActiveAbility: 1
+  buttonIcon: {fileID: 1443169168, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
+  endAttackTime: 0.32
+  centerAttackTime: 0.46
+  rayNearEssence: {fileID: 3855470426959749985, guid: e31ae993b7b4a624285d8f6747c186ad, type: 3}
+  ray: {fileID: 9185248360623921883, guid: 702f0bf582f89e34a9549ee6b946cd92, type: 3}
+  objectLayers:
+    serializedVersion: 2
+    m_Bits: 832

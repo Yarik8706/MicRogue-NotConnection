@@ -11,7 +11,7 @@ public class MoveToPlace : MonoBehaviour, IPointerClickHandler
         _player = GameManager.player;
     }
     
-    private void Active()
+    protected virtual void Active()
     {
         StartCoroutine(_player.Move(transform.position));
         Destroy(gameObject);

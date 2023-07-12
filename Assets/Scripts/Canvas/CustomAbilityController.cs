@@ -31,5 +31,11 @@ namespace Canvas
             _stealAbility.ActiveAbility();
             _isActive = false;
         }
+
+        [ContextMenu("ResetAbilityActivate")]
+        public void ResetAbilityActivate()
+        {
+            _isActive = true;
+        }
     }
 }

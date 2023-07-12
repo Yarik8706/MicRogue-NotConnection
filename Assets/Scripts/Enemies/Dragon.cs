@@ -91,7 +91,7 @@ namespace Enemies
             base.TurnOver();
         }
 
-        protected override void TurnOver()
+        public override void TurnOver()
         {
             foreach (var spawnFireTransform in firePosition)
             {

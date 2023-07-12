@@ -85,11 +85,11 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
     {
         DeleteAllMoveToPlaces();
         var x = @where.x - transform.position.x;
-        if(x <= -2 && !turnedRight || x >= 2 && turnedRight)
+        if(x <= -2 && turnedRight || x >= 2 && !turnedRight)
         {
             Flip();
         }
-        else if(x != 0 && (turnedRight && x >= 1 || !turnedRight && x <= -1))
+        else if(x != 0 && (!turnedRight && x >= 1 || turnedRight && x <= -1))
         {
             boxCollider2D.enabled = false;
             var hit = Physics2D.Linecast (transform.position, @where, enemyLayer);

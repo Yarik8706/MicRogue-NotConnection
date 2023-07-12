@@ -35,13 +35,18 @@ namespace Enemies
             TurnOver();
         }
 
+        public static bool CheckEmptyPlace(Vector2 checkingPosition, LayerMask blockingLayer)
+        {
+            var hit = Physics2D.Linecast(new Vector2(checkingPosition.x-0.1f, checkingPosition.y), checkingPosition, blockingLayer);
+            return hit.collider == null;
+        }
+
         protected override Vector2[] MoveCalculation(Vector2[] theVariantsPositions)
         {
             var nowVariantsPositions = new List<Vector2> {Capacity = 0};
             foreach (var newVariantPosition in theVariantsPositions)
             {
-                var hit = Physics2D.Linecast(new Vector2(newVariantPosition.x-0.1f, newVariantPosition.y), newVariantPosition, blockingLayer);
-                if (hit.collider == null)
+                if (CheckEmptyPlace(newVariantPosition, blockingLayer))
                 {
                     nowVariantsPositions.Add(newVariantPosition);
                 }

@@ -13,7 +13,7 @@ namespace Enemies
             variantsPositions = variantsPositions1;
         }
 
-        protected override void TurnOver()
+        public override void TurnOver()
         {
             base.TurnOver();
             if(essenceEffect == TheEssenceEffect.Freezing) return;

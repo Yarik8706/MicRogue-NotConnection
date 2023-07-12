@@ -22,7 +22,7 @@ namespace Enemies
             Destroy(_enemyShieldNow);
         }
 
-        protected override void TurnOver()
+        public override void TurnOver()
         {
             StartCoroutine(InstantiateEnemyShieldAndTurnOver());
         }

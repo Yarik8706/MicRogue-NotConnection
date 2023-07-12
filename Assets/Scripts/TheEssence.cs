@@ -123,7 +123,7 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 		isMove = false;
     }
     
-    protected static Vector2[] VariantsPositionsNow(Vector2 centerPosition, Vector2[] positions)
+    public static Vector2[] VariantsPositionsNow(Vector2 centerPosition, Vector2[] positions)
     {
 	    var newVariantsPositions = new Vector2[positions.Length];
 	    for (int i = 0; i < positions.Length; i++)
@@ -196,7 +196,7 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 	    // return nowVariantsPositions.ToArray();
     }
 
-    protected virtual void TurnOver()
+    public virtual void TurnOver()
     {
 	    isMove = false;
 	    isTurnOver = true;

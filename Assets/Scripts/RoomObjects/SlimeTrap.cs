@@ -22,8 +22,8 @@ namespace RoomObjects
         {
             StartCoroutine(InitializateCoroutine(essence));
         }
-        
-        public IEnumerator InitializateCoroutine(TheEssence essence)
+
+        private IEnumerator InitializateCoroutine(TheEssence essence)
         {
             essence.essenceEffect = TheEssenceEffect.Freezing;
             var baseVariantsPositions = essence.variantsPositions;
@@ -31,7 +31,7 @@ namespace RoomObjects
             if (essence is Player)
             { 
                 newVariantsPositions = baseVariantsPositions.Where(
-                   variantPosition => Vector2.Distance(variantPosition, new Vector2(0, 0)) < 2).ToArray();
+                   variantPosition => Vector2.Distance(variantPosition, Vector2.zero) == 1).ToArray();
                 essence.variantsPositions = newVariantsPositions;
             }
             else

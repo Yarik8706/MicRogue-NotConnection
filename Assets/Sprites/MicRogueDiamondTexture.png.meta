@@ -6812,7 +6812,7 @@ TextureImporter:
         serializedVersion: 2
         x: 164
         y: 948
-        width: 31
+        width: 39
         height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -7739,7 +7739,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7747,6 +7747,48 @@ TextureImporter:
       bones: []
       spriteID: 8f0c9b79bc16ee74081f6216c66d85d7
       internalID: 1759015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEyeAbility
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 848
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97cc583c01dcbad458c684b343ddd6d3
+      internalID: 1443169168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NinjaAbility
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 848
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f20d2f07d05e5174ab8d11db3ba073e0
+      internalID: 1868414479
       vertices: []
       indices: 
       edges: []
@@ -7775,6 +7817,7 @@ TextureImporter:
       FreezingLamp1: 635076061
       ShipMapButton: 301781172
       EnemyShield5: -1538078001
+      NinjaAbility: 1868414479
       CanvasNo: 2184253225143845668
       RichMapTarget: -1170610670
       FireAnim7: -6540315827594122925
@@ -7919,6 +7962,7 @@ TextureImporter:
       GrayFloor3: 1322552949251872919
       BlackFloor4: -631673264
       LampIdle1: -4146685878628206487
+      FlyingEyeAbility: 1443169168
       WhiteFloor5: -619790723
       MainMenuAuthor: 616061866
       PlayerDiedFromDuck0: -1920758693
