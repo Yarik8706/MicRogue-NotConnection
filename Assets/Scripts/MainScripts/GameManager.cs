@@ -63,7 +63,7 @@ namespace MainScripts
             _spawnLevelController = GetComponent<SpawnLevelController>();
             _trainingController = GetComponent<TrainingController>();
             
-            if (PlayerPrefsSafe.GetInt("Training", 0) == 0)
+            if (PlayerPrefsSafe.GetInt(TrainingController.PrefsTrainingName, 0) == 0)
             {
                 SpawnLevelController.levelRooms = _spawnLevelController.SpawnRooms(
                     SpawnLevelController.TrainingModel,

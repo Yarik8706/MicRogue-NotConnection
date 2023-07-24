@@ -23,20 +23,23 @@ namespace Canvas
             if (Input.touchCount > 0) CloseDialogAndReloadScene();
         }
 
-        private IEnumerator Move()
+        private IEnumerator Move(Vector3 target)
         {
             if (_isMove) yield break;
             _isMove = true;
+            deathMessageObject.transform.DOMove(target, 0.7f)
+                .SetEase(Ease.InCubic);
             yield return new WaitForSeconds(0.7f);
             _isMove = false;
         }
 
         public void ShowMessage(string message)
         {
+            transform.position += Vector3.up * transform.position.y * 1.5f;
             deathMessageObject.SetActive(true);
             deathMessageText.text = message;
             _isActive = true;
-            StartCoroutine(Move());
+            StartCoroutine(Move(transform.position - Vector3.up * transform.position.y * 1.5f));
         }
 
         private void CloseDialogAndReloadScene()
@@ -46,7 +49,7 @@ namespace Canvas
 
         private IEnumerator CloseDialogCoroutine()
         {
-            yield return Move();
+            yield return Move(transform.position + Vector3.up * transform.position.y * 1.5f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             deathMessageObject.SetActive(false);
         }
