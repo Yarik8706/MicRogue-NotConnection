@@ -47,13 +47,6 @@ namespace RoomControllers
         
         internal readonly List<Exit> exits = new();
         internal RoomIndex roomIndex;
-        
-        private GameObject _gameObjects;
-
-        private void Awake()
-        {
-            _gameObjects = transform.GetChild(0).gameObject;
-        }
 
         // public void SpawnExits(ExitLocation[] exitLocations, Exit exit)
         // {
@@ -102,23 +95,15 @@ namespace RoomControllers
 
         public void Initial()
         {
-            _gameObjects.SetActive(true);
-            if(shildSpawnPosition == null || GameManager.instance.spawnShildCount == 0) return;
-            if (Random.Range(0, spawnChanceShield) == 0)
-            {
-                GameManager.instance.spawnShildCount--;
-                Instantiate(GameManager.instance.updateShieldObj, shildSpawnPosition.position, Quaternion.identity);
-            }
+            if (shildSpawnPosition == null || GameManager.instance.spawnShildCount == 0) return;
+            if (Random.Range(0, spawnChanceShield) != 0) return;
+            GameManager.instance.spawnShildCount--;
+            Instantiate(GameManager.instance.updateShieldObj, shildSpawnPosition.position, Quaternion.identity);
         }
 
         public bool CheckCorrectRoom(RoomType roomType)
         {
             return roomType == this.roomType;
-        }
-
-        public void LeavingRoom()
-        {
-            _gameObjects.SetActive(false);
         }
 
         public void SpawnEnemies()

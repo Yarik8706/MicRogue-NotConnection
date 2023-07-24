@@ -27,31 +27,15 @@ namespace Other
         public void StartAction1()
         {
             dragon = Instantiate(dragon.gameObject, dragonSpawn.position, Quaternion.identity).GetComponent<Dragon>();
-            DialogController.instance.StartDialog(DialogController.instance.centerTextDialog, i =>
+            foreach (var trapWall in trapWalls)
             {
-                switch (i)
-                {
-                    case 2:
-                    {
-                        light1.enabled = true;
-                        foreach (var trapWall in trapWalls)
-                        {
-                            trapWall.SetFloorState();
-                        }
-
-                        break;
-                    }
-                    case 3:
-                        light2.enabled = true;
-                        dragon.WakeUp();
-                        break;
-                    case -1:
-                        _roomController.enemySpawns = enemySpawns;
-                        _roomController.SpawnEnemies();
-                        GameManager.player.isActive = true;
-                        break;
-                }
-            });
+                trapWall.SetFloorState();
+            }
+            light2.enabled = true;
+            dragon.WakeUp();
+            _roomController.enemySpawns = enemySpawns;
+            _roomController.SpawnEnemies();
+            GameManager.player.isActive = true;
         }
     }
 }

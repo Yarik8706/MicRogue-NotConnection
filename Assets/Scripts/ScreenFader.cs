@@ -32,19 +32,24 @@ public class ScreenFader : MonoBehaviour
 
     private void Update()
     {
+        SetState();
+    }
+
+    public void SetState()
+    {
         _fadeColor.a = _fadeBalance;
         if (_fadeBalance > (1 + fromInDelay))
         {
             _fadeBalance = (1 + fromInDelay);
             fadeState = FadeState.InEnd;
         }
-
+        
         if (_fadeBalance < -(0 + fromOutDelay))
         {
             _fadeBalance = -(0 + fromOutDelay);
             fadeState = FadeState.OutEnd;
         }
-
+        
         switch (fadeState)
         {
             case FadeState.In:

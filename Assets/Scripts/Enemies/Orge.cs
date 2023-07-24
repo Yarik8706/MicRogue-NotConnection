@@ -19,13 +19,13 @@ namespace Enemies
             if(essenceEffect == TheEssenceEffect.Freezing) return;
             if (variantsPositions == variantsPositions2)
             {
-                animator.Play("OrgeIdle1");
+                animator.Play("Idle1");
                 moveAnimation = new AnimationType("Run1", moveAnimation.speed);
                 variantsPositions = variantsPositions1;
             }
             else
             {
-                animator.Play("OrgeIdle2");
+                animator.Play("Idle2");
                 moveAnimation = new AnimationType("Run2", moveAnimation.speed);
                 variantsPositions = variantsPositions2;
             }

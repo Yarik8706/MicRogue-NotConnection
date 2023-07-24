@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -3641328352399431283}
   - component: {fileID: 874880669186805695}
   - component: {fileID: -3365057080581564162}
+  - component: {fileID: -8416253154298617488}
   m_Layer: 8
   m_Name: Duck
   m_TagString: Enemy
@@ -160,13 +161,13 @@ MonoBehaviour:
   - {x: -1, y: 0}
   moveAnimationName: Run
   diedAnimationName: 
-  baseAnimationsObj: {fileID: 3539192815758939795, guid: 53f6b48b280e27547a599fbecb322b14, type: 3}
+  diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
+  diedMusic: {fileID: 0}
   afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   enemyAbility: {fileID: 0}
   enemyType: 5
   enemyCount: 3
-  causeOfDied:
-  - turning to stone is not the best death!
+  baseAnimationsObj: {fileID: 3539192815758939795, guid: 53f6b48b280e27547a599fbecb322b14, type: 3}
   stoneStatueWithShield: {fileID: 2003847538865760424, guid: 97a3af35fe1dd3a4d9a89c702b57abde, type: 3}
   stoneStatue: {fileID: 3393223543777904955, guid: bed89e7537844304095870c9eb481894, type: 3}
 --- !u!95 &3382286905817429790
@@ -329,3 +330,22 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &-8416253154298617488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382286905817429791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1004d5376ebd45e08b9974121a95039b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  causeOfDieds:
+  - ruText: "\u041F\u0440\u0435\u0432\u0440\u0430\u0449\u0435\u043D\u0438\u0435 \u0432
+      \u043A\u0430\u043C\u0435\u043D\u044C - \u043D\u0435 \u043B\u0443\u0447\u0448\u0430\u044F
+      \u0441\u043C\u0435\u0440\u0442\u044C!"
+    enText: Turning to stone is not the best death!
+  - ruText: "\u0421\u043D\u0430\u0439\u043F\u043D\u0443\u043B\u0438!"
+    enText: Headshot!

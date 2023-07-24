@@ -31,11 +31,11 @@ namespace RoomObjects
         private IEnumerator OnTriggerEnter2D(Collider2D other)
         {
             if (!isActive) yield break;
-            if (other.GetComponent<Player>() is not {} player) yield break;
-            yield return new WaitUntil(() => GameController.instance.enemiesActive);
-            yield return new WaitUntil(() => !GameController.instance.enemiesActive);
+            if (!other.gameObject.CompareTag("Player")) yield break;
+            yield return new WaitUntil(() => GameManager.player.isTurnOver);
+            if (GameManager.player.transform.position != transform.position) yield break;
             if (GameManager.player == null) yield break;
-            if (player.transform.position == transform.position)
+            if (GameManager.player.transform.position == transform.position)
             {
                 StartCoroutine(GameManager.instance.NextRoom(exitLocation));
             }

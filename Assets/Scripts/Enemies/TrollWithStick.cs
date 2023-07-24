@@ -35,8 +35,9 @@ namespace Enemies
         private IEnumerator InstantiateEnemyShieldAndTurnOver()
         {
             // троль берет случайного монстра завершившего ход и ставит на нем щит
-            var allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
             var enemiesNotTurnOver = GameController.instance.allEnemies;
+            GameplayEventManager.OnGetAllEnemies.Invoke();
+            var allEnemies = GameController.instance.allEnemies;
             if(allEnemies == null || enemiesNotTurnOver == null)
             {
                 TurnOver();

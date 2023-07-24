@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class MoveToPlace : MonoBehaviour, IPointerClickHandler
 {
     private Player _player;
+    public bool isActive { get; set; } = true;
     
     private void Start()
     {
@@ -13,12 +14,13 @@ public class MoveToPlace : MonoBehaviour, IPointerClickHandler
     
     protected virtual void Active()
     {
-        StartCoroutine(_player.Move(transform.position));
+        _player.StartMove(transform.position);
         Destroy(gameObject);
     }
     
     public void OnPointerClick(PointerEventData @event)
     {
+        if(!isActive) return;
         Active();
     }
 }

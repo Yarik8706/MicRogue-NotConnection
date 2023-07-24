@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a96a768b652f747845582dd463617b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitLocation: 0
   rightSprite: {fileID: 2100207054, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   leftSprite: {fileID: -558511839, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
 --- !u!61 &-6579419354349601000
@@ -144,7 +145,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.388
   m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
-  m_Intensity: 0.28
+  m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 000000001b2cdd5c1bbc1f2093f7fec5630f8d76

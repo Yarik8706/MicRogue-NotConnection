@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3d02d50d194780b7953be2833176e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionLight: {fileID: 8621541793709577417}
   explosionLightIntensity: 2
+  duration: 0.1
   lightInStart: 0
 --- !u!1 &6564750694267979325
 GameObject:
@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 3362859456756478832}
   - component: {fileID: -1924009143585556460}
   - component: {fileID: -7282343704213316045}
+  - component: {fileID: 2465548230124148336}
   m_Layer: 0
   m_Name: FireTrap
   m_TagString: Trap
@@ -240,7 +241,7 @@ MonoBehaviour:
   - Play with fire, you are going to get burned
   - is it getting hot in here, or is it just me?
   - is it too hot for ya?
-  attackObjects: []
+  isActive: 1
   explosionLight: {fileID: 6537004129440139686}
 --- !u!95 &6564750694267979321
 Animator:
@@ -348,3 +349,24 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2465548230124148336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564750694267979325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1004d5376ebd45e08b9974121a95039b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  causeOfDieds:
+  - ruText: "\u041D\u0435 \u0438\u0433\u0440\u0430\u0439 \u0441\u043E \u043C\u043D\u043E\u0439!"
+    enText: Play with fire, you are going to get burned
+  - ruText: "\u0417\u0434\u0435\u0441\u044C \u0441\u0442\u0430\u043B\u043E \u0441\u043B\u0438\u0448\u043A\u043E\u043C
+      \u0436\u0430\u0440\u043A\u043E!"
+    enText: Is it getting hot in here, or is it just me?
+  - ruText: "\u042F \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u0433\u043E\u0440\u044F\u0447\u044C
+      \u0434\u043B\u044F \u0442\u0435\u0431\u044F?"
+    enText: Is it too hot for ya?

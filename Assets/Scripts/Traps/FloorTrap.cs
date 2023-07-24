@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using UnityEngine;
 
 namespace Traps
 {
@@ -9,8 +11,16 @@ namespace Traps
 
     public class FloorTrap : TheTrap
     {
+        private AudioSource _audioSource;
+
+        private void Start()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
+
         protected override IEnumerator Attack()
         {
+            _audioSource.Play();
             animator.SetTrigger(attack);
             if (attackObjects.Count != 0)
             {

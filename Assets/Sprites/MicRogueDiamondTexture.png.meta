@@ -1998,16 +1998,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuStartGame
+      name: MenuButton1
       rect:
         serializedVersion: 2
         x: 0
-        y: 848
-        width: 49
-        height: 16
+        y: 853
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 4, z: 3, w: 3}
+      border: {x: 3, y: 4, z: 3, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2292,97 +2292,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuSetting
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 837
-        width: 49
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 2, z: 3, w: 2}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba1e8f313b184da4f89807baa00c3909
-      internalID: 411650701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MainMenuGameRulls
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 826
-        width: 49
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 1}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4c9fd4e1b2447b408c480febfe4e603
-      internalID: -1152037917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MainMenuExit
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 815
-        width: 23
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 526f3d8db5bdcfb4ca571afb981bc4d1
-      internalID: 792854607
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MainMenuCredits
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 804
-        width: 35
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 451ea45e051aaa140bd815b45d90af07
-      internalID: -416725263
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: MainMenuAuthor
       rect:
         serializedVersion: 2
         x: 0
-        y: 789
-        width: 15
-        height: 15
+        y: 797
+        width: 19
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5820,48 +5736,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CloseMapButton
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 947
-        width: 41
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a6318635390ec34aa449a0b83c3b596
-      internalID: 142948935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OpenMapButton
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 934
-        width: 41
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33688a6222a5f384d9308f85f8bd1cbf
-      internalID: 604601139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: PlayButton
       rect:
         serializedVersion: 2
@@ -7793,6 +7667,552 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: GreyTrollIdle
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 976
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead547e3da17df343b1a50714e773e04
+      internalID: -547295880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreyTrollRun1
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 976
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72a63647830f974e9c6897d2fa6e031
+      internalID: -1124074628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreyTrollRun2
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 976
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5ff122d3211f9439d1ea4e6a2e8db7
+      internalID: -1698606217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreyTrollRun3
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 976
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 152290dd5018946468e166ca0d94e4f1
+      internalID: 537387766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreyTrollIdle1
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 960
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb64a2feebba1844bf4bba922e0abd1
+      internalID: 1733131909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreyTrollRun11
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 960
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a7dd5f6d1d3534c8aaedd9f87de65c
+      internalID: -1513614671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreyTrollRun12
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 960
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292274adeb31d8047820e89d1d915d24
+      internalID: -621198026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreyTrollRun13
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 960
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56e097ca4af5c5843a04aabf2ebf8bab
+      internalID: 1735900184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mimicStartAnim
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 928
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6fc626072e430541bb8ee7fc35294b3
+      internalID: -602862329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mimicStartAnim1
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 928
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfbb279c91ec2fd4f98e92d1d76f7fd0
+      internalID: -382974656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mimicStartAnim2
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 928
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 810515cf6aa552e478ad983364d4d00d
+      internalID: 1435561803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mimicStartAnim3
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 928
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5d943a2793d36a4ab094d2baabf0a04
+      internalID: -679678592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mimicStartAnim4
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 928
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1fbd60e2eff38b4a8e74325d20a978a
+      internalID: -423907553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: updateShieldEffect1
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 904
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d58c49af0604e459898b687ebce061
+      internalID: 1900463382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: updateShieldEffect2
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 904
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6215f361fcab64408c2aec4e680a900
+      internalID: -1351274410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: updateShieldEffect3
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 904
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b8206117d586645b0e8ba9b0bfee02
+      internalID: -1899639652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: updateShieldEffect4
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 904
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd768f6c2dc6ee47a4c8e65333ea826
+      internalID: 652433743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mimicRun1
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 911
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6712ed6cee56f844a8d5e4607100b82
+      internalID: 429641242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mimicRun2
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 911
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c22e0be281af07040b935f4ee6974a2e
+      internalID: 951155834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mimicRun3
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 911
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51fd025ac68fd8448bedb66c1ba14ea3
+      internalID: 1359973212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuButton2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 843
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 4, z: 3, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83ec4391470960b43965d56dd8d8cb44
+      internalID: 1985488238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuButton3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 834
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ff3edd8ebd2c14d8771b3eb9a25f1c
+      internalID: 484763571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuButton
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 858
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69deea752986744c86f44a3112b9626
+      internalID: -1661464729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amogus
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 785
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53492957320be804f80d6b458a08012a
+      internalID: -231317239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuUI
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 858
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 2, z: 2, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10fde5f23b4cf9439ba6dc06c07a95e
+      internalID: -2068908950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MimicAbility
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9adae2a6a737542bb870d9313e0e59
+      internalID: -1878898732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -7806,6 +8226,7 @@ TextureImporter:
     - texture: {fileID: 2800000, guid: 794edac7c00283346b8a9c1368f85bc1, type: 3}
       name: _Emission
     nameFileIdTable:
+      GreyTrollIdle1: 1733131909
       FlyingEyeAttack1: 1017166552
       PlayerRun3: -8757139649783219944
       FastActiveMainMenuButton: -93668115
@@ -7816,6 +8237,7 @@ TextureImporter:
       PlayerWithoutShieldRun2: 2144131419
       FreezingLamp1: 635076061
       ShipMapButton: 301781172
+      mimicStartAnim4: -423907553
       EnemyShield5: -1538078001
       NinjaAbility: 1868414479
       CanvasNo: 2184253225143845668
@@ -7823,6 +8245,7 @@ TextureImporter:
       FireAnim7: -6540315827594122925
       FastDisableMainMenuButton: -3631095797761692428
       PlayerMap2: 223824136
+      GreyTrollRun2: -1698606217
       DragonSleep1: -816192939
       SlimeRoad2: -168240154
       FloorTrap3: -8491478721994378153
@@ -7836,6 +8259,7 @@ TextureImporter:
       BlackFloor6: -1448619793
       putability0: 865301555
       LampIdle7: 104106421449956808
+      amogus: -231317239
       PlayerDiedFromDuck1: -639210490
       gameRulesPicture41: 1288177332
       PlayerDiedFromDuck2: 423585282
@@ -7844,7 +8268,9 @@ TextureImporter:
       Wall1: -923277500124504870
       putability13: -1622591160
       Space1: 1164707187
+      mimicRun1: 429641242
       InformationAboutObjectCanvas: 1110303757
+      GreyTrollRun3: 537387766
       SmallFireIdle1: 6907730828962806901
       WhiteFloor1: -1644339748
       TrapWall0: 2052601587
@@ -7866,6 +8292,7 @@ TextureImporter:
       TurnOrder5: -1074145677
       WhiteFloor7: -239601055
       TrollWithStick0: -616266861
+      GreyTrollRun11: -1513614671
       BoxWithRIches0: 3992577508636237067
       DragonStartAction5: -2603367071838335762
       WingShipRoom2: 1088543618
@@ -7875,6 +8302,7 @@ TextureImporter:
       Slime1: 170214267
       LampIdle9: 1271319137750650887
       BoxWithRIches5: -251702461263357986
+      mimicRun3: 1359973212
       LightItem: 779655989
       NinjaIdle: -628318390
       MicRogueDiamondTexture_2: -1293774213
@@ -7890,13 +8318,16 @@ TextureImporter:
       FireAbility: 135390646
       TrollWithStickAttack0: -272189685
       BoxWithRIches1: -1486988990
+      updateShieldEffect1: 1900463382
       TurnOrder2: 1726775981
       FlyingEyeAttack4: 412107318
       SlimeDied0: -273199393
       EnemyShieldDied0: -742379763
       EnemyShield3: -330678448
       BlackFloor3: 1261033610
+      mimicStartAnim1: -382974656
       ActiveStealAbility: 328056660
+      MenuButton2: 1985488238
       BigFire1: 1129790698
       PictureCanvasMainMenu: -5787722678231957765
       BaxPile: 1087552608
@@ -7928,10 +8359,12 @@ TextureImporter:
       NinjaRun1: -8863816317675847926
       RoomsCanvasCount06: 136013187
       RightLeftUpDownRoomShip1: 3004733092313174726
+      updateShieldEffect2: -1351274410
       gameRulesPicture3: -1226647958
       CanvasExitFrame: 6311371310668306828
       RoomsCanvasCount07: 5248847876336448607
       DoneSettingMainMenu: -161101066
+      mimicStartAnim2: 1435561803
       DisableOneCountSlider: -5891224783233435756
       DragonSleep4: 2550514373751287618
       getability6: -1426942624
@@ -7944,15 +8377,18 @@ TextureImporter:
       MainMenuGameName: 5174776073360041994
       LeftExit: -8102567760449023351
       TurnOrder7: 6291616006598282221
+      GreyTrollRun13: 1735900184
       OrgeRun1: -1972483059
       RightUpDownRoomShip: -612529578
       DuckAttack3: 512411427
+      GreyTrollRun1: -1124074628
       SlimeDied1: -1297755351
       TrapWall1: -28734984
-      WhiteFloor9: -714272885
       FlyingEyeAttack3: -4832418317938593309
+      WhiteFloor9: -714272885
       MicRogue GoldTest_36: -1922607446
       SnowMan2: 5528568380889737955
+      mimicStartAnim3: -679678592
       PlayerWithoutShield: 5438436409197790006
       EnemyShield2: 68720694
       TrapWall3: -8898372347182724431
@@ -7983,8 +8419,11 @@ TextureImporter:
       MainMenuAnimation3: 1088543618
       MicRogueDiamondTexture_0: 1225536792
       PlayerDiedFromDuck3: 4699684658907572454
+      updateShieldEffect3: -1899639652
       EnemyShieldDied1: 1718070700042204575
+      MenuButton3: 484763571
       DuckAttack4: -1830261601936756837
+      updateShieldEffect4: 652433743
       RightDownUpRoomShip1: -1792680475
       slamp_2: -937416908
       WallDecoration1: 675748186
@@ -8016,6 +8455,7 @@ TextureImporter:
       MainMenuExit: 792854607
       slamp_1: 617440897
       putability4: 363925846
+      mimicStartAnim: -602862329
       PlayerDiedFromDuckWithoutShield2: 1030955016
       SleepCount3: -201394894
       GameRules4: 3689636853081102161
@@ -8024,6 +8464,7 @@ TextureImporter:
       GrayFloor4: -1132303066
       Space3: -776724208
       Frostbite4: -1660831712
+      GreyTrollIdle: -547295880
       Wall2: 2528563653763431060
       LampIdle5: -4813274151216475168
       Wal: -338306076
@@ -8035,7 +8476,7 @@ TextureImporter:
       WhiteFloor4: 145299376
       AfterDied1: 515389257
       lamp_6: 1705408639
-      MainMenuStartGame: -3476810288997538011
+      RightLeftUpDownRoomShip2: 1437119106
       brokenSpaceCapsule: 728379516
       RoomsCanvasCount02: -465186584738517249
       RightRoomShip3: 712621602
@@ -8045,7 +8486,6 @@ TextureImporter:
       TheEssenceDied5: 1315725964267458525
       SlimeRoad: 1884224513
       UpExit: -819194701
-      RightLeftUpDownRoomShip2: 1437119106
       DragonStartAction2: -1384178719
       putability3: 1453487826
       WhiteFloor: 3081762
@@ -8054,6 +8494,7 @@ TextureImporter:
       EnemyShield8: -247595986
       PlayerWithoutShieldRun1: 665447604
       MicRogue GoldTest_37: 7150708775274697023
+      MenuButton1: -3476810288997538011
       DragonIdle: 9156366987486203330
       PlayButton: -1248015170
       SmallFireIdle2: 8584836600945208852
@@ -8089,6 +8530,7 @@ TextureImporter:
       Frostbite3: 104106421449956808
       lamp_0: -2042891696
       background2: 424750036
+      MenuUI: -2068908950
       MarkerEnemyCanvas: -400339128
       getability17: -1555327563
       getability2: -308822229
@@ -8099,9 +8541,9 @@ TextureImporter:
       grass_3: 1825733117
       getability13: 1296323238
       EnemyShield0: 182089472
-      FreezingObj2: -235836468
-      getability0: -5957158
       grass_4: 660719377
+      getability0: -5957158
+      FreezingObj2: -235836468
       FreezingObj4: -1421517292176563482
       getability19: -1073945381
       Wall4: -501817725
@@ -8150,7 +8592,9 @@ TextureImporter:
       TrapWall2: 887981763269386860
       FireAnim2: 1676087609
       PlayerDiedFromDuckWithoutShield3: 1488489764
+      MenuButton: -1661464729
       EnemyShield4: 349200793
+      GreyTrollRun12: -621198026
       SelectRoomButton: -163174123
       FreezingLamp3: 595859809
       BlackFloor5: -292740153
@@ -8183,6 +8627,7 @@ TextureImporter:
       FreezingLamp6: 4324163584960906632
       putability1: -502680035
       LampIdle6: 8584836600945208852
+      MimicAbility: -1878898732
       gameRulesPicture42: -1010252483
       getability8: -1343226409
       MainMenuAnimation2: -1851856170
@@ -8221,6 +8666,7 @@ TextureImporter:
       putability5: 653724935
       PlayerDiedFromDuck4: -1622160102
       Gold5: -346949016
+      mimicRun2: 951155834
       PlayerProtection2: 1614229847
       FlyingEye0: 507498239
       DragonStartAction3: -1254172914

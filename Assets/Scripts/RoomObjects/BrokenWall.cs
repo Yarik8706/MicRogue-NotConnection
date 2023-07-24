@@ -20,9 +20,9 @@ namespace RoomObjects
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        public void FireDamage(GameObject fire)
+        public void FireDamage(GameObject firePrefab)
         {
-            _positionForStart = Instantiate(fire, transform.position, Quaternion.identity).transform.position;
+            _positionForStart = Instantiate(firePrefab, transform.position, Quaternion.identity).transform.position;
             _isActive = true;
             _spriteRenderer.sprite = brokenWallIdleSprite;
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using MainScripts;
 using UnityEngine;
 
@@ -7,13 +6,13 @@ namespace RoomObjects
 {
     public class FreezingController : MonoBehaviour
     {
-        private Animator _animator;
+        internal Animator animator { get; private set; }
         [SerializeField] private Color freezingColor = Color.cyan;
         [SerializeField] private int freezingWaitCount;
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
+            animator = GetComponent<Animator>();
         }
 
         public void Initializate(TheEssence essence)
@@ -37,7 +36,7 @@ namespace RoomObjects
             yield return new WaitUntil(() => essence.isMove);
             essence.animator.speed = baseAnimatorSpeed;
             essence.spriteRenderer.color = baseColorSprite;
-            _animator.SetTrigger("Frosbite");
+            animator.SetTrigger("Frosbite");
             essence.essenceEffect = TheEssenceEffect.None;
         }
     }

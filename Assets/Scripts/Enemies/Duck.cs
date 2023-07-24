@@ -9,6 +9,7 @@ namespace Enemies
 {
     public class Duck : TheEnemy
     {
+        public GameObject baseAnimationsObj;
         public GameObject stoneStatueWithShield;
         public GameObject stoneStatue;
         private bool _isCenterAttack;
@@ -95,7 +96,7 @@ namespace Enemies
             Instantiate(player.shieldsControllerUI.RemainingShieldsCount == 0 
                     ? stoneStatue : stoneStatueWithShield, 
                             player.transform.position, Quaternion.identity);
-            player.Died(causeOfDied[Random.Range(0, causeOfDied.Length)]);
+            player.Died(this);
             TurnOver();
         }
 

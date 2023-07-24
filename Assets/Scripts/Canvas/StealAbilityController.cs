@@ -53,6 +53,7 @@ namespace Canvas
             customAbilityController.InitialAbility(enemy.enemyAbility);
             enemy.Died();
             yield return new WaitForSeconds(2.1f);
+            if (GameManager.player == null) yield break;
             GameManager.player.Active();
         }
 

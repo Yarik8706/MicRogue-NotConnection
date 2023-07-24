@@ -17,13 +17,11 @@ namespace Other
             _shadowCaster2D = GetComponent<ShadowCaster2D>();
             _boxCollider2D = GetComponent<BoxCollider2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            var nextPosition = new Vector2(transform.position.x + 1, transform.position.y);
-            var next1 = transform.position + Vector3.right;
         }
 
-        public void FireDamage(GameObject fire)
+        public void FireDamage(GameObject firePrefab)
         {
-            Instantiate(fire, transform.position, Quaternion.identity);
+            Instantiate(firePrefab, transform.position, Quaternion.identity);
             _boxCollider2D.enabled = false;
             _shadowCaster2D.enabled = false;
             _spriteRenderer.sprite = brokenBarrel;

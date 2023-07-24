@@ -15,7 +15,6 @@ namespace MainScripts
         
         internal readonly List<TheEnemy> allEnemies = new();
         internal readonly List<TheTrap> allTraps = new();
-        internal bool enemiesActive;
         internal float enemyMovementSpeed;
         internal float enemyAnimationSpeed;
         
@@ -31,17 +30,18 @@ namespace MainScripts
             enemyMovementSpeed = PlayerPrefsSafe.GetFloat(EnemyMovementSpeedKeyName, .1f);
         }
 
-        public IEnumerator Active()
+        public IEnumerator ActiveEnemiesAndTraps()
         {
-            enemiesActive = true;
             ActivateTraps();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.6f);
+            allEnemies.Clear();
             GameplayEventManager.OnGetAllEnemies.Invoke();
             yield return allEnemies != null ? ActivateEnemies() : GameManager.instance.TurnStarted();
         }
 
         private void ActivateTraps()
         {
+            allTraps.Clear();
             GameplayEventManager.OnGetAllTraps.Invoke();
             foreach(var trap in allTraps)
             {
@@ -71,6 +71,7 @@ namespace MainScripts
                 }
             }
             allEnemies.Clear();
+            StartCoroutine(GameManager.instance.TurnStarted());
         }
 
         private IEnumerator ActiveCertainEnemies(int type)

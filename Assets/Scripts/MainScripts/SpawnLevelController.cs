@@ -1,96 +1,98 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MainScripts;
 using RoomControllers;
 using UnityEngine;
 
-public enum RoomType
+namespace MainScripts
 {
-    Null,
-    Base,
-    Middle,
-    Hard,
-    VeryHard,
-    Action1,
-    Action2,
-    Start
-}
-
-public class SpawnLevelController : MonoBehaviour
-{
-    public static GameObject[][] levelRooms;
-    internal readonly List<RoomController> allRooms = new();
-    public GameObject[] rooms; 
-    public GameObject roomSpawn;
-    public Transform mapObjectsContainer;
-
-    public static readonly RoomType[][] ShipModel = {
-        new []{
-            RoomType.Start,   
-            RoomType.Base,     
-            RoomType.Base,     
-            RoomType.Middle, 
-            RoomType.Middle, 
-            RoomType.Hard, 
-            RoomType.Action1, 
-            RoomType.Hard, 
-            RoomType.VeryHard, 
-            RoomType.Hard,
-            RoomType.VeryHard,
-            RoomType.Hard,
-            RoomType.VeryHard,  
-            RoomType.Action2
-        },
-    };
-
-    public void Initial(RoomType[][] mapRoom)
+    public enum RoomType
     {
-        var allMapRooms = new List<List<GameObject>> { };
-        var roomSpawns = new List<RoomSpawn> { };
-        RoomIndex lastRoomIndex = new RoomIndex(0, 0);
-        for (var i = 0; i < mapRoom.Length; i++)
+        Null,
+        Base,
+        Middle,
+        Hard,
+        VeryHard,
+        Action1,
+        Action2,
+        Start,
+        Training1
+    }
+
+    public class SpawnLevelController : MonoBehaviour
+    {
+        public static RoomController[][] levelRooms;
+        public static RoomController[][] activeTrainingRooms;
+
+        public RoomController[] rooms;
+        public RoomController[] trainingRooms;
+        
+        [SerializeField] private GameObject roomSpawn;
+
+        public static readonly RoomType[][] TrainingModel =
         {
-            allMapRooms.Add(new List<GameObject>());
-            for (var j = 0; j < mapRoom[i].Length; j++)
+            new []
             {
-                switch (mapRoom[i][j])
+                RoomType.Start,
+                RoomType.Training1
+            },
+        };
+        
+        public static readonly RoomType[][] ShipModel = {
+            new []{
+                RoomType.Start,   
+                RoomType.Base,     
+                RoomType.Base,     
+                RoomType.Middle, 
+                RoomType.Middle, 
+                RoomType.Hard, 
+                RoomType.Action1, 
+                RoomType.Hard, 
+                RoomType.VeryHard, 
+                RoomType.Hard,
+                RoomType.VeryHard,
+                RoomType.Hard,
+                RoomType.VeryHard,  
+                RoomType.Action2
+            },
+        };
+
+        public RoomController[][] SpawnRooms(RoomType[][] mapRoom, RoomController[] centerRooms)
+        {
+            var allMapRooms = new List<List<RoomController>> { };
+            for (var i = 0; i < mapRoom.Length; i++)
+            {
+                allMapRooms.Add(new List<RoomController>());
+                for (var j = 0; j < mapRoom[i].Length; j++)
                 {
-                    case RoomType.Base:
-                        goto default;
-                    case RoomType.Null:
-                        allMapRooms[i].Add(null);
-                        break;
-                    default:
-                        var room = Instantiate(
-                            roomSpawn,
-                            Vector3.zero, // new Vector2(j * 15, -(i * 9)),
-                            Quaternion.identity).GetComponent<RoomSpawn>();
-                        room.roomIndex = new RoomIndex(i, j);
-                        room.spawnLevelController = this;
-                        room.roomType = mapRoom[i][j];
-                        lastRoomIndex = new RoomIndex(i, j);
+                    switch (mapRoom[i][j])
+                    {
+                        case RoomType.Base:
+                            goto default;
+                        case RoomType.Null:
+                            allMapRooms[i].Add(null);
+                            break;
+                        default:
+                            var room = Instantiate(
+                                roomSpawn,
+                                Vector3.zero, // new Vector2(j * 15, -(i * 9)),
+                                Quaternion.identity).GetComponent<RoomSpawn>();
+                            room.roomIndex = new RoomIndex(i, j);
+                            room.spawnLevelController = this;
+                            room.roomType = mapRoom[i][j];
+                            
+                            var newRoom = room.Initial(centerRooms);
+                            newRoom.gameObject.SetActive(false);
+                            Destroy(room.gameObject);
                         
-                        allMapRooms[i].Add(room.gameObject);
+                            allMapRooms[i].Add(newRoom);
                         
-                        roomSpawns.Add(room);
-                        break;
+                            
+                            break;
+                    }
                 }
             }
-        }
-        
-        levelRooms = allMapRooms.Select(room => room.ToArray()).ToArray();
-        foreach (var centralRoomSpawn in roomSpawns)
-        {
-            var newRoom = centralRoomSpawn.Initial();
-            allRooms.Add(newRoom);
-            Destroy(centralRoomSpawn.gameObject);
+
+            return allMapRooms.Select(room => room.ToArray()).ToArray();
         }
     }
-    
-    // public GameObject SpawnMapObject(RoomIndex roomIndex, GameObject mapObject)
-    // {
-    //     var gameObject = Instantiate(mapObject, mapObjectsContainer, true);
-    //     gameObject.transform.localPosition = new Vector3(roomIndex.x / 4f, roomIndex.y / -4f, 0);
-    //     return gameObject;
-    // }
 }

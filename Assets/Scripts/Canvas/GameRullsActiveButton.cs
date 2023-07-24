@@ -6,9 +6,10 @@ namespace Canvas
     public class GameRullsActiveButton : MonoBehaviour
     {
         [Header("Components")]
-        public GameObject blackout;
-        public GameObject[] gameRulls;
-        public GameObject activeGameRull;
+        [SerializeField] private GameObject blackout;
+        [SerializeField] private GameObject[] gameRulls;
+        [SerializeField] private GameObject[] menuGameobjects;
+        [SerializeField] private GameObject activeGameRull;
 
         private bool _isShowingGameRulls;
         private int _passedGameRulls;
@@ -33,6 +34,10 @@ namespace Canvas
                 blackout.SetActive(false);
                 _isShowingGameRulls = false;
                 _passedGameRulls = 0;
+                foreach (var menuGameobject in menuGameobjects)
+                {
+                    menuGameobject.SetActive(true);
+                }
                 return;
             }
             activeGameRull = gameRulls[_passedGameRulls];
@@ -44,6 +49,11 @@ namespace Canvas
             if (_isShowingGameRulls)
             {
                 return;
+            }
+
+            foreach (var menuGameobject in menuGameobjects)
+            {
+                menuGameobject.SetActive(false);
             }
             activeGameRull = gameRulls[0];
             activeGameRull.SetActive(true);

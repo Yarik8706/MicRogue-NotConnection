@@ -28,9 +28,7 @@ namespace Traps
             _animations1 = (string[]) stagesAttack.Clone();
             if (isSecondPhase)
             {
-                gameObject.layer = 6;
-                stagesAttack = (string[]) animations2.Clone();
-                SetStageAttack(0);
+                SetBlockState();
             }
         }
 

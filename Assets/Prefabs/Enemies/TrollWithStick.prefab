@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4958649672001241616}
   - component: {fileID: -2878105804857353651}
   - component: {fileID: 1861928845015956310}
+  - component: {fileID: -2613787898264383980}
   m_Layer: 8
   m_Name: TrollWithStick
   m_TagString: Enemy
@@ -159,13 +160,12 @@ MonoBehaviour:
   - {x: -1, y: 0}
   moveAnimationName: Run
   diedAnimationName: 
-  baseAnimationsObj: {fileID: 3300952338237392216, guid: 018603827ee34a647adfe39a70b1ffe1, type: 3}
+  diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
+  diedMusic: {fileID: 0}
   afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   enemyAbility: {fileID: 11400000, guid: 7f1ac50e195b0a64c945fa57fc57455e, type: 2}
   enemyType: 4
   enemyCount: 3
-  causeOfDied:
-  - two heards are better then one.
   enemyShield: {fileID: 2950086841064311721, guid: 9a35e6bcd213af243bf740d0287a9c8f, type: 3}
 --- !u!95 &4958649672001241616
 Animator:
@@ -247,3 +247,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &-2613787898264383980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958649672001241626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1004d5376ebd45e08b9974121a95039b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  causeOfDieds:
+  - ruText: "\u0411\u0430\u043C\u0441!"
+    enText: Bams!
+  - ruText: "\u0421\u0442\u0440\u0430\u043D\u043D\u044B\u0439 \u043F\u0430\u0440\u0435\u043D\u044C.
+      \u0421\u043E\u0433\u043B\u0430\u0441\u0435\u043D."
+    enText: Strange guy. Agree.

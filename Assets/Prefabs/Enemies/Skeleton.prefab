@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7907054027334289814}
   - component: {fileID: 35293596827535195}
   - component: {fileID: -3568346458453093258}
+  - component: {fileID: -2828014888659197857}
   m_Layer: 8
   m_Name: Skeleton
   m_TagString: Enemy
@@ -159,15 +160,12 @@ MonoBehaviour:
   - {x: 1, y: -1}
   moveAnimationName: Run
   diedAnimationName: 
-  baseAnimationsObj: {fileID: 3300952338237392216, guid: 018603827ee34a647adfe39a70b1ffe1, type: 3}
+  diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
+  diedMusic: {fileID: 8300000, guid: dd1b64ae6d7bb1649aa7ac6fcc579f46, type: 3}
   afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   enemyAbility: {fileID: 11400000, guid: 2a6653d86625fea4b89b50cce570ef9a, type: 2}
   enemyType: 0
   enemyCount: 1
-  causeOfDied:
-  - bad to the bone!
-  - good work skeleton! you are getting a bonus.
-  - i have a bone to pick with you!
 --- !u!95 &7907054027334289814
 Animator:
   serializedVersion: 4
@@ -248,3 +246,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &-2828014888659197857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916361822147218587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1004d5376ebd45e08b9974121a95039b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  causeOfDieds:
+  - ruText: "\u0425\u043E\u0440\u043E\u0448\u0430\u044F \u0440\u0430\u0431\u043E\u0442\u0430
+      \u0441\u043A\u0435\u043B\u0435\u0442\u043E\u043D!"
+    enText: Good job skeleton!

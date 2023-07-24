@@ -8,8 +8,8 @@ namespace Canvas
 {
     public class DeathMesssageUI : MonoBehaviour
     {
-        public GameObject deathMessageObject;
-        public TMP_Text deathMessageText;
+        [SerializeField] private GameObject deathMessageObject;
+        [SerializeField] private TMP_Text deathMessageText;
         
         private bool _isMove;
         private bool _isActive;
@@ -23,12 +23,11 @@ namespace Canvas
             if (Input.touchCount > 0) CloseDialogAndReloadScene();
         }
 
-        private IEnumerator Move(Vector3 targetPosition)
+        private IEnumerator Move()
         {
             if (_isMove) yield break;
             _isMove = true;
-            deathMessageObject.transform.DOMove(targetPosition, 1f).SetEase(Ease.Linear);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.7f);
             _isMove = false;
         }
 
@@ -37,7 +36,7 @@ namespace Canvas
             deathMessageObject.SetActive(true);
             deathMessageText.text = message;
             _isActive = true;
-            StartCoroutine(Move(new Vector2(Screen.width/2, Screen.height/2)));
+            StartCoroutine(Move());
         }
 
         private void CloseDialogAndReloadScene()
@@ -47,7 +46,7 @@ namespace Canvas
 
         private IEnumerator CloseDialogCoroutine()
         {
-            yield return Move(new Vector2(Screen.width/2, -200));
+            yield return Move();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             deathMessageObject.SetActive(false);
         }

@@ -49,9 +49,9 @@ namespace Enemies
 
         public void ColdAttack(){}
 
-        public void FireDamage(GameObject fire)
+        public void FireDamage(GameObject firePrefab)
         {
-            Instantiate(fire, transform.position, Quaternion.identity);
+            Instantiate(firePrefab, transform.position, Quaternion.identity);
             base.Died();
         }
 

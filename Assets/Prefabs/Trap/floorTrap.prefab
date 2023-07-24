@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: -7055645920252277825}
   - component: {fileID: -3761416803511355345}
   - component: {fileID: 3472957211170665053}
+  - component: {fileID: 8342504464239907804}
+  - component: {fileID: 2932403680340940733}
   m_Layer: 0
   m_Name: floorTrap
   m_TagString: Trap
@@ -154,11 +156,7 @@ MonoBehaviour:
   - FloorTrap0
   - FloorTrap1
   attack: FloorAttack
-  causeOfDied:
-  - ouch, so sharp
-  - those were a fabulous investment.
-  - Spikes! Spikes! Spikes!
-  attackObjects: []
+  isActive: 1
 --- !u!114 &-3761416803511355345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,3 +217,118 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &8342504464239907804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620117419260687462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1004d5376ebd45e08b9974121a95039b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  causeOfDieds:
+  - ruText: "\u041E\u0439, \u0442\u0430\u043A \u043E\u0441\u0442\u0440\u043E."
+    enText: Ouch, so sharp.
+  - ruText: "\u0425\u043E\u0440\u043E\u0448\u0438\u0439 \u0445\u043E\u0434!"
+    enText: Good move!
+  - ruText: "\u0428\u0438\u043F\u044B! \u0428\u0438\u043F\u044B! \u0428\u0438\u043F\u044B!"
+    enText: Spikes! Spikes! Spikes!
+--- !u!82 &2932403680340940733
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620117419260687462}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4163052249541112590, guid: 56a24cddf556343409eb14c892dbb600, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 5fbd765935771a140b71b36802f03a6d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

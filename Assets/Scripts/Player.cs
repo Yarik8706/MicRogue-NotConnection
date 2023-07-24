@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Canvas;
 using Enemies;
 using MainScripts;
 using RoomObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public interface IClickToAvailablePosition
 {
@@ -16,6 +14,7 @@ public interface IClickToAvailablePosition
 
 public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
 {
+    public ConsumablesControllerUI flashCountController;
     public ConsumablesControllerUI shieldsControllerUI;
     
     [SerializeField] private LayerMask enemyLayer;
@@ -81,6 +80,11 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
         return nowVariantsPositions.ToArray();
     }
 
+    public void StartMove(Vector3 @where)
+    {
+        StartCoroutine(Move(@where));
+    }
+
     public override IEnumerator Move(Vector3 @where)
     {
         DeleteAllMoveToPlaces();
@@ -99,8 +103,7 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
                 Flip();
             }
         }
-        StartCoroutine(base.Move(@where));
-        yield return null;
+        yield return base.Move(@where);
     }
 
     public void LossOfShieldEvent()
@@ -135,19 +138,24 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
         TurnOver();
     }
 
-    public void Died(string causeOfDied)
-    {
-        deathMesssage.ShowMessage(causeOfDied);
-        base.Died();
-    }
-    
     public override void Died(MonoBehaviour killer)
     {
-        if (killer is ICauseOfDied killerMessage)
+        if (killer.GetComponent<CauseOfDied>() is {} killerMessage)
         {
-            deathMesssage.ShowMessage(killerMessage.GetDeathText());
+            deathMesssage.ShowMessage(killerMessage.GetRandomCauses());
         }
+        else
+        {
+            deathMesssage.ShowMessage("Diiiieeetthhh!");
+        }
+        GameplayEventManager.OnPlayerDied.Invoke();
         base.Died();
+    }
+
+    public void ResetConsumables()
+    {
+        flashCountController.ResetConsumables();
+        RestorationOfShields();
     }
     
     public void Stuck(SlimeTrap slimeTrap)

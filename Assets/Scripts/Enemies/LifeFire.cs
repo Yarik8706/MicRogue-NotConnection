@@ -1,3 +1,4 @@
+using MainScripts;
 using RoomObjects;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ namespace Enemies
 {
     public interface IFireAttack
     {
-        public void FireDamage(GameObject fire);
+        public void FireDamage(GameObject firePrefab);
 
         public void FireDamage();
     }
@@ -28,7 +29,16 @@ namespace Enemies
         {
             SpawnFire(transform.position, fire, noFireLayer, firePosition, _boxCollider2D);
             base.Died();
-        }   
+        }
+
+        public override void Died(MonoBehaviour killer)
+        {
+            if (killer is Player)
+            {
+                CoroutineController.instance.StartCoroutine(GameManager.cameraShake.Shake(0.3f, 0.5f));
+            }
+            base.Died(killer);
+        }
 
         public static void SpawnFire(Vector3 centralPosition, GameObject fire, 
             LayerMask noFireLayer, Vector2[] firePosition, Collider2D collider2D = null)
@@ -59,15 +69,16 @@ namespace Enemies
             base.Died();
         }
 
-        public void FireDamage(GameObject fire)
+        public void FireDamage(GameObject firePrefab)
         {
-            Instantiate(fire, transform.position, Quaternion.identity);
+            Instantiate(firePrefab, transform.position, Quaternion.identity);
         }
         
         public void FireDamage() {}
+        
         public void Stuck(SlimeTrap slimeTrap)
         {
-            Died();
+            base.Died();
         }
     }
 }

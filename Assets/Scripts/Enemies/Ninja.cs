@@ -17,10 +17,7 @@ namespace Enemies
         public override IEnumerator Move(Vector3 @where)
         {
             animator.SetTrigger(moveAnimationName);
-            baseAnimations = Instantiate(baseAnimationsObj, transform.position, Quaternion.identity)
-                .GetComponent<BaseAnimations>();
-            baseAnimations.isDied = false;
-            baseAnimations.DiedAnimation();
+            Instantiate(diedEffect, transform.position, Quaternion.identity);
             _nextPosition = @where;
             yield return null;
         }
@@ -28,9 +25,7 @@ namespace Enemies
         public void MoveEnd()
         {
             transform.position = _nextPosition;
-            baseAnimations.gameObject.transform.position = _nextPosition;
-            baseAnimations.isDied = true;
-            baseAnimations.DiedAnimation();
+            Instantiate(diedEffect, transform.position, Quaternion.identity);
             animator.SetTrigger(moveAnimationName2);
             TurnOver();
         }

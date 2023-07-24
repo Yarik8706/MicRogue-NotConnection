@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +7,14 @@ using Random = UnityEngine.Random;
 
 namespace Traps
 {
-    public abstract class TheTrap : MonoBehaviour, ICauseOfDied, IActiveObject
+    public abstract class TheTrap : MonoBehaviour, IActiveObject
     {
-        public float waitTime;
-        public int stageNow;
-        public string[] stagesAttack;
-        public string attack;
-        public string[] causeOfDied;
+        [SerializeField] protected float waitTime;
+        [SerializeField] protected int stageNow;
+        [SerializeField] protected string[] stagesAttack;
+        [SerializeField] protected string attack;
         protected Animator animator;
-        public List<GameObject> attackObjects;
+        protected List<GameObject> attackObjects;
         public bool isActive = true;
 
         protected virtual void Awake()
@@ -76,11 +74,6 @@ namespace Traps
             {
                 attackObjects.Add(other.gameObject);
             }
-        }
-
-        public string GetDeathText()
-        {
-            return causeOfDied[Random.Range(0, causeOfDied.Length)];
         }
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8361377028931781115}
   - component: {fileID: 6487023213577946641}
   - component: {fileID: -3960173668106283241}
+  - component: {fileID: 1664379160489430088}
   m_Layer: 8
   m_Name: FlyingEye
   m_TagString: Enemy
@@ -159,13 +160,12 @@ MonoBehaviour:
   - {x: -1, y: 0}
   moveAnimationName: 
   diedAnimationName: 
-  baseAnimationsObj: {fileID: 9095098059985199615, guid: 0092fb10a26a99440816cd443b407c73, type: 3}
+  diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
+  diedMusic: {fileID: 0}
   afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   enemyAbility: {fileID: 11400000, guid: 5e3987909a838b845882df58144d8ee0, type: 2}
   enemyType: 1
   enemyCount: 2
-  causeOfDied:
-  - i see you are having a problem.
   ray: {fileID: 9185248360623921883, guid: 702f0bf582f89e34a9549ee6b946cd92, type: 3}
   rayNearEssence: {fileID: 3855470426959749985, guid: e31ae993b7b4a624285d8f6747c186ad, type: 3}
   centerAttackTime: 0.32
@@ -250,3 +250,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1664379160489430088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8361377028931780997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1004d5376ebd45e08b9974121a95039b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  causeOfDieds:
+  - ruText: "\u042F \u0432\u0438\u0436\u0443 \u0443 \u0442\u0435\u0431\u044F \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u044B."
+    enText: I see you are having a problem.
+  - ruText: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438 \u043C\u043D\u0435
+      \u0432 \u0433\u043B\u0430\u0437."
+    enText: Look me in the eye.

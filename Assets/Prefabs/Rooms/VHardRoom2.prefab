@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesCount: 7
-  spawnChanceShield: 8
+  spawnChanceShield: 3
   shildSpawnPosition: {fileID: 6293001824036794920}
   enemies:
   - {fileID: 9053429409787279967, guid: 2a106638303d95d43bf765a1009c0587, type: 3}

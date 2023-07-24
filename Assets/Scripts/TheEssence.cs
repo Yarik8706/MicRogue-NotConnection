@@ -20,11 +20,6 @@ public struct AnimationType
 
 public interface IActiveObject {}
 
-public interface ICauseOfDied
-{
-	public string GetDeathText();
-}
-
 public abstract class TheEssence : MonoBehaviour, IActiveObject
 {
 	[Header("Movement Parameters")]
@@ -34,7 +29,8 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
     public string moveAnimationName;
     public string diedAnimationName;
     [Header("Other")] 
-    public GameObject baseAnimationsObj;
+    [SerializeField] private protected GameObject diedEffect;
+    [SerializeField] private protected AudioClip diedMusic;
     
     private protected bool turnedRight;
     private protected BoxCollider2D boxCollider2D;
@@ -201,12 +197,20 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 	    isMove = false;
 	    isTurnOver = true;
     }
+
+    public virtual void DiedWithMusic()
+    {
+	    StartAnimationTrigger(diedAnimation);
+	    var effect = Instantiate(diedEffect, transform.position, Quaternion.identity);
+	    effect.GetComponent<AudioSource>().clip = diedMusic;
+	    TurnOver();
+	    Destroy(gameObject);
+    }
     
     public virtual void Died()
     {
 	    StartAnimationTrigger(diedAnimation);
-	    Instantiate(baseAnimationsObj, transform.position, Quaternion.identity)
-		    .GetComponent<BaseAnimations>().DiedAnimation();
+	    Instantiate(diedEffect, transform.position, Quaternion.identity);
 	    TurnOver();
 	    Destroy(gameObject);
     }

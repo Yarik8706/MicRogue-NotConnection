@@ -15,7 +15,7 @@ namespace MainScripts
         internal SpawnLevelController spawnLevelController;
         [SerializeField] private Exit exit;
     
-        public RoomController Initial()
+        public RoomController Initial(RoomController[] rooms)
         {
             var exitsDirection = new List<ExitLocation>();
             
@@ -24,15 +24,13 @@ namespace MainScripts
             if (HasNearRoom(ExitLocation.Up, roomIndex)) exitsDirection.Add(ExitLocation.Up);
             if (HasNearRoom(ExitLocation.Right, roomIndex)) exitsDirection.Add(ExitLocation.Right);
 
-            var rightRooms = spawnLevelController.rooms
-                .Where(room => room.GetComponent<RoomController>()
-                    .CheckCorrectRoom(roomType)).ToList();
+            var rightRooms = rooms
+                .Where(room => room.CheckCorrectRoom(roomType)).ToList();
             if(rightRooms.Count == 0) return null;
             var newRoom = Instantiate(
                     rightRooms[Random.Range(0, rightRooms.Count)], transform.position, Quaternion.identity)
                 .GetComponent<RoomController>();
             newRoom.roomIndex = roomIndex; 
-            SpawnLevelController.levelRooms[roomIndex.y][roomIndex.x] = newRoom.gameObject;
             if (exitsDirection.Count == 2)
             {
                 newRoom.SpawnTwoExits(exitsDirection[0], 

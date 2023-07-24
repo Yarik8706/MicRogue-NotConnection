@@ -1,14 +1,12 @@
+using System;
 using UnityEngine;
 
 namespace Enemies.EnemyObjects
 {
-    public class Fire : MonoBehaviour, ICauseOfDied
+    public class Fire : MonoBehaviour
     {
-        public string[] causeOfDied;
-        
         private void OnTriggerEnter2D(Collider2D other)
         {
-            // if (other.gameObject.GetComponent<IActiveObject>() == null) return;
             if (other.gameObject.GetComponent<IFireAttack>() is {} component)
             {
                 component.FireDamage();
@@ -25,11 +23,6 @@ namespace Enemies.EnemyObjects
         public void Died()
         {
             Destroy(gameObject);
-        }
-
-        public string GetDeathText()
-        {
-            return causeOfDied[Random.Range(0, causeOfDied.Length)];
         }
     }
 }

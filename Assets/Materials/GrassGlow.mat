@@ -72,7 +72,7 @@ Material:
     m_Colors:
     - _Color: {r: 20.329412, g: 10.039216, b: 10.039216, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowTextureColor: {r: 3.2778637, g: 16.93836, b: 1.1824886, a: 0.6117647}
+    - _GlowTextureColor: {r: 0.58216506, g: 4.48014, b: 0, a: 0.6117647}
     - _MainTextureColor: {r: 0, g: 0, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

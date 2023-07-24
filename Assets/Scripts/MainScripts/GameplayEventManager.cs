@@ -8,5 +8,6 @@ namespace MainScripts
         public static readonly UnityEvent OnNextMove = new();
         public static readonly UnityEvent OnGetAllEnemies = new();
         public static readonly UnityEvent OnGetAllTraps = new();
+        public static readonly UnityEvent OnPlayerDied = new();
     }
 }

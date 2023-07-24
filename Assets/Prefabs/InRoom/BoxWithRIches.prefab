@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8511471306114572742}
   - component: {fileID: 1710113355488742778}
-  - component: {fileID: 1703486251723752008}
   - component: {fileID: 6508683325130144609}
   - component: {fileID: -7445224879325921523}
-  m_Layer: 0
+  - component: {fileID: 99472797}
+  m_Layer: 6
   m_Name: BoxWithRIches
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664841813849749924}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -73,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1988956003
+  m_SortingLayer: 4
+  m_SortingOrder: 30
   m_Sprite: {fileID: -3898177410305692894, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -87,19 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1703486251723752008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 664841813849749924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c446eeda600cc0d44b7068c84cc81417, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapTarget: {fileID: 5449758181093947906, guid: 136cf488a828df94bba73648dccbd1a0, type: 3}
 --- !u!61 &6508683325130144609
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,3 +133,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &99472797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664841813849749924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbff3a04051a21f48a086f9b5ef4593e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mimicChest: {fileID: 6414173700066613121, guid: d37faf42ad4641240958d84d8077fe68, type: 3}
+  spawnMimicChance: 3
+  updateShieldEffect: {fileID: 2011927294261140809, guid: dd1cf9f3935f9a94c8c543a272cce86b, type: 3}

@@ -1,25 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Canvas;
 using MainScripts;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Enemies
 {
-    public abstract class TheEnemy : TheEssence, ICauseOfDied
+    public abstract class TheEnemy : TheEssence
     {
-        [Header("Enemy Components")]
-        public GameObject afterDied;
+        [Header("Enemy Components")] 
+        [SerializeField] private GameObject afterDied;
         public CustomAbility enemyAbility;
 
         [Header("Enemy Setting")]
         public int enemyType;
         public int enemyCount = 1;
-        public string[] causeOfDied;
-        
-        protected BaseAnimations baseAnimations;
-        
+
         private float attackLong = 0.6f;
         
         protected override void Start()
@@ -150,7 +147,7 @@ namespace Enemies
                 yield return new WaitUntil(() => isMove == false);
                 if (transform.position == GameManager.player.transform.position)
                 {
-                    GameManager.player.Died(causeOfDied[Random.Range(0, causeOfDied.Length)]);
+                    GameManager.player.Died(this);
                 }
             }
         }
@@ -159,13 +156,14 @@ namespace Enemies
         {
             Destroy(gameObject);
         }
-        
-        private void OnDestroy()
+
+        public override void Died(MonoBehaviour killer)
         {
-            if (baseAnimations != null)
+            if (killer is Player && diedMusic != null)
             {
-                Destroy(baseAnimations.gameObject);
+                DiedWithMusic();
             }
+            base.Died(killer);
         }
 
         public override void Died()
@@ -175,11 +173,6 @@ namespace Enemies
                 Instantiate(afterDied, transform.position, Quaternion.identity);
             }
             base.Died();
-        }
-
-        public string GetDeathText()
-        {
-            return causeOfDied[Random.Range(0, causeOfDied.Length)];
         }
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +6,6 @@ namespace Canvas
 {
     public class CanvasExitMenu : MonoBehaviour
     {
-        private RectTransform _rectTransform;
         private bool _isMove;
 
         private IEnumerator Move(Vector2 targetPosition)
@@ -17,8 +15,8 @@ namespace Canvas
                 yield break;
             }
             _isMove = true;
-            transform.DOMove(targetPosition, 1f).SetEase(Ease.Linear);
-            yield return new WaitForSeconds(1f);
+            transform.position = targetPosition;
+            yield return null;
             _isMove = false;
         }
 

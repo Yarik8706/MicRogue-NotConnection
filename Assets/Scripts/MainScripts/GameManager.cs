@@ -29,6 +29,7 @@ namespace MainScripts
         private RoomController _activeRoomController;
         private RoomController[] _roomControllers;
         private SpawnLevelController _spawnLevelController;
+        private TrainingController _trainingController;
         private Transform _cameraTransform;
         // Camera Effects ------------------------------------------
         private ColorAdjustments _colorAdjustments;
@@ -60,21 +61,34 @@ namespace MainScripts
             instance = this;
             _gameController = GetComponent<GameController>();
             _spawnLevelController = GetComponent<SpawnLevelController>();
-            _spawnLevelController.Initial(SpawnLevelController.ShipModel);
-            foreach (var roomController in _spawnLevelController.allRooms)
+            _trainingController = GetComponent<TrainingController>();
+            
+            if (PlayerPrefsSafe.GetInt("Training", 0) == 0)
             {
-                roomController.gameObject.SetActive(false);
+                SpawnLevelController.levelRooms = _spawnLevelController.SpawnRooms(
+                    SpawnLevelController.TrainingModel,
+                    _spawnLevelController.trainingRooms);
+                StartGame(SpawnLevelController.levelRooms[0][0]);
+                StartCoroutine(_trainingController.Active());
             }
-            StartGame(SpawnLevelController.levelRooms[0][0].GetComponent<RoomController>());
+            else
+            {
+                SpawnLevelController.levelRooms = _spawnLevelController.SpawnRooms(
+                                SpawnLevelController.ShipModel,
+                                _spawnLevelController.rooms);
+                StartGame(SpawnLevelController.levelRooms[0][0]);
+            }
         }
 
-        public void StartGame(RoomController controller)
+        private void StartGame(RoomController controller)
         {
             ResetGrayEffect();
-            screenFader.fadeState = ScreenFader.FadeState.In;
+            
             _activeRoomController = controller;
             _activeRoomController.gameObject.SetActive(true);
             _activeRoomController.Initial();
+
+            player.ResetConsumables();
             player.transform.position = _activeRoomController.startPosition.position;
             _activeRoomController.SpawnEnemies();
 
@@ -82,6 +96,9 @@ namespace MainScripts
                 _activeRoomController.transform.position.x,
                 _activeRoomController.transform.position.y,
                 _cameraTransform.position.z);
+            
+            screenFader.fadeState = ScreenFader.FadeState.InEnd;
+            screenFader.SetState();
             screenFader.fadeState = ScreenFader.FadeState.Out;
         }
 
@@ -155,13 +172,10 @@ namespace MainScripts
 
         public IEnumerator TurnStarted()
         {
-            GameController.instance.enemiesActive = false;
             // проверяем не перешел ли игрок в другую комнату если да то ждем когда она загрузится
             yield return new WaitUntil(() => player.isActive);
-            // проверяем не умер ли игрок
             if (player == null) yield break;
             player.Active();
-            yield return new WaitForSeconds(0.1f);
             yield return new WaitUntil(() => player.isTurnOver);
             yield return TurnEnded();
         }
@@ -173,13 +187,10 @@ namespace MainScripts
 
         public IEnumerator TurnEnded()
         {
-            // активируем событие следущего хода 
             GameplayEventManager.OnNextMove.Invoke();
             yield return new WaitForSeconds(0.3f);
-            //активируем врагов и ловушки
-            yield return _gameController.Active();
+            StartCoroutine(_gameController.ActiveEnemiesAndTraps());
             numberOfMoves++;
-            StartCoroutine(TurnStarted());
         }
 
         public IEnumerator NextRoom(ExitLocation direction)
@@ -192,7 +203,6 @@ namespace MainScripts
             var newRoom = SpawnLevelController.levelRooms[indexRoom.y][indexRoom.x];
             if (newRoom == null) yield break;
             yield return new WaitForSeconds(0.7f);
-            _activeRoomController.LeavingRoom();
             
             foreach (var afterDied in GameObject.FindGameObjectsWithTag("Trash"))
             {
@@ -208,9 +218,9 @@ namespace MainScripts
                 _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
             };
 
-            newRoom.SetActive(true);
+            newRoom.gameObject.SetActive(true);
             _activeRoomController.gameObject.SetActive(false);
-            _activeRoomController = newRoom.GetComponent<RoomController>();
+            _activeRoomController = newRoom;
             _activeRoomController.Initial();
             _activeRoomController.SpawnEnemies();
             foreach (var exit in _activeRoomController.exits)

@@ -8,11 +8,11 @@ namespace Enemies
     public class Dragon : TheEnemy, IColdAttack, IFireAttack
     {
         [Header("Dragon Setting")]
-        public LayerMask noFireLayer;
-        public Transform[] firePosition;
-        public GameObject sleepTimeObject;
-        public Sprite[] sleepTimeSprites;
-        public GameObject fire;
+        [SerializeField] private LayerMask noFireLayer;
+        [SerializeField] private Transform[] firePosition;
+        [SerializeField] private GameObject sleepTimeObject;
+        [SerializeField] private Sprite[] sleepTimeSprites;
+        [SerializeField] private GameObject fire;
         
         private bool _isFall;
         private bool _isWait;
@@ -21,12 +21,14 @@ namespace Enemies
         private int _sleepTime;
         private readonly Color _standart = new(255,255,255,1);
         private bool _isSleep;
+        private AudioSource _audioSource;
         
         private static readonly int IsSleep = Animator.StringToHash("isSleep");
         
         protected override void Start()
         {
             base.Start();
+            _audioSource = GetComponent<AudioSource>();
             animator.SetBool(IsSleep, true);
             _isSleep = true;
             turnedRight = true;
@@ -132,6 +134,7 @@ namespace Enemies
             yield return new WaitUntil(() => transform.position == position);
             inverseMoveTime = 1 / moveTime;
             StartCoroutine(GameManager.cameraShake.Shake(0.5f, 1));
+            _audioSource.Play();
             _isFall = false;
             spriteRenderer.enabled = true;
             boxCollider2D.enabled = true;
@@ -142,7 +145,7 @@ namespace Enemies
         {
             if (other.gameObject.CompareTag("Player") && _isFall)
             {
-                other.gameObject.GetComponent<Player>().Died(causeOfDied[Random.Range(0, causeOfDied.Length)]);
+                other.gameObject.GetComponent<Player>().Died(this);
                 yield break;
             }
             yield return base.OnTriggerEnter2D(other);
@@ -167,12 +170,12 @@ namespace Enemies
 
         public void ColdAttack()
         {
-            Instantiate(baseAnimationsObj, transform.position, Quaternion.identity).GetComponent<BaseAnimations>().FreezingAnimation();
+            
         }
 
-        public void FireDamage(GameObject fire)
+        public void FireDamage(GameObject firePrefab)
         {
-            Instantiate(fire, transform.position, Quaternion.identity);
+            Instantiate(firePrefab, transform.position, Quaternion.identity);
         }
         public void FireDamage()
         {
