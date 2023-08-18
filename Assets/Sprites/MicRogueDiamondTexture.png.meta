@@ -2295,10 +2295,10 @@ TextureImporter:
       name: MainMenuAuthor
       rect:
         serializedVersion: 2
-        x: 0
-        y: 797
-        width: 19
-        height: 19
+        x: 31
+        y: 760
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -8151,27 +8151,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: amogus
-      rect:
-        serializedVersion: 2
-        x: 516
-        y: 785
-        width: 15
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53492957320be804f80d6b458a08012a
-      internalID: -231317239
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: MenuUI
       rect:
         serializedVersion: 2
@@ -8201,7 +8180,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -8209,6 +8188,258 @@ TextureImporter:
       bones: []
       spriteID: bb9adae2a6a737542bb870d9313e0e59
       internalID: -1878898732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TelegramIcon
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 760
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d23c72cdb294449bbc8d1f2d783183
+      internalID: 2045113784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backroomWall1
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 816
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28f8d9c0ca2da14ebcbf7a45d687971
+      internalID: 527311393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backroomFloor
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 816
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2da74dd88438648a4cd8fd08e81324
+      internalID: 1861192001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backroomLamp
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 816
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df9f7aff1e82fc429c20e23ae8f07ab
+      internalID: -1977536339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backroomWall0
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 126efee9e25f2a34db5203017440fe2c
+      internalID: 2036004117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backroomWall2
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 047ecae01ecb08145bfa07457d8f9a3c
+      internalID: -308844049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backroomsExit
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fb389663eb2f443941e5a1195b21c3
+      internalID: -1030643603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backroomWall4
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85882fa034c2f4849a2bf61508610a59
+      internalID: -782767522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backroomWall5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a287f59ea660eb74b94282ff113231c9
+      internalID: -412230138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BacteriumIdle
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 768
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3d0019a485991459f66ff74a0ee299
+      internalID: -1865174990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BacteriumRun1
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 767
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558e7c0d406ba9548a58225fb8cfc005
+      internalID: -1640723282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BacteriumRun2
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 767
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 670187b0efcc50a4b869330ee57b3ce0
+      internalID: -14177071
       vertices: []
       indices: 
       edges: []
@@ -8233,6 +8464,7 @@ TextureImporter:
       LampIdle 1 6: -5843713123948804762
       slamp_4: -1651313005
       TrollWithStickRun0: -1134124516
+      BacteriumRun1: -1640723282
       grass_2: -1007727835
       PlayerWithoutShieldRun2: 2144131419
       FreezingLamp1: 635076061
@@ -8258,6 +8490,7 @@ TextureImporter:
       WhiteFloor8: -1111953809
       BlackFloor6: -1448619793
       putability0: 865301555
+      backroomFloor: 1861192001
       LampIdle7: 104106421449956808
       amogus: -231317239
       PlayerDiedFromDuck1: -639210490
@@ -8281,6 +8514,7 @@ TextureImporter:
       putability16: -1167850304
       GrayFloor1: -1830261601936756837
       FireTrap0: -7175753292707142349
+      backroomWall5: -412230138
       GameRules3: 802870630
       ShiledItem: 782831700
       For null object: 2052114837
@@ -8332,6 +8566,7 @@ TextureImporter:
       PictureCanvasMainMenu: -5787722678231957765
       BaxPile: 1087552608
       FireAnim1: 1396397318016514157
+      backroomWall4: -782767522
       getability12: -1315037902
       MicRogue GoldTest_26: -592547824
       WinFrame: 1253620411
@@ -8346,6 +8581,7 @@ TextureImporter:
       FlyingEyeRay2: -6404368768002200884
       TheEssenceDied4: 2008919301
       SlimeAbility: 1759015
+      BacteriumRun2: -14177071
       LeftMapRoom: -1983171019
       DuckRayClose: 1357129885
       gameRulesPicture5: -1185954111
@@ -8426,12 +8662,14 @@ TextureImporter:
       updateShieldEffect4: 652433743
       RightDownUpRoomShip1: -1792680475
       slamp_2: -937416908
+      backroomWall0: 2036004117
       WallDecoration1: 675748186
       Gold1: -3898177410305692894
       BoxWithRIches: 5260225046626893699
       PlayerDiedFromDuckWithoutShield0: 905528463
       WhiteFloor2: -1739007312
       TrollWithStickRun2: -1141394713
+      backroomWall2: -308844049
       FreezingLamp: -5780432875246777992
       SnowMan1: 390843795797142074
       RightUpDownRoomShip2: -467352233
@@ -8455,6 +8693,7 @@ TextureImporter:
       MainMenuExit: 792854607
       slamp_1: 617440897
       putability4: 363925846
+      TelegramIcon: 2045113784
       mimicStartAnim: -602862329
       PlayerDiedFromDuckWithoutShield2: 1030955016
       SleepCount3: -201394894
@@ -8485,6 +8724,7 @@ TextureImporter:
       getability5: 1514928991
       TheEssenceDied5: 1315725964267458525
       SlimeRoad: 1884224513
+      backroomsExit: -1030643603
       UpExit: -819194701
       DragonStartAction2: -1384178719
       putability3: 1453487826
@@ -8502,6 +8742,7 @@ TextureImporter:
       getability15: 2086273876
       PlayerRun2: 6210594801723020864
       RayNearFlyingEyeAttack4: 4384879833635598779
+      BacteriumIdle: -1865174990
       getability10: 1491038034
       SlimeRoad1: -558032387
       OrgeRun2: 1213921707
@@ -8522,6 +8763,7 @@ TextureImporter:
       GunShipRoom1: -605254458
       DuckRay: 1608410695
       Duck1: -589437128
+      backroomWall1: 527311393
       LeftDownMapRoom: 1368353255
       DragonMove2: -196851251
       getability4: 1491610867
@@ -8541,9 +8783,9 @@ TextureImporter:
       grass_3: 1825733117
       getability13: 1296323238
       EnemyShield0: 182089472
-      grass_4: 660719377
-      getability0: -5957158
       FreezingObj2: -235836468
+      getability0: -5957158
+      grass_4: 660719377
       FreezingObj4: -1421517292176563482
       getability19: -1073945381
       Wall4: -501817725
@@ -8564,6 +8806,7 @@ TextureImporter:
       MicRogue GoldTest_2: 1342082430
       FreezingObj3: -416725263
       gameRulesPicture2: -212222009
+      backroomLamp: -1977536339
       EnemyShieldDied2: -1112949373
       DuckAttack2: -930845596
       GameRules2: -1489790944

@@ -1,11 +1,12 @@
 using System.Collections;
+using Abilities;
 using MainScripts;
 using RoomObjects;
 using UnityEngine;
 
 namespace Enemies
 {
-    public class Dragon : TheEnemy, IColdAttack, IFireAttack
+    public class Dragon : TheEnemy, IColdAttack, IFireAttack, IPetrificationAttack
     {
         [Header("Dragon Setting")]
         [SerializeField] private LayerMask noFireLayer;
@@ -62,6 +63,7 @@ namespace Enemies
                     break;
                 default:
                 {
+                    if(BackroomsController.isBackrooms) return;
                     if (_isWait)
                     {
                         if (_waitTime == 2)
@@ -128,7 +130,7 @@ namespace Enemies
             {
                 Flip();
             }
-            transform.position = new Vector3(position.x, position.y, position.z + 10);
+            transform.position = new Vector3(position.x, position.y + 10, position.z);
             inverseMoveTime = 1 / .05f;
             StartCoroutine(SmoothMovement(position));
             yield return new WaitUntil(() => transform.position == position);
@@ -178,6 +180,11 @@ namespace Enemies
             Instantiate(firePrefab, transform.position, Quaternion.identity);
         }
         public void FireDamage()
+        {
+            
+        }
+
+        public void Petrification()
         {
             
         }

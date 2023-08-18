@@ -40,7 +40,7 @@ namespace Canvas
     
         public void DeleteCount()
         {
-            if (countNow < 0)
+            if (countNow < 0 || countNow == 0)
             {
                 return;
             }
@@ -61,12 +61,12 @@ namespace Canvas
 
         protected virtual void AddEvent()
         {
-            value += _addValue;
+            SetValue(_addValue);
         }
 
         protected virtual void DeleteEvent()
         {
-            value -= _addValue;
+            SetValue(-_addValue);
         }
 
         protected virtual void SetValue(int value)

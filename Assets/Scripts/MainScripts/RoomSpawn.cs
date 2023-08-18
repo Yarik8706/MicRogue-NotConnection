@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using RoomControllers;
@@ -12,17 +11,16 @@ namespace MainScripts
     {
         internal RoomIndex roomIndex;
         internal RoomType roomType;
-        internal SpawnLevelController spawnLevelController;
-        [SerializeField] private Exit exit;
+        public Exit exit;
     
-        public RoomController Initial(RoomController[] rooms)
+        public RoomController Initial(RoomController[] rooms, RoomType[][] model)
         {
             var exitsDirection = new List<ExitLocation>();
             
-            if (HasNearRoom(ExitLocation.Left, roomIndex)) exitsDirection.Add(ExitLocation.Left);
-            if (HasNearRoom(ExitLocation.Down, roomIndex)) exitsDirection.Add(ExitLocation.Down);
-            if (HasNearRoom(ExitLocation.Up, roomIndex)) exitsDirection.Add(ExitLocation.Up);
-            if (HasNearRoom(ExitLocation.Right, roomIndex)) exitsDirection.Add(ExitLocation.Right);
+            if (HasNearRoom(ExitLocation.Left, roomIndex, model)) exitsDirection.Add(ExitLocation.Left);
+            if (HasNearRoom(ExitLocation.Down, roomIndex, model)) exitsDirection.Add(ExitLocation.Down);
+            if (HasNearRoom(ExitLocation.Up, roomIndex, model)) exitsDirection.Add(ExitLocation.Up);
+            if (HasNearRoom(ExitLocation.Right, roomIndex, model)) exitsDirection.Add(ExitLocation.Right);
 
             var rightRooms = rooms
                 .Where(room => room.CheckCorrectRoom(roomType)).ToList();
@@ -36,17 +34,21 @@ namespace MainScripts
                 newRoom.SpawnTwoExits(exitsDirection[0], 
                     exitsDirection[1], exit);
             }
+            else if(newRoom.roomType != RoomType.Start)
+            {
+                newRoom.SpawnExits(exitsDirection.ToArray(), exit);
+            }
             return newRoom;
         }
 
-        public static bool HasNearRoom(ExitLocation exitLocation, RoomIndex roomIndex)
+        public static bool HasNearRoom(ExitLocation exitLocation, RoomIndex roomIndex, RoomType[][] model)
         {
             var nextRoomIndex = GameManager.GetDirectionIndex(exitLocation, roomIndex);
             try
             {
-                return SpawnLevelController.ShipModel[nextRoomIndex.y][nextRoomIndex.x] != RoomType.Null;
+                return model[nextRoomIndex.y][nextRoomIndex.x] != RoomType.Null;
             }
-            catch (IndexOutOfRangeException exception)
+            catch
             {
                 return false;
             }

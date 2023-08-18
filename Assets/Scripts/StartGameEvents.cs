@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class StartGameEvents : MonoBehaviour
 {
-    public GameObject spaceCapsule;
+    [SerializeField] private GameObject spaceCapsule;
     
     private void Start()
     {

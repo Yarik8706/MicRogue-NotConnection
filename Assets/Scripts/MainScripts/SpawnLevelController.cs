@@ -15,28 +15,35 @@ namespace MainScripts
         Action1,
         Action2,
         Start,
-        Training1
+        Training1,
+        Backrooms,
+        BackroomsEnd
     }
 
     public class SpawnLevelController : MonoBehaviour
     {
-        public static RoomController[][] levelRooms;
-        public static RoomController[][] activeTrainingRooms;
+        public static RoomController[][] activeRooms;
+        public RoomController[][] levelRooms;
+        public RoomController[][] activeBackrooms;
 
         public RoomController[] rooms;
         public RoomController[] trainingRooms;
+        public RoomController[] backrooms;
         
         [SerializeField] private GameObject roomSpawn;
 
-        public static readonly RoomType[][] TrainingModel =
-        {
+        public static readonly RoomType[][] TrainingModel = {
             new []
             {
                 RoomType.Start,
                 RoomType.Training1
             },
         };
-        
+        public static readonly RoomType[][] BackroomsModel = {
+            new [] {RoomType.Backrooms, RoomType.Backrooms, RoomType.Backrooms, RoomType.Null},
+            new [] {RoomType.Null, RoomType.Backrooms, RoomType.Backrooms, RoomType.Backrooms, RoomType.Null},
+            new [] {RoomType.Null, RoomType.Null, RoomType.Backrooms, RoomType.Backrooms, RoomType.BackroomsEnd}
+        };
         public static readonly RoomType[][] ShipModel = {
             new []{
                 RoomType.Start,   
@@ -77,10 +84,9 @@ namespace MainScripts
                                 Vector3.zero, // new Vector2(j * 15, -(i * 9)),
                                 Quaternion.identity).GetComponent<RoomSpawn>();
                             room.roomIndex = new RoomIndex(i, j);
-                            room.spawnLevelController = this;
                             room.roomType = mapRoom[i][j];
                             
-                            var newRoom = room.Initial(centerRooms);
+                            var newRoom = room.Initial(centerRooms, mapRoom);
                             newRoom.gameObject.SetActive(false);
                             Destroy(room.gameObject);
                         

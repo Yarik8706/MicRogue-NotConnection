@@ -1904,10 +1904,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1957,7 +1957,6 @@ RectTransform:
   - {fileID: 1102680876}
   - {fileID: 1914770582}
   - {fileID: 511676273}
-  - {fileID: 1537475117}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2084,7 +2083,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog: {fileID: 511676272}
-  dialogMovePosition: {fileID: 1537475117}
   text: {fileID: 853894344}
 --- !u!1 &511676272
 GameObject:
@@ -2123,7 +2121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000020027, y: -659.75}
+  m_AnchoredPosition: {x: -0.000020027, y: -1204}
   m_SizeDelta: {x: 1245.1179, y: 175.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &511676274
@@ -2269,10 +2267,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.196875
-    y: 0.008333333
-    width: 0.34062502
-    height: 0.29999998
+    x: 0.045833334
+    y: 0.1
+    width: 0.90833336
+    height: 0.8
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2681,6 +2679,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545940244}
   m_CullTransparentMesh: 1
+--- !u!1 &704352586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704352588}
+  - component: {fileID: 704352587}
+  m_Layer: 0
+  m_Name: BackroomsSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &704352587
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704352586}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6674618689328596686, guid: 56a24cddf556343409eb14c892dbb600, type: 2}
+  m_audioClip: {fileID: 8300000, guid: cc4fbb323fe60a646a5d4154ac70fb1c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &704352588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704352586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &707713670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,6 +3123,8 @@ GameObject:
   - component: {fileID: 833479956}
   - component: {fileID: 833479957}
   - component: {fileID: 833479958}
+  - component: {fileID: 833479960}
+  - component: {fileID: 833479959}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -3017,10 +3145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coldBlackout: {fileID: 707713670}
-  cameraVolume: {fileID: 1262414318}
-  pixelEffect: {fileID: 847205118}
-  screenFader: {fileID: 833479956}
   winFrame: {fileID: 2035341020}
+  screenFader: {fileID: 833479956}
   updateShieldObj: {fileID: 664841813849749924, guid: 4f8de0626e5ac934ca5b5b63f8779eb1, type: 3}
   spawnShildCount: 10
 --- !u!4 &833479954
@@ -3103,6 +3229,9 @@ MonoBehaviour:
   trainingRooms:
   - {fileID: -3572626191419954152, guid: cfdb45799f82d8d4db12fb21c4ad2a9f, type: 3}
   - {fileID: 7658305281281964873, guid: 1dddd4e170f17f041b69e5ab8e1b694c, type: 3}
+  backrooms:
+  - {fileID: 3520129871422564225, guid: 87154bc2422cb134080d2856f663f9b7, type: 3}
+  - {fileID: 1705125288904728119, guid: 51021bb2c4952f34195c847cea8a0750, type: 3}
   roomSpawn: {fileID: 7505946388046699951, guid: c33793a8a04b0e349b83def9ed91dbf6, type: 3}
 --- !u!114 &833479958
 MonoBehaviour:
@@ -3125,24 +3254,25 @@ MonoBehaviour:
       \u0433\u0435\u0440\u043E\u044F, \u043D\u0443\u0436\u043D\u043E \u043A\u043B\u0438\u043A\u0430\u0442\u044C
       \u043D\u0430 \u0437\u0430\u0448\u0442\u0440\u0438\u0445\u043E\u0432\u0430\u043D\u043D\u044B\u0435
       \u043A\u043B\u0435\u0442\u043A\u0438\u2026"
-    enText: To move the hero, you need to click on the shaded cells ...
+    enText: Click on a cell in the selected area to move the hero...
   - ruText: "\u041F\u0435\u0440\u0435\u043C\u0435\u0441\u0442\u0438 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430
       \u043D\u0430 \u043F\u043E\u043C\u0435\u0447\u0435\u043D\u043D\u0443\u044E \u0442\u043E\u0447\u043A\u0443\u2026"
-    enText: Move the character to the marked point...
+    enText: Move the hero to the marked point...
   moveDialog:
   - ruText: "\u0427\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0439\u0442\u0438
       \u043A\u043E\u043C\u043D\u0430\u0442\u0443, \u043D\u0443\u0436\u043D\u043E
       \u0432\u0441\u0442\u0430\u0442\u044C \u043D\u0430 \u0441\u0432\u0435\u0442\u044F\u0449\u0443\u044E\u0441\u044F
       \u0441\u0442\u0440\u0435\u043B\u043E\u0447\u043A\u0443\u2026"
-    enText: To pass the room, you need to stand on the luminous arrow ...
+    enText: Reach the glowing arrow to go to another room...
   - ruText: "\u041F\u0440\u043E\u0439\u0434\u0438 \u0432 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E
       \u043A\u043E\u043C\u043D\u0430\u0442\u0443\u2026"
-    enText: Go to the next room...
+    enText: Let's go to the next room...
   attackDialog:
   - ruText: "\u0412 \u0446\u0435\u043D\u0442\u0440\u0435 \u043A\u043E\u043C\u043D\u0430\u0442\u044B
       \u0441\u0442\u043E\u0438\u0442 \u0442\u0432\u043E\u0439 \u043F\u0435\u0440\u0432\u044B\u0439
       \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A!"
-    enText: In the center of the room is your first opponent!
+    enText: In the center of the room is your first opponent! He will move towards
+      you to fight...
   - ruText: "\u041E\u043D \u0431\u0443\u0434\u0435\u0442 \u0434\u0432\u0438\u0433\u0430\u0442\u044C\u0441\u044F
       \u043A \u0442\u0435\u0431\u0435 \u0447\u0442\u043E\u0431\u044B \u043F\u043E\u0431\u0435\u0434\u0438\u0442\u044C
       \u0442\u0435\u0431\u044F\u2026"
@@ -3152,21 +3282,53 @@ MonoBehaviour:
       \u043E\u0442 \u0430\u0442\u0430\u043A \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430,
       \u043D\u043E \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u0435\u0440\u0435\u0434
       \u0441\u043E\u0431\u043E\u0439!"
-    enText: You have a shield that protects against enemy attacks, but only in front
-      of you!
+    enText: You have a shield that protects against enemy attacks, but it only works
+      in front of you a limited number of times...
   - ruText: "\u0427\u0442\u043E\u0431\u044B \u043F\u043E\u0431\u0435\u0434\u0438\u0442\u044C
       \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430 \u0442\u0435\u0431\u0435
       \u043D\u0443\u0436\u043D\u043E \u0432\u0441\u0442\u0430\u0442\u044C \u043D\u0430
       \u0435\u0433\u043E \u043A\u043B\u0435\u0442\u043A\u0443\u2026"
-    enText: To defeat the enemy you need to stand on his cell...
+    enText: Stand on the cell with the enemy to defeat him...
   endDialog:
   - ruText: "\u0412\u043E\u0442 \u0442\u044B \u0438 \u043F\u0440\u043E\u0448\u0435\u043B
       \u0441\u0432\u043E\u0435 \u043A\u043E\u0440\u043E\u0442\u043A\u043E\u0435 \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435!
       \u0422\u0435\u043F\u0435\u0440\u044C \u0442\u0435\u0431\u0435 \u043F\u0440\u0435\u0434\u0441\u0442\u043E\u0438\u0442
       \u0432\u044B\u0431\u0440\u0430\u0442\u044C\u0441\u044F \u0438\u0437 \u043F\u043E\u0434\u0437\u0435\u043C\u0435\u043B\u044C\u044F\u2026"
-    enText: So you have completed your short training! Now you have to get out of
-      the dungeon ...
+    enText: So, you have completed your short tutorial! Now you have to get out of
+      the dungeon...
   dialogController: {fileID: 428914245}
+--- !u!114 &833479959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833479952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de02da344f9b41f09c8887e4b5a64f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSound: {fileID: 954827401}
+  backroomsSound: {fileID: 704352587}
+  playerLamp: {fileID: 1759354756}
+  roomSpawn: {fileID: 7505946388046699950, guid: c33793a8a04b0e349b83def9ed91dbf6, type: 3}
+  backroomsExit: {fileID: 1226807977104375815, guid: 03104abd9e3b55d4c9df9ddf8a243427, type: 3}
+  bacteriumSpawnChance: 2
+--- !u!114 &833479960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833479952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe18417b78f4ded97f31dc150f66d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraVolume: {fileID: 1262414318}
+  pixelEffect: {fileID: 847205118}
 --- !u!1 &847205116
 GameObject:
   m_ObjectHideFlags: 0
@@ -8215,6 +8377,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857047705}
   m_CullTransparentMesh: 1
+--- !u!1 &954827400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 954827402}
+  - component: {fileID: 954827401}
+  m_Layer: 0
+  m_Name: FallSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &954827401
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954827400}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4163052249541112590, guid: 56a24cddf556343409eb14c892dbb600, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 95e9107c39782704ab14d478b3879f61, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &954827402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954827400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &991190480
 GameObject:
   m_ObjectHideFlags: 0
@@ -9688,42 +9978,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8712502928881773290, guid: 25752c99c3aed834795dc75cebbb7025, type: 3}
   m_PrefabInstance: {fileID: 1407485010}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1537475116
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1537475117}
-  m_Layer: 5
-  m_Name: DialogPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1537475117
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1537475116}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 428914236}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -418}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1661346322
 GameObject:
   m_ObjectHideFlags: 0
@@ -10062,7 +10316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1786264795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10428,7 +10682,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1916287309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 428914239}
+        m_TargetAssemblyTypeName: Canvas.DeathMesssageUI, Assembly-CSharp
+        m_MethodName: CloseDialogAndReloadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1916287309
 MonoBehaviour:
   m_ObjectHideFlags: 0

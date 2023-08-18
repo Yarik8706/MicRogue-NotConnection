@@ -116,7 +116,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!50 &3382286905817429788
 Rigidbody2D:
@@ -164,7 +164,7 @@ MonoBehaviour:
   diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
   diedMusic: {fileID: 0}
   afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
-  enemyAbility: {fileID: 0}
+  enemyAbility: {fileID: 11400000, guid: 011b7a128fb635a4bb0ca4d0e0256b01, type: 2}
   enemyType: 5
   enemyCount: 3
   baseAnimationsObj: {fileID: 3539192815758939795, guid: 53f6b48b280e27547a599fbecb322b14, type: 3}

@@ -1,5 +1,6 @@
 using System.Collections;
 using Enemies;
+using MainScripts;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -48,6 +49,19 @@ namespace Traps
                }
                else if (attackObjects[0].GetComponent<TheEssence>() is {} essence)
                {
+                   if (essence is Player)
+                   {
+                       yield return new WaitUntil(() => GameManager.player.isTurnOver);
+                       if (GameManager.player.transform.position != transform.position) yield break;
+                       yield return null;
+                       yield return new WaitUntil(() => !GameManager.player.isTurnOver);
+                       if (GameManager.player == null) yield break;
+                       if (GameManager.player.transform.position == transform.position)
+                       {
+                           GameManager.instance.backroomsController.StartBackrooms();
+                       }
+                       yield break;
+                   }
                    essence.Died(this);
                }
             }
@@ -65,6 +79,7 @@ namespace Traps
 
         public void SetFloorState()
         {
+            animator.SetTrigger(stagesAttack[stageNow]); 
             stageNow = 0;
             isSecondPhase = false;
             gameObject.layer = 0;
@@ -74,6 +89,7 @@ namespace Traps
 
         private void SetBlockState()
         {
+            animator.SetTrigger(stagesAttack[stageNow]); 
             _spriteRenderer.sortingLayerName = "Decoration";
             gameObject.layer = 6;
             isSecondPhase = true;

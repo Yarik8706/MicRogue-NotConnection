@@ -10,7 +10,6 @@ namespace Canvas
     public class TrainingControllerUI : MonoBehaviour
     {
         [SerializeField] private GameObject dialog;
-        [SerializeField] private Transform dialogMovePosition;
         [SerializeField] private TMP_Text text;
         
         private Cause[] activeDialogTexts;
@@ -19,9 +18,10 @@ namespace Canvas
 
         public void StartDialog(Cause[] newDialogTexts, Action newEndAction)
         {
+            transform.position = new Vector3(transform.position.x, -Screen.height * 0.2f);
             dialog.transform.DOMove(
-                dialogMovePosition.position, 
-                0.5f).SetEase(Ease.InCubic);
+                transform.position + Vector3.up * Screen.height * 0.3f, 
+                0.7f).SetEase(Ease.InCubic);
             activeDialogTexts = newDialogTexts;
             endDialogAction = newEndAction;
             activeTextIndex = 0;
@@ -33,8 +33,8 @@ namespace Canvas
             if (activeTextIndex + 1 == activeDialogTexts.Length)
             {
                 dialog.transform.DOMove(
-                    dialogMovePosition.position - Vector3.up * dialogMovePosition.position.y * 2, 
-                    0.5f).SetEase(Ease.InCubic);
+                    transform.position - Vector3.up * Screen.height * 0.6f, 
+                    0.7f).SetEase(Ease.InCubic);
                 endDialogAction?.Invoke();
                 return;
             }

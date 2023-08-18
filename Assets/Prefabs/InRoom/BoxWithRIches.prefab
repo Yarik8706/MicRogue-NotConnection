@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6508683325130144609}
   - component: {fileID: -7445224879325921523}
   - component: {fileID: 99472797}
+  - component: {fileID: 7510667660089067237}
   m_Layer: 6
   m_Name: BoxWithRIches
   m_TagString: Untagged
@@ -148,3 +149,15 @@ MonoBehaviour:
   mimicChest: {fileID: 6414173700066613121, guid: d37faf42ad4641240958d84d8077fe68, type: 3}
   spawnMimicChance: 3
   updateShieldEffect: {fileID: 2011927294261140809, guid: dd1cf9f3935f9a94c8c543a272cce86b, type: 3}
+--- !u!114 &7510667660089067237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664841813849749924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd453cdaf42487193d3107f1c8f67b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -39,8 +39,8 @@ namespace MainScripts
             trainingPoint.gameObject.SetActive(false);
             dialogController.StartDialog(moveDialog, () => { });
             
-            yield return new WaitUntil(() => GameManager.instance.moveToTheNextRoom);
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitUntil(() => !GameManager.player.isActive);
+            yield return new WaitForSeconds(1.7f);
             dialogController.StartDialog(attackDialog, () => { });
             
             GameplayEventManager.OnGetAllEnemies.Invoke();

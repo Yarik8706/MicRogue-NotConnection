@@ -16,17 +16,8 @@ namespace RoomObjects
     public class Exit : MonoBehaviour
     {
         public ExitLocation exitLocation;
-        
-        [SerializeField] private Sprite rightSprite;
-        [SerializeField] private Sprite leftSprite;
-
-        private SpriteRenderer _spriteRenderer;
+        public bool willNotActive;
         internal bool isActive = true;
-
-        private void Awake()
-        {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-        }
 
         private IEnumerator OnTriggerEnter2D(Collider2D other)
         {
@@ -34,6 +25,8 @@ namespace RoomObjects
             if (!other.gameObject.CompareTag("Player")) yield break;
             yield return new WaitUntil(() => GameManager.player.isTurnOver);
             if (GameManager.player.transform.position != transform.position) yield break;
+            yield return null;
+            yield return new WaitUntil(() => !GameManager.player.isTurnOver);
             if (GameManager.player == null) yield break;
             if (GameManager.player.transform.position == transform.position)
             {
@@ -44,7 +37,21 @@ namespace RoomObjects
         public void SetDirectionAndSpriteByDirection(ExitLocation direction)
         {
             exitLocation = direction;
-            _spriteRenderer.sprite = direction == ExitLocation.Right ? rightSprite : leftSprite;
+            switch (direction)
+            {
+                case ExitLocation.Down:
+                    transform.Rotate(Vector3.forward*-90);
+                    break;
+                case ExitLocation.Up:
+                    transform.Rotate(Vector3.forward*90);
+                    break;
+                case ExitLocation.Left:
+                    transform.Rotate(-Vector3.forward*180);
+                    break;
+                case ExitLocation.Right:
+                    transform.rotation = Quaternion.identity;
+                    break;
+            }
         }
 
         public Vector3 GetNextPositionPlayer()

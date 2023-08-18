@@ -140,6 +140,7 @@ namespace Enemies
             if (!isMove && GameManager.player.isMove)
             {
                 yield return new WaitUntil(() => GameManager.player.isMove == false);
+                if (GameManager.player.movingPosition != transform.position) yield break;
                 Died(GameManager.player);
             }
             else

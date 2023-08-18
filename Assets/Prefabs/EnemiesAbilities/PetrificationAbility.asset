@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0114973d964745e893b99206b8c90197, type: 3}
+  m_Name: PetrificationAbility
+  m_EditorClassIdentifier: 
+  isActiveAbility: 1
+  buttonIcon: {fileID: 1759015, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
+  enemyStatue: {fileID: 3892668387973678099, guid: 0afbb3ef844fd3640b607137abcb32bb, type: 3}
+  petrificationMaterial: {fileID: 2100000, guid: 6aa899d37521ada45b503462a693d32b, type: 2}
+  petrificationRange: 2
+  petrificationEffect: {fileID: 4849770243603497638, guid: f4cfe8419444d1344adeb123f002ae76, type: 3}

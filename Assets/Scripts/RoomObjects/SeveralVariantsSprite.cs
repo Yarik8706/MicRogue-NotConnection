@@ -18,7 +18,10 @@ namespace RoomObjects
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             var randomNumber = new Random();
-            _spriteRenderer.sprite = sprites[randomNumber.Next(0, sprites.Length)];
+            if (sprites.Length > 1)
+            {
+                _spriteRenderer.sprite = sprites[randomNumber.Next(0, sprites.Length)];
+            }
             if (flipToX && randomNumber.Next(0, 2) == 0)
             {
                 _spriteRenderer.flipX = true;

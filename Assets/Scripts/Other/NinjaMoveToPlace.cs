@@ -18,10 +18,9 @@ namespace Other
         {
             GameManager.player.moveToPlaces.Remove(gameObject);
             GameManager.player.DeleteAllMoveToPlaces();
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.6f);
             Instantiate(movementEffect, GameManager.player.transform.position, Quaternion.identity);
             GameManager.player.transform.position = transform.position;
-            yield return new WaitForSeconds(0.3f);
             Instantiate(movementEffect, transform.position, Quaternion.identity);
             GameManager.player.TurnOver();
             Destroy(gameObject);

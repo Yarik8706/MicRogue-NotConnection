@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7394596593615317222}
   - component: {fileID: 7798994174846113702}
   - component: {fileID: 6524670425548149210}
+  - component: {fileID: -4847320805860790842}
   m_Layer: 0
   m_Name: PlaceToMove 1
   m_TagString: MoveToPlace
@@ -124,4 +125,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26acbcd0a024a73bf9e6e1751cb6c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementEffect: {fileID: 9181043257356687848, guid: d82a8f54a3ec9ec4eb4d737811a2c3c2, type: 3}
+  movementEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
+--- !u!114 &-4847320805860790842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7394596593615317221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd453cdaf42487193d3107f1c8f67b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

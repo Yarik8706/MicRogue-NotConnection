@@ -21,16 +21,10 @@ namespace Canvas
 
         public void ChangeMapActive()
         {
-            if(GameManager.instance.moveToTheNextRoom) return;
+            
             ChangeMap(mapCanvas.activeSelf);
         }
-        
-        public void EnableMap()
-        {
-            if(GameManager.instance.moveToTheNextRoom) return;
-            ChangeMap(false);
-        }
-        
+
         private void ChangeMap(bool isMainMap)
         {
             mapCamera.enabled = !isMainMap;

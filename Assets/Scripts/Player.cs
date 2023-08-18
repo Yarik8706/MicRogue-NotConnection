@@ -22,6 +22,7 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
     [SerializeField] private GameObject moveToPlace;
     
     internal List<GameObject> moveToPlaces;
+    internal Vector3 movingPosition;
 
     public override void Awake()
     {
@@ -38,6 +39,7 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
 
     public override void Active()
     {
+        DeleteAllMoveToPlaces();
         base.Active();
         // проверяем врагов на пути и не даем пройти за ними
         foreach (var newVariantPosition in MoveCalculation(VariantsPositionsNow(variantsPositions)))
@@ -54,7 +56,7 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
                 if (hit.collider.gameObject.transform.position != (Vector3)newVariantPosition) continue;
                 moveToPlaces.Add(Instantiate(moveToPlace, newVariantPosition, Quaternion.identity));
             }
-        }
+        } 
     }
 
     protected override Vector2[] MoveCalculation(Vector2[] theVariantsPositions)
@@ -85,10 +87,11 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
         StartCoroutine(Move(@where));
     }
 
-    public override IEnumerator Move(Vector3 @where)
+    public override IEnumerator Move(Vector3 where)
     {
+        movingPosition = where;
         DeleteAllMoveToPlaces();
-        var x = @where.x - transform.position.x;
+        var x = where.x - transform.position.x;
         if(x <= -2 && turnedRight || x >= 2 && !turnedRight)
         {
             Flip();
@@ -96,7 +99,7 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
         else if(x != 0 && (!turnedRight && x >= 1 || turnedRight && x <= -1))
         {
             boxCollider2D.enabled = false;
-            var hit = Physics2D.Linecast (transform.position, @where, enemyLayer);
+            var hit = Physics2D.Linecast (transform.position, where, enemyLayer);
             boxCollider2D.enabled = true;
             if (hit.collider != null)
             {

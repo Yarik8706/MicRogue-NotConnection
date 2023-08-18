@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Canvas;
 using Enemies;
 using JetBrains.Annotations;
 using MainScripts;
@@ -38,14 +39,17 @@ namespace RoomControllers
         // [SerializeField] private int lightsCount;
         [SerializeField] private GameObject[] enemies;
         [Header("Exit Positions: Right, Left, Down, Up")]
-        [SerializeField] private Transform[] leftExitPositions;
-        [SerializeField] private Transform[] rightExitPositions;
+        [SerializeField] protected Transform[] leftExitPositions;
+        [SerializeField] protected Transform[] rightExitPositions;
+        [SerializeField] protected Transform[] downExitPositions;
+        [SerializeField] protected Transform[] upExitPositions;
+        [SerializeField] protected Transform[] allExitPositions;
 
         public GameObject[] enemySpawns;
         public RoomType roomType;
         public Transform startPosition;
-        
-        internal readonly List<Exit> exits = new();
+
+        private readonly List<Exit> exits = new();
         internal RoomIndex roomIndex;
 
         // public void SpawnExits(ExitLocation[] exitLocations, Exit exit)
@@ -83,17 +87,41 @@ namespace RoomControllers
                     leftExitToRightDistances.IndexOf(leftExitToRightDistances.Max())];
             }
 
-            var leftExit = Instantiate(exit, transform);
-            var rightExit = Instantiate(exit, transform);
-            leftExit.transform.position = leftExitTransform.position;
-            rightExit.transform.position = rightExitTransform.position; 
-            leftExit.SetDirectionAndSpriteByDirection(leftExitLocation);
-            rightExit.SetDirectionAndSpriteByDirection(rightExitLocation);
-            exits.Add(leftExit);
-            exits.Add(rightExit);
+            InstatiateExit(leftExitLocation, exit, leftExitTransform.position);
+            InstatiateExit(rightExitLocation, exit, rightExitTransform.position);
         }
 
-        public void Initial()
+        private void InstatiateExit(ExitLocation exitLocation, Exit exit, Vector3 position)
+        {
+            var newExit = Instantiate(exit, transform);
+            newExit.transform.position = position;
+            newExit.SetDirectionAndSpriteByDirection(exitLocation);
+            exits.Add(newExit);
+        }
+
+        public void SpawnExits(ExitLocation[] exitLocations, Exit exit)
+        {
+            foreach (var exitLocation in exitLocations)
+            {
+                switch (exitLocation)
+                {
+                    case ExitLocation.Down:
+                        InstatiateExit(exitLocation, exit, upExitPositions[0].position);
+                        break;
+                    case ExitLocation.Left:
+                        InstatiateExit(exitLocation, exit, leftExitPositions[0].position);
+                        break;
+                    case ExitLocation.Right:
+                        InstatiateExit(exitLocation, exit, rightExitPositions[0].position);
+                        break;
+                    case ExitLocation.Up:
+                        InstatiateExit(exitLocation, exit, downExitPositions[0].position);
+                        break;
+                }
+            }
+        }
+
+        public virtual void Initial()
         {
             if (shildSpawnPosition == null || GameManager.instance.spawnShildCount == 0) return;
             if (Random.Range(0, spawnChanceShield) != 0) return;
@@ -121,6 +149,16 @@ namespace RoomControllers
                 thisEnemySpawns.Remove(enemySpawn);
                 i += enemy.GetComponent<TheEnemy>().enemyCount;
             }
+        }
+
+        public Vector3 NextPlayerPosition(ExitLocation direction)
+        {
+            foreach (var exit in exits.Where(exit => exit.exitLocation == direction))
+            {
+                if(!exit.willNotActive)exit.isActive = false;
+                return exit.GetNextPositionPlayer();
+            }
+            return Vector3.zero;
         }
     }
 }

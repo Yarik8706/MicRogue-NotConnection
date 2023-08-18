@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4893999693236989442}
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0.0000003874302}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitLocation: 0
-  rightSprite: {fileID: 2100207054, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
-  leftSprite: {fileID: -558511839, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
+  rightSprite: {fileID: -558511839, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
+  leftSprite: {fileID: 2100207054, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
 --- !u!61 &-6579419354349601000
 BoxCollider2D:
   m_ObjectHideFlags: 0

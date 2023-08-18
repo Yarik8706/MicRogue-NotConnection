@@ -59,11 +59,14 @@ namespace RoomObjects
             else
             {
                 Destroy(_moveToPlace);
-                var moveToPlaces = GameManager.player.moveToPlaces.Where(o => o != null).Select(select => select.GetComponent<MoveToPlace>());
+                var moveToPlaces = GameManager.player.moveToPlaces.Where(o => o != null).Select(select => select.GetComponent<MoveToPlace>()).ToList();
+                MoveToPlace deleteMoveToPlace = null;
                 foreach (var moveToPlace in moveToPlaces)
                 {
+                    if (transform.position == moveToPlace.transform.position) deleteMoveToPlace = moveToPlace;
                     moveToPlace.isActive = false;
                 }
+                if(deleteMoveToPlace != null) Destroy(deleteMoveToPlace.gameObject);
                 yield return new WaitForSeconds(0.5f);
                 Instantiate(mimicChest, transform.position, Quaternion.identity);
                 GetComponent<SpriteRenderer>().enabled = false;

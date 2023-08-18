@@ -30,8 +30,16 @@ namespace Canvas
         protected override void SetValue(int value)
         {
             base.SetValue(value);
-            musicGroup.audioMixer.SetFloat(musicValueName, value);
-            PlayerPrefsSafe.SetInt(musicValueName, countNow);
+            if (value == minValue)
+            {
+                musicGroup.audioMixer.SetFloat(musicValueName, -80);
+                PlayerPrefsSafe.SetInt(musicValueName, countNow);
+            }
+            else
+            {
+                musicGroup.audioMixer.SetFloat(musicValueName, value);
+                PlayerPrefsSafe.SetInt(musicValueName, countNow);
+            }
         }
     }
 }

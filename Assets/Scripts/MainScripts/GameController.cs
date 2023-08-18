@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,10 +34,14 @@ namespace MainScripts
         public IEnumerator ActiveEnemiesAndTraps()
         {
             ActivateTraps();
-            yield return new WaitForSeconds(0.6f);
             allEnemies.Clear();
             GameplayEventManager.OnGetAllEnemies.Invoke();
-            yield return allEnemies != null ? ActivateEnemies() : GameManager.instance.TurnStarted();
+            if (allEnemies != null)
+            {
+                yield return new WaitForSeconds(0.9f);
+                yield return ActivateEnemies();
+            }
+            StartCoroutine(GameManager.instance.TurnStarted());
         }
 
         private void ActivateTraps()
@@ -71,7 +76,6 @@ namespace MainScripts
                 }
             }
             allEnemies.Clear();
-            StartCoroutine(GameManager.instance.TurnStarted());
         }
 
         private IEnumerator ActiveCertainEnemies(int type)
@@ -91,6 +95,14 @@ namespace MainScripts
                 yield return new WaitUntil(() => enemies[0].isTurnOver);
                 enemies.Remove(enemies[0]);
             }
+        }
+
+        public static IEnumerator WaitTurnOver(Action endAction)
+        {
+            yield return new WaitUntil(() => GameManager.player.isTurnOver);
+            yield return new WaitUntil(() => !GameManager.player.isTurnOver);
+            if (GameManager.player == null) yield break;
+            endAction.Invoke();
         }
     }
 }
