@@ -35,6 +35,7 @@ namespace RoomObjects
         
         public void ClickEvent(GameObject moveToPlace, Player player)
         {
+            if(_moveToPlace != null) return;
             var newObject = Instantiate(moveToPlace, transform.position, Quaternion.identity);
             newObject.GetComponent<MoveToPlace>().isActive = false;
             player.moveToPlaces.Add(newObject);
@@ -50,7 +51,7 @@ namespace RoomObjects
         private IEnumerator ActiveCoroutine()
         {
             var randomNumber = Random.Range(0, spawnMimicChance);
-            if (randomNumber == 0)
+            if (randomNumber != 0)
             {
                 yield return GameManager.player.Move(transform.position);
                 GameManager.player.ResetConsumables();
@@ -66,7 +67,7 @@ namespace RoomObjects
                     if (transform.position == moveToPlace.transform.position) deleteMoveToPlace = moveToPlace;
                     moveToPlace.isActive = false;
                 }
-                if(deleteMoveToPlace != null) Destroy(deleteMoveToPlace.gameObject);
+                Destroy(deleteMoveToPlace);
                 yield return new WaitForSeconds(0.5f);
                 Instantiate(mimicChest, transform.position, Quaternion.identity);
                 GetComponent<SpriteRenderer>().enabled = false;

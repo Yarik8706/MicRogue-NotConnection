@@ -87,7 +87,7 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
         transform.localScale = scaler;
     }
     
-    protected void Flip(bool turnedRight)
+    public void Flip(bool turnedRight)
     {
 	    this.turnedRight = turnedRight;
 	    var scaler = transform.localScale;
@@ -183,13 +183,6 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 	    }
 	    boxCollider2D.enabled = true;
 	    return nowVariantsPositions.ToArray();
-	    // var nowVariantsPositions = new List<Vector2> {Capacity = 0};
-	    // boxCollider2D.enabled = false;
-	    // nowVariantsPositions.AddRange(
-		   //  from newVariantPosition 
-			  //   in calculationPositions let hit = Physics2D.Linecast(startPosition, newVariantPosition, blockingLayer) where hit.collider == null select newVariantPosition);
-	    // boxCollider2D.enabled = true;
-	    // return nowVariantsPositions.ToArray();
     }
 
     public virtual void TurnOver()

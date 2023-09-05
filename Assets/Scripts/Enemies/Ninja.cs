@@ -35,6 +35,11 @@ namespace Enemies
             var hit = Physics2D.Linecast(new Vector2(checkingPosition.x-0.1f, checkingPosition.y), checkingPosition, blockingLayer);
             return hit.collider == null;
         }
+        
+        public static Collider2D GetPlaceObject(Vector2 checkingPosition, LayerMask blockingLayer)
+        {
+            return Physics2D.Linecast(new Vector2(checkingPosition.x-0.1f, checkingPosition.y), checkingPosition, blockingLayer).collider;
+        }
 
         protected override Vector2[] MoveCalculation(Vector2[] theVariantsPositions)
         {

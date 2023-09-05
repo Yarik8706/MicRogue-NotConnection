@@ -72,7 +72,7 @@ namespace Enemies
             );
 
             return positions[distances.IndexOf(distances.Min())];
-        } 
+        }
 
         protected virtual Vector2 SelectMovePosition(Vector2 playerPosition, Vector2[] theVariantsPositions)
         {

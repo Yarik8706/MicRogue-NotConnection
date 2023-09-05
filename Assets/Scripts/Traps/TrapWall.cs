@@ -33,6 +33,11 @@ namespace Traps
             }
         }
 
+        public override bool NextStageIsAttack()
+        {
+            return base.NextStageIsAttack() && !isSecondPhase;
+        }
+
         protected override IEnumerator Attack()
         {
             if (attackObjects.Count != 0 && attackObjects[0].GetComponent<Dragon>() is {})
@@ -79,21 +84,22 @@ namespace Traps
 
         public void SetFloorState()
         {
-            animator.SetTrigger(stagesAttack[stageNow]); 
             stageNow = 0;
             isSecondPhase = false;
             gameObject.layer = 0;
             _spriteRenderer.sortingLayerName = "Default";
             stagesAttack = (string[]) _animations1.Clone();
+            animator.SetTrigger(stagesAttack[stageNow]);
         }
 
         private void SetBlockState()
         {
-            animator.SetTrigger(stagesAttack[stageNow]); 
+            stageNow = 0;
             _spriteRenderer.sortingLayerName = "Decoration";
             gameObject.layer = 6;
             isSecondPhase = true;
             stagesAttack = (string[]) animations2.Clone();
+            animator.SetTrigger(stagesAttack[stageNow]);
         }
 
         public override void SetStageAttack(int i)

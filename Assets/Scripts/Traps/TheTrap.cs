@@ -51,6 +51,11 @@ namespace Traps
             }
         }
 
+        public virtual bool NextStageIsAttack()
+        {
+            return stageNow + 1 >= stagesAttack.Length;
+        }
+
         protected virtual IEnumerator Attack()
         {
             yield return new WaitForSeconds(waitTime);

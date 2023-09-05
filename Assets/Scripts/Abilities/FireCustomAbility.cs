@@ -16,6 +16,7 @@ namespace Abilities
         public override void ActiveAbility()
         { 
             base.ActiveAbility();
+            UpdatePlayerTurnAfterUseSpell();
             LifeFire.SpawnFire(GameManager.player.transform.position, fire, noFireLayer, firePositions);
         }
     }

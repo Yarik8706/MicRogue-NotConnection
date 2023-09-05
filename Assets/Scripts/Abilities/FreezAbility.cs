@@ -16,6 +16,7 @@ namespace Abilities
         public override void ActiveAbility()
         {
             base.ActiveAbility();
+            UpdatePlayerTurnAfterUseSpell();
             SnowMan.FreezingAllEnemies(freezingController, freezingEffect);
         }
     }

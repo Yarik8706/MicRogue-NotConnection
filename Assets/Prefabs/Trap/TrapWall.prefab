@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3780246711385243547}
   - component: {fileID: 7340694269772433205}
   - component: {fileID: -614267341843326459}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrapWall
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -155,8 +155,6 @@ MonoBehaviour:
   - 0
   - 1
   attack: attack
-  causeOfDied:
-  - sometimes it's worth looking down too.
   isActive: 1
   animations2:
   - 2

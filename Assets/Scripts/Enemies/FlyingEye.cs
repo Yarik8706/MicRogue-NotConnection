@@ -109,8 +109,8 @@ namespace Enemies
             }
             yield return new WaitForSeconds(endAttackTime);
             (centerObject.position, mainObject.position) = (mainObject.position, centerObject.position);
-            mainObject.localScale = scaler;
-            centerObject.localScale = scaler2;
+            mainObject.GetComponent<TheEssence>().Flip(scaler.x < 0);
+            centerObject.GetComponent<TheEssence>().Flip(scaler2.x < 0);
         }
     }
 }

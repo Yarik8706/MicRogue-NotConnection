@@ -21,7 +21,7 @@ namespace MainScripts
         
         public RoomController activeRoomController { get; private set; }
         public SpawnLevelController spawnLevelController { get; private set; }
-        public Exit lastExit { get; private set; }
+        public ExitLocation lastExitLocation { get; private set; }
         public BackroomsController backroomsController { get; private set; }
         public CameraEffectManager cameraEffectManager { get; private set; }
         
@@ -146,6 +146,7 @@ namespace MainScripts
             activeRoomController = newRoom;
             activeRoomController.Initial();
             activeRoomController.SpawnEnemies();
+            lastExitLocation = directionOfAppearance;
             player.transform.position = activeRoomController.NextPlayerPosition(directionOfAppearance);
 
             cameraEffectManager.AddGreyEffect();

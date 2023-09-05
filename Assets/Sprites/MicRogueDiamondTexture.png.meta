@@ -8390,7 +8390,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -8411,7 +8411,7 @@ TextureImporter:
         width: 16
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -8432,7 +8432,7 @@ TextureImporter:
         width: 16
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -8440,6 +8440,279 @@ TextureImporter:
       bones: []
       spriteID: 670187b0efcc50a4b869330ee57b3ce0
       internalID: -14177071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireRobot0
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5fe2b6f1ad28e043bbeafb67c43858c
+      internalID: 730383251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRobot0
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 992
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0562e0650878dbe48b460b88fac0eb77
+      internalID: 1230901095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireRobot1
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1433fd4fdfeeaa649a0b6d284b1d8486
+      internalID: 360345137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRobot1
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 992
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538e17ed088b4934b9875a1c11f60722
+      internalID: -1198626881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireRobot2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ee32d773b521a4ca81ee5489e93e05
+      internalID: 1101557512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireRobot3
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc05f2fbce34b024493b208a6c51a4dc
+      internalID: -799609134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireRobot4
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f837001a795cf438fe6fd10eb6e692
+      internalID: 436362633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRobot2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 992
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46ac4a3ce9b0e934dbc37bfc18bbd289
+      internalID: 1016441778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRobot3
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 992
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d466223b5e6aaf649a3c72a5b6269476
+      internalID: 1206492634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRobot4
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 992
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a83e3db9404d1e4086423c749a80272
+      internalID: 1956668584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingDemon3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 992
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1632b6f24cd10f941af8d7a18519b860
+      internalID: 1615584636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingDemon2
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 991
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76fb42b17dc118e44a0f6c578513429a
+      internalID: -580393312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingDemon1
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 991
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c878e7c0ba7d34f41bc966ed24d9fb8f
+      internalID: -1106575760
       vertices: []
       indices: 
       edges: []
@@ -8457,6 +8730,7 @@ TextureImporter:
     - texture: {fileID: 2800000, guid: 794edac7c00283346b8a9c1368f85bc1, type: 3}
       name: _Emission
     nameFileIdTable:
+      MoveRobot4: 1956668584
       GreyTrollIdle1: 1733131909
       FlyingEyeAttack1: 1017166552
       PlayerRun3: -8757139649783219944
@@ -8489,8 +8763,8 @@ TextureImporter:
       BoxWithRIches3: 1707446589
       WhiteFloor8: -1111953809
       BlackFloor6: -1448619793
-      putability0: 865301555
       backroomFloor: 1861192001
+      putability0: 865301555
       LampIdle7: 104106421449956808
       amogus: -231317239
       PlayerDiedFromDuck1: -639210490
@@ -8604,12 +8878,14 @@ TextureImporter:
       DisableOneCountSlider: -5891224783233435756
       DragonSleep4: 2550514373751287618
       getability6: -1426942624
+      MoveRobot2: 1016441778
       PlayerInSlime: 707549282
       slamp_3: 2145344538
       FreezingLamp4: -1950176389889711014
       putability12: -309854214
       PauseCanvas: 1980485867
       FlyingEyeAttack2: -5572552053421142652
+      FlyingDemon3: 1615584636
       MainMenuGameName: 5174776073360041994
       LeftExit: -8102567760449023351
       TurnOrder7: 6291616006598282221
@@ -8646,8 +8922,10 @@ TextureImporter:
       SlimeRoad4: 781573161
       LampIdle2: -6048807688200075309
       FloorTrap2: 544088988
+      FireRobot3: -799609134
       TheEssenceDied3: -349072738
       putability14: 1554503402
+      MoveRobot1: -1198626881
       getability16: -1265677075
       FreezingLamp0: 692538093
       Slime0: 6512786623135425305
@@ -8655,6 +8933,7 @@ TextureImporter:
       MainMenuAnimation3: 1088543618
       MicRogueDiamondTexture_0: 1225536792
       PlayerDiedFromDuck3: 4699684658907572454
+      MoveRobot3: 1206492634
       updateShieldEffect3: -1899639652
       EnemyShieldDied1: 1718070700042204575
       MenuButton3: 484763571
@@ -8687,8 +8966,10 @@ TextureImporter:
       SlimeRoad0: -2160715023857370988
       FireTrapAttack3: 2058628914
       BlackFloor7: 315398075
+      FireRobot0: 730383251
       LampIdle3: 5174776073360041994
       putability2: -1836520791
+      FlyingDemon2: -580393312
       LampIdle 2 5: 237684239
       MainMenuExit: 792854607
       slamp_1: 617440897
@@ -8745,6 +9026,7 @@ TextureImporter:
       BacteriumIdle: -1865174990
       getability10: 1491038034
       SlimeRoad1: -558032387
+      FireRobot4: 436362633
       OrgeRun2: 1213921707
       getability14: 1046389979
       TrollWithStickAttack1: 2363083579695130434
@@ -8753,11 +9035,13 @@ TextureImporter:
       getability1: 234221945
       OrgeIdle2: -2022170896
       EnemyShield6: -1943682087
+      FireRobot1: 360345137
       SlimeBym1: 587230825
       FireDied: -3109532369651939963
       getability3: -963167924
       FireTrapAttack2: -4125141936663983319
       Player: -134297784
+      FireRobot2: 1101557512
       PartOfWallWithSpace: -469181120
       FireAnim4: 2128362250800788925
       GunShipRoom1: -605254458
@@ -8768,6 +9052,7 @@ TextureImporter:
       DragonMove2: -196851251
       getability4: 1491610867
       FreezingLamp7: 1348950863
+      FlyingDemon1: -1106575760
       LightningStrike2: -4813274151216475168
       Frostbite3: 104106421449956808
       lamp_0: -2042891696
@@ -8878,6 +9163,7 @@ TextureImporter:
       BigFire0: -508223160
       SleepCount4: -558511839
       helpIcon: 309943148
+      MoveRobot0: 1230901095
       ExitLeft: -558511839
       FlyingEye1: -1522308079
       TrollWithStickAttack2: 6460338689981303646
