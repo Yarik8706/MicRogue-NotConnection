@@ -49,20 +49,8 @@ namespace RoomControllers
         public RoomType roomType;
         public Transform startPosition;
 
-        private readonly List<Exit> exits = new();
+        internal readonly List<Exit> exits = new();
         internal RoomIndex roomIndex;
-
-        // public void SpawnExits(ExitLocation[] exitLocations, Exit exit)
-        // {
-        //     if(exitPositions.Length == 0) return;
-        //     for (int i = 0; i < exitLocations.Length; i++)
-        //     {
-        //         var newExit = Instantiate(exit, transform);
-        //         newExit.transform.position = exitPositions[i].position;
-        //         newExit.SetDirectionAndSpriteByDirection(exitLocations[i]);
-        //         exits.Add(newExit);
-        //     }
-        // }
 
         public void SpawnTwoExits(ExitLocation leftExitLocation, ExitLocation rightExitLocation, Exit exit)
         {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using RoomControllers;
 using RoomObjects;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace MainScripts
         public static GameManager instance;
         public static CameraShake cameraShake;
         public static int numberOfMoves;
+        public static List<TheEssence> enemyTargets = new();
         
         public RoomController activeRoomController { get; private set; }
         public SpawnLevelController spawnLevelController { get; private set; }
@@ -43,15 +45,19 @@ namespace MainScripts
             cameraShake = cameraObject.GetComponent<CameraShake>();
             _cameraTransform = cameraObject.transform;
             cameraEffectManager = GetComponent<CameraEffectManager>();
-        }
-
-        private void Start()
-        {
-            instance = this;
             backroomsController = GetComponent<BackroomsController>();
             _gameController = GetComponent<GameController>();
             spawnLevelController = GetComponent<SpawnLevelController>();
             _trainingController = GetComponent<TrainingController>();
+            instance = this;
+        }
+
+        private void Start()
+        {
+            player = FindObjectOfType<Player>();
+            player.gameObject.SetActive(false);
+            enemyTargets.Clear();
+            enemyTargets.Add(player);
             StartTrainingOrDungeon();
         }
 
@@ -101,7 +107,6 @@ namespace MainScripts
 
         public IEnumerator TurnStarted()
         {
-            Debug.Log("Start");
             yield return new WaitUntil(() => player.isActive);
             if (player == null) yield break;
             player.Active();

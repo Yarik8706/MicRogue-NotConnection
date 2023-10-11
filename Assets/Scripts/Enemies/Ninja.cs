@@ -7,29 +7,35 @@ namespace Enemies
     public class Ninja : TheEnemy
     {
         public string moveAnimationName2;
-        private Vector3 _nextPosition;
 
-        protected override IEnumerator AttackPlayer(Vector2 playerPosition)
+        protected override IEnumerator AttackPlayer(TheEssence essence)
         {
-            yield return Move(playerPosition);
+            yield return Move(essence.transform.position);
         }
 
         public override IEnumerator Move(Vector3 @where)
         {
             animator.SetTrigger(moveAnimationName);
             Instantiate(diedEffect, transform.position, Quaternion.identity);
-            _nextPosition = @where;
+            movingPosition = @where;
             yield return null;
         }
 
         public void MoveEnd()
         {
-            transform.position = _nextPosition;
+            transform.position = movingPosition;
             Instantiate(diedEffect, transform.position, Quaternion.identity);
             animator.SetTrigger(moveAnimationName2);
             TurnOver();
         }
 
+        public static bool CheckEmptyPlace(Vector2 checkingPosition, LayerMask blockingLayer, out RaycastHit2D outHit)
+        {
+            var hit = Physics2D.Linecast(new Vector2(checkingPosition.x-0.1f, checkingPosition.y), checkingPosition, blockingLayer);
+            outHit = hit;
+            return hit.collider == null;
+        }
+        
         public static bool CheckEmptyPlace(Vector2 checkingPosition, LayerMask blockingLayer)
         {
             var hit = Physics2D.Linecast(new Vector2(checkingPosition.x-0.1f, checkingPosition.y), checkingPosition, blockingLayer);

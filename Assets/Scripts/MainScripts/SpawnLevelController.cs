@@ -40,8 +40,10 @@ namespace MainScripts
             },
         };
         public static readonly RoomType[][] BackroomsModel = {
+            new [] {RoomType.Backrooms, RoomType.Backrooms, RoomType.Backrooms, RoomType.Backrooms, RoomType.Backrooms},
             new [] {RoomType.Backrooms, RoomType.Backrooms, RoomType.Backrooms, RoomType.Null},
             new [] {RoomType.Null, RoomType.Backrooms, RoomType.Backrooms, RoomType.Backrooms, RoomType.Null},
+            new [] {RoomType.BackroomsEnd, RoomType.Backrooms, RoomType.Backrooms, RoomType.Backrooms, RoomType.Null},
             new [] {RoomType.Null, RoomType.Null, RoomType.Backrooms, RoomType.Backrooms, RoomType.BackroomsEnd}
         };
         public static readonly RoomType[][] ShipModel = {

@@ -51,7 +51,7 @@ namespace Canvas
             yield return new WaitForSeconds(0.5f);
             Instantiate(putAbilityAnimationObject, GameManager.player.transform.position, Quaternion.identity);
             customAbilityController.InitialAbility(enemy.enemyAbility);
-            enemy.Died();
+            enemy.Died(this);
             yield return new WaitForSeconds(2.1f);
             if (GameManager.player == null) yield break;
             GameManager.player.Active();

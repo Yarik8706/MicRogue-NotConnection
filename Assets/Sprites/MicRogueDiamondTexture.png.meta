@@ -1494,69 +1494,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CanvasExitFrame
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 877
-        width: 91
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1177c6dbef80a540800000000000000
-      internalID: 5017168227974213918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CanvasYes
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 864
-        width: 33
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8790dee0de6c7cfa0800000000000000
-      internalID: -5780432875246777992
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CanvasNo
-      rect:
-        serializedVersion: 2
-        x: 197
-        y: 864
-        width: 33
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42343305cb6005e10800000000000000
-      internalID: 2184253225143845668
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: TheEssenceDied1
       rect:
         serializedVersion: 2
@@ -1741,27 +1678,6 @@ TextureImporter:
       bones: []
       spriteID: 1bac30fee71a28480800000000000000
       internalID: -8898372347182724431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DialogFrame
-      rect:
-        serializedVersion: 2
-        x: 235
-        y: 874
-        width: 128
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 497b46fc54a2e3ea0800000000000000
-      internalID: -5891224783233435756
       vertices: []
       indices: 
       edges: []
@@ -5736,13 +5652,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayButton
+      name: ConsoleOpenUI
       rect:
         serializedVersion: 2
         x: 134
-        y: 945
-        width: 15
-        height: 15
+        y: 949
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6109,27 +6025,6 @@ TextureImporter:
       bones: []
       spriteID: 56175a37b8fd6184893853aeb41ce312
       internalID: -407667399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DarkDuck1
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 880
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60b10e51c4a64ac4c93629a25cc7236a
-      internalID: 2075707659
       vertices: []
       indices: 
       edges: []
@@ -8717,6 +8612,804 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ConsoleUI
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 859
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 2, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33c87553447d61d48af4a5debff3c234
+      internalID: -1262475032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ResetConsoleLogs
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 832
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17e6b1bdab1504b48905165e6a0a22e4
+      internalID: -252850239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NextRoomConsole
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 832
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec99d2d16b5c795479667d4ff4898d7e
+      internalID: 1901153956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RestartGameConsole
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 818
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a96c267e620b0d4caa5c7d5fdc0f1f1
+      internalID: 667325948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brownFloor0
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 784
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d23ff95ea5f4ed4fa2cbf7947f36859
+      internalID: -1526681911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brownFloor1
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 784
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 880377cc994e13043814508c22c03f53
+      internalID: -342565244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brownFloor2
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 784
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e1457ed29b77945afee9aee735f2f9
+      internalID: -1103190102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brownFloor3
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 768
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e926e72caaec034998a675b8e1306f3
+      internalID: -296532785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brownFloor4
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 768
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2760139898bd7c34ebeea55139abc1d1
+      internalID: -126106986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brownFloor5
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 768
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9209741d0013eb47bdabf1334b85cc5
+      internalID: 68234327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brownFloor6
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 753
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310c3d3bef527594fae2c15231d55015
+      internalID: 250802433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brownFloor7
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 753
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 173fc07632caa9d4abfb43b809dc851a
+      internalID: -2084844132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightActive
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 816
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635b53b081fed0e46a70a6812ebbc7df
+      internalID: 189758154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightInactive
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 816
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1374b2750bcf56c4ebacbdeccea3edab
+      internalID: -1373221241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brokenFloor
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 784
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa1f6e81d7b95e74ca5490299675e2dd
+      internalID: -865486261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_3
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e773fb2ff535c640a75d69814ae56b4
+      internalID: -1373587006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_4
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a9e11f030172940bd1cd1baa6b34f0
+      internalID: 1007652588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_5
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5b930cba9801741b4edf6adc1ff8e3
+      internalID: -1802047606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_6
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 816
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc6b0fcdbf0cb724dbe4d216e606c577
+      internalID: 1223273093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_7
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 816
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4131b8d8bfd83944f898310df92228a8
+      internalID: 180924243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_8
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 816
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9283bfa815375fd4abe19e4624bdff83
+      internalID: -1456641356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_9
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd2f72c2f19c6d74886bd70dd0460a9a
+      internalID: 123614409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_10
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2725bd3826dad844f91476e49bb8c41e
+      internalID: 853938706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_11
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b92a4798a3fa974180bef492a7a96d6
+      internalID: 579094407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_12
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 848
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50ec4fa95c6ed7446bcde0ce936c0ea8
+      internalID: 454518947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_13
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 848
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22e1809e1795e842a3953115886e5f2
+      internalID: 194624775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_14
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 848
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57ba09f1ab249f44900a1bb9bf12365
+      internalID: 219234303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_15
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d2208d756564b042bee1617cad4df4b
+      internalID: -260339436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MicRogueDiamondTexture_16
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 752
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa1bcfc24cf73654ead2304feb4f5e9c
+      internalID: 834339390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YFire1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 656
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87fcd8a44097ff14ead7fc3a1a8d873d
+      internalID: -13107589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YFire2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 656
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3216dfa9f0d72ec41b99729113c3b50f
+      internalID: -739680524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YFire3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 656
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df2d62cc07481e440ada34e59fa03123
+      internalID: -1851201336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YFire4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 656
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2aa568f0a432e4ab98d6db31ba502f
+      internalID: -739519512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YFire5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 656
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48fca4d6184393742a880d9947b4ccc0
+      internalID: -873536637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YFire6
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 656
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e682aab3cf0ad41bc7e95cb89cad6d
+      internalID: -1193288935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YFire7
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 656
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb89bcf9aa8b192438d5ad499d3f2d50
+      internalID: 1632106711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YFire8
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 656
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a0f527d12a9df94092f5316fbe81ce4
+      internalID: -672027906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DestroyedWall
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 864
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08991c69f8dc7f8409e002ed09b220fc
+      internalID: -878387801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -8763,8 +9456,8 @@ TextureImporter:
       BoxWithRIches3: 1707446589
       WhiteFloor8: -1111953809
       BlackFloor6: -1448619793
-      backroomFloor: 1861192001
       putability0: 865301555
+      backroomFloor: 1861192001
       LampIdle7: 104106421449956808
       amogus: -231317239
       PlayerDiedFromDuck1: -639210490
@@ -8772,6 +9465,8 @@ TextureImporter:
       PlayerDiedFromDuck2: 423585282
       RightDownUpRoomShip2: 1065164190
       RightRoomShip4: -605254458
+      ConsoleOpenUI: -1248015170
+      brokenFloor: -865486261
       Wall1: -923277500124504870
       putability13: -1622591160
       Space1: 1164707187
@@ -8786,7 +9481,9 @@ TextureImporter:
       putability15: 956689926
       RightExit: 1342424954626055952
       putability16: -1167850304
+      ConsoleUI: -1262475032
       GrayFloor1: -1830261601936756837
+      MicRogueDiamondTexture_10: 853938706
       FireTrap0: -7175753292707142349
       backroomWall5: -412230138
       GameRules3: 802870630
@@ -8802,6 +9499,7 @@ TextureImporter:
       TrollWithStick0: -616266861
       GreyTrollRun11: -1513614671
       BoxWithRIches0: 3992577508636237067
+      brownFloor5: 68234327
       DragonStartAction5: -2603367071838335762
       WingShipRoom2: 1088543618
       PlayerProtection1: 131409712
@@ -8824,11 +9522,13 @@ TextureImporter:
       Frostbite1: -1581992114
       DrakDuck2: 1254263893
       FireAbility: 135390646
+      MicRogueDiamondTexture_5: -1802047606
       TrollWithStickAttack0: -272189685
       BoxWithRIches1: -1486988990
       updateShieldEffect1: 1900463382
       TurnOrder2: 1726775981
       FlyingEyeAttack4: 412107318
+      MicRogueDiamondTexture_8: -1456641356
       SlimeDied0: -273199393
       EnemyShieldDied0: -742379763
       EnemyShield3: -330678448
@@ -8841,9 +9541,11 @@ TextureImporter:
       BaxPile: 1087552608
       FireAnim1: 1396397318016514157
       backroomWall4: -782767522
+      YFire2: -739680524
       getability12: -1315037902
       MicRogue GoldTest_26: -592547824
       WinFrame: 1253620411
+      MicRogueDiamondTexture_12: 454518947
       EnemyShieldDied3: 1368353255
       BoxWithRIches4: 411650701
       MainMenuSetting: -1828456187
@@ -8853,6 +9555,7 @@ TextureImporter:
       WhiteFloor0: 4276639466552813244
       OrgeIdle0: -1066397262
       FlyingEyeRay2: -6404368768002200884
+      YFire3: -1851201336
       TheEssenceDied4: 2008919301
       SlimeAbility: 1759015
       BacteriumRun2: -14177071
@@ -8868,9 +9571,11 @@ TextureImporter:
       FreezingObj5: 1132089310
       NinjaRun1: -8863816317675847926
       RoomsCanvasCount06: 136013187
+      YFire1: -13107589
       RightLeftUpDownRoomShip1: 3004733092313174726
       updateShieldEffect2: -1351274410
       gameRulesPicture3: -1226647958
+      MicRogueDiamondTexture_11: 579094407
       CanvasExitFrame: 6311371310668306828
       RoomsCanvasCount07: 5248847876336448607
       DoneSettingMainMenu: -161101066
@@ -8884,17 +9589,19 @@ TextureImporter:
       FreezingLamp4: -1950176389889711014
       putability12: -309854214
       PauseCanvas: 1980485867
-      FlyingEyeAttack2: -5572552053421142652
       FlyingDemon3: 1615584636
       MainMenuGameName: 5174776073360041994
       LeftExit: -8102567760449023351
+      FlyingEyeAttack2: -5572552053421142652
       TurnOrder7: 6291616006598282221
       GreyTrollRun13: 1735900184
       OrgeRun1: -1972483059
-      RightUpDownRoomShip: -612529578
       DuckAttack3: 512411427
+      RightUpDownRoomShip: -612529578
       GreyTrollRun1: -1124074628
+      YFire5: -873536637
       SlimeDied1: -1297755351
+      MicRogueDiamondTexture_4: 1007652588
       TrapWall1: -28734984
       FlyingEyeAttack3: -4832418317938593309
       WhiteFloor9: -714272885
@@ -8904,6 +9611,7 @@ TextureImporter:
       PlayerWithoutShield: 5438436409197790006
       EnemyShield2: 68720694
       TrapWall3: -8898372347182724431
+      brownFloor3: -296532785
       lamp_4: -1980841048
       FireTrapAttack6: 2964089573531014971
       NinjaRun2: -4146685878628206487
@@ -8932,10 +9640,12 @@ TextureImporter:
       SkeletonIdle: -2099460216
       MainMenuAnimation3: 1088543618
       MicRogueDiamondTexture_0: 1225536792
+      YFire6: -1193288935
       PlayerDiedFromDuck3: 4699684658907572454
       MoveRobot3: 1206492634
       updateShieldEffect3: -1899639652
       EnemyShieldDied1: 1718070700042204575
+      brownFloor2: -1103190102
       MenuButton3: 484763571
       DuckAttack4: -1830261601936756837
       updateShieldEffect4: 652433743
@@ -8953,6 +9663,7 @@ TextureImporter:
       SnowMan1: 390843795797142074
       RightUpDownRoomShip2: -467352233
       putability10: 164603295
+      brownFloor6: 250802433
       putability11: 548961291
       FloorTrap1: 84527646
       BaxPile2: -928710035
@@ -8970,17 +9681,21 @@ TextureImporter:
       LampIdle3: 5174776073360041994
       putability2: -1836520791
       FlyingDemon2: -580393312
+      brownFloor4: -126106986
       LampIdle 2 5: 237684239
+      ResetConsoleLogs: -252850239
       MainMenuExit: 792854607
       slamp_1: 617440897
       putability4: 363925846
       TelegramIcon: 2045113784
+      DestroyedWall: -878387801
       mimicStartAnim: -602862329
       PlayerDiedFromDuckWithoutShield2: 1030955016
       SleepCount3: -201394894
       GameRules4: 3689636853081102161
       lamp_5: -700921294
       BrokenWall: 1928639659
+      MicRogueDiamondTexture_15: -260339436
       GrayFloor4: -1132303066
       Space3: -776724208
       Frostbite4: -1660831712
@@ -9006,18 +9721,21 @@ TextureImporter:
       TheEssenceDied5: 1315725964267458525
       SlimeRoad: 1884224513
       backroomsExit: -1030643603
+      RestartGameConsole: 667325948
       UpExit: -819194701
       DragonStartAction2: -1384178719
       putability3: 1453487826
+      brownFloor1: -342565244
       WhiteFloor: 3081762
       LampIdle8: 3834731951187487461
+      brownFloor7: -2084844132
       DragonMove1: -1933942468
       EnemyShield8: -247595986
       PlayerWithoutShieldRun1: 665447604
       MicRogue GoldTest_37: 7150708775274697023
+      MicRogueDiamondTexture_13: 194624775
       MenuButton1: -3476810288997538011
       DragonIdle: 9156366987486203330
-      PlayButton: -1248015170
       SmallFireIdle2: 8584836600945208852
       OrgeRun3: -5993751493117572799
       getability15: 2086273876
@@ -9030,19 +9748,22 @@ TextureImporter:
       OrgeRun2: 1213921707
       getability14: 1046389979
       TrollWithStickAttack1: 2363083579695130434
+      MicRogueDiamondTexture_9: 123614409
       Duck0: 1936915025
       HalfWallWithSpace: -8396390659373079807
       getability1: 234221945
       OrgeIdle2: -2022170896
+      MicRogueDiamondTexture_7: 180924243
       EnemyShield6: -1943682087
       FireRobot1: 360345137
       SlimeBym1: 587230825
       FireDied: -3109532369651939963
       getability3: -963167924
       FireTrapAttack2: -4125141936663983319
-      Player: -134297784
-      FireRobot2: 1101557512
       PartOfWallWithSpace: -469181120
+      Player: -134297784
+      LightInactive: -1373221241
+      FireRobot2: 1101557512
       FireAnim4: 2128362250800788925
       GunShipRoom1: -605254458
       DuckRay: 1608410695
@@ -9053,7 +9774,6 @@ TextureImporter:
       getability4: 1491610867
       FreezingLamp7: 1348950863
       FlyingDemon1: -1106575760
-      LightningStrike2: -4813274151216475168
       Frostbite3: 104106421449956808
       lamp_0: -2042891696
       background2: 424750036
@@ -9061,8 +9781,10 @@ TextureImporter:
       MarkerEnemyCanvas: -400339128
       getability17: -1555327563
       getability2: -308822229
+      LightningStrike2: -4813274151216475168
       putability9: -1704008631
       TurnOrder1: 1515160426
+      YFire8: -672027906
       NextDialogText: 1115196856
       one_pixel: 1743953542
       grass_3: 1825733117
@@ -9081,9 +9803,11 @@ TextureImporter:
       LampIdle 2 6: -248726317
       MainEngineShipRoom1: -1572656681
       AfterDiedSlime: 6016733333042058991
+      MicRogueDiamondTexture_16: 834339390
       EnemyShield7: 996817792
       LightningStrike1: -1546730206
       BrokenWallCanGo: -309261757
+      YFire4: -739519512
       SleepCount2: 1945986417
       TrollWithStickAttack3: -1933380093
       BlackFloor8: -828960041
@@ -9104,6 +9828,7 @@ TextureImporter:
       RoomsCanvasCount05: -741347089
       EnemyShield9: -1176719116
       putability7: 1462805920
+      YFire7: 1632106711
       TheEssenceDied1: -1692632436848618677
       Gold2: 236908839
       DialogFrame: 1784496881
@@ -9129,6 +9854,7 @@ TextureImporter:
       BoxWithRIches2: -4827309876962509664
       Wall5: -516442294
       TrollWithStickRun1: -1504410061
+      LightActive: 189758154
       OpenMapButton: 604601139
       PlayerProtection4: 1696459072
       Spytnic: -2077885654
@@ -9146,6 +9872,7 @@ TextureImporter:
       MainMenuAnimation1: 1306385882
       FlyingEyeRay1: 1294393234788567065
       TheEssenceDied6: 1833711725
+      MicRogueDiamondTexture_6: 1223273093
       grass_1: 1306533673
       CloseMapButton: 142948935
       FloorTrap0: 760928898
@@ -9164,6 +9891,7 @@ TextureImporter:
       SleepCount4: -558511839
       helpIcon: 309943148
       MoveRobot0: 1230901095
+      NextRoomConsole: 1901153956
       ExitLeft: -558511839
       FlyingEye1: -1522308079
       TrollWithStickAttack2: 6460338689981303646
@@ -9172,12 +9900,15 @@ TextureImporter:
       GameRules1: 1248850217
       lamp_3: -413298079
       GrayFloor5: -407667399
+      MicRogueDiamondTexture_3: -1373587006
       ExitFromShip: 1086345811
       FireTrap1: 8571902253252500700
       GameRules5: -9057929348438188900
       Wall6: 780761531
       GrayFloor0: -7175753292707142349
+      brownFloor0: -1526681911
       WhiteFloor6: 833214114
+      MicRogueDiamondTexture_14: 219234303
       WallWithSpace: -1656330266
       FreezingObj1: -736769400
       EnemyShield10: -21377749

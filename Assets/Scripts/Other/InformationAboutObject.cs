@@ -15,20 +15,20 @@ public class InformationAboutObject : MonoBehaviour
 
     private void Update()
     {
-        if(_clickEventTime >= SpeedActive)
-        {
-            GameController.instance.canvasInformationAboutObject.Start(this);
-            _isClickEvent = false;
-        }
-        
-        if (_isClickEvent)
-        {
-            _clickEventTime += Time.deltaTime;
-        }
-        else
-        {
-            _clickEventTime = 0;
-        }
+        // if(_clickEventTime >= SpeedActive)
+        // {
+        //     GameController.instance.canvasInformationAboutObject.Start(this);
+        //     _isClickEvent = false;
+        // }
+        //
+        // if (_isClickEvent)
+        // {
+        //     _clickEventTime += Time.deltaTime;
+        // }
+        // else
+        // {
+        //     _clickEventTime = 0;
+        // }
     }
 
     public void ClickUp()

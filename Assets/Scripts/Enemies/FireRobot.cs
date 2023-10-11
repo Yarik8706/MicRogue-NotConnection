@@ -10,14 +10,15 @@ namespace Enemies
         [SerializeField] private LayerMask noFireLayer;
         [SerializeField] private Vector2[] firePositions;
         
-        protected override void SelectAction(Vector2 nextPosition, Vector2 playerPosition)
+        protected override void SelectAction(Vector2 nextPosition)
         {
-            if (VariantsPositionsNow(firePositions).Any(position => position == playerPosition))
+            if (VariantsPositionsNow(firePositions).Any(position => 
+                    position == enemyTargetPosition))
             {
                 Died();
                 return;
             }
-            base.SelectAction(nextPosition, playerPosition);
+            base.SelectAction(nextPosition);
         }
 
         public override void Died()

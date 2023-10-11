@@ -26,13 +26,14 @@ namespace Other
 
         public void StartAction1()
         {
-            dragon = Instantiate(dragon.gameObject, dragonSpawn.position, Quaternion.identity).GetComponent<Dragon>();
+            // dragon = Instantiate(dragon.gameObject, dragonSpawn.position, Quaternion.identity).GetComponent<Dragon>();
             foreach (var trapWall in trapWalls)
             {
                 trapWall.SetFloorState();
+                trapWall.SetStageAttack(0);
             }
             light2.enabled = true;
-            dragon.WakeUp();
+            // dragon.WakeUp();
             _roomController.enemySpawns = enemySpawns;
             _roomController.SpawnEnemies();
             GameManager.player.isActive = true;

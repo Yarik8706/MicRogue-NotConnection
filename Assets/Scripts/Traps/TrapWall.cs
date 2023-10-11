@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Enemies;
 using MainScripts;
@@ -26,11 +27,20 @@ namespace Traps
             base.Awake();
             _shadowCaster2D = GetComponent<ShadowCaster2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            _animations1 = (string[]) stagesAttack.Clone();
+            _animations1 = stagesAttack;
+        }
+
+        private void Start()
+        {
             if (isSecondPhase)
             {
                 SetBlockState();
+            } 
+            else 
+            {
+                SetFloorState();
             }
+            SetStageAttack(0);
         }
 
         public override bool NextStageIsAttack()
@@ -54,19 +64,20 @@ namespace Traps
                }
                else if (attackObjects[0].GetComponent<TheEssence>() is {} essence)
                {
-                   if (essence is Player)
-                   {
-                       yield return new WaitUntil(() => GameManager.player.isTurnOver);
-                       if (GameManager.player.transform.position != transform.position) yield break;
-                       yield return null;
-                       yield return new WaitUntil(() => !GameManager.player.isTurnOver);
-                       if (GameManager.player == null) yield break;
-                       if (GameManager.player.transform.position == transform.position)
-                       {
-                           GameManager.instance.backroomsController.StartBackrooms();
-                       }
-                       yield break;
-                   }
+                   // if (essence is Player)
+                   // {
+                   //     yield return new WaitUntil(() => GameManager.player.isTurnOver);
+                   //     if (GameManager.player.transform.position != transform.position) yield break;
+                   //     yield return null;
+                   //     yield return new WaitUntil(() => !GameManager.player.isTurnOver);
+                   //     if (GameManager.player == null) yield break;
+                   //     if (GameManager.player.transform.position == transform.position)
+                   //     {
+                   //         
+                   //         GameManager.instance.backroomsController.StartBackrooms();
+                   //     }
+                   //     yield break;
+                   // }
                    essence.Died(this);
                }
             }
@@ -78,28 +89,25 @@ namespace Traps
         {
             animator.SetTrigger(endAnimation2);
             yield return new WaitForSeconds(waitTime);
+            stageNow = 0;
             SetStageAttack(0);
             _shadowCaster2D.enabled = false;
         }
 
         public void SetFloorState()
         {
-            stageNow = 0;
             isSecondPhase = false;
-            gameObject.layer = 0;
+            gameObject.layer = LayerMask.NameToLayer("Trap");
             _spriteRenderer.sortingLayerName = "Default";
-            stagesAttack = (string[]) _animations1.Clone();
-            animator.SetTrigger(stagesAttack[stageNow]);
+            stagesAttack = _animations1;
         }
 
         private void SetBlockState()
         {
-            stageNow = 0;
             _spriteRenderer.sortingLayerName = "Decoration";
-            gameObject.layer = 6;
+            gameObject.layer = LayerMask.NameToLayer("Blocking");
             isSecondPhase = true;
-            stagesAttack = (string[]) animations2.Clone();
-            animator.SetTrigger(stagesAttack[stageNow]);
+            stagesAttack = animations2;
         }
 
         public override void SetStageAttack(int i)

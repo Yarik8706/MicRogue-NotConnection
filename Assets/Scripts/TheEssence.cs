@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using DG.Tweening;
-using JetBrains.Annotations;
+using MainScripts;
 using UnityEngine;
 
 public struct AnimationType
@@ -16,6 +13,12 @@ public struct AnimationType
 		this.name = name;
 		this.speed = speed;
 	}
+}
+
+public interface IHaveShields
+{
+	public int GetShieldsCount();
+	public void LossShield();
 }
 
 public interface IActiveObject {}
@@ -32,7 +35,9 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
     [SerializeField] private protected GameObject diedEffect;
     [SerializeField] private protected AudioClip diedMusic;
     
-    private protected bool turnedRight;
+    public bool turnedRight { get; protected set; }
+    public Vector3 movingPosition { get; protected set; }
+    
     private protected BoxCollider2D boxCollider2D;
     private protected float inverseMoveTime;
     private protected AnimationType diedAnimation;
@@ -43,18 +48,17 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
     internal SpriteRenderer spriteRenderer;
     internal Animator animator;
     internal TheEssenceEffect essenceEffect = TheEssenceEffect.None;
-    internal bool isTurnOver;
+    internal bool isTurnOver = true;
     internal bool isMove;
-    internal bool isActive;
+    internal bool isActive = true;
 
     protected virtual void Start() {}
     
     public virtual void Awake()
     {
-	    isActive = true;
 	    moveAnimation = new AnimationType(moveAnimationName);
 	    diedAnimation = new AnimationType(diedAnimationName);
-	    turnedRight = !(transform.localScale.x > 0);
+	    turnedRight = transform.localScale.x < 0;
 	    inverseMoveTime = 1f / moveTime;
 	    spriteRenderer = GetComponent<SpriteRenderer>();
 	    animator = GetComponent<Animator>();
@@ -72,31 +76,22 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 	    return PositionCalculation(transform.position, theVariantsPositions, blockingLayer, boxCollider2D);
     }
 
-    protected void SetAnimationMoveSpeed(float animationSpeed, float moveTimeSpeed)
-    {
-	    moveAnimation.speed = animationSpeed;
-	    moveTime = moveTimeSpeed;
-	    inverseMoveTime = 1f / moveTime;
-    }
-
     protected void Flip()
     {
-        turnedRight = !turnedRight;
-        var scaler = transform.localScale;
-        scaler.x *= -1;
-        transform.localScale = scaler;
+        Flip(!turnedRight);
     }
     
-    public void Flip(bool turnedRight)
+    public virtual void Flip(bool turnedRight)
     {
 	    this.turnedRight = turnedRight;
 	    var scaler = transform.localScale;
-	    scaler.x = turnedRight ? 1 : -1;
+	    scaler.x = turnedRight ? -1 : 1;
 	    transform.localScale = scaler;
     }
     
     public virtual IEnumerator Move(Vector3 @where)
     {
+	    movingPosition = where;
 	    StartAnimationTrigger(moveAnimation);
 	    yield return SmoothMovement(@where);
 	    TurnOver();
@@ -115,7 +110,7 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 		    transform.position = newPosition;
 		    yield return null;
 	    }
-		// // _rigidbody2d.MovePosition(end);
+	    _rigidbody2d.MovePosition(end);
 		isMove = false;
     }
     
@@ -167,6 +162,61 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 	    }
 	    animator.speed = 1;
 	    animator.Play(nameAnimation);
+    }
+    
+    protected virtual IEnumerator AttackPlayer(TheEssence attackEssence)
+    {
+	    if(attackEssence.transform.position.x < transform.position.x && turnedRight 
+	       || attackEssence.transform.position.x > transform.position.x && !turnedRight)
+	    {
+		    Flip();
+	    }
+	    boxCollider2D.enabled = false;
+	    var enemyPosition = transform.position;
+	    if (!CheckEssencesShields(attackEssence))
+	    {
+		    StartCoroutine(Move(attackEssence.transform.position));
+		    yield break;
+	    } 
+	    var attackVector = (Vector2)(transform.position - attackEssence.transform.position).normalized;
+	    var attackPosition = (Vector2)attackEssence.transform.position + attackVector * 0.6f;
+	    Vector2 endPosition;
+
+	    if ((transform.position - attackEssence.transform.position).sqrMagnitude <= 2f)
+	    {
+		    endPosition = enemyPosition;
+	    }
+	    else
+	    {
+		    endPosition = new Vector2((attackEssence.transform.position.x + enemyPosition.x) / 2, 
+			    (attackEssence.transform.position.y + enemyPosition.y) / 2);
+	    }
+            
+	    StartCoroutine(SmoothMovement(attackPosition));
+	    yield return new WaitUntil(() => !isMove);
+	    (attackEssence as IHaveShields).LossShield();
+	    StartCoroutine(SmoothMovement(endPosition));
+	    yield return new WaitUntil(() => !isMove);
+	    yield return new WaitForSeconds(0.3f);
+	    TurnOver();
+    }
+    
+    protected virtual IEnumerator OnTriggerEnter2D(Collider2D other)
+    {
+	    if (!isTurnOver) yield break;
+	    if (!other.gameObject.TryGetComponent(out TheEssence essence)) yield break;
+	    if (isMove || !essence.isMove) yield break;
+	    yield return new WaitUntil(() => essence.isMove == false);
+	    if (essence.movingPosition != transform.position) yield break;
+	    Died(essence);
+    }
+    
+    protected bool CheckEssencesShields(TheEssence essence)
+    {
+	    var hit = Physics2D.Linecast(transform.position, essence.transform.position, GameController.instance.shieldLayer);
+	    boxCollider2D.enabled = true;
+	    return hit.collider != null && hit.collider.transform.parent == essence.transform 
+	           && (essence as IHaveShields).GetShieldsCount() != 0;
     }
 
     public static Vector2[] PositionCalculation(Vector2 startPosition, Vector2[] calculationPositions, LayerMask blockingLayer, BoxCollider2D boxCollider2D)

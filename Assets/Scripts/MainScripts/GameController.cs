@@ -16,35 +16,33 @@ namespace MainScripts
         
         internal readonly List<TheEnemy> allEnemies = new();
         internal readonly List<TheTrap> allTraps = new();
-        internal float enemyMovementSpeed;
-        internal float enemyAnimationSpeed;
-        
-        public const string EnemyMovementSpeedKeyName = "EnemyMovementSpeed";
-        public const string EnemyAnimationSpeedKeyName = "EnemyAnimationSpeed";
 
         public static GameController instance;
 
         private void Awake()
         {
             instance = this;
-            enemyAnimationSpeed = PlayerPrefsSafe.GetFloat(EnemyAnimationSpeedKeyName, 1);
-            enemyMovementSpeed = PlayerPrefsSafe.GetFloat(EnemyMovementSpeedKeyName, .1f);
         }
 
         public IEnumerator ActiveEnemiesAndTraps()
         {
             ActivateTraps();
             allEnemies.Clear();
-            GameplayEventManager.OnGetAllEnemies.Invoke();
-            if (allEnemies != null)
-            {
-                yield return new WaitForSeconds(0.9f);
-                yield return ActivateEnemies();
-            }
+            yield return ActivateEnemies();
             StartCoroutine(GameManager.instance.TurnStarted());
         }
 
-        private void ActivateTraps()
+        public IEnumerator ActiveEnemies()
+        {
+            GameplayEventManager.OnGetAllEnemies.Invoke();
+            if (allEnemies != null)
+            {
+                yield return new WaitForSeconds(0.4f);
+                yield return ActivateEnemies();
+            }
+        }
+
+        public void ActivateTraps()
         {
             allTraps.Clear();
             GameplayEventManager.OnGetAllTraps.Invoke();

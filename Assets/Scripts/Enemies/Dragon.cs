@@ -2,11 +2,12 @@ using System.Collections;
 using Abilities;
 using MainScripts;
 using RoomObjects;
+using Traps;
 using UnityEngine;
 
 namespace Enemies
 {
-    public class Dragon : TheEnemy, IColdAttack, IFireAttack, IPetrificationAttack
+    public class Dragon : TheEnemy, IColdAttack, IFireAttack, IPetrificationAttack, ICompressionAttack
     {
         [Header("Dragon Setting")]
         [SerializeField] private LayerMask noFireLayer;
@@ -32,11 +33,11 @@ namespace Enemies
             _audioSource = GetComponent<AudioSource>();
             animator.SetBool(IsSleep, true);
             _isSleep = true;
-            turnedRight = true;
             _sleepTimeSpriteRenderer = sleepTimeObject.GetComponent<SpriteRenderer>();
             _sleepTime = sleepTimeSprites.Length;
         }
-
+        
+        [ContextMenu("Wake Up")]
         public void WakeUp()
         {
             _isSleep = false;
@@ -51,7 +52,7 @@ namespace Enemies
             switch (_isSleep)
             {
                 case false when !_isWait:
-                    BaseAction();
+                    base.Active();
                     break;
                 case true when _sleepTime == 0:
                     WakeUp();
@@ -63,7 +64,11 @@ namespace Enemies
                     break;
                 default:
                 {
-                    if(BackroomsController.isBackrooms) return;
+                    if(BackroomsController.isBackrooms)
+                    {
+                        TurnOver();
+                        return;
+                    };
                     if (_isWait)
                     {
                         if (_waitTime == 2)
@@ -128,10 +133,6 @@ namespace Enemies
         private IEnumerator Fall(Vector3 position)
         {
             _isFall = true;
-            if (turnedRight)
-            {
-                Flip();
-            }
             transform.position = new Vector3(position.x, position.y + 10, position.z);
             inverseMoveTime = 1 / .05f;
             StartCoroutine(SmoothMovement(position));
@@ -157,38 +158,17 @@ namespace Enemies
 
         public override void Died() {}
 
-        private void BaseAction()
-        {
-            switch (transform.position.x - GameManager.player.transform.position.x)
-            {
-                case < 0:
-                    Flip(true);
-                    break;
-                case > 0:
-                    Flip(false);
-                    break;
-            }
-
-            base.Active();
-        }
-
-        public void ColdAttack()
-        {
-            
-        }
+        public void ColdAttack() {}
 
         public void FireDamage(GameObject firePrefab)
         {
             Instantiate(firePrefab, transform.position, Quaternion.identity);
         }
-        public void FireDamage()
-        {
-            
-        }
+        
+        public void FireDamage() {}
 
-        public void Petrification()
-        {
-            
-        }
+        public void Petrification() {}
+
+        public void CompressionDamage() {}
     }
 }

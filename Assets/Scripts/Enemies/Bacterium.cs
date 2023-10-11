@@ -42,9 +42,9 @@ namespace Enemies
             return resultPositions.Length == 0 ? transform.position : resultPositions[0];
         }
         
-        protected override IEnumerator AttackPlayer(Vector2 playerPosition)
+        protected override IEnumerator AttackPlayer(TheEssence playerPosition)
         {
-            yield return Move(playerPosition);
+            yield return Move(playerPosition.transform.position);
         }
     }
 }

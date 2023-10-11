@@ -30,25 +30,26 @@ namespace Enemies
             return position;
         }
 
-        protected override void SelectAction(Vector2 nextPosition, Vector2 playerPosition)
+        protected override void SelectAction(Vector2 nextPosition)
         {
             if(nextPosition.x < transform.position.x && turnedRight || nextPosition.x > transform.position.x && !turnedRight)
             {
                 Flip();
             }
-            if (Convert.ToString(transform.position.y) == Convert.ToString(playerPosition.y))
+            if (Mathf.Abs(transform.position.y - enemyTarget.transform.position.y) < 0.2f)
             {
                 boxCollider2D.enabled = false;
-                var hit = Physics2D.Linecast(transform.position, playerPosition, blockingLayer);
+                var hit = Physics2D.Linecast(transform.position, 
+                    enemyTarget.transform.position, blockingLayer);
                 boxCollider2D.enabled = true;
                 if (hit.collider == null)
                 {
-                    if(playerPosition.x - transform.position.x > 0 && !turnedRight 
-                       || playerPosition.x - transform.position.x < 0 && turnedRight)
+                    if(enemyTarget.transform.position.x - transform.position.x > 0 && !turnedRight 
+                       || enemyTarget.transform.position.x - transform.position.x < 0 && turnedRight)
                     {
                         Flip();
                     }
-                    StartCoroutine(AttackPlayer(playerPosition));
+                    StartCoroutine(AttackPlayer(enemyTarget));
                     return;
                 }
             }
@@ -61,8 +62,9 @@ namespace Enemies
             StartCoroutine(Move(nextPosition));
         }
 
-        protected override IEnumerator AttackPlayer(Vector2 playerPosition)
+        protected override IEnumerator AttackPlayer(TheEssence essence)
         {
+            var playerPosition = essence.transform.position;
             animator.Play(AttackAnimationName);
             yield return new WaitUntil(() => _isCenterAttack);
             var object1 = Instantiate(baseAnimationsObj, transform.position, Quaternion.identity);
@@ -90,10 +92,10 @@ namespace Enemies
             yield return new WaitUntil(() => _isEndAttack);
             var player = GameManager.player;
             player.isActive = false;
-            player.StartAnimation(player.shieldsControllerUI.RemainingShieldsCount != 0 
+            player.StartAnimation(Player.shieldsControllerUI.RemainingShieldsCount != 0 
                 ? "PlayerDiedFromDuck" : "PlayerDiedFromDuckWithoutShield");
             yield return new WaitForSeconds(1f);
-            Instantiate(player.shieldsControllerUI.RemainingShieldsCount == 0 
+            Instantiate(Player.shieldsControllerUI.RemainingShieldsCount == 0 
                     ? stoneStatue : stoneStatueWithShield, 
                             player.transform.position, Quaternion.identity);
             player.Died(this);

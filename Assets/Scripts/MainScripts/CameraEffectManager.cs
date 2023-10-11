@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -16,6 +15,7 @@ namespace MainScripts
         private LensDistortion _lensDistortion;
         private SplitToning _splitToning;
         private ShadowsMidtonesHighlights _shadowsMidtonesHighlights;
+        private bool _isMaxEffect;
 
         private void Awake()
         {
@@ -24,6 +24,7 @@ namespace MainScripts
 
         public void AddGreyEffect()
         {
+            if(_isMaxEffect && !BackroomsController.isBackrooms) return;
             var pixelEffectEmission = pixelEffect.emission;
             pixelEffectEmission.rateOverTimeMultiplier += 8;
             var pixelEffectMain = pixelEffect.main;
@@ -51,9 +52,9 @@ namespace MainScripts
                     break;
                 case RoomType.VeryHard:
                     _lensDistortion.active = true;
+                    _isMaxEffect = true;
                     break;
                 case RoomType.Action1:
-                    // player.GetComponentInChildren<Light2D>().lightOrder = 32;
                     _tonemapping.active = true;
                     break;
                 case RoomType.Action2:

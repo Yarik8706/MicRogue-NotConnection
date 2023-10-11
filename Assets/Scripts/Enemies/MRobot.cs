@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class MRobot : TheEnemy
+    public class MRobot : TheEnemy, IFireAttack
     {
         [SerializeField] private LayerMask trapLayer;
 
@@ -18,6 +18,16 @@ namespace Enemies
                     return !trap.GetComponent<TheTrap>().NextStageIsAttack();
                 });
             return base.SelectMovePosition(playerPosition, safePositions.ToArray());
+        }
+
+        public void FireDamage(GameObject firePrefab)
+        {
+            Instantiate(firePrefab, transform.position, Quaternion.identity);
+        }
+
+        public void FireDamage()
+        {
+            
         }
     }
 }

@@ -6,30 +6,32 @@ using MainScripts;
 using RoomObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering.Universal;
 
 public interface IClickToAvailablePosition
 {
     void ClickEvent(GameObject moveToPlacePrefab, Player player);
 } 
 
-public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
+public class Player : TheEssence, IPointerClickHandler, IStuckInSlime, IHaveShields
 {
-    public ConsumablesControllerUI flashCountController;
-    public ConsumablesControllerUI shieldsControllerUI;
+    public static ConsumablesControllerUI flashCountController;
+    public static ConsumablesControllerUI shieldsControllerUI;
     
-    [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] private DeathMesssageUI deathMesssage;
+    public LayerMask enemyLayer;
     [SerializeField] private GameObject moveToPlace;
+    [SerializeField] private ExplosionOfLight explosionLight;
+    [SerializeField] private Light2D centerLight;
+
+    [Header("Player Attributes")] 
+    public int flashDelay = 3;
+    public int stealAbilityDelay = 5;
     
-    internal List<GameObject> moveToPlaces;
-    internal Vector3 movingPosition;
+    internal readonly List<GameObject> moveToPlaces = new();
 
     public override void Awake()
     {
         base.Awake();
-        GameManager.player = this;
-        moveToPlaces = new List<GameObject>();
-        gameObject.SetActive(false);
         GameplayEventManager.OnNextRoom.AddListener(() =>
         {
             DeleteAllMoveToPlaces();
@@ -41,6 +43,7 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
     {
         DeleteAllMoveToPlaces();
         base.Active();
+        moveToPlaces.Clear();
         // проверяем врагов на пути и не даем пройти за ними
         foreach (var newVariantPosition in MoveCalculation(VariantsPositionsNow(variantsPositions)))
         {
@@ -56,7 +59,12 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
                 if (hit.collider.gameObject.transform.position != (Vector3)newVariantPosition) continue;
                 moveToPlaces.Add(Instantiate(moveToPlace, newVariantPosition, Quaternion.identity));
             }
-        } 
+        }
+
+        foreach (var place in moveToPlaces)
+        { 
+            place.GetComponent<MoveToPlace>().player = this;
+        }
     }
 
     protected override Vector2[] MoveCalculation(Vector2[] theVariantsPositions)
@@ -82,14 +90,19 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
         return nowVariantsPositions.ToArray();
     }
 
-    public void StartMove(Vector3 @where)
+    public virtual void StartMove(Vector3 @where)
     {
+        if(!Ninja.CheckEmptyPlace(where, enemyLayer, out var hit))
+        {
+            var attackEssence = hit.collider.GetComponent<TheEssence>();
+            StartCoroutine(AttackPlayer(attackEssence));
+            return;
+        }
         StartCoroutine(Move(@where));
     }
 
     public override IEnumerator Move(Vector3 where)
     {
-        movingPosition = where;
         DeleteAllMoveToPlaces();
         var x = where.x - transform.position.x;
         if(x <= -2 && turnedRight || x >= 2 && !turnedRight)
@@ -109,7 +122,7 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
         yield return base.Move(@where);
     }
 
-    public void LossOfShieldEvent()
+    public virtual void LossOfShieldEvent()
     {
         StartAnimation("PlayerProtection");
         shieldsControllerUI.ReduceConsumablesCount(); 
@@ -121,8 +134,9 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
 
     public void RestorationOfShields()
     {
-        shieldsControllerUI.ResetConsumables();
         animator.SetBool("IdleWithoutShield", false);
+        if(GameManager.player != this) return;
+        shieldsControllerUI.ResetConsumables();
     }
 
     public void DeleteAllMoveToPlaces()
@@ -131,9 +145,10 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
         {
             Destroy(i);
         }
+        moveToPlaces.Clear();
     }
 
-    public void OnPointerClick(PointerEventData @event)
+    public virtual void OnPointerClick(PointerEventData @event)
     {
         if(isTurnOver || @event.rawPointerPress.name != gameObject.name) return;
         Flip();
@@ -145,14 +160,24 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
     {
         if (killer.GetComponent<CauseOfDied>() is {} killerMessage)
         {
-            deathMesssage.ShowMessage(killerMessage.GetRandomCauses());
+            DeathMessageUI.deathMessageUI.ShowMessage(killerMessage.GetRandomCauses());
         }
         else
         {
-            deathMesssage.ShowMessage("Diiiieeetthhh!");
+            DeathMessageUI.deathMessageUI.ShowMessage("Diiiieeetthhh!");
         }
         GameplayEventManager.OnPlayerDied.Invoke();
         base.Died();
+    }
+
+    public virtual void ChangeCenterLightActive(bool isActive)
+    {
+        centerLight.enabled = isActive;
+    }
+
+    public virtual void LightFlash()
+    {
+        explosionLight.StartExplosionLight();
     }
 
     public void ResetConsumables()
@@ -160,9 +185,25 @@ public class Player : TheEssence, IPointerClickHandler, IStuckInSlime
         flashCountController.ResetConsumables();
         RestorationOfShields();
     }
-    
+
+    protected override IEnumerator AttackPlayer(TheEssence attackEssence)
+    {
+        DeleteAllMoveToPlaces();
+        return base.AttackPlayer(attackEssence);
+    }
+
     public void Stuck(SlimeTrap slimeTrap)
     {
         Instantiate(slimeTrap, transform).Initializate(this);
+    }
+
+    public virtual int GetShieldsCount()
+    {
+        return shieldsControllerUI.RemainingShieldsCount;
+    }
+
+    public virtual void LossShield()
+    {
+        LossOfShieldEvent();
     }
 }

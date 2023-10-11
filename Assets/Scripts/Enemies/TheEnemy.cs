@@ -17,17 +17,14 @@ namespace Enemies
         public int enemyType;
         public int enemyCount = 1;
 
-        private float attackLong = 0.6f;
-        
+        protected TheEssence enemyTarget;
+        protected Vector2 enemyTargetPosition;
+
         protected override void Start()
         {
             base.Start();
             GameplayEventManager.OnNextRoom.AddListener(NextRoomEvent);
             GameplayEventManager.OnGetAllEnemies.AddListener(AddYourselfToEnemyList);
-            SetAnimationMoveSpeed(
-                GameController.instance.enemyAnimationSpeed, 
-                GameController.instance.enemyMovementSpeed
-                );
         }
 
         private void AddYourselfToEnemyList()
@@ -43,11 +40,26 @@ namespace Enemies
                 TurnOver();
                 return;
             }
-            SelectAction(SelectMovePosition(
-                    GameManager.player.transform.position,
-                    MoveCalculation(
-                        VariantsPositionsNow(variantsPositions))), 
-                GameManager.player.transform.position);
+            enemyTarget = GetNearestEnemyTarget(transform.position);
+            enemyTargetPosition = (Vector2) enemyTarget.transform.position;
+            SelectAction(SelectMovePosition(enemyTarget.transform.position,
+                    MoveCalculation(VariantsPositionsNow(variantsPositions))));
+        }
+
+        public static TheEssence GetNearestEnemyTarget(Vector3 enemyPosition)
+        {
+            if (GameManager.enemyTargets.Count == 1)
+            {
+                return GameManager.enemyTargets[0];
+            }
+            List<float> distance = new List<float>(GameManager.enemyTargets.Count);
+            for (int i = 0; i < GameManager.enemyTargets.Count; i++)
+            {
+                distance.Add(Vector2.Distance(
+                    GameManager.enemyTargets[i].transform.position, enemyPosition));
+            }
+
+            return GameManager.enemyTargets[distance.IndexOf(distance.Min())];
         }
 
         public static Vector2 SelectionOfTheNearestPosition(
@@ -79,7 +91,7 @@ namespace Enemies
             return SelectionOfTheNearestPosition(playerPosition, theVariantsPositions, transform.position);
         }
 
-        protected virtual void SelectAction(Vector2 nextPosition, Vector2 playerPosition)
+        protected virtual void SelectAction(Vector2 nextPosition)
         {
             if (nextPosition == (Vector2)transform.position)
             {
@@ -91,66 +103,8 @@ namespace Enemies
             {
                 Flip();
             }
-            StartCoroutine(nextPosition == playerPosition ? AttackPlayer(nextPosition) : Move(nextPosition));
-        }
-
-        protected virtual bool CheckPlayersShields(Vector2 playerPosition)
-        {
-            var hit = Physics2D.Linecast(transform.position, playerPosition, GameController.instance.shieldLayer);
-            boxCollider2D.enabled = true;
-            return hit.collider != null && GameManager.player
-                .shieldsControllerUI.RemainingShieldsCount != 0;
-        }
-
-        protected virtual IEnumerator AttackPlayer(Vector2 playerPosition)
-        {
-            boxCollider2D.enabled = false;
-            var enemyPosition = transform.position;
-            if (!CheckPlayersShields(playerPosition))
-            {
-                StartCoroutine(Move(playerPosition));
-                yield break;
-            } 
-            var attackVector = ((Vector2)transform.position - playerPosition).normalized;
-            var attackPosition = playerPosition + attackVector * attackLong;
-            Vector2 endPosition;
-
-            if (((Vector2)transform.position - playerPosition).sqrMagnitude <= 2f)
-            {
-                endPosition = enemyPosition;
-            }
-            else
-            {
-                endPosition = new Vector2((playerPosition.x + enemyPosition.x) / 2, 
-                    (playerPosition.y + enemyPosition.y) / 2);
-            }
-            
-            StartCoroutine(SmoothMovement(attackPosition));
-            yield return new WaitUntil(() => !isMove);
-            GameManager.player.LossOfShieldEvent();
-            StartCoroutine(SmoothMovement(endPosition));
-            yield return new WaitUntil(() => !isMove);
-            yield return new WaitForSeconds(0.5f);
-            TurnOver();
-        }
-
-        protected virtual IEnumerator OnTriggerEnter2D(Collider2D other)
-        {
-            if (!other.gameObject.CompareTag("Player")) yield break;
-            if (!isMove && GameManager.player.isMove)
-            {
-                yield return new WaitUntil(() => GameManager.player.isMove == false);
-                if (GameManager.player.movingPosition != transform.position) yield break;
-                Died(GameManager.player);
-            }
-            else
-            {
-                yield return new WaitUntil(() => isMove == false);
-                if (transform.position == GameManager.player.transform.position)
-                {
-                    GameManager.player.Died(this);
-                }
-            }
+            StartCoroutine(nextPosition == (Vector2)enemyTarget.transform.position 
+                ? AttackPlayer(enemyTarget) : Move(nextPosition));
         }
 
         protected virtual void NextRoomEvent()
@@ -160,7 +114,7 @@ namespace Enemies
 
         public override void Died(MonoBehaviour killer)
         {
-            if (killer is Player && diedMusic != null)
+            if (killer is Player && diedMusic != null || killer is StealAbilityController)
             {
                 DiedWithMusic();
             }

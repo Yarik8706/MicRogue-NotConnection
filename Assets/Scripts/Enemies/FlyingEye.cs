@@ -27,30 +27,30 @@ namespace Enemies
             return position;
         }
 
-        protected override void SelectAction(Vector2 nextPosition, Vector2 playerPosition)
+        protected override void SelectAction(Vector2 nextPosition)
         {
             if(nextPosition.x < transform.position.x && turnedRight || nextPosition.x > transform.position.x && !turnedRight)
             {
                 Flip();
             }
-            if (Vector2.Distance(transform.position, playerPosition) <= 1)
+            if (Vector2.Distance(transform.position, enemyTargetPosition) <= 1)
             {
-                StartCoroutine(base.AttackPlayer(playerPosition));
+                StartCoroutine(base.AttackPlayer(enemyTarget));
                 return;
             }
-            if (Mathf.Abs(transform.position.y - playerPosition.y) < 0.1f)
+            if (Mathf.Abs(transform.position.y - enemyTargetPosition.y) < 0.1f)
             {
                 boxCollider2D.enabled = false;
-                var hit = Physics2D.Linecast(transform.position, playerPosition, blockingLayer);
+                var hit = Physics2D.Linecast(transform.position, enemyTargetPosition, blockingLayer);
                 boxCollider2D.enabled = true;
                 if (hit.collider == null)
                 {
-                    if(playerPosition.x - transform.position.x > 0 && !turnedRight 
-                       || playerPosition.x - transform.position.x < 0 && turnedRight)
+                    if(enemyTargetPosition.x - transform.position.x > 0 && !turnedRight 
+                       || enemyTargetPosition.x - transform.position.x < 0 && turnedRight)
                     {
                         Flip();
                     }
-                    StartCoroutine(AttackPlayer(playerPosition));
+                    StartCoroutine(AttackPlayer(enemyTarget));
                     return;
                 }
             }
@@ -63,7 +63,7 @@ namespace Enemies
             StartCoroutine(Move(nextPosition));
         }
 
-        protected override IEnumerator AttackPlayer(Vector2 playerPosition)
+        protected override IEnumerator AttackPlayer(TheEssence essence)
         {
             animator.SetTrigger(TriggerAttack);
             yield return ChangingPositionsOfTwoEntities(

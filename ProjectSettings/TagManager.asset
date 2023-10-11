@@ -11,7 +11,7 @@ TagManager:
   - MoveToPlace
   - Trash
   - Exit
-  - mapCamera
+  - Gift
   layers:
   - Default
   - TransparentFX
