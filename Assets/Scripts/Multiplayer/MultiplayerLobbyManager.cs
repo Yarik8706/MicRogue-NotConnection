@@ -5,6 +5,7 @@ using Fusion;
 using Fusion.Sockets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 namespace Multiplayer
 {
@@ -18,6 +19,7 @@ namespace Multiplayer
 
         private void Start()
         {
+            if(instance != null) Destroy(instance.gameObject);
             instance = this;
         }
 
@@ -33,18 +35,16 @@ namespace Multiplayer
 
         private async void StartGame(GameMode mode)
         {
-            // Create the Fusion runner and let it know that we will be providing user input
             runner = gameObject.AddComponent<NetworkRunner>();
             runner.ProvideInput = true;
 
-            // Start or join (depends on gamemode) a session with a specific name
             await runner.StartGame(new StartGameArgs()
             {
                 GameMode = mode,
-                SessionName = "TestRoom",
+                SessionName = mode == GameMode.Client ? null : "Room" + Random.Range(0, 1000),
                 Scene = SceneManager.GetActiveScene().buildIndex + 2,
                 SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>()
-            });
+            }).ConfigureAwait(false);
         }
 
         public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
@@ -53,7 +53,8 @@ namespace Multiplayer
             {
                 spawnedCharacters.Add(player, null);
                 Vector3 spawnPosition
-                    = MultiplayerGameManager.instance.startPositions[spawnedCharacters.Keys.ToList().IndexOf(player)].position;
+                    = MultiplayerGameManager.instance.startPositions[
+                        spawnedCharacters.Keys.ToList().IndexOf(player)].position;
                 NetworkObject networkPlayerObject =
                     runner.Spawn(playerPrefab, spawnPosition, Quaternion.identity, player);
                 spawnedCharacters[player] = networkPlayerObject;

@@ -980,6 +980,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraVolume: {fileID: 1262414318}
   pixelEffect: {fileID: 847205118}
+  firstDepressiveStage: 10
+  secondDepressiveStage: 15
+  thirdDepressiveStage: 23
+  fourthDepressiveStage: 30
 --- !u!198 &847205118 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8483697277800757512, guid: 7d7d854b1d15d6544bb0027a025ec50b, type: 3}
@@ -1014,7 +1018,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4163052249541112590, guid: 56a24cddf556343409eb14c892dbb600, type: 2}
   m_audioClip: {fileID: 8300000, guid: 95e9107c39782704ab14d478b3879f61, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.695
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1722,6 +1726,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 350780846119126425, guid: 2a7fcce02ecef164bbcf1eb87fe2a3b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112000284962724775, guid: 2a7fcce02ecef164bbcf1eb87fe2a3b3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112000284962724775, guid: 2a7fcce02ecef164bbcf1eb87fe2a3b3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112000284962724775, guid: 2a7fcce02ecef164bbcf1eb87fe2a3b3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112000284962724775, guid: 2a7fcce02ecef164bbcf1eb87fe2a3b3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7867861240012844812, guid: 2a7fcce02ecef164bbcf1eb87fe2a3b3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1871,6 +1895,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1977478563305190595, guid: 7d7d854b1d15d6544bb0027a025ec50b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8483697277270608856, guid: 7d7d854b1d15d6544bb0027a025ec50b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1921,19 +1949,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8483697278547776393, guid: 7d7d854b1d15d6544bb0027a025ec50b, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.045833334
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8483697278547776393, guid: 7d7d854b1d15d6544bb0027a025ec50b, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8483697278547776393, guid: 7d7d854b1d15d6544bb0027a025ec50b, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.90833336
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8483697278547776393, guid: 7d7d854b1d15d6544bb0027a025ec50b, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d7d854b1d15d6544bb0027a025ec50b, type: 3}

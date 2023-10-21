@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4936848865945880455}
   - component: {fileID: 758004933342500010}
   - component: {fileID: 2035215560757551235}
+  - component: {fileID: -1228889673512536084}
   m_Layer: 8
   m_Name: FireRobot
   m_TagString: Enemy
@@ -162,10 +163,10 @@ MonoBehaviour:
   diedAnimationName: 
   diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
   diedMusic: {fileID: 0}
-  afterDied: {fileID: 934897519596682640, guid: 81d4bd92e4b8e25418a69113e72721f7, type: 3}
   enemyAbility: {fileID: 11400000, guid: 3d678c78a417a59429a8e16bb168b106, type: 2}
   enemyType: 1
   enemyCount: 1
+  afterDied: {fileID: 934897519596682640, guid: 81d4bd92e4b8e25418a69113e72721f7, type: 3}
   trapLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -278,3 +279,16 @@ MonoBehaviour:
   - ruText: "\u041D\u0435\u0436\u0435\u043B\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0439
       \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u043C \u043F\u043E\u0432\u0435\u0440\u0436\u0435\u043D!"
     enText: The unwanted organism is defeated!
+--- !u!114 &-1228889673512536084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947117286176738375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57ca74145784ff19840bcc61e113973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEffect: {fileID: 3609419310855800711, guid: 3c570c9aacff5b84f8dd45b7c6c4460f, type: 3}

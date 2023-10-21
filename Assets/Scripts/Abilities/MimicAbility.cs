@@ -1,5 +1,6 @@
 ﻿using System;
 using MainScripts;
+using PlayersScripts;
 using UnityEngine;
 
 namespace Abilities
@@ -10,11 +11,10 @@ namespace Abilities
     {
         [SerializeField] private GameObject updateConsumablesEffect;
         
-        public override void ActiveAbility()
+        public override void ActiveAbility(Player player)
         {
-            base.ActiveAbility();
-            Instantiate(updateConsumablesEffect, GameManager.player.transform.position, Quaternion.identity);
-            GameManager.player.ResetConsumables();
+            Instantiate(updateConsumablesEffect, player.transform.position, Quaternion.identity);
+            player.ResetConsumables();
         }
     }
 }

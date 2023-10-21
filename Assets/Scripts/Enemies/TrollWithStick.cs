@@ -34,17 +34,14 @@ namespace Enemies
 
         private IEnumerator InstantiateEnemyShieldAndTurnOver()
         {
-            // троль берет случайного монстра завершившего ход и ставит на нем щит
-            var enemiesNotTurnOver = GameController.instance.allEnemies;
-            GameplayEventManager.OnGetAllEnemies.Invoke();
-            var allEnemies = GameController.instance.allEnemies;
-            if(allEnemies == null || enemiesNotTurnOver == null)
+            var allEnemies = GameplayEventManager.GetAllEnemies();
+            if(allEnemies == null)
             {
                 TurnOver();
                 yield break;
             }
             var availableTransformsEnemies = (from enemy in allEnemies
-                    where enemy != gameObject
+                    where enemy != this
                     select enemy.GetComponent<TheEnemy>() 
                     into enemyClass
                     where enemyClass.isActive
@@ -57,7 +54,7 @@ namespace Enemies
                 _enemyShieldNow = Instantiate(enemyShield,
                     availableTransformsEnemies[availablePositionEnemies.IndexOf(
                             SelectionOfTheNearestPosition(
-                                GameManager.player.transform.position, 
+                                GetNearestEnemyTarget(transform.position).transform.position, 
                                 availablePositionEnemies.ToArray()))]);
             }
             yield return null;

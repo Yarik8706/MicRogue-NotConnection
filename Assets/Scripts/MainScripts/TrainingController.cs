@@ -42,8 +42,8 @@ namespace MainScripts
             yield return new WaitUntil(() => !GameManager.player.isActive);
             yield return new WaitForSeconds(1.7f);
             dialogController.StartDialog(attackDialog, () => { });
-            
-            GameplayEventManager.OnGetAllEnemies.Invoke();
+
+            GameplayEventManager.GetAllEnemies();
             firstEnemy = GameController.instance.allEnemies[0];
             yield return new WaitUntil(() => firstEnemy == null);
             dialogController.StartDialog(endDialog, () => _trainingPart++);

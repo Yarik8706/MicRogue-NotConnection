@@ -1,22 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Canvas;
 using MainScripts;
+using PlayersScripts;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Enemies
 {
     public abstract class TheEnemy : TheEssence
     {
-        [Header("Enemy Components")] 
-        [SerializeField] private GameObject afterDied;
+        [Header("Enemy")] 
         public CustomAbility enemyAbility;
-
-        [Header("Enemy Setting")]
         public int enemyType;
         public int enemyCount = 1;
-
+        
+        [SerializeField] private GameObject afterDied;
+        
         protected TheEssence enemyTarget;
         protected Vector2 enemyTargetPosition;
 
@@ -35,7 +35,7 @@ namespace Enemies
         public override void Active()
         {
             base.Active();
-            if (GameManager.player == null)
+            if (GameManager.enemyTargets.Count == 0)
             {
                 TurnOver();
                 return;

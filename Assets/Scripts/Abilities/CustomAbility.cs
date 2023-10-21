@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections;
-using MainScripts;
+﻿using System.Collections;
+using PlayersScripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +9,7 @@ public class CustomAbility : ScriptableObject
     [SerializeField] private Sprite buttonIcon;
     [SerializeField] private float updatePlayerTurnAfterUseSpellTime = .7f;
     
-    public virtual void Initial(Image button)
+    public void InitialActiveButton(Image button)
     {
         if (!isActiveAbility)
         {
@@ -23,26 +22,31 @@ public class CustomAbility : ScriptableObject
         }
     }
 
-    public virtual void ActiveAbility()
+    public virtual void InitialAbility(Player player)
     {
         
     }
 
-    public virtual void DeleteAbility()
+    public virtual void ActiveAbility(Player player)
     {
         
     }
 
-    protected void UpdatePlayerTurnAfterUseSpell()
+    public virtual void DeleteAbility(Player player)
+    {
+        
+    }
+
+    protected void UpdatePlayerTurnAfterUseSpell(Player player)
     {
         CoroutineController.instance.StartCoroutine(
-            UpdatePlayerTurnAfterUseSpellCoroutine(updatePlayerTurnAfterUseSpellTime));
+            UpdatePlayerTurnAfterUseSpellCoroutine(player, updatePlayerTurnAfterUseSpellTime));
     }
 
-    protected static IEnumerator UpdatePlayerTurnAfterUseSpellCoroutine(float waitTime)
+    protected static IEnumerator UpdatePlayerTurnAfterUseSpellCoroutine(Player player, float waitTime)
     {
-        GameManager.player.DeleteAllMoveToPlaces();
+        player.DeleteAllMoveToPlaces();
         yield return new WaitForSeconds(waitTime);
-        GameManager.player.Active();
+        player.Active();
     }
 }

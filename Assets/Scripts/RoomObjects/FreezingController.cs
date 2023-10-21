@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using MainScripts;
+using PlayersScripts;
 using UnityEngine;
 
 namespace RoomObjects
@@ -7,8 +8,9 @@ namespace RoomObjects
     public class FreezingController : MonoBehaviour
     {
         internal Animator animator { get; private set; }
-        [SerializeField] private Color freezingColor = Color.cyan;
+        [SerializeField] private Material freezingMaterial;
         [SerializeField] private int freezingWaitCount;
+        [SerializeField] private int freezingWaitCountForPlayer = 2;
 
         private void Awake()
         {
@@ -26,16 +28,21 @@ namespace RoomObjects
             transform.SetParent(essence.transform);
             essence.isActive = false;
             var baseAnimatorSpeed = essence.animator.speed;
-            var baseColorSprite = essence.spriteRenderer.color;
-            essence.spriteRenderer.color = freezingColor;
+            essence.spriteRenderer.material = freezingMaterial;
             essence.animator.speed = 0;
             var numbersOfMovesNow = GameManager.numberOfMoves;
-            yield return new WaitUntil(() => numbersOfMovesNow+freezingWaitCount == GameManager.numberOfMoves);
+            if (essence is Player)
+            {
+                yield return new WaitUntil(() => numbersOfMovesNow+freezingWaitCountForPlayer == GameManager.numberOfMoves);
+            }
+            else
+            {
+                yield return new WaitUntil(() => numbersOfMovesNow+freezingWaitCount == GameManager.numberOfMoves);
+            }
             essence.isActive = true;
             transform.parent = null;
             yield return new WaitUntil(() => essence.isMove);
             essence.animator.speed = baseAnimatorSpeed;
-            essence.spriteRenderer.color = baseColorSprite;
             animator.SetTrigger("Frosbite");
             essence.essenceEffect = TheEssenceEffect.None;
         }

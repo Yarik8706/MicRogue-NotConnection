@@ -111,7 +111,7 @@ namespace MainScripts
                 GameManager.instance.activeRoomController.startPosition.position, 
                 0.9f);
             yield return new WaitForSeconds(0.9f);
-            StartCoroutine(GameManager.cameraShake.Shake(0.5f, 1));
+            StartCoroutine(CameraShake.instance.Shake(0.5f, 1));
             fallSound.Play();
             GameManager.player.isActive = true;
             GameManager.player.Active();

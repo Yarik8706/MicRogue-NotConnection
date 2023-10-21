@@ -53,23 +53,26 @@ namespace Canvas
 
         public void NextRoom()
         {
-            foreach (var exit in GameManager.instance.activeRoomController.exits)
-            {
-                if (exit.isActive) StartCoroutine(GameManager.instance.NextRoom(exit.exitLocation));
-            }
+            CameraSwipeControl.sensitivity = 0.2f;
+            // foreach (var exit in GameManager.instance.activeRoomController.exits)
+            // {
+            //     if (exit.isActive) StartCoroutine(GameManager.instance.NextRoom(exit.exitLocation));
+            // }
         }
 
         public void ResetConsole()
         {
-            while (_logs.Count > 0)
-            {
-                Destroy(_logs[0]);
-            }
+            CameraSwipeControl.sensitivity = 20;
+            // while (_logs.Count > 0)
+            // {
+            //     Destroy(_logs[0]);
+            // }
         }
 
         public void RestartGame()
         {
-            StartCoroutine(GameManager.instance.TurnStarted());
+            CameraSwipeControl.sensitivity = 200;
+            // StartCoroutine(GameManager.instance.TurnStarted());
         }
 
         [ContextMenu("CreateError")]

@@ -1,5 +1,6 @@
 ﻿using System;
 using MainScripts;
+using PlayersScripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,29 +8,33 @@ namespace Canvas
 {
     public class CustomAbilityController : MonoBehaviour
     {
-        [SerializeField] private Image activeAbilityButtonImage;
+        public Image activeAbilityButtonImage;
 
         private bool _isActive = true;
-        private CustomAbility _stealAbility;
+
+        public static CustomAbilityController instance;
+
+        private void Awake()
+        {
+            instance = this;
+        }
 
         private void Start()
         {
             GameplayEventManager.OnNextRoom.AddListener(() => _isActive = true);
         }
 
-        public void InitialAbility(CustomAbility customAbility)
-        {
-            if(_stealAbility != null) _stealAbility.DeleteAbility();
-            _stealAbility = customAbility;
-            _stealAbility.Initial(activeAbilityButtonImage);
-        }
-        
         public void ActiveAbility()
         {
             if(GameManager.player.isTurnOver) return;
             if(!_isActive) return;
-            _stealAbility.ActiveAbility();
+            ActiveAbilityPlayer(GameManager.player);
             _isActive = false;
+        }
+
+        public void ActiveAbilityPlayer(Player player)
+        {
+            player.customAbility.ActiveAbility(player);
         }
 
         [ContextMenu("ResetAbilityActivate")]

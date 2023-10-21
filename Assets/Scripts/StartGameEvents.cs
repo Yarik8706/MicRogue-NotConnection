@@ -16,7 +16,7 @@ public class StartGameEvents : MonoBehaviour
     private IEnumerator StartEventsCoroutine()
     {
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(GameManager.cameraShake.Shake(0.5f, 0.5f));
+        StartCoroutine(CameraShake.instance.Shake(0.5f, 0.5f));
         spaceCapsule.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         GameManager.player.gameObject.SetActive(true);

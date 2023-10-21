@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using Abilities;
 using MainScripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -9,9 +11,12 @@ namespace Enemies
 {
     public class Duck : TheEnemy
     {
-        public GameObject baseAnimationsObj;
-        public GameObject stoneStatueWithShield;
-        public GameObject stoneStatue;
+        [SerializeField] private GameObject enemyStatue;
+        [SerializeField] private Material petrificationMaterial;
+        [SerializeField] private GameObject petrificationEffect;
+        [SerializeField] private Material greyMaterial;
+        [SerializeField] private GameObject baseAnimationsObj;
+        
         private bool _isCenterAttack;
         private bool _isEndAttack;
         private const string AttackAnimationName = "DuckAttack";
@@ -90,16 +95,58 @@ namespace Enemies
                     .GetComponent<Animator>().Play(RayAnimationName);
             }
             yield return new WaitUntil(() => _isEndAttack);
-            var player = GameManager.player;
-            player.isActive = false;
-            player.StartAnimation(Player.shieldsControllerUI.RemainingShieldsCount != 0 
-                ? "PlayerDiedFromDuck" : "PlayerDiedFromDuckWithoutShield");
-            yield return new WaitForSeconds(1f);
-            Instantiate(Player.shieldsControllerUI.RemainingShieldsCount == 0 
-                    ? stoneStatue : stoneStatueWithShield, 
-                            player.transform.position, Quaternion.identity);
-            player.Died(this);
+            if (CanKillEssence(essence, essence.transform.position - Vector3.down * 0.1f))
+            {
+                yield return PetrifyOneEssence(enemyStatue,
+                                petrificationMaterial, petrificationEffect, essence, greyMaterial);
+            }
             TurnOver();
+        }
+
+        public static IEnumerator PetrifySomeEssence(GameObject statuePrefab, 
+            Material petrificationMaterial, GameObject petrificationEffect, 
+            TheEssence[] essences, Material greyMaterial)
+        {
+            petrificationMaterial.SetFloat(Shader.PropertyToID("_Fade"), 0);
+            var statues = new List<SpriteRenderer>(essences.Length);
+            foreach (var essence in essences)
+            {
+                Instantiate(petrificationEffect, essence.transform.position, Quaternion.identity);
+                if (essence is IPetrificationAttack petrification)
+                {
+                    petrification.Petrification();
+                    yield break;
+                }
+                var spriteRenderer = Instantiate(statuePrefab,
+                    essence.transform.position, Quaternion.identity).GetComponent<SpriteRenderer>();
+                
+                spriteRenderer.sprite = essence.spriteRenderer.sprite;
+                spriteRenderer.transform.localScale = essence.transform.localScale;
+                statues.Add(spriteRenderer);
+                essence.Died(null);
+            }
+            var number = 0f;
+            yield return new WaitForSeconds(0.25f);
+            while (number < 1) 
+            {
+                petrificationMaterial.SetFloat("_Fade", number);
+                number += Time.deltaTime / 3;
+                yield return null;
+            }
+
+            foreach (var statue in statues)
+            {
+                if(statue != null)
+                    statue.material = greyMaterial; 
+            }
+        }
+
+        public static IEnumerator PetrifyOneEssence(GameObject statuePrefab, 
+            Material petrificationMaterial, GameObject petrificationEffect, 
+            TheEssence essence, Material greyMaterial)
+        {
+            yield return PetrifySomeEssence(statuePrefab, petrificationMaterial, petrificationEffect,
+                new TheEssence[] {essence}, greyMaterial);
         }
 
         public void CenterAttack()

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6851713649853481954}
   - component: {fileID: -722283152901222677}
   - component: {fileID: 7529097289516104933}
+  - component: {fileID: 4853315734491579902}
   m_Layer: 8
   m_Name: Slime
   m_TagString: Enemy
@@ -182,10 +183,10 @@ MonoBehaviour:
   diedAnimationName: Died
   diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
   diedMusic: {fileID: 0}
-  afterDied: {fileID: 2550824891122090088, guid: 1dc8a67da1d16524d9f7d10d442d63eb, type: 3}
   enemyAbility: {fileID: 11400000, guid: 0c7d7e384fe4ca1469d32ad2e5e67f6c, type: 2}
   enemyType: 0
   enemyCount: 1
+  afterDied: {fileID: 2550824891122090088, guid: 1dc8a67da1d16524d9f7d10d442d63eb, type: 3}
   slimeRoad: {fileID: 6727961083006544830, guid: a1f528528b7270040992d7029895b94f, type: 3}
   slimeTrap: {fileID: 42004649980005899, guid: c8ff3a84292c6174ea8016cfdb4d360c, type: 3}
 --- !u!114 &6851713649853481954
@@ -264,3 +265,16 @@ MonoBehaviour:
   - ruText: "\u042D\u0423\u0423\u0423\u0423\u0423! \u041E\u043D\u0438 \u0442\u0430\u043A\u0438\u0435
       \u0441\u043B\u0438\u0437\u0438\u0441\u0442\u044B\u0435!"
     enText: EWWWWW! They are so slimy!
+--- !u!114 &4853315734491579902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2413409443540356332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57ca74145784ff19840bcc61e113973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEffect: {fileID: 3609419310855800711, guid: 3c570c9aacff5b84f8dd45b7c6c4460f, type: 3}

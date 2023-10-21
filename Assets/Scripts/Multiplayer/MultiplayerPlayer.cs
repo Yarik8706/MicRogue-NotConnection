@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using Fusion;
+﻿using Enemies;
+using PlayersScripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,30 +7,17 @@ namespace Multiplayer
 {
     public class MultiplayerPlayer : Player
     {
-        [SerializeField] private int diedTime = 4;
         private MultiplayerPlayerController _multiplayerPlayerController;
-
-        private int _activeDiedTime;
         
-        protected override void Start()
+        public override void Awake()
         {
-            base.Start();
+            base.Awake();
             _multiplayerPlayerController = GetComponent<MultiplayerPlayerController>();
         }
-
+        
         public override void Active()
         {
-            if (!spriteRenderer.enabled && _activeDiedTime == 0)
-            {
-                _activeDiedTime = -1;
-                _multiplayerPlayerController.RPC_Restore();
-            }
-
-            if (_activeDiedTime > 0)
-            {
-                _activeDiedTime--;
-                TurnOver();
-            }
+            if(!_multiplayerPlayerController.HasInputAuthority) return;
             base.Active();
         }
 
@@ -65,19 +52,6 @@ namespace Multiplayer
         public void BaseTurnOver()
         {
             base.TurnOver();
-        }
-
-        protected override IEnumerator OnTriggerEnter2D(Collider2D other)
-        {
-            if (isMove 
-                && other.gameObject.CompareTag("Gift") 
-                && _multiplayerPlayerController.HasStateAuthority
-                && Vector2.Distance(other.gameObject.transform.position, transform.position) 
-                < 0.7f)
-            {
-                _multiplayerPlayerController.AddGift(other.gameObject.GetComponent<NetworkObject>());
-            }
-            return base.OnTriggerEnter2D(other);
         }
 
         public override void ChangeCenterLightActive(bool isActive)
@@ -123,26 +97,44 @@ namespace Multiplayer
             }
         }
 
-        public void SetDiedState()
-        {
-            spriteRenderer.enabled = false;
-            boxCollider2D.enabled = false;
-        }
-
-        public void SetLifeState()
-        {
-            spriteRenderer.enabled = true;
-            boxCollider2D.enabled = true;
-        }
-
         public override void Died(MonoBehaviour killer)
         {
             StartAnimationTrigger(diedAnimation);
             Instantiate(diedEffect, transform.position, Quaternion.identity);
             TurnOver();
-            if (_multiplayerPlayerController.HasStateAuthority) _multiplayerPlayerController.Died();
-            SetDiedState();
-            _activeDiedTime = diedTime;
+            _multiplayerPlayerController.Restore();
+        }
+
+        public override void StealAbility(TheEnemy essence)
+        {
+            _multiplayerPlayerController.RPC_StealAbility(essence.transform.position);
+        }
+
+        public void BaseStealAbility(TheEnemy enemy)
+        {
+            base.StealAbility(enemy);
+        }
+
+        public override void ActivateProtect()
+        {
+            _multiplayerPlayerController.RPC_ActivateProtect();
+        }
+        
+        public void BaseActivateProtect()
+        {
+            base.ActivateProtect();
+        }
+
+        protected override void DisableProtect()
+        {
+            if(!_multiplayerPlayerController.HasStateAuthority) return;
+            Debug.Log(gameObject.name + " start disable");
+            _multiplayerPlayerController.RPC_DisableProtect();
+        }
+        
+        public void BaseDisableProtect()
+        {
+            base.DisableProtect();
         }
     }
 }

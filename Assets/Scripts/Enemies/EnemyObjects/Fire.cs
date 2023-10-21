@@ -9,7 +9,7 @@ namespace Enemies.EnemyObjects
         {
             if (other.gameObject.GetComponent<IFireAttack>() is {} component)
             {
-                component.FireDamage();
+                component.FireDamage(this);
             }
             else
             {

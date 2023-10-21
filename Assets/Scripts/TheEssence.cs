@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using MainScripts;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ public interface IHaveShields
 {
 	public int GetShieldsCount();
 	public void LossShield();
+	public bool CheckShieldActive();
 }
 
 public interface IActiveObject {}
@@ -34,23 +36,23 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
     [Header("Other")] 
     [SerializeField] private protected GameObject diedEffect;
     [SerializeField] private protected AudioClip diedMusic;
-    
+
     public bool turnedRight { get; protected set; }
     public Vector3 movingPosition { get; protected set; }
     
     private protected BoxCollider2D boxCollider2D;
-    private protected float inverseMoveTime;
     private protected AnimationType diedAnimation;
     private protected AnimationType moveAnimation;
-    private protected float moveTime = .1f;
-    private Rigidbody2D _rigidbody2d;
-
+    
     internal SpriteRenderer spriteRenderer;
     internal Animator animator;
     internal TheEssenceEffect essenceEffect = TheEssenceEffect.None;
     internal bool isTurnOver = true;
     internal bool isMove;
     internal bool isActive = true;
+    
+    private float _moveTime = .22f;
+	private float _meleeMoveTime = .15f;
 
     protected virtual void Start() {}
     
@@ -59,11 +61,9 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 	    moveAnimation = new AnimationType(moveAnimationName);
 	    diedAnimation = new AnimationType(diedAnimationName);
 	    turnedRight = transform.localScale.x < 0;
-	    inverseMoveTime = 1f / moveTime;
 	    spriteRenderer = GetComponent<SpriteRenderer>();
 	    animator = GetComponent<Animator>();
 	    boxCollider2D = GetComponent<BoxCollider2D>();
-	    _rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
     public virtual void Active()
@@ -101,17 +101,11 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
     {
 	    isMove = true;
 	    yield return new WaitForSeconds(0.1f);
-	    while(transform.position != end)
-	    {
-		    var newPosition = Vector3.MoveTowards(
-			    _rigidbody2d.position, 
-			    end, 
-			    inverseMoveTime * Time.deltaTime);
-		    transform.position = newPosition;
-		    yield return null;
-	    }
-	    _rigidbody2d.MovePosition(end);
-		isMove = false;
+	    var moveTimeNow = _moveTime;
+	    if (Vector2.Distance(end, transform.position) <= 1) moveTimeNow = _meleeMoveTime;
+	    transform.DOMove(end, moveTimeNow).SetEase(Ease.OutCubic).SetLink(gameObject);
+	    yield return new WaitForSeconds(moveTimeNow + 0.2f);
+	    isMove = false;
     }
     
     public static Vector2[] VariantsPositionsNow(Vector2 centerPosition, Vector2[] positions)
@@ -166,23 +160,24 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
     
     protected virtual IEnumerator AttackPlayer(TheEssence attackEssence)
     {
-	    if(attackEssence.transform.position.x < transform.position.x && turnedRight 
-	       || attackEssence.transform.position.x > transform.position.x && !turnedRight)
+	    if((int)attackEssence.transform.position.x < (int)transform.position.x && turnedRight 
+	       || (int)attackEssence.transform.position.x > (int)transform.position.x && !turnedRight)
 	    {
 		    Flip();
 	    }
-	    boxCollider2D.enabled = false;
 	    var enemyPosition = transform.position;
-	    if (!CheckEssencesShields(attackEssence))
+	    if (attackEssence is not IHaveShields shieldData
+	        || CanKillEssence(attackEssence, transform.position))
 	    {
 		    StartCoroutine(Move(attackEssence.transform.position));
 		    yield break;
 	    } 
+	    
 	    var attackVector = (Vector2)(transform.position - attackEssence.transform.position).normalized;
 	    var attackPosition = (Vector2)attackEssence.transform.position + attackVector * 0.6f;
 	    Vector2 endPosition;
 
-	    if ((transform.position - attackEssence.transform.position).sqrMagnitude <= 2f)
+	    if (Vector2.Distance(enemyPosition, attackEssence.transform.position) < 2f)
 	    {
 		    endPosition = enemyPosition;
 	    }
@@ -191,10 +186,9 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
 		    endPosition = new Vector2((attackEssence.transform.position.x + enemyPosition.x) / 2, 
 			    (attackEssence.transform.position.y + enemyPosition.y) / 2);
 	    }
-            
 	    StartCoroutine(SmoothMovement(attackPosition));
 	    yield return new WaitUntil(() => !isMove);
-	    (attackEssence as IHaveShields).LossShield();
+	    shieldData.LossShield();
 	    StartCoroutine(SmoothMovement(endPosition));
 	    yield return new WaitUntil(() => !isMove);
 	    yield return new WaitForSeconds(0.3f);
@@ -205,18 +199,20 @@ public abstract class TheEssence : MonoBehaviour, IActiveObject
     {
 	    if (!isTurnOver) yield break;
 	    if (!other.gameObject.TryGetComponent(out TheEssence essence)) yield break;
-	    if (isMove || !essence.isMove) yield break;
-	    yield return new WaitUntil(() => essence.isMove == false);
+	    yield return new WaitUntil(() => essence.isTurnOver);
 	    if (essence.movingPosition != transform.position) yield break;
 	    Died(essence);
     }
-    
-    protected bool CheckEssencesShields(TheEssence essence)
+
+    protected static bool CanKillEssence(TheEssence essence, Vector3 attackerPosition)
     {
-	    var hit = Physics2D.Linecast(transform.position, essence.transform.position, GameController.instance.shieldLayer);
-	    boxCollider2D.enabled = true;
-	    return hit.collider != null && hit.collider.transform.parent == essence.transform 
-	           && (essence as IHaveShields).GetShieldsCount() != 0;
+	    if (essence is not IHaveShields haveShields) return false;
+	    var hit = Physics2D.Linecast(attackerPosition, essence.transform.position, 
+		    GameController.instance.shieldLayer);
+	    return !(hit.collider != null 
+	           && hit.collider.transform.parent == essence.transform 
+	           && haveShields.GetShieldsCount() != 0)
+	           && !haveShields.CheckShieldActive();
     }
 
     public static Vector2[] PositionCalculation(Vector2 startPosition, Vector2[] calculationPositions, LayerMask blockingLayer, BoxCollider2D boxCollider2D)

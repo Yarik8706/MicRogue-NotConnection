@@ -1,6 +1,6 @@
 ﻿using System;
 using Enemies;
-using MainScripts;
+using PlayersScripts;
 using UnityEngine;
 
 namespace Abilities
@@ -13,17 +13,18 @@ namespace Abilities
         [SerializeField] private GameObject ninjaMoveToPlace;
         [SerializeField] private LayerMask blockingLayer;
         
-        public override void ActiveAbility()
+        public override void ActiveAbility(Player player)
         {
-            base.ActiveAbility();
             var activeNinjaMovePositions = 
-                TheEssence.VariantsPositionsNow(GameManager.player.transform.position, ninjaMovePositions);
+                TheEssence.VariantsPositionsNow(player.transform.position, ninjaMovePositions);
             for (int i = 0; i < ninjaMovePositions.Length; i++)
             {
                 if (Ninja.CheckEmptyPlace(activeNinjaMovePositions[i], blockingLayer))
                 {
-                    GameManager.player.moveToPlaces.Add(
-                        Instantiate(ninjaMoveToPlace, activeNinjaMovePositions[i], Quaternion.identity));
+                    var moveToPlace =
+                        Instantiate(ninjaMoveToPlace, activeNinjaMovePositions[i], Quaternion.identity);
+                    moveToPlace.GetComponent<MoveToPlace>().player = player;
+                    player.moveToPlaces.Add(moveToPlace);
                 }
             }
         }

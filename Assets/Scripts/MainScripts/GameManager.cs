@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enemies;
+using PlayersScripts;
 using RoomControllers;
 using RoomObjects;
 using UnityEngine;
@@ -17,9 +19,8 @@ namespace MainScripts
     {
         public static Player player;
         public static GameManager instance;
-        public static CameraShake cameraShake;
         public static int numberOfMoves;
-        public static List<TheEssence> enemyTargets = new();
+        public static readonly List<TheEssence> enemyTargets = new();
         
         public RoomController activeRoomController { get; private set; }
         public SpawnLevelController spawnLevelController { get; private set; }
@@ -42,7 +43,6 @@ namespace MainScripts
         private void Awake()
         {
             var cameraObject = Camera.main!;
-            cameraShake = cameraObject.GetComponent<CameraShake>();
             _cameraTransform = cameraObject.transform;
             cameraEffectManager = GetComponent<CameraEffectManager>();
             backroomsController = GetComponent<BackroomsController>();
@@ -107,6 +107,11 @@ namespace MainScripts
 
         public IEnumerator TurnStarted()
         {
+            if (player.essenceEffect == TheEssenceEffect.Freezing && !player.isActive)
+            {
+                TurnEnded();
+                yield break;
+            }
             yield return new WaitUntil(() => player.isActive);
             if (player == null) yield break;
             player.Active();
@@ -170,18 +175,6 @@ namespace MainScripts
                 ExitLocation.Right => new RoomIndex(roomIndex.y, roomIndex.x + 1),
                 _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
             };
-        }
-
-        public void ActivateColdBlackout()
-        {
-            StartCoroutine(ActivateColdBlackoutCoroutine());
-        }
-
-        private IEnumerator ActivateColdBlackoutCoroutine()
-        {
-            coldBlackout.SetActive(true);
-            yield return new WaitForSeconds(0.7f);
-            coldBlackout.SetActive(false);
         }
     }
 }

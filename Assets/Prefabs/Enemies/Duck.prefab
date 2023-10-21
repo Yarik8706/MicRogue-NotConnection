@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 874880669186805695}
   - component: {fileID: -3365057080581564162}
   - component: {fileID: -8416253154298617488}
+  - component: {fileID: 5572313927312399672}
   m_Layer: 8
   m_Name: Duck
   m_TagString: Enemy
@@ -163,13 +164,15 @@ MonoBehaviour:
   diedAnimationName: 
   diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
   diedMusic: {fileID: 0}
-  afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   enemyAbility: {fileID: 11400000, guid: 011b7a128fb635a4bb0ca4d0e0256b01, type: 2}
   enemyType: 5
   enemyCount: 3
+  afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
+  enemyStatue: {fileID: 3892668387973678099, guid: 0afbb3ef844fd3640b607137abcb32bb, type: 3}
+  petrificationMaterial: {fileID: 2100000, guid: 6aa899d37521ada45b503462a693d32b, type: 2}
+  petrificationEffect: {fileID: 4849770243603497638, guid: f4cfe8419444d1344adeb123f002ae76, type: 3}
+  greyMaterial: {fileID: 2100000, guid: d7022b458c2be6d4aa69d0f0cf0a86b8, type: 2}
   baseAnimationsObj: {fileID: 3539192815758939795, guid: 53f6b48b280e27547a599fbecb322b14, type: 3}
-  stoneStatueWithShield: {fileID: 2003847538865760424, guid: 97a3af35fe1dd3a4d9a89c702b57abde, type: 3}
-  stoneStatue: {fileID: 3393223543777904955, guid: bed89e7537844304095870c9eb481894, type: 3}
 --- !u!95 &3382286905817429790
 Animator:
   serializedVersion: 4
@@ -268,7 +271,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.138
   m_Color: {r: 1, g: 1, b: 1, a: 0.7607843}
-  m_Intensity: 0.32
+  m_Intensity: 0.22
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 000000001b2cdd5c1bbc1f2093f7fec5630f8d76
@@ -349,3 +352,16 @@ MonoBehaviour:
     enText: Turning to stone is not the best death!
   - ruText: "\u0421\u043D\u0430\u0439\u043F\u043D\u0443\u043B\u0438!"
     enText: Headshot!
+--- !u!114 &5572313927312399672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382286905817429791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57ca74145784ff19840bcc61e113973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEffect: {fileID: 3609419310855800711, guid: 3c570c9aacff5b84f8dd45b7c6c4460f, type: 3}

@@ -1,6 +1,7 @@
 ﻿using System;
 using Enemies;
 using MainScripts;
+using PlayersScripts;
 using RoomObjects;
 using UnityEngine;
 
@@ -13,10 +14,9 @@ namespace Abilities
         [SerializeField] private GameObject freezingEffect;
         [SerializeField] private FreezingController freezingController;
         
-        public override void ActiveAbility()
+        public override void ActiveAbility(Player player)
         {
-            base.ActiveAbility();
-            UpdatePlayerTurnAfterUseSpell();
+            UpdatePlayerTurnAfterUseSpell(player);
             SnowMan.FreezingAllEnemies(freezingController, freezingEffect);
         }
     }

@@ -27,14 +27,13 @@ namespace MainScripts
         public IEnumerator ActiveEnemiesAndTraps()
         {
             ActivateTraps();
-            allEnemies.Clear();
-            yield return ActivateEnemies();
+            yield return ActiveEnemies();
             StartCoroutine(GameManager.instance.TurnStarted());
         }
 
         public IEnumerator ActiveEnemies()
         {
-            GameplayEventManager.OnGetAllEnemies.Invoke();
+            GameplayEventManager.GetAllEnemies();
             if (allEnemies != null)
             {
                 yield return new WaitForSeconds(0.4f);

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerLightController : MonoBehaviour
+public class PlayerLightControl : MonoBehaviour
 {
     [SerializeField] private Sprite activeSprite;
     [SerializeField] private Sprite inactiveSprite;

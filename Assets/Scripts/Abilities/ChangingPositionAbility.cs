@@ -1,6 +1,6 @@
 ﻿using System;
 using Enemies;
-using MainScripts;
+using PlayersScripts;
 using UnityEngine;
 
 namespace Abilities
@@ -15,29 +15,27 @@ namespace Abilities
         [SerializeField] private GameObject ray;
         [SerializeField] private LayerMask objectLayers;
 
-        public override void ActiveAbility()
+        public override void ActiveAbility(Player player)
         {
-            base.ActiveAbility();
             var hit = Physics2D.Raycast(
-                GameManager.player.transform.position,
-                GameManager.player.transform.right,
+                player.transform.position,
+                player.transform.right,
                 30f,
                 objectLayers);
             if (hit.collider == null
-                || !hit.collider.gameObject.TryGetComponent<TheEnemy>(out var enemy)) return;
-            Debug.Log(hit.collider.gameObject);
-            GameManager.player.DeleteAllMoveToPlaces();
+                || !hit.collider.gameObject.TryGetComponent<TheEssence>(out var enemy)) return;
+            player.DeleteAllMoveToPlaces();
             CoroutineController.instance.StartCoroutine(
                 CoroutineController.instance.CoroutineWithCallback(
                     FlyingEye.ChangingPositionsOfTwoEntities(
-                        GameManager.player.transform,
-                        enemy.transform,
+                        player,
+                        enemy,
                         endAttackTime,
                         centerAttackTime,
                         rayNearEssence,
                         ray
                     ),
-                    () => GameManager.player.Active()
+                    player.Active
                 ));
         }
     }

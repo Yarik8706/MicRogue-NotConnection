@@ -1,3 +1,4 @@
+using Enemies;
 using UnityEngine.Events;
 
 namespace MainScripts
@@ -9,5 +10,12 @@ namespace MainScripts
         public static readonly UnityEvent OnGetAllEnemies = new();
         public static readonly UnityEvent OnGetAllTraps = new();
         public static readonly UnityEvent OnPlayerDied = new();
+
+        public static TheEnemy[] GetAllEnemies()
+        {
+            GameController.instance.allEnemies.Clear();
+            OnGetAllEnemies.Invoke();
+            return GameController.instance.allEnemies.ToArray();
+        }
     }
 }

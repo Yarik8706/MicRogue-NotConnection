@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5074704220864516848}
   - component: {fileID: 1195863548946567376}
   - component: {fileID: -5396083379613546962}
+  - component: {fileID: -3732995635936230039}
   m_Layer: 8
   m_Name: Statue
   m_TagString: Untagged
@@ -107,10 +108,10 @@ MonoBehaviour:
   diedAnimationName: 
   diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
   diedMusic: {fileID: 0}
-  afterDied: {fileID: 934897519596682640, guid: 81d4bd92e4b8e25418a69113e72721f7, type: 3}
   enemyAbility: {fileID: 0}
   enemyType: 0
   enemyCount: 1
+  afterDied: {fileID: 934897519596682640, guid: 81d4bd92e4b8e25418a69113e72721f7, type: 3}
 --- !u!61 &1195863548946567376
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,3 +159,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-3732995635936230039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3892668387973678099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57ca74145784ff19840bcc61e113973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEffect: {fileID: 3609419310855800711, guid: 3c570c9aacff5b84f8dd45b7c6c4460f, type: 3}

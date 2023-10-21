@@ -1,6 +1,7 @@
 ﻿using System;
 using Enemies;
 using MainScripts;
+using PlayersScripts;
 using RoomObjects;
 using UnityEngine;
 
@@ -14,14 +15,12 @@ namespace Abilities
         [SerializeField] private float freezingDistance;
         [SerializeField] private SlimeTrap slimeTrap;
         
-        public override void ActiveAbility()
+        public override void ActiveAbility(Player player)
         {
-            base.ActiveAbility();
-            GameplayEventManager.OnGetAllEnemies.Invoke();
-            foreach (var enemy in GameController.instance.allEnemies)
+            foreach (var enemy in GameplayEventManager.GetAllEnemies())
             {
                 if(Vector2.Distance(enemy.transform.position, 
-                       GameManager.player.transform.position)
+                       player.transform.position)
                    > freezingDistance
                    ) continue;
                 if (enemy is IStuckInSlime stuckInSlime)
@@ -35,7 +34,7 @@ namespace Abilities
 
                 Instantiate(slimeEffect, enemy.transform.position, Quaternion.identity);
             }
-            
+            UpdatePlayerTurnAfterUseSpell(player);
         }
     }
 }

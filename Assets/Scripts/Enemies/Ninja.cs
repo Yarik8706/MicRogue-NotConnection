@@ -8,6 +8,17 @@ namespace Enemies
     {
         public string moveAnimationName2;
 
+        protected override void SelectAction(Vector2 nextPosition)
+        {
+            if (nextPosition == enemyTargetPosition
+                && !CanKillEssence(enemyTarget, nextPosition - Vector2.down * 0.1f))
+            {
+                TurnOver();
+                return;
+            }
+            base.SelectAction(nextPosition);
+        }
+
         protected override IEnumerator AttackPlayer(TheEssence essence)
         {
             yield return Move(essence.transform.position);
@@ -15,6 +26,7 @@ namespace Enemies
 
         public override IEnumerator Move(Vector3 @where)
         {
+            isMove = true;
             animator.SetTrigger(moveAnimationName);
             Instantiate(diedEffect, transform.position, Quaternion.identity);
             movingPosition = @where;

@@ -67,8 +67,8 @@ namespace Enemies
         {
             animator.SetTrigger(TriggerAttack);
             yield return ChangingPositionsOfTwoEntities(
-                transform,
-                GameManager.player.transform,
+                this,
+                essence,
                 endAttackTime,
                 centerAttackTime,
                 rayNearEssence,
@@ -79,8 +79,8 @@ namespace Enemies
         }
 
         public static IEnumerator ChangingPositionsOfTwoEntities(
-            Transform mainObject, 
-            Transform centerObject, 
+            TheEssence mainObject, 
+            TheEssence centerObject, 
             float endAttackTime, 
             float centerAttackTime, 
             GameObject rayNearEssence,
@@ -88,17 +88,17 @@ namespace Enemies
             )
         {
             yield return new WaitForSeconds(centerAttackTime);
-            var object1 = Instantiate(rayNearEssence, mainObject.position, Quaternion.identity);
-            var object2 = Instantiate(rayNearEssence, centerObject.position, Quaternion.identity);
-            var scaler = mainObject.localScale;
-            var scaler2 = mainObject.localScale;
+            var object1 = Instantiate(rayNearEssence, mainObject.transform.position, Quaternion.identity);
+            var object2 = Instantiate(rayNearEssence, centerObject.transform.position, Quaternion.identity);
+            var scaler = mainObject.transform.localScale;
+            var scaler2 = mainObject.transform.localScale;
             object2.transform.localScale = scaler2;
             scaler.x *= -1;
             object1.transform.localScale = scaler;
-            var calculations = centerObject.position.x - mainObject.position.x;
-            var spawnPosition = centerObject.position;
+            var calculations = centerObject.transform.position.x - mainObject.transform.position.x;
+            var spawnPosition = centerObject.transform.position;
             var direction = calculations / Mathf.Abs(calculations);
-            var positionTo = new Vector3(mainObject.position.x + direction, mainObject.position.y);
+            var positionTo = new Vector3(mainObject.transform.position.x + direction, mainObject.transform.position.y);
             while (spawnPosition != positionTo)
             {
                 spawnPosition = new Vector3(
@@ -108,9 +108,10 @@ namespace Enemies
                 Instantiate(ray, spawnPosition, Quaternion.identity);
             }
             yield return new WaitForSeconds(endAttackTime);
-            (centerObject.position, mainObject.position) = (mainObject.position, centerObject.position);
-            mainObject.GetComponent<TheEssence>().Flip(scaler.x < 0);
-            centerObject.GetComponent<TheEssence>().Flip(scaler2.x < 0);
+            (centerObject.transform.position, mainObject.transform.position) 
+                = (mainObject.transform.position, centerObject.transform.position);
+            mainObject.Flip(scaler.x > 0);
+            centerObject.Flip(scaler2.x > 0);
         }
     }
 }

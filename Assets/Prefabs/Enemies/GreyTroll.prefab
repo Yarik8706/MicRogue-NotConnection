@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3297119597035444043}
   - component: {fileID: 3297119597035444044}
   - component: {fileID: 5742422600087610354}
+  - component: {fileID: -165431158423499298}
   m_Layer: 8
   m_Name: GreyTroll
   m_TagString: Untagged
@@ -129,10 +130,10 @@ MonoBehaviour:
   diedAnimationName: 
   diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
   diedMusic: {fileID: 0}
-  afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   enemyAbility: {fileID: 11400000, guid: 2a6653d86625fea4b89b50cce570ef9a, type: 2}
   enemyType: 1
   enemyCount: 1
+  afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   variantsPositions1:
   - {x: 0, y: -1}
   - {x: 0, y: 1}
@@ -212,3 +213,16 @@ MonoBehaviour:
     enText: Mamlya to kill you.
   - ruText: "\u042F \u0441\u0442\u0430\u043B \u0441\u0447\u0430\u0441\u0442\u043B\u0438\u0432\u0435\u0439!"
     enText: I became happier!
+--- !u!114 &-165431158423499298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297119597035444080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57ca74145784ff19840bcc61e113973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEffect: {fileID: 3609419310855800711, guid: 3c570c9aacff5b84f8dd45b7c6c4460f, type: 3}

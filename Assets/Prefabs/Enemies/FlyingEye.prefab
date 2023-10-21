@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6487023213577946641}
   - component: {fileID: -3960173668106283241}
   - component: {fileID: 1664379160489430088}
+  - component: {fileID: -30612079942086741}
   m_Layer: 8
   m_Name: FlyingEye
   m_TagString: Enemy
@@ -162,10 +163,10 @@ MonoBehaviour:
   diedAnimationName: 
   diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
   diedMusic: {fileID: 0}
-  afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   enemyAbility: {fileID: 11400000, guid: 5e3987909a838b845882df58144d8ee0, type: 2}
   enemyType: 1
   enemyCount: 2
+  afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   ray: {fileID: 9185248360623921883, guid: 702f0bf582f89e34a9549ee6b946cd92, type: 3}
   rayNearEssence: {fileID: 3855470426959749985, guid: e31ae993b7b4a624285d8f6747c186ad, type: 3}
   centerAttackTime: 0.32
@@ -268,3 +269,16 @@ MonoBehaviour:
   - ruText: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438 \u043C\u043D\u0435
       \u0432 \u0433\u043B\u0430\u0437."
     enText: Look me in the eye.
+--- !u!114 &-30612079942086741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8361377028931780997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57ca74145784ff19840bcc61e113973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEffect: {fileID: 3609419310855800711, guid: 3c570c9aacff5b84f8dd45b7c6c4460f, type: 3}

@@ -1662,27 +1662,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SettingMainMenu
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 822
-        width: 114
-        height: 42
-      alignment: 9
-      pivot: {x: 0.4497274, y: 0.49999797}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bac30fee71a28480800000000000000
-      internalID: -8898372347182724431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: PlayerRun2
       rect:
         serializedVersion: 2
@@ -2182,27 +2161,6 @@ TextureImporter:
       bones: []
       spriteID: 44c5f58ab3cddff60800000000000000
       internalID: 8069848256103799876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DoneSettingMainMenu
-      rect:
-        serializedVersion: 2
-        x: 291
-        y: 808
-        width: 32
-        height: 13
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f54f81d7557a7d840800000000000000
-      internalID: 5248847876336448607
       vertices: []
       indices: 
       edges: []
@@ -9222,13 +9180,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YFire1
+      name: LoopYFire1
       rect:
         serializedVersion: 2
         x: 0
-        y: 656
+        y: 652
         width: 16
-        height: 32
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9243,13 +9201,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YFire2
+      name: LoopYFire2
       rect:
         serializedVersion: 2
         x: 16
-        y: 656
+        y: 652
         width: 16
-        height: 32
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9264,13 +9222,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YFire3
+      name: LoopYFire3
       rect:
         serializedVersion: 2
         x: 32
-        y: 656
+        y: 652
         width: 16
-        height: 32
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9285,13 +9243,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YFire4
+      name: LoopYFire4
       rect:
         serializedVersion: 2
         x: 48
-        y: 656
+        y: 652
         width: 16
-        height: 32
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9306,13 +9264,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YFire5
+      name: LoopYFire5
       rect:
         serializedVersion: 2
         x: 64
-        y: 656
+        y: 652
         width: 16
-        height: 32
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9327,13 +9285,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YFire6
+      name: LoopYFire6
       rect:
         serializedVersion: 2
         x: 80
-        y: 656
-        width: 17
-        height: 32
+        y: 652
+        width: 16
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9348,13 +9306,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YFire7
+      name: LoopYFire7
       rect:
         serializedVersion: 2
-        x: 97
-        y: 656
+        x: 96
+        y: 652
         width: 16
-        height: 32
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9369,13 +9327,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YFire8
+      name: LoopYFire8
       rect:
         serializedVersion: 2
-        x: 113
-        y: 656
+        x: 112
+        y: 652
         width: 16
-        height: 32
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9398,7 +9356,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -9406,6 +9364,510 @@ TextureImporter:
       bones: []
       spriteID: 08991c69f8dc7f8409e002ed09b220fc
       internalID: -878387801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteFIre4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 655
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c77ba0fc3877bb946b7cb8f2f22098c4
+      internalID: -323135330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteFIre5
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 654
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab49ba063128c54790b77cdbc135916
+      internalID: -1171862099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteFIre6
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 652
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59bca0f0c6229345b122922eb0ee144
+      internalID: 714154541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteFIre7
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 650
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f7e9154144cc44abff3b5a0dc29656
+      internalID: -1096006290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteFIre8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 650
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c361af125cb333f43a2c500221ca03f6
+      internalID: 2077916940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yFire2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 624
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda03a22078507b4486f05623315af64
+      internalID: 1536158164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yFire3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 624
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e979c9a16f822e4bb70dfd6589aff09
+      internalID: -1089246314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yFire1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 624
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72c542faabb373c459fb32fe6d00e87a
+      internalID: -909899986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yFire0
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 624
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9f2acb2a60d35e4c9eb683ffd50d584
+      internalID: 150741654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yFire8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 624
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e257b2b57fe8f4243bb13f2a27df6f7c
+      internalID: -2050222092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yFire7
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 618
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a3cae63e5e90d4ab95bff999d491df
+      internalID: 1831322156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yFire6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 618
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c25fb1d05911b041886fd0711ca2464
+      internalID: 1523668819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yFire5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 618
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378158aa9da368649a4b71b6197e0bed
+      internalID: -1950152446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yFire4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 618
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c05efc02d84491438a608570e4134cb
+      internalID: -868845756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteFIre0
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 655
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c7d859db8f5c94abdd4779f7205412
+      internalID: -248540842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteFIre1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 655
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de4881c4d41667498050836685b21e2
+      internalID: -1534812286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteFIre2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 655
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd29ab856b3a6dc4aaf23603a1d33eea
+      internalID: -1757815985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteFIre3
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 655
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d56aab9da41f031419161d92112f9208
+      internalID: 1491092767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProtectYourselfAbility
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c745b00c01c52004cbaaac40e5dc10d1
+      internalID: 1803557262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReturnCameraToPlayer
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 832
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a5b4d4e39c6f5e4cbd0e265b564ec03
+      internalID: 1291934015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrostEssence
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 880
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6273fec783d0c714fb1850ac566cedca
+      internalID: 1902339592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ActivateShield3
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f6003ec79e1fc49a6b47e25f907e0f
+      internalID: 1825465020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ActivateShield2
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c82a5c5d7167c7342a8bc7ad08d3e787
+      internalID: -1012943927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ActivateShield1
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fad2919bceb82484098827a9048fbbc8
+      internalID: -1348201225
       vertices: []
       indices: 
       edges: []
@@ -9428,12 +9890,14 @@ TextureImporter:
       FlyingEyeAttack1: 1017166552
       PlayerRun3: -8757139649783219944
       FastActiveMainMenuButton: -93668115
+      LoopYFire4: -739519512
       LampIdle 1 6: -5843713123948804762
       slamp_4: -1651313005
       TrollWithStickRun0: -1134124516
       BacteriumRun1: -1640723282
       grass_2: -1007727835
       PlayerWithoutShieldRun2: 2144131419
+      whiteFIre2: -1757815985
       FreezingLamp1: 635076061
       ShipMapButton: 301781172
       mimicStartAnim4: -423907553
@@ -9444,6 +9908,7 @@ TextureImporter:
       FireAnim7: -6540315827594122925
       FastDisableMainMenuButton: -3631095797761692428
       PlayerMap2: 223824136
+      LoopYFire8: -672027906
       GreyTrollRun2: -1698606217
       DragonSleep1: -816192939
       SlimeRoad2: -168240154
@@ -9456,8 +9921,8 @@ TextureImporter:
       BoxWithRIches3: 1707446589
       WhiteFloor8: -1111953809
       BlackFloor6: -1448619793
-      putability0: 865301555
       backroomFloor: 1861192001
+      putability0: 865301555
       LampIdle7: 104106421449956808
       amogus: -231317239
       PlayerDiedFromDuck1: -639210490
@@ -9470,6 +9935,7 @@ TextureImporter:
       Wall1: -923277500124504870
       putability13: -1622591160
       Space1: 1164707187
+      yFire2: 1536158164
       mimicRun1: 429641242
       InformationAboutObjectCanvas: 1110303757
       GreyTrollRun3: 537387766
@@ -9482,6 +9948,7 @@ TextureImporter:
       RightExit: 1342424954626055952
       putability16: -1167850304
       ConsoleUI: -1262475032
+      whiteFIre1: -1534812286
       GrayFloor1: -1830261601936756837
       MicRogueDiamondTexture_10: 853938706
       FireTrap0: -7175753292707142349
@@ -9489,6 +9956,7 @@ TextureImporter:
       GameRules3: 802870630
       ShiledItem: 782831700
       For null object: 2052114837
+      LoopYFire5: -873536637
       MicRogue GoldTest_38: -33988552
       PlayerDiedFromDuckWithoutShield1: -88138721
       NinjaRun0: 1397293675
@@ -9509,6 +9977,7 @@ TextureImporter:
       LampIdle9: 1271319137750650887
       BoxWithRIches5: -251702461263357986
       mimicRun3: 1359973212
+      whiteFIre0: -248540842
       LightItem: 779655989
       NinjaIdle: -628318390
       MicRogueDiamondTexture_2: -1293774213
@@ -9528,6 +9997,7 @@ TextureImporter:
       updateShieldEffect1: 1900463382
       TurnOrder2: 1726775981
       FlyingEyeAttack4: 412107318
+      ProtectYourselfAbility: 1803557262
       MicRogueDiamondTexture_8: -1456641356
       SlimeDied0: -273199393
       EnemyShieldDied0: -742379763
@@ -9537,17 +10007,19 @@ TextureImporter:
       ActiveStealAbility: 328056660
       MenuButton2: 1985488238
       BigFire1: 1129790698
+      whiteFIre4: -323135330
       PictureCanvasMainMenu: -5787722678231957765
+      whiteFIre5: -1171862099
       BaxPile: 1087552608
       FireAnim1: 1396397318016514157
       backroomWall4: -782767522
-      YFire2: -739680524
       getability12: -1315037902
       MicRogue GoldTest_26: -592547824
       WinFrame: 1253620411
       MicRogueDiamondTexture_12: 454518947
       EnemyShieldDied3: 1368353255
       BoxWithRIches4: 411650701
+      yFire0: 150741654
       MainMenuSetting: -1828456187
       gameRulesPicture1: -551189634
       Gold4: -1070772383
@@ -9555,7 +10027,6 @@ TextureImporter:
       WhiteFloor0: 4276639466552813244
       OrgeIdle0: -1066397262
       FlyingEyeRay2: -6404368768002200884
-      YFire3: -1851201336
       TheEssenceDied4: 2008919301
       SlimeAbility: 1759015
       BacteriumRun2: -14177071
@@ -9571,7 +10042,6 @@ TextureImporter:
       FreezingObj5: 1132089310
       NinjaRun1: -8863816317675847926
       RoomsCanvasCount06: 136013187
-      YFire1: -13107589
       RightLeftUpDownRoomShip1: 3004733092313174726
       updateShieldEffect2: -1351274410
       gameRulesPicture3: -1226647958
@@ -9582,6 +10052,7 @@ TextureImporter:
       mimicStartAnim2: 1435561803
       DisableOneCountSlider: -5891224783233435756
       DragonSleep4: 2550514373751287618
+      yFire1: -909899986
       getability6: -1426942624
       MoveRobot2: 1016441778
       PlayerInSlime: 707549282
@@ -9599,7 +10070,7 @@ TextureImporter:
       DuckAttack3: 512411427
       RightUpDownRoomShip: -612529578
       GreyTrollRun1: -1124074628
-      YFire5: -873536637
+      ReturnCameraToPlayer: 1291934015
       SlimeDied1: -1297755351
       MicRogueDiamondTexture_4: 1007652588
       TrapWall1: -28734984
@@ -9607,8 +10078,10 @@ TextureImporter:
       WhiteFloor9: -714272885
       MicRogue GoldTest_36: -1922607446
       SnowMan2: 5528568380889737955
+      ActivateShield3: 1825465020
       mimicStartAnim3: -679678592
       PlayerWithoutShield: 5438436409197790006
+      LoopYFire1: -13107589
       EnemyShield2: 68720694
       TrapWall3: -8898372347182724431
       brownFloor3: -296532785
@@ -9640,25 +10113,29 @@ TextureImporter:
       SkeletonIdle: -2099460216
       MainMenuAnimation3: 1088543618
       MicRogueDiamondTexture_0: 1225536792
-      YFire6: -1193288935
+      whiteFIre6: 714154541
       PlayerDiedFromDuck3: 4699684658907572454
       MoveRobot3: 1206492634
+      ActivateShield2: -1012943927
       updateShieldEffect3: -1899639652
       EnemyShieldDied1: 1718070700042204575
       brownFloor2: -1103190102
       MenuButton3: 484763571
       DuckAttack4: -1830261601936756837
+      LoopYFire7: 1632106711
       updateShieldEffect4: 652433743
       RightDownUpRoomShip1: -1792680475
       slamp_2: -937416908
       backroomWall0: 2036004117
       WallDecoration1: 675748186
+      LoopYFire6: -1193288935
       Gold1: -3898177410305692894
       BoxWithRIches: 5260225046626893699
       PlayerDiedFromDuckWithoutShield0: 905528463
       WhiteFloor2: -1739007312
       TrollWithStickRun2: -1141394713
       backroomWall2: -308844049
+      yFire3: -1089246314
       FreezingLamp: -5780432875246777992
       SnowMan1: 390843795797142074
       RightUpDownRoomShip2: -467352233
@@ -9722,13 +10199,14 @@ TextureImporter:
       SlimeRoad: 1884224513
       backroomsExit: -1030643603
       RestartGameConsole: 667325948
-      UpExit: -819194701
+      brownFloor1: -342565244
       DragonStartAction2: -1384178719
       putability3: 1453487826
-      brownFloor1: -342565244
       WhiteFloor: 3081762
+      LoopYFire3: -1851201336
       LampIdle8: 3834731951187487461
       brownFloor7: -2084844132
+      UpExit: -819194701
       DragonMove1: -1933942468
       EnemyShield8: -247595986
       PlayerWithoutShieldRun1: 665447604
@@ -9755,6 +10233,7 @@ TextureImporter:
       OrgeIdle2: -2022170896
       MicRogueDiamondTexture_7: 180924243
       EnemyShield6: -1943682087
+      yFire6: 1523668819
       FireRobot1: 360345137
       SlimeBym1: 587230825
       FireDied: -3109532369651939963
@@ -9770,6 +10249,7 @@ TextureImporter:
       Duck1: -589437128
       backroomWall1: 527311393
       LeftDownMapRoom: 1368353255
+      yFire4: -868845756
       DragonMove2: -196851251
       getability4: 1491610867
       FreezingLamp7: 1348950863
@@ -9784,7 +10264,7 @@ TextureImporter:
       LightningStrike2: -4813274151216475168
       putability9: -1704008631
       TurnOrder1: 1515160426
-      YFire8: -672027906
+      yFire7: 1831322156
       NextDialogText: 1115196856
       one_pixel: 1743953542
       grass_3: 1825733117
@@ -9794,6 +10274,7 @@ TextureImporter:
       getability0: -5957158
       grass_4: 660719377
       FreezingObj4: -1421517292176563482
+      yFire5: -1950152446
       getability19: -1073945381
       Wall4: -501817725
       DuckAttack0: -1029751499
@@ -9804,10 +10285,10 @@ TextureImporter:
       MainEngineShipRoom1: -1572656681
       AfterDiedSlime: 6016733333042058991
       MicRogueDiamondTexture_16: 834339390
+      whiteFIre8: 2077916940
       EnemyShield7: 996817792
       LightningStrike1: -1546730206
       BrokenWallCanGo: -309261757
-      YFire4: -739519512
       SleepCount2: 1945986417
       TrollWithStickAttack3: -1933380093
       BlackFloor8: -828960041
@@ -9822,13 +10303,14 @@ TextureImporter:
       MainMenuCredits: 5920167234969103180
       RoomsCanvasCount08: 886062695025143985
       lamp_1: -1266043722
+      ActivateShield1: -1348201225
       SlowDisableMainMenuButton: -4924733522636629748
       SkeletonRun1: 725871203
       LightFlashButton: -1772334102
       RoomsCanvasCount05: -741347089
       EnemyShield9: -1176719116
+      yFire8: -2050222092
       putability7: 1462805920
-      YFire7: 1632106711
       TheEssenceDied1: -1692632436848618677
       Gold2: 236908839
       DialogFrame: 1784496881
@@ -9910,6 +10392,7 @@ TextureImporter:
       WhiteFloor6: 833214114
       MicRogueDiamondTexture_14: 219234303
       WallWithSpace: -1656330266
+      whiteFIre7: -1096006290
       FreezingObj1: -736769400
       EnemyShield10: -21377749
       OrgeRun20: 1808372380
@@ -9925,8 +10408,11 @@ TextureImporter:
       RoomsCanvasCount01: 4940008857218540591
       putability5: 653724935
       PlayerDiedFromDuck4: -1622160102
+      LoopYFire2: -739680524
+      FrostEssence: 1902339592
       Gold5: -346949016
       mimicRun2: 951155834
+      whiteFIre3: 1491092767
       PlayerProtection2: 1614229847
       FlyingEye0: 507498239
       DragonStartAction3: -1254172914

@@ -8,14 +8,8 @@ namespace Canvas
         private Vector2 touchStartPos;
         private Vector2 touchEndPos;
         private Vector2 swipeDelta;
-        private Vector2 screen;
 
-        public float sensitivity = 2.0f;
-
-        private void Start()
-        {
-            screen = new Vector2(Screen.height, Screen.width);
-        }
+        public static float sensitivity = 2.0f;
 
         private void Update()
         {
@@ -31,7 +25,7 @@ namespace Canvas
                 {
                     touchEndPos = touch.position;
                     swipeDelta = (touchEndPos - touchStartPos) 
-                                 * sensitivity * (screen.magnitude / 1000);
+                                 * sensitivity / 500;
 
                     // Применяем перемещение камеры
                     Vector3 newPos = transform.position - new Vector3(swipeDelta.x, swipeDelta.y, 0);
@@ -47,7 +41,7 @@ namespace Canvas
                 float mouseY = Input.GetAxis("Mouse Y");
 
                 // Применяем перемещение камеры с помощью мыши
-                Vector3 newPos = transform.position - new Vector3(mouseX, mouseY, 0) * sensitivity;
+                Vector3 newPos = transform.position - new Vector3(mouseX, mouseY, 0) * sensitivity;;
                 transform.position = newPos;
             }
         }

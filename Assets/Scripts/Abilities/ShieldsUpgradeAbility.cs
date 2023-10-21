@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using PlayersScripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,24 +14,35 @@ namespace Abilities
         [SerializeField] private Vector2[] additionalShieldsPositions;
         [SerializeField] private GameObject shield;
 
-        private GameObject[] newShields;
-
-        public override void Initial(Image button)
-        {   
-            base.Initial(button);
-            newShields = new GameObject[additionalShieldsPositions.Length];
+        public override void InitialAbility(Player player)
+        {
             for (int i = 0; i < additionalShieldsPositions.Length; i++)
             {
-                newShields[i] = Instantiate(shield, additionalShieldsPositions[i], Quaternion.identity);
+                var newShield = Instantiate(shield, player.transform);
+                newShield.transform.position =
+                    new Vector3(player.transform.position.x + additionalShieldsPositions[i].x,
+                        player.transform.position.y + additionalShieldsPositions[i].y, 0);
             }
         } 
 
-        public override void DeleteAbility()
+        public override void DeleteAbility(Player player)
         {
-            base.DeleteAbility();
-            while (newShields.Length != 0)
+            base.DeleteAbility(player);
+            var actualAdditionalShieldsPositions =
+                TheEssence.VariantsPositionsNow(player.transform.position, additionalShieldsPositions).ToList();
+            var additionalShields = new List<GameObject>();
+            for (int i = 0; i < player.transform.childCount; i++)
             {
-                Destroy(newShields[0]);
+                var playerTransformChild = player.transform.GetChild(i);
+                if (actualAdditionalShieldsPositions.Contains(playerTransformChild.position))
+                {
+                    additionalShields.Add(playerTransformChild.gameObject);
+                }
+            }
+
+            while (additionalShields.Count > 0)
+            {
+                Destroy(additionalShields[0]);
             }
         }
     }

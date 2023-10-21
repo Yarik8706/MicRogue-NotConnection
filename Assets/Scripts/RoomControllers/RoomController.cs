@@ -124,10 +124,16 @@ namespace RoomControllers
 
         public void SpawnEnemies()
         {
-            if(enemies.Length == 0 || enemySpawns.Length == 0) return;
-            var thisEnemySpawns = enemySpawns.ToList();
+            SpawnEnemies(enemies, enemySpawns.Select(spawn => spawn.transform).ToArray(), enemiesCount);
+        }
+
+        public static void SpawnEnemies(GameObject[] spawnEnemies, 
+            Transform[] spawns, int enemiesCount)
+        {
+            if(spawnEnemies.Length == 0 || spawns.Length == 0) return;
+            var thisEnemySpawns = spawns.ToList();
             if (thisEnemySpawns.Count == 0) return;
-            var roomEnemies = enemies.ToList();
+            var roomEnemies = spawnEnemies.ToList();
             for (var i = 0; i < enemiesCount;)
             {
                 var enemy = roomEnemies[Random.Range(0, roomEnemies.Count)];
@@ -137,6 +143,34 @@ namespace RoomControllers
                 thisEnemySpawns.Remove(enemySpawn);
                 i += enemy.GetComponent<TheEnemy>().enemyCount;
             }
+        }
+
+        public static int[][] GetRandomEnemiesIndex(GameObject[] spawnEnemies, 
+            Transform[] spawns, int enemiesCount)
+        {
+            var intsResult = new List<int[]> { };
+            var spawnEnemiesList = spawnEnemies.ToList();
+            var spawnsList = spawns.ToList();
+            var activeEnemySpawns = spawns.ToList();
+            var activeEnemies = spawnEnemies.ToList();
+            for (var i = 0; i < enemiesCount;)
+            {
+                var enemy = activeEnemies[Random.Range(0, activeEnemies.Count)];
+                activeEnemies.Remove(enemy);
+                i += enemy.GetComponent<TheEnemy>().enemyCount;
+
+                var spawnRandomIndex = Random.Range(0, activeEnemySpawns.Count);
+
+                intsResult.Add(new []{spawnEnemiesList.IndexOf(enemy), 
+                    spawnsList.IndexOf(activeEnemySpawns[spawnRandomIndex])});   
+                activeEnemySpawns.RemoveAt(spawnRandomIndex);
+            }   
+    
+            return new int[][]
+            {
+                intsResult.Select(numbers => numbers[0]).ToArray(), 
+                intsResult.Select(numbers => numbers[1]).ToArray(),
+            };
         }
 
         public Vector3 NextPlayerPosition(ExitLocation direction)

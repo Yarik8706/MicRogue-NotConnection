@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5699071580349316958}
   - component: {fileID: -5475789664137379787}
   - component: {fileID: 8725272100253853288}
+  - component: {fileID: -5254818666977590976}
   m_Layer: 8
   m_Name: Ninja
   m_TagString: Enemy
@@ -186,10 +187,10 @@ MonoBehaviour:
   diedAnimationName: 
   diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
   diedMusic: {fileID: 0}
-  afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   enemyAbility: {fileID: 11400000, guid: 6b075b5f3578e3d44835a226c7f3747c, type: 2}
   enemyType: 3
   enemyCount: 3
+  afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   moveAnimationName2: Run2
 --- !u!114 &5699071580349316958
 MonoBehaviour:
@@ -268,3 +269,16 @@ MonoBehaviour:
     enText: Handed out!
   - ruText: "\u0427\u043F\u043E\u043A!"
     enText: Bang!
+--- !u!114 &-5254818666977590976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831437942526134523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57ca74145784ff19840bcc61e113973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEffect: {fileID: 3609419310855800711, guid: 3c570c9aacff5b84f8dd45b7c6c4460f, type: 3}

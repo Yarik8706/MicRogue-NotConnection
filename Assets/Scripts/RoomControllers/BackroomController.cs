@@ -36,7 +36,7 @@ namespace RoomControllers
         private void OnDisable()
         {
             if(_oldBacteriumPosition == Vector3.zero) return;
-            GameplayEventManager.OnGetAllEnemies.Invoke();
+            GameplayEventManager.GetAllEnemies();
             if(GameController.instance.allEnemies.Count == 0) return;
             _oldBacteriumPosition = GameController.instance.allEnemies[0].transform.position;
         }

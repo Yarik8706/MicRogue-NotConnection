@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActiveAbility: 1
   buttonIcon: {fileID: 1759015, guid: 2d9ed21527d561240a2be9ef16129926, type: 3}
+  updatePlayerTurnAfterUseSpellTime: 0.7
   enemyStatue: {fileID: 3892668387973678099, guid: 0afbb3ef844fd3640b607137abcb32bb, type: 3}
   petrificationMaterial: {fileID: 2100000, guid: 6aa899d37521ada45b503462a693d32b, type: 2}
-  petrificationRange: 2
+  petrificationRange: 3
   petrificationEffect: {fileID: 4849770243603497638, guid: f4cfe8419444d1344adeb123f002ae76, type: 3}
+  greyMaterial: {fileID: 2100000, guid: d7022b458c2be6d4aa69d0f0cf0a86b8, type: 2}

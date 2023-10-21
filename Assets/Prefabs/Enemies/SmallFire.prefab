@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7667117560595482616}
   - component: {fileID: 6425214578697523350}
   - component: {fileID: 1015162771260622846}
+  - component: {fileID: 7061588234445885478}
   m_Layer: 8
   m_Name: SmallFire
   m_TagString: Enemy
@@ -121,10 +122,10 @@ MonoBehaviour:
   diedAnimationName: 
   diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
   diedMusic: {fileID: 0}
-  afterDied: {fileID: 934897519596682640, guid: 81d4bd92e4b8e25418a69113e72721f7, type: 3}
   enemyAbility: {fileID: 11400000, guid: dcfdf683f5c00c24aab58e4d07f28640, type: 2}
   enemyType: 0
   enemyCount: 2
+  afterDied: {fileID: 934897519596682640, guid: 81d4bd92e4b8e25418a69113e72721f7, type: 3}
   noFireLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -381,3 +382,16 @@ MonoBehaviour:
   - ruText: "\u042F \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u0433\u043E\u0440\u044F\u0447\u044C
       \u0434\u043B\u044F \u0442\u0435\u0431\u044F?"
     enText: Is it too hot for ya?
+--- !u!114 &7061588234445885478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053429409787279967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57ca74145784ff19840bcc61e113973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEffect: {fileID: 3609419310855800711, guid: f2adac8dd53aa374387614712dfb9f6a, type: 3}

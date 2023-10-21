@@ -1,4 +1,7 @@
-﻿using Fusion;
+﻿using System.Linq;
+using Canvas;
+using Enemies;
+using Fusion;
 using MainScripts;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -8,128 +11,133 @@ namespace Multiplayer
     public class MultiplayerPlayerController : NetworkBehaviour
     {
         [SerializeField] private Light2D smallLight;
-        [Networked] private Vector3 position { get; set; }
-        [Networked] private bool turnedRight { get; set; }
+        [SerializeField] private Color[] colors;
+        
         [Networked] public bool isTurnOver { get; set; } = true;
-        [Networked] public bool isMove { get; set; }
         [Networked] private bool isLightActive { get; set; } = true;
         [Networked] public int shieldCount { get; set; } = 3;
-        [Networked] public int farmingCount { get; set; }
-        [Networked] public bool isDead { get; set; }
+        [Networked] public int colorIndex { get; private set; }
+        
+        private NetworkObject _networkObject;
         private MultiplayerPlayer _multiplayerPlayer;
 
         private void Start()
         {
             _multiplayerPlayer = GetComponent<MultiplayerPlayer>();
             GameManager.enemyTargets.Add(_multiplayerPlayer);
+            
             if (HasInputAuthority)
             {
                 GameManager.player = _multiplayerPlayer;
             }
             if (HasStateAuthority)
             {
-                MultiplayerGameManager.instance.multiplayerPlayerControllers.Add(this);
+                _networkObject = GetComponent<NetworkObject>();
+                colorIndex = MultiplayerLobbyManager.instance.spawnedCharacters.Keys.ToList()
+                    .IndexOf(_networkObject.InputAuthority);
                 MultiplayerGameManager.OnGetAllPlayers.AddListener(() =>
                 {
+                    if(!_multiplayerPlayer.isActive) return;
                     MultiplayerGameManager.instance.multiplayerPlayerControllers.Add(this);
                 });
                 MultiplayerGameManager.instance.StartGame();
-                position = transform.position;
+            }
+            else
+            {
+                RPC_UpdatePosition();
             }
         }
 
         private void Update()
         {
-            if (isDead) _multiplayerPlayer.SetDiedState();
-            else _multiplayerPlayer.SetLifeState();
+            _multiplayerPlayer.spriteRenderer.material.SetColor(
+                Shader.PropertyToID("_GlowTextureColor"), colors[colorIndex]);
+
             if (HasInputAuthority && !isLightActive) smallLight.enabled = true;
             else smallLight.enabled = false;
+
             _multiplayerPlayer.BaseChangeCenterLightActive(isLightActive);
             _multiplayerPlayer.isTurnOver = isTurnOver;
-            if(_multiplayerPlayer.turnedRight != turnedRight)_multiplayerPlayer.BaseFlip(turnedRight);
-            if(isMove) return;
-            _multiplayerPlayer.transform.position = position;
         }
 
         [Rpc(RpcSources.StateAuthority, RpcTargets.InputAuthority)]
-        public void RPC_Active(RpcInfo info = default)
+        public void RPC_Active()
         {
             _multiplayerPlayer.Active();
         }
         
-        [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
-        public void RPC_TurnOver(RpcInfo info = default)
+        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+        public void RPC_TurnOver()
         {
-            isMove = false;
-            isTurnOver = true;
-            position = transform.position;
+            if(HasStateAuthority) isTurnOver = true;
             _multiplayerPlayer.BaseTurnOver();
         }
         
         [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
-        public void RPC_ChangeCenterLightActive(bool isActive, RpcInfo info = default)
+        public void RPC_ChangeCenterLightActive(bool isActive)
         {
             isLightActive = isActive;
         }
         
         [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
-        public void RPC_LightFlash(RpcInfo info = default)
+        public void RPC_LightFlash()
         {
             _multiplayerPlayer.BaseLightFlash();
         }
 
         [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
-        public void RPC_Flip(bool turnedRight, RpcInfo info = default)
+        public void RPC_Flip(bool turnedRight)
         {
-            if (HasStateAuthority)
-            {
-                this.turnedRight = turnedRight;
-            }
             _multiplayerPlayer.BaseFlip(turnedRight);
         }
         
         [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
-        public void RPC_Move(Vector3 nextPosition, RpcInfo info = default)
+        public void RPC_ActivateProtect()
         {
-            if (HasStateAuthority)
-            {
-                isMove = true;
-            }
+            _multiplayerPlayer.BaseActivateProtect();
+        }
+
+        [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+        public void RPC_DisableProtect()
+        {
+            _multiplayerPlayer.BaseDisableProtect();
+        }
+        
+        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+        public void RPC_Move(Vector3 nextPosition)
+        {
             _multiplayerPlayer.BaseMove(nextPosition);
         }
 
-        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
-        public void RPC_Restore(RpcInfo info = default)
+        public void Restore()
         {
-            _multiplayerPlayer.SetLifeState();
             _multiplayerPlayer.RestorationOfShields();
+            if (HasInputAuthority) SetCameraPlayerPosition.instance.SetCameraPositionPlayerPosition();
             if (HasStateAuthority)
             {
                 MultiplayerGameManager.instance.multiplayerPlayerControllers.Add(this);
-                position = MultiplayerGameManager.instance.GetRespawnPosition(_multiplayerPlayer.enemyLayer);
                 shieldCount = 3;
-                isDead = false;
-                RPC_SetPositionAndActive(position);
+                RPC_SetPosition(MultiplayerGameManager.instance.GetRespawnPosition(_multiplayerPlayer.blockingLayer));
             }
         }
 
-        [Rpc(RpcSources.StateAuthority, RpcTargets.InputAuthority)]
-        private void RPC_SetPositionAndActive(Vector3 newPosition, RpcInfo info = default)
+        [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+        private void RPC_SetPosition(Vector3 newPosition)
         {
             transform.position = newPosition;
-            _multiplayerPlayer.Active();
-        }
-        
-        public void AddGift(NetworkObject gift, RpcInfo info = default)
-        {
-            farmingCount++;
-            MultiplayerLobbyManager.runner.Despawn(gift);
         }
 
-        public void Died()
+        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+        public void RPC_StealAbility(Vector2 enemyPosition)
         {
-            isDead = true;
-            MultiplayerGameManager.instance.multiplayerPlayerControllers.Remove(this);
+            _multiplayerPlayer.BaseStealAbility(GameplayEventManager.GetAllEnemies()
+                .Where(enemy => (Vector2)enemy.transform.position == enemyPosition).ToArray()[0].GetComponent<TheEnemy>());
+        }
+
+        [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+        private void RPC_UpdatePosition()
+        {
+            RPC_SetPosition(transform.position);
         }
     }
 }

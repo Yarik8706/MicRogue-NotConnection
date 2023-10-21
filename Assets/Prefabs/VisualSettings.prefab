@@ -5023,7 +5023,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.055268764, g: 0.08880679, b: 0.14150941, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5032,10 +5032,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.196875
-    y: 0.046296295
-    width: 0.34062502
-    height: 0.29999998
+    x: 0.045833334
+    y: 0.1
+    width: 0.90833336
+    height: 0.8
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -5160,4 +5160,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522f4e1126fb4e44b3bcdf8ad51101bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 2
+  sensitivity: 0.35

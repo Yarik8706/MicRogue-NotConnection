@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Enemies;
 using MainScripts;
+using PlayersScripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,26 +13,22 @@ namespace Canvas
         [SerializeField] private GameObject putAbilityAnimationObject;
         [SerializeField] private Sprite baseAbilityButtonSprite;
         [SerializeField] private Sprite activeAbilityButtonSprite;
-        [SerializeField] private LayerMask enemyLayer;
         [SerializeField] private Image abilityButtonIcon;
-        [SerializeField] private CustomAbilityController customAbilityController;
         [SerializeField] private float useRangeAbilitySteal;
 
-        private bool _isActive = true;
-        private bool _isSteal; 
+        public static StealAbilityController instance;
+        
+        private bool _isSteal;
 
-        private void Start()
+        private void Awake()
         {
-            GameplayEventManager.OnNextRoom.AddListener(() =>
-            {
-                _isActive = true;
-            });
+            instance = this;
         }
 
         private void Update()
         {
             if(!_isSteal) return;
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            var ray = Camera.main!.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
             if (hit.collider == null
                 || !hit.collider.gameObject.TryGetComponent<TheEnemy>(out var enemy)) return;
@@ -42,37 +38,35 @@ namespace Canvas
                     ) > useRangeAbilitySteal) return;
             abilityButtonIcon.sprite = baseAbilityButtonSprite;
             _isSteal = false;
-            StartCoroutine(StealAbilityCoroutine(enemy));
+            GameManager.player.StealAbility(enemy);
         }
 
-        private IEnumerator StealAbilityCoroutine(TheEnemy enemy)
+        public IEnumerator StealAbilityCoroutine(TheEnemy enemy, Player player)
         {
             Instantiate(getAbilityAnimationObject, enemy.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
-            Instantiate(putAbilityAnimationObject, GameManager.player.transform.position, Quaternion.identity);
-            customAbilityController.InitialAbility(enemy.enemyAbility);
+            Instantiate(putAbilityAnimationObject, player.transform.position, Quaternion.identity);
             enemy.Died(this);
+            
             yield return new WaitForSeconds(2.1f);
-            if (GameManager.player == null) yield break;
-            GameManager.player.Active();
+            if (player != GameManager.player) yield break;
+            player.Active();
         }
 
         public void StealAbility()
         {
-            if(GameManager.player.isTurnOver) return;
+            if(GameManager.player.isTurnOver || GameManager.player
+                   .stealAbilityDelayControl.GetAbilityDelay() > 0) return;
             if (_isSteal)
             {
                 abilityButtonIcon.sprite = baseAbilityButtonSprite;
                 _isSteal = false;
-                _isActive = true;
                 GameManager.player.Active();
                 return;
             }
-            if(!_isActive) return;
             GameManager.player.DeleteAllMoveToPlaces();
             abilityButtonIcon.sprite = activeAbilityButtonSprite;
             _isSteal = true;
-            _isActive = false;
         }
     }
 }

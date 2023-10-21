@@ -1,10 +1,11 @@
 ﻿using System.Linq;
+using Abilities;
 using Traps;
 using UnityEngine;
 
 namespace Enemies
 {
-    public class MRobot : TheEnemy, IFireAttack
+    public class MRobot : TheEnemy, IFireAttack, IColdAttack, IPetrificationAttack
     {
         [SerializeField] private LayerMask trapLayer;
 
@@ -25,9 +26,10 @@ namespace Enemies
             Instantiate(firePrefab, transform.position, Quaternion.identity);
         }
 
-        public void FireDamage()
-        {
-            
-        }
+        public void FireDamage(MonoBehaviour killer) {}
+
+        public void ColdAttack() {}
+
+        public void Petrification() {}
     }
 }

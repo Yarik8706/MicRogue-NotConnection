@@ -16,13 +16,13 @@ namespace Other
 
         private IEnumerator ActiveCoroutine()
         {
-            GameManager.player.moveToPlaces.Remove(gameObject);
-            GameManager.player.DeleteAllMoveToPlaces();
+            player.moveToPlaces.Remove(gameObject);
+            player.DeleteAllMoveToPlaces();
             yield return new WaitForSeconds(0.6f);
-            Instantiate(movementEffect, GameManager.player.transform.position, Quaternion.identity);
-            GameManager.player.transform.position = transform.position;
+            Instantiate(movementEffect, player.transform.position, Quaternion.identity);
+            player.transform.position = transform.position;
             Instantiate(movementEffect, transform.position, Quaternion.identity);
-            GameManager.player.TurnOver();
+            player.TurnOver();
             Destroy(gameObject);
         }
     }

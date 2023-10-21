@@ -1,6 +1,7 @@
 ﻿using System;
 using Enemies;
 using MainScripts;
+using PlayersScripts;
 using UnityEngine;
 
 namespace Abilities
@@ -13,11 +14,10 @@ namespace Abilities
         [SerializeField] private LayerMask noFireLayer;
         [SerializeField] private Vector2[] firePositions;
 
-        public override void ActiveAbility()
+        public override void ActiveAbility(Player player)
         { 
-            base.ActiveAbility();
-            UpdatePlayerTurnAfterUseSpell();
-            LifeFire.SpawnFire(GameManager.player.transform.position, fire, noFireLayer, firePositions);
+            UpdatePlayerTurnAfterUseSpell(player);
+            LifeFire.SpawnFire(player.transform.position, fire, noFireLayer, firePositions);
         }
     }
 }

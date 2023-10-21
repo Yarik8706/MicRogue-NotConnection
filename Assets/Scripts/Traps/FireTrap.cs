@@ -14,7 +14,7 @@ namespace Traps
             {
                 if (attackObjects[0].GetComponent<IFireAttack>() is { } component)
                 {
-                    component.FireDamage();
+                    component.FireDamage(this);
                 }
                 else if (attackObjects[0].GetComponent<TheEssence>() is {} essence)
                 {

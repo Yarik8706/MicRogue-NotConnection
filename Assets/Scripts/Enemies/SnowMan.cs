@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using Canvas;
 using MainScripts;
-using Other;
 using RoomObjects;
-using Traps;
 using UnityEngine;
 
 namespace Enemies
@@ -18,33 +15,41 @@ namespace Enemies
         [SerializeField] private FreezingController freezingController;
         [SerializeField] private GameObject freezingEffect;
 
-        public override void Died()
+        public override void Died(MonoBehaviour killer)
         {
-            FreezingAllEnemies(freezingController, freezingEffect, this);
-            base.Died();
+            if (killer is TheEssence essence)
+            {
+                Instantiate(freezingEffect, essence.transform.position, Quaternion.identity);
+                FreezingEssence(essence, freezingController);
+            }
+            base.Died(killer);
         }
 
         public static void FreezingAllEnemies(FreezingController freezingController, 
             GameObject freezingEffect, TheEnemy snowMan = null)
         {
-            GameplayEventManager.OnGetAllEnemies.Invoke();
-            foreach (var enemy in GameController.instance.allEnemies)
+            foreach (var enemy in GameplayEventManager.GetAllEnemies())
             {
-                if (enemy == snowMan || !enemy.isActive || enemy.essenceEffect != TheEssenceEffect.None)
+                if (enemy == null || enemy == snowMan || !enemy.isActive || enemy.essenceEffect != TheEssenceEffect.None)
                 {
                     continue;
                 }
-                if (enemy is IColdAttack component)
-                {
-                    component.ColdAttack();
-                }
-                else
-                {
-                    Instantiate(freezingController, enemy.transform).Initializate(enemy);
-                }
+                FreezingEssence(enemy, freezingController);
                 Instantiate(freezingEffect, enemy.transform.position, Quaternion.identity);
             }
-            GameManager.instance.ActivateColdBlackout();
+            ColdBlackoutControl.instance.ActivateColdBlackout();
+        }
+
+        private static void FreezingEssence(TheEssence essence, FreezingController freezingController)
+        {
+            if (essence is IColdAttack component)
+            {
+                component.ColdAttack();
+            }
+            else
+            {
+                Instantiate(freezingController, essence.transform).Initializate(essence);
+            }
         }
 
         public void ColdAttack(){}
@@ -55,7 +60,7 @@ namespace Enemies
             base.Died();
         }
 
-        public void FireDamage()
+        public void FireDamage(MonoBehaviour killer)
         {
             base.Died();
         }

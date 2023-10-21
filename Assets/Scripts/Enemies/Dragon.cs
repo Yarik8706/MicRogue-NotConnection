@@ -1,6 +1,7 @@
 using System.Collections;
 using Abilities;
 using MainScripts;
+using PlayersScripts;
 using RoomObjects;
 using Traps;
 using UnityEngine;
@@ -43,7 +44,7 @@ namespace Enemies
             _isSleep = false;
             animator.SetBool(IsSleep, false);
             StartAnimationTrigger("StartAction");
-            Invoke(nameof(TurnOver), 2);
+            Invoke(nameof(TurnOver), 0.5f);
         }
 
         public override void Active()
@@ -85,7 +86,15 @@ namespace Enemies
                 }
             }
         }
-        
+
+        public override IEnumerator Move(Vector3 @where)
+        {
+            if(enemyTargetPosition.x > transform.position.x && !turnedRight 
+               || enemyTargetPosition.x < transform.position.x && turnedRight)
+                Flip();
+            return base.Move(@where);
+        }
+
         private IEnumerator DisappearanceAndTurnOver()
         {
             sleepTimeObject.SetActive(true);
@@ -134,11 +143,9 @@ namespace Enemies
         {
             _isFall = true;
             transform.position = new Vector3(position.x, position.y + 10, position.z);
-            inverseMoveTime = 1 / .05f;
             StartCoroutine(SmoothMovement(position));
             yield return new WaitUntil(() => transform.position == position);
-            inverseMoveTime = 1 / moveTime;
-            StartCoroutine(GameManager.cameraShake.Shake(0.5f, 1));
+            StartCoroutine(CameraShake.instance.Shake(0.5f, 1));
             _audioSource.Play();
             _isFall = false;
             spriteRenderer.enabled = true;
@@ -165,7 +172,7 @@ namespace Enemies
             Instantiate(firePrefab, transform.position, Quaternion.identity);
         }
         
-        public void FireDamage() {}
+        public void FireDamage(MonoBehaviour killer) {}
 
         public void Petrification() {}
 

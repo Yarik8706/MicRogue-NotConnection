@@ -1,6 +1,7 @@
 using System;
 using Enemies;
 using MainScripts;
+using PlayersScripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -27,7 +28,7 @@ namespace RoomObjects
             _spriteRenderer.sprite = brokenWallIdleSprite;
         }
 
-        public void FireDamage()
+        public void FireDamage(MonoBehaviour killer)
         {
             // _isActive = true;
             // _spriteRenderer.sprite = brokenWallIdleSprite;

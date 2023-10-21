@@ -3,121 +3,150 @@ using System.Collections.Generic;
 using Enemies;
 using Fusion;
 using MainScripts;
-using Multiplayer;
+using PlayersScripts;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using Random = UnityEngine.Random;
 
-public class MultiplayerGameManager : NetworkBehaviour
+namespace Multiplayer
 {
-    public Transform[] farmPositions;
-    public Transform[] startPositions;
-    public NetworkObject gift;
-    public List<MultiplayerPlayerController> multiplayerPlayerControllers;
-    
-    public static readonly UnityEvent OnGetAllPlayers = new();
-    public static MultiplayerGameManager instance;
-    
-    private GameController _gameController;
-    private int _spawnGiftTime = 7;
-
-    private int _activeSpawnGiftTime;
-
-    private void Awake()
+    public class MultiplayerGameManager : NetworkBehaviour
     {
-        instance = this;
-    }
+        public Transform[] startPositions;
+        public List<MultiplayerPlayerController> multiplayerPlayerControllers;
 
-    private void Start()
-    {
-        _activeSpawnGiftTime = _spawnGiftTime;
-        _gameController = GetComponent<GameController>();
-        if (MultiplayerLobbyManager.runner.IsServer)
+        [SerializeField] private GameObject winWindow;
+        [SerializeField] private TMP_Text winText;
+
+        public static readonly UnityEvent OnGetAllPlayers = new();
+        public static MultiplayerGameManager instance;
+
+        private GameController _gameController;
+        private int _addGrayEffectTime = 7;
+        private CameraEffectManager _cameraEffectManager;
+        private int _activeGrayEffectTime;
+
+        private void Awake()
         {
-            multiplayerPlayerControllers = new List<MultiplayerPlayerController>();
+            GameManager.enemyTargets.Clear();
+            instance = this;
         }
-    }
 
-    public void StartGame()
-    {
-        if (multiplayerPlayerControllers.Count == 1)
+        private void Start()
         {
-            StartCoroutine(PlayersTurn());
-        }
-    }
-
-    public IEnumerator PlayersTurn()
-    {
-        _activeSpawnGiftTime--;
-        if (_activeSpawnGiftTime == 0)
-        {
-            var chestPosition = farmPositions[Random.Range(0, farmPositions.Length)].position;
-            var chest = MultiplayerLobbyManager.runner.Spawn(gift);
-            RPC_SetChestPosition(chest, chestPosition);
-            _activeSpawnGiftTime = _spawnGiftTime;
-        }
-        GetAllPlayers();
-        while (multiplayerPlayerControllers.Count > 0)
-        {
-            var player = multiplayerPlayerControllers[0];
-            if (player.farmingCount == 3)
+            _cameraEffectManager = GetComponent<CameraEffectManager>();
+            _activeGrayEffectTime = _addGrayEffectTime;
+            _gameController = GetComponent<GameController>();
+            if (MultiplayerLobbyManager.runner.IsServer)
             {
-                player.RPC_Move(Vector3.zero);
-                yield break;
-            }
-            player.isTurnOver = false;
-            player.RPC_Active();
-            yield return new WaitUntil(() => player.isTurnOver);
-            multiplayerPlayerControllers.RemoveAt(0);
-        }
-
-        StartCoroutine(OtherActivitiesTurn());
-    }
-    
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    public void RPC_ActiveEnemies(RpcInfo info = default)
-    {
-        StartCoroutine(_gameController.ActiveEnemies());
-    }
-
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    public void RPC_SetChestPosition(NetworkObject networkObject, Vector3 chestPosition, RpcInfo info = default)
-    {
-        networkObject.transform.position = chestPosition;
-    }
-
-    private IEnumerator OtherActivitiesTurn()
-    {
-        RPC_ActiveTraps();
-        yield return new WaitForSeconds(0.5f);
-        RPC_ActiveEnemies();
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(PlayersTurn());
-    }
-
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    public void RPC_ActiveTraps()
-    {
-        _gameController.ActivateTraps();
-    }
-
-    private void GetAllPlayers()
-    {
-        multiplayerPlayerControllers.Clear();
-        OnGetAllPlayers.Invoke();
-    }
-
-    public Vector3 GetRespawnPosition(LayerMask blockingLayer)
-    {
-        foreach (var startPosition in startPositions)
-        {
-            if (Ninja.CheckEmptyPlace(startPosition.position, blockingLayer))
-            {
-                return startPosition.position;
+                multiplayerPlayerControllers = new List<MultiplayerPlayerController>();
             }
         }
 
-        return startPositions[0].position;
+        public void StartGame()
+        {
+            GetAllPlayers();
+            if (multiplayerPlayerControllers.Count == 1)
+            {
+                StartCoroutine(PlayersTurn());
+            }
+        }
+
+        private IEnumerator PlayersTurn()
+        {
+            _activeGrayEffectTime--;
+            if (_activeGrayEffectTime == 0)
+            {
+                RPC_AddGrayEffect();
+                _activeGrayEffectTime = _addGrayEffectTime;
+            }
+
+            GetAllPlayers();
+            while (multiplayerPlayerControllers.Count > 0)
+            {
+                var player = multiplayerPlayerControllers[0];
+                player.isTurnOver = false;
+                if (player.GetComponent<Player>().CheckShieldActive())
+                {
+                    player.RPC_DisableProtect();
+                }
+                player.RPC_Active();
+                yield return new WaitUntil(() =>
+                    !multiplayerPlayerControllers.Contains(player) || player.isTurnOver);
+                if (!multiplayerPlayerControllers.Contains(player)) continue;
+                multiplayerPlayerControllers.RemoveAt(0);
+            }
+
+            RPC_ActiveOtherActivitiesTurn();
+        }
+
+        [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+        private void RPC_AddGrayEffect()
+        {
+            _cameraEffectManager.AddGreyEffect();
+        }
+        
+        [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+        private void RPC_ActiveOtherActivitiesTurn()
+        {
+            StartCoroutine(OtherActivitiesTurn());
+        }
+
+        private IEnumerator OtherActivitiesTurn()
+        {
+            GameplayEventManager.OnNextMove.Invoke();
+            _gameController.ActivateTraps();
+            yield return new WaitForSeconds(0.5f);
+            yield return _gameController.ActiveEnemies();
+            yield return new WaitForSeconds(0.5f);
+            GameManager.numberOfMoves++;
+            if(HasStateAuthority) StartCoroutine(PlayersTurn());
+        }
+        
+        private void GetAllPlayers()
+        {
+            multiplayerPlayerControllers.Clear();
+            OnGetAllPlayers.Invoke();
+        }
+
+        public Vector3 GetRespawnPosition(LayerMask blockingLayer)
+        {
+            foreach (var startPosition in startPositions)
+            {
+                if (Ninja.CheckEmptyPlace(startPosition.position, blockingLayer))
+                {
+                    return startPosition.position;
+                }
+            }
+
+            return startPositions[0].position;
+        }
+        
+        public void PlayerWin(int index)
+        {
+            string winText = " player win!";
+            switch (index)
+            {
+                case 0:
+                    winText = "Yellow " + winText;
+                    break;
+                case 1:
+                    winText = "Green " + winText;
+                    break;
+                case 3:
+                    winText = "Blue " + winText;
+                    break;
+                case 4:
+                    winText = "White " + winText;
+                    break;
+                default:
+                    winText = "Yellow " + winText;
+                    break;
+            }
+
+            winWindow.SetActive(true);
+            this.winText.text = winText;
+        }
     }
 }
 

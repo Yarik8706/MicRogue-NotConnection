@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -2878105804857353651}
   - component: {fileID: 1861928845015956310}
   - component: {fileID: -2613787898264383980}
+  - component: {fileID: 2512327635355047574}
   m_Layer: 8
   m_Name: TrollWithStick
   m_TagString: Enemy
@@ -162,10 +163,10 @@ MonoBehaviour:
   diedAnimationName: 
   diedEffect: {fileID: 2380676859953277980, guid: ae7b53728f78fdf47b76a24b33a63a52, type: 3}
   diedMusic: {fileID: 0}
-  afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   enemyAbility: {fileID: 11400000, guid: 7f1ac50e195b0a64c945fa57fc57455e, type: 2}
   enemyType: 4
   enemyCount: 3
+  afterDied: {fileID: 686508162028297551, guid: dcb22a62e11b8494196819f62d5d974d, type: 3}
   enemyShield: {fileID: 2950086841064311721, guid: 9a35e6bcd213af243bf740d0287a9c8f, type: 3}
 --- !u!95 &4958649672001241616
 Animator:
@@ -265,3 +266,16 @@ MonoBehaviour:
   - ruText: "\u0421\u0442\u0440\u0430\u043D\u043D\u044B\u0439 \u043F\u0430\u0440\u0435\u043D\u044C.
       \u0421\u043E\u0433\u043B\u0430\u0441\u0435\u043D."
     enText: Strange guy. Agree.
+--- !u!114 &2512327635355047574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958649672001241626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57ca74145784ff19840bcc61e113973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEffect: {fileID: 3609419310855800711, guid: 3c570c9aacff5b84f8dd45b7c6c4460f, type: 3}

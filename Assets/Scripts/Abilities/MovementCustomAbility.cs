@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using MainScripts;
+using PlayersScripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,23 +13,20 @@ namespace Abilities
     {
         [SerializeField] private Vector2[] positions;
 
-        private Vector2[] oldPositions;
-
-        public override void Initial(Image button)
-        {   
-            base.Initial(button);
-            oldPositions = GameManager.player.variantsPositions;
-            var newPositions = new Vector2[GameManager.player.variantsPositions.Length + positions.Length];
-            GameManager.player.variantsPositions.CopyTo(newPositions, 0);
-            positions.CopyTo(newPositions, GameManager.player.variantsPositions.Length);
-            GameManager.player.variantsPositions = newPositions;
-            GameManager.player.DeleteAllMoveToPlaces();
+        public override void InitialAbility(Player player)
+        {
+            var newPositions = new Vector2[player.variantsPositions.Length + positions.Length];
+            player.variantsPositions.CopyTo(newPositions, 0);
+            positions.CopyTo(newPositions, player.variantsPositions.Length);
+            player.variantsPositions = newPositions;
+            player.DeleteAllMoveToPlaces();
         }
 
-        public override void DeleteAbility()
+        public override void DeleteAbility(Player player)
         {
-            base.DeleteAbility();
-            GameManager.player.variantsPositions = oldPositions;
+            var positionsList = positions.ToList();
+            player.variantsPositions = player.variantsPositions
+                .Where(position => !positionsList.Contains(position)).ToArray();
         }
     }
 }

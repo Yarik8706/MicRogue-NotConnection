@@ -184,11 +184,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   smallLight: {fileID: 8606012462973007692}
+  colors:
+  - {r: 0.9811321, g: 0.94642323, b: 0, a: 0}
+  - {r: 0.3606807, g: 1, b: 0, a: 0}
+  - {r: 0.0195799, g: 0.045789644, b: 0.4716981, a: 0}
+  - {r: 0.759523, g: 0.76197886, b: 0.8018868, a: 0}
   _isTurnOver: 0
-  _isMove: 0
   _shieldCount: 3
-  _farmingCount: 0
-  _isDead: 0
+  _colorIndex: 0
 --- !u!114 &1874995707607766101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockingLayer:
     serializedVersion: 2
-    m_Bits: 576
+    m_Bits: 584
   variantsPositions:
   - {x: -1, y: 0}
   - {x: -2, y: 0}
@@ -243,7 +246,7 @@ MonoBehaviour:
   diedMusic: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 256
   moveToPlace: {fileID: 1033843085331643013, guid: 53d958142e89bb5468ee5f2b0679a20a, type: 3}
   explosionLight: {fileID: 6793861196175677743}
   centerLight: {fileID: 6793861196262352063}

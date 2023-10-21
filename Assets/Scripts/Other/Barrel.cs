@@ -28,6 +28,6 @@ namespace Other
             gameObject.layer = LayerMask.NameToLayer("Default");
         }
 
-        public void FireDamage(){}
+        public void FireDamage(MonoBehaviour killer){}
     }
 }
